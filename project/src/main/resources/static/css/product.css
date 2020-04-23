@@ -1,0 +1,280 @@
+@charset 'utf-8';
+.product-nav{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 99;
+    transition: 0.3s;
+}
+.product-nav li{
+    width: 25%;
+}
+.product-nav li a{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.product-nav.active{
+    position: fixed;
+    backdrop-filter: blur(8px);
+}
+.product-maker-img img{
+    width: 80px;
+    height: 80px;
+}
+.product-maker-link{
+    width: calc(95% - 80px);
+}
+.maker-sns-container a{
+    margin-left: 5px;
+}
+.maker-sns-container a:first-child{
+    margin-left: 0;
+}
+.maker-contact{
+    display: none;
+    background-color:#f5f5f5;
+    border-top: 1px solid #ccc;
+}
+.product-reward-item{
+    position: relative;
+}
+.product-reward-item a::after{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    content: '이 리워드 펀딩하기';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 100%;
+    background-color: var(--var-main-color-alpah);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+}
+.product-reward-item.off a{
+    cursor: not-allowed;
+}
+.product-reward-item.off a::after{
+    content: '마감된 펀딩 입니다.';
+    background-color: rgba(192, 192, 192, 0.5);
+    display: flex;
+}
+.product-reward-item a:hover::after{
+    display: flex;
+}
+.show-menu{
+    border-top: 1px solid #ccc;
+    font-size: 2rem;
+    outline: none;
+    transition: 0.3s;
+}
+.product-menu{
+    max-width: 400px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+    height: 60px;
+    line-height: 60px;
+}
+.product-menu li.on{
+    position: relative;
+}
+.product-menu li.on::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 4px;
+    background-color: var(--var-main-color);
+}
+.product-items{
+    width: calc(95% - 300px);
+    display: none;
+}
+.product-items.on{
+    display: block;
+}
+.product-aside{
+    width: 300px;
+}
+.product-green-box{
+    padding: 20px 3%;
+    border:1px solid var(--var-main-color);
+    font-size: 0.875rem;
+}
+.product-view-btn::after{
+    content: attr(data-items);
+    font-size: 0.875rem;
+    color: var(--var-main-color);
+    position: relative;
+    top: -7px;
+}
+.product-reward-info-table td,.product-reward-info-table th{
+    padding: 10px 0;
+}
+.product-reward-info-table th{
+    width: 300px;
+    text-align: left;
+}
+.product-reward-info-table tr{
+    border-bottom: 1px solid #efefef;
+}
+.product-reward-info-table tr:last-child td,
+.product-reward-info-table tr:last-child th{
+    padding-bottom: 0;
+}
+.product-reward-info-table tr:last-child{
+    border-bottom: 0;
+}
+.product-news-item button{
+    text-align: left;
+}
+/* .sns-share{
+    display: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top: 20px;
+} */
+.sns-share{
+    display: none;
+    position: fixed;
+    z-index: 101;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+}
+.sns-share-content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: #fff;
+    width: 310px;
+}
+.sns-share-close{
+    color: #333;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/icon/close-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 2rem;
+}
+.sns-share.active{
+    display: flex;
+}
+.product-faq-item button{
+    text-align: left;
+}
+@media (max-width:1400px){
+    
+}
+@media (max-width:1080px){
+}
+@media (max-width:768px){
+    .product-items{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .product-aside{
+        width: 100%;
+    }
+    .product-status{
+        position: fixed;
+        width: 100%;
+        z-index: 98;
+        bottom: 0px;
+        left: 0;
+        background: #fff;
+        margin: 0;
+    }
+    .product-status-txt-container{
+        padding: 20px 5%;
+        border-top: 1px solid #ccc;
+    }
+    .product-status-txt-container{
+        display: none;
+    }
+    .product-status-txt-container > div:last-child{
+        margin-bottom: 0;
+    }
+    .product-btn-container{
+        padding: 10px 4%;
+        border-top: 1px solid #ccc;
+    }
+    .product-btn-container .flex-box .product-question,
+    .product-btn-container .flex-box .product-share{
+        width: 15%;
+        padding: 0;
+        font-size: 1rem;
+    }
+    .product-btn-container .product-funding{
+        width: 68%;
+    }
+    .product-reward-info-table th{
+        width: 100%;
+        padding: 0;
+    }
+    /* .sns-share{
+        order: 4;    
+        max-width: 300px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 3%;
+        padding-left: 3%;
+        margin: 5px auto 0 auto;    
+        position: absolute;
+        bottom: 70px;
+        background: #fff;
+        right: 4%;
+    }
+    .sns-share::after,.sns-share::before{
+        position: absolute;
+        content: '';
+        bottom: -9px;
+        display: block;
+        right: 5%;
+        background-color: transparent;
+        height: 0;
+        z-index: 10;
+        border-top: 10px solid #fff;
+        border-left: 10px solid rgba(0, 0, 0, 0);
+        border-right: 10px solid rgba(0, 0, 0, 0);
+        color: #fff;
+    }
+    .sns-share::before{
+        margin-bottom: -1.5px;
+        border-top-color: #dadce0;
+    } */
+}
+@media (max-width:480px){
+    
+}
+@media (min-width:769px){
+    .product-status-txt-container{
+        display: block !important;
+    }
+}
