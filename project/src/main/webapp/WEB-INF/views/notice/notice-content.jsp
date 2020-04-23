@@ -177,7 +177,7 @@
 	</main>
 	<!-- 메인 내용 -->
 
-	<%@ include file="/WEB-INF/viwes/include/foot.jspf"%>
+	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- script 자리-->
 </html>
