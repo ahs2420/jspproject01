@@ -29,7 +29,7 @@ public class UserVO {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-	public String getName() {
+	public String getName() {//
 		return name;
 	}
 	public void setName(String name) {
