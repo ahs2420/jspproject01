@@ -6,11 +6,11 @@
 
   <link rel="stylesheet" href="/xkfqkfcss/owl.carousel.css">
     <link rel="stylesheet" href="/xkfqkfcss/owl.theme.default.css">
-    <link rel="stylesheet" href="/xkfqkfcss/reward-list.css">
+    <link rel="stylesheet" href="/xkfqkfcss/product-list.css">
      <link rel="stylesheet" href="/css/product.css">
     <script src="/js/product.js"></script>
     <script src="/xkfqkfjs/owl.carousel.js"></script>
-	<script src="/xkfqkfjs/reward-list.js"></script>
+	<script src="/xkfqkfjs/product-list.js"></script>
 </head>
 <body>
 	<header>
