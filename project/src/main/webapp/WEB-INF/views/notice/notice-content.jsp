@@ -115,14 +115,14 @@
 				<div class="notice-content-box-flex">
 					<div class="heart-box">
 						<div>
-							<button class="notice-content-sns-btn sns-share-btn"
+							<button class="notice-content-sns-btn "
 								data-url="https://www.krahs123.co.kr/product.html" data-type="naver">
 								<i class=" xi-naver"></i>
 							</button>
 						</div>
 					</a> <a href="#">
 						<div>
-							<button class="notice-content-sns-btn sns-share-btn"
+							<button class="notice-content-sns-btn "
 								data-url="https://www.krahs123.co.kr/product.html"
 								data-type="facebook">
 								<i class="fab fa-facebook-f"></i>
@@ -130,7 +130,7 @@
 						</div>
 					</a> <a href="#">
 						<div>
-							<button class="notice-content-sns-btn sns-share-btn"
+							<button class="notice-content-sns-btn "
 								data-url="https://www.krahs123.co.kr/product.html"
 								data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
 								<i class="fab fa-twitter"></i>
