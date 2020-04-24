@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="notice-list-container notice-list-items">
-				<a href="#">
+				<a href="/notice/content">
 					<div class="notice-list-box-flex">
 						<div class="notice-list-box-text">
 							<div class="notice-list-box-text-l">

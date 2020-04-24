@@ -19,4 +19,8 @@ public class ProductController {
 	public String viewProductPayment() {
 		return BASEDIR+"product-payment";
 	}
+	@RequestMapping("/product-list")
+	public String viewProductList() {
+		return BASEDIR+"product-list";
+	}
 }
