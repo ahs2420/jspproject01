@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="reward-container">
-                <div class="reward-item-title">
+                <div class="reward-item-title flex-wrap">
                     <h1>전체보기</h1>
                     <div class="reward-btn">
                         <div class="reward-btn-search">
