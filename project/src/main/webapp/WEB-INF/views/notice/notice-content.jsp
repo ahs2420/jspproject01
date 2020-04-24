@@ -41,10 +41,9 @@
 							<br>
 						</p>
 						<p>
-							펀딩금 반환 시스템 구축을 위한 최소시간을 감안하여 올 3월 중 시행 예정이었으나, 시스템이 완비되지 않더라도 조금 더
-							빨리 시행하기로 결정하였습니다. 자세한 사항은 아래와 같으며 앞으로도 더 좋은 서비스로 보답하는 와디즈가 되도록
-							노력하겠습니다.<br>
-							<br>
+							펀딩금 반환 시스템 구축을 위한 최소시간을 감안하여 올 3월 중 시행 예정이었으나, 시스템이 완비되지 않더라도 조금
+							더 빨리 시행하기로 결정하였습니다. 자세한 사항은 아래와 같으며 앞으로도 더 좋은 서비스로 보답하는 와디즈가 되도록
+							노력하겠습니다.<br> <br>
 						</p>
 						<h3>
 							<strong>1. 펀딩금 반환정책 시행 일시 </strong>
@@ -77,14 +76,15 @@
 						</p>
 						<p>
 							<strong>3) 예외 사항 &nbsp;</strong><br>예정보다 정책 적용을 일찍 진행함에 따라,
-							현재 이미 오픈하여 진행 중 ~ 이미 오픈 준비가 완료되어 대기 중인 프로젝트의 경우, 각 프로젝트의 펀딩안내 페이지에
-							고지된 교환/환불/AS정책이 우선 적용되며, 메이커 정책이 부재한 경우에는 본 펀딩금 반환정책이 적용됩니다. 자세한
-							부분은 각 프로젝트의 펀딩 안내 페이지를 참고해주세요.&nbsp;
+							현재 이미 오픈하여 진행 중 ~ 이미 오픈 준비가 완료되어 대기 중인 프로젝트의 경우, 각 프로젝트의 펀딩안내
+							페이지에 고지된 교환/환불/AS정책이 우선 적용되며, 메이커 정책이 부재한 경우에는 본 펀딩금 반환정책이 적용됩니다.
+							자세한 부분은 각 프로젝트의 펀딩 안내 페이지를 참고해주세요.&nbsp;
 						</p>
 						<p>
 							<strong>▶ 상세 펀딩금 반환 기준</strong> &gt; <a
 								href="https://www.wadiz.kr/web/wterms/reward_supporter#3-%ED%8E%80%EB%94%A9%EA%B8%88-%EB%B0%98%ED%99%98-%EC%A0%95%EC%B1%85"
-								rel="noopener noreferrer" target="_blank">펀딩금 반환 운영정책 바로가기 링크</a>
+								rel="noopener noreferrer" target="_blank">펀딩금 반환 운영정책 바로가기
+								링크</a>
 						</p>
 						<p>
 							<br>
@@ -97,8 +97,8 @@
 								href="http://pf.kakao.com/_qFVVxb" rel="noopener noreferrer"
 								target="_blank">펀딩금 반환 신청 문의처 링크</a>
 						</p>
-						<p>※ 와디즈 펀딩금 반환 시스템이 개발 완료되어 적용되는 3월 말경부터는 마이페이지에서 펀딩금 &nbsp;반환
-							신청을 바로 하실 수 있습니다.&nbsp;</p>
+						<p>※ 와디즈 펀딩금 반환 시스템이 개발 완료되어 적용되는 3월 말경부터는 마이페이지에서 펀딩금
+							&nbsp;반환 신청을 바로 하실 수 있습니다.&nbsp;</p>
 						<p>※ 시스템이 아직 적용 전이어서 운영상의 어려움으로 펀딩금 반환 문의 창구의 즉각적인 응대 및 빠른 처리가
 							어려울 수 있습니다. 이 부분 사전 양해 부탁드립니다.&nbsp;</p>
 						<p>2) 기존에는 서포터가 펀딩금 반환을 메이커에게 직접 요청했으나, 앞으로는 모든 펀딩금 반환요청 접수는
@@ -115,26 +115,28 @@
 				<div class="notice-content-box-flex">
 					<div class="heart-box">
 						<div>
-							<button class="notice-content-sns-btn "
-								data-url="https://www.krahs123.co.kr/product.html" data-type="naver">
+							<button class="notice-content-sns-btn sns-share-btn"
+								data-url="https://www.krahs123.co.kr/product.html"
+								data-type="naver">
 								<i class=" xi-naver"></i>
 							</button>
 						</div>
-					</a> <a href="#">
-						<div>
-							<button class="notice-content-sns-btn "
-								data-url="https://www.krahs123.co.kr/product.html"
-								data-type="facebook">
-								<i class="fab fa-facebook-f"></i>
-							</button>
-						</div>
-					</a> <a href="#">
-						<div>
-							<button class="notice-content-sns-btn "
-								data-url="https://www.krahs123.co.kr/product.html"
-								data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
-								<i class="fab fa-twitter"></i>
-							</button>
+						<a href="#">
+							<div>
+								<button class="notice-content-sns-btn sns-share-btn"
+									data-url="https://www.krahs123.co.kr/product.html"
+									data-type="facebook">
+									<i class="fab fa-facebook-f"></i>
+								</button>
+							</div>
+						</a> 
+						<a href="#">
+							<div>
+								<button class="notice-content-sns-btn sns-share-btn"
+									data-url="https://www.krahs123.co.kr/product.html"
+									data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
+									<i class="fab fa-twitter"></i>
+								</button>
 							</div>
 						</a>
 					</div>
