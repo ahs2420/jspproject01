@@ -4,12 +4,10 @@
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
 
-  <link rel="stylesheet" href="/xkfqkfcss/owl.carousel.css">
-    <link rel="stylesheet" href="/xkfqkfcss/owl.theme.default.css">
+ <!--  <link rel="stylesheet" href="/xkfqkfcss/owl.carousel.css">
+     <link rel="stylesheet" href="/xkfqkfcss/owl.theme.default.css">-->
     <link rel="stylesheet" href="/xkfqkfcss/product-list.css">
-     <link rel="stylesheet" href="/css/product.css">
-    <script src="/js/product.js"></script>
-    <script src="/xkfqkfjs/owl.carousel.js"></script>
+     <link rel="stylesheet" href="/css/product.css">    <!-- <script src="/xkfqkfjs/owl.carousel.js"></script> -->
 	<script src="/xkfqkfjs/product-list.js"></script>
 </head>
 <body>
@@ -22,7 +20,7 @@
 	<main>
         <section class="reward-section">
             <div class="reward-container">
-                <div class="owl-carousel owl-theme owl-category">
+                <div class="owl-carousel owl-theme owl-category owl-carousel2">
                     <div class="reward-it">
                         <div class="reward-it-img">
                             <img src="/xkfqkfimages/1.jpg" alt="">
@@ -288,6 +286,7 @@
                 </div>
             </div>
         </section>
+       </main>
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- script 자리-->
@@ -307,6 +306,36 @@
                 target.focus();
             }
         })
-    })
+    });
+    
+$(function() {
+	$('.owl-carousel2').owlCarousel(
+			{
+				loop : false,
+				nav : true,
+				dots : false,
+				navContainerClass : 'owl-nav custom',
+				navText : [ '<i class="fas fa-chevron-left"></i>',
+						'<i class="fas fa-chevron-right"></i>' ],
+				responsive : {
+					0 : {
+						items : 3,
+						slideBy : 3
+					},
+					425 : {
+						items : 4,
+						slideBy : 4
+					},
+					768 : {
+						items : 6,
+						slideBy : 6
+					},
+					1080 : {
+						items : 10,
+						slideBy : 10
+					}
+				}
+			});
+});
 </script>
 </html>
