@@ -165,7 +165,7 @@
                 </div>
                 <div class="reward-items">
                     <div class="reward-item">
-                        <a href="#">
+                        <a href="/product/product">
                             <div class="reward-img-box">
                                 <img src="/xkfqkfimages/optimize.jpg" alt="">
                             </div>
