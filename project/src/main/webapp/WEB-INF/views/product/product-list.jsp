@@ -13,8 +13,9 @@
 	<script src="/xkfqkfjs/product-list.js"></script>
 </head>
 <body>
-	<header>
+	<header class=" no-hero">
 		<!-- nav 자리 -->
+		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
 		<!-- hero 자리 -->
 	</header>
 	<!-- 메인 내용 -->

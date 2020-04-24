@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/xkfqkfcss/reset.css">
 </head>
 <body>
-	<header>
+	<header class=" no-hero">
 		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
 	</header>
 	<main>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/xkfqkfcss/notice-list.css">
 </head>
 <body>
-	<header>
+	<header class=" no-hero">
 		<!-- nav 자리 -->
 		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
 		<!-- hero 자리 -->
