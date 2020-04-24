@@ -1,5 +1,5 @@
 package com.krahs123.project.model;
 
-public class Board {
+public class BoardConfigVO {
 
 }

@@ -12,10 +12,15 @@
 		<!-- 
 			type -> 원래 class이름
 			alias -> 별명 
+			
 			<typeAlias 
-				type="com.example.site.model.UserVO"
-				alias="uservo"
+				type="com.krahs123.project.model.모델명"
+				alias="별명"
 			/>
 		-->
+		<typeAlias 
+			type="com.krahs123.project.model.BoardConfigVO"
+			alias="boardconfig"
+		/>
 	</typeAliases>
 </configuration>
