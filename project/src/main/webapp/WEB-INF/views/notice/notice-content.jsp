@@ -114,28 +114,27 @@
 				</div>
 				<div class="notice-content-box-flex">
 					<div class="heart-box">
-						<button class="notice-content-heart-btn on">
-							<i class="fas fa-heart"></i> 94
-						</button>
-					</div>
-					<div class="notice-content-sns-flex">
-						<a href="#">
-							<div>
-								<button class="notice-content-sns-btn">
-									<i class="fas fa-comment"></i>
-								</button>
-							</div>
-						</a> <a href="#">
-							<div>
-								<button class="notice-content-sns-btn">
-									<i class="fab fa-facebook-f"></i>
-								</button>
-							</div>
-						</a> <a href="#">
-							<div>
-								<button class="notice-content-sns-btn">
-									<i class="fab fa-twitter"></i>
-								</button>
+						<div>
+							<button class="notice-content-sns-btn sns-share-btn"
+								data-url="https://www.krahs123.co.kr/product.html" data-type="naver">
+								<i class=" xi-naver"></i>
+							</button>
+						</div>
+					</a> <a href="#">
+						<div>
+							<button class="notice-content-sns-btn sns-share-btn"
+								data-url="https://www.krahs123.co.kr/product.html"
+								data-type="facebook">
+								<i class="fab fa-facebook-f"></i>
+							</button>
+						</div>
+					</a> <a href="#">
+						<div>
+							<button class="notice-content-sns-btn sns-share-btn"
+								data-url="https://www.krahs123.co.kr/product.html"
+								data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
+								<i class="fab fa-twitter"></i>
+							</button>
 							</div>
 						</a>
 					</div>
