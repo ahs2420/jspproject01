@@ -1,0 +1,13 @@
+DB생성 
+CREATE DATABASE project;
+
+사용자 생성
+CREATE USER 'project'@'localhost'  identified by 'r4e3w2a1@!';
+flush privileges;
+
+권한생성
+grant select,insert,delete,update on project.* to 'project'@'localhost';
+flush privileges;
+
+sql dump 파일 적용
+mysql -u root -p project < setting-1.sql
