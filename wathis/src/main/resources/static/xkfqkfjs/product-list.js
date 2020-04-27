@@ -1,7 +1,7 @@
 $(function() {
 	$(".reward-next-btn").click(function() {
 		var target = $(".reward-items");
-		var pushItem = ajax("./ajaxitem.html");
+		var pushItem = ajax("/product/product-ajax");
 		target.append(pushItem.responseText);
 	});
 });

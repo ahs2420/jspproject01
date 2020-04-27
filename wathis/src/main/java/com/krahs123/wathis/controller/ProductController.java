@@ -23,4 +23,8 @@ public class ProductController {
 	public String viewProductList() {
 		return BASEDIR+"product-list";
 	}
+	@RequestMapping("/product-ajax")
+	public String viewProductAjax() {
+		return BASEDIR+"product-ajax";
+	}
 }
