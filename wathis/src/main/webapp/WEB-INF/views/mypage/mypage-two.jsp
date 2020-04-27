@@ -1,30 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../hongcss/mypage-three.css">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/hongcss/mypage-two.css">
 
 
 
@@ -160,17 +138,16 @@
                     <div class="mar-bo3">
                         <span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span>
                         <span class=" fon-col fon-wei fon-siz3"><i class="fas fa-chevron-right"></i></span>
-                        <span class=" fon-wei fon-siz3">리워드 설계</span>
+                        <span class=" fon-wei fon-siz3">스토리 작성</span>
                     </div>
 
 
                     <div class="flex-basic2">
                         <div class="basic-box-one wid4">
-                            <h1 class="di-la2 mar-bo6">리워드 설계</h1>
+                            <h1 class="di-la2 mar-bo6">스토리 작성</h1>
                             <div class="info-box">
                                 <p class="info-box mar-bo3">
-                                    서포터에게 제공할 리워드 내용을 입력하세요. 서포터가 쉽게 펀딩할 수 있는 저렴한 리워드부터 서포터의 보다 빠른 펀딩을 유도할 수 있는 얼리버드
-                                    리워드까지 다양한 리워드를 구성하세요.
+                                    메이커님의 프로젝트를 소개해보세요. 스토리에는 메이커님의 진심과 목소리가 잘 녹여질 수 있도록 명확하고, 솔직하게, 친근한 어투로 작성하세요.
                                 </p>
                             </div>
                         </div>
@@ -180,114 +157,154 @@
                         </div>
 
                     </div>
-                    <!-- 1번 -->
-                    <div class="ba-project">
-                        <div class="flex-basic2 ba-pro-img">
-                            <div class=" mar-bo2 wid4">
-                                <div class="box-container bor-box1 text-padding3 fon-bor1">
-                                    <div class="box-text-one">
-                                        <h4>리워드 설계 조건</h4>
-                                    </div>
-                                    <div class="one-radio-box">
-                                        <ul>
-                                            <li>
-                                                <span class="fon-siz3 fon-wei1">정렬 순서</span>
-                                                <span class="mar-left1 fon-siz3">
-                                                    혜택이 높은 순으로 나오도록 정렬 순서를 등록하세요.
-                                                </span>
-                                            </li>
-                                            <li class="">
-                                                <span class="fon-siz3 fon-wei1">제한 수량</span>
-                                                <span class="mar-left1 fon-siz3">
-                                                    생산 및 제공할 수 있는 리워드의 총 수량으로 해당 수량이 모두 펀딩되면 더 이상 펀딩 불가합니다.
-                                                </span>
-                                            </li>
-                                            <li class="">
-                                                <span class="fon-siz3 fon-wei1">발송 시작일</span>
-                                                <span class="mar-left1 fon-siz3">
-                                                    프로젝트 종료일 이후부터 3개월 이내로 설계 가능합니다.
-                                                </span>
-                                            </li>
-                                            <li class="">
-                                                <span class="fon-siz3 fon-wei1">옵션 조건</span>
-                                                <span class="mar-left1 fon-siz3">
-                                                    혜택이 높은 순으로 나오도록 정렬 순서를 등록하세요.
-                                                    <a href="#" class="fon-co4">리워드 옵션 2개 이상 설계 방법 알아보기</a>
-                                                </span>
-                                            </li>
-                                        </ul> 
+
+                </div>
+
+                <!-- 1번 -->
+                <div class="ba-project">
+                    <div class="flex-basic2 ba-pro-img">
+                        <div class="mar-bo2 wid1">
+                            <div class="box-container">
+                                <div class="box-text-one">
+                                    <h4>소개 영상·사진 등록<span class="fon-co5">
+                                            *</span></h4>
+                                    <p class="fon-col fon-siz3  mar-bo4">프로젝트 페이지 상단에 노출될 영상 또는 사진을 올려주세요.</p>
+                                </div>
+                                <div class="one-radio-box1">
+                                    <input class="ra-size" type="radio" name="ra1" id="projectimg1">
+                                    <label for="projectimg1" class="di-la1 mar-top1 fon-wei1 fon-siz2"> 소개 영상</label>
+                                    <div class="one-text-box1 text-padding4">
+                                        <input class="hei1 fon-bor1 text-padding1" type="text" id="projectimg" placeholder="영상 URL 입력">
+                                        <button class="hei1 box-back4 ra-btn fon-wei1 wid8 fon-co9 fon-siz2 box-ra1" type="button" id="">등록</button>
+                                        <p class="fon-siz3 fon-co5 ">영상 URL을 확인하고 다시 등록하세요.</p>
+                                        <p class="fon-siz3 fon-col">Youtube와 Vimeo의 URL등록 가능</p>
+                                        <p class="fon-siz3 fon-col">영상 썸네일 이미지 사이즈 : 600 픽셀 이상</p>
                                     </div>
                                 </div>
-                                <div class="ba-guide3 box-back1 text-padding6">
-                                    <a href="#" class="fon-siz3 fon-co4">리워드를 잘 설계해야 펀딩률이 쑥쑥!</a>
-                                    <p class="fon-siz3 fon-co3">오픈하자마자 빠른 펀딩을 유도할 수 있는 얼리버드 리워드! 가이드를 통해 리워드를 만들어보세요.</p>
+                                <div class="one-radio-box2">
+                                    <input class="ra-size" type="radio" name="ra1" checked id="projectimg2">
+                                    <label for="projectimg2" class="di-la1 mar-top1 fon-wei1 fon-siz2"> 소개 사진</label>
+
+                                    <div class="one-text-box2 text-padding4">
+                                        <div class="file-box">
+                                            <label for="file1"><i class="fas fa-camera fon-co9"></i> 등록하기</label>
+                                            <input  type="file" id="file1">
+                                        </div>
+                                        <p class="fon-siz3 fon-col ">2MB 이하의 JPEG, JPG, GIF, PNG 파일</p>
+                                        <p class="fon-siz3 fon-col">사이즈 : 최소 630X400 픽셀 이상</p>
+                                        <p class="fon-siz3 fon-col">여러 장 등록 가능.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- 2번 -->
-                        <div class="add-box">
-                            <div class="file-box">
-                                <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
-                                <input type="file" id="file1">
-                            </div>
-                            <div class="add-text-box">
-                                <span class="fon-siz3 fon-co5">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    리워드를 추가하기 전에 프로젝트 종료일을 설정해주세요.
-                                </span>
-                                <div class="add-box fon-siz3 mar-left3 mar-bo3">
-                                    프로젝트 종료일은 <strong>펀딩 준비</strong> > <a href="#" class="fon-co4">기본정보</a>
-                                    기본정보에서 설정할 수 있습니다.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3번 -->
-
-                        <div class="mar-bo2 wid6 text-padding9">
-                            <div class="name-left bor-box1 fon-bor1 text-padding6">
-                                <div class="flex-box">
-                                    <div class="">5000원</div>
-                                    <div class="fl-sp"> 제한 수량 3개</div>
-                                </div>
-
-                                <div class="receipt box text-padding3">
-                                    <div class="flex-box fl-sp">
-                                        <span class="fl-sp fon-siz3 mar-bo6">킬리가방 얼리버드</span>
-                                        <span class="fl-sp fon-siz3 mar-bo6">$ 100,000</span>
-                                    </div>
-                                    <div class="flex-box fl-sp fon-siz3 mar-bo6">
-                                        <span class="fl-sp fon-siz3 mar-bo6"> 배송비</span>
-                                        <span class="fl-sp fon-siz3 mar-bo6 "> 해당 없음</span>
-                                    </div>
-                                    <div class="flex-box fl-sp fon-siz3 mar-bo6">
-                                        <span class="fl-sp fon-siz3 mar-bo6 "> 리워드 발송 시작일</span>
-                                        <span class="fl-sp fon-siz3 mar-bo6 "> 2020년 중손 (11~20일)</span>
-                                    </div>
-
-                                    <span class="fon-siz3 fon-co5"> <i class="fas fa-exclamation-circle"></i> 리워드 발송
-                                        시작일을
-                                        다시 선택하세요.</span>
-                                    <div class="flex-box mar-top4">
-                                        <div class="update-box">
-                                            <span class="fl-sp fon-siz3"> 편집 </span>
-                                        </div>
-                                        <div class="update-box">
-                                            <span class="fl-sp fon-siz3"> 삭제</span>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="ba-guide3">
+                            <div class=" text-padding3 box-li1 box-back1">
+                                <h4 class="mar-bo5 fon-siz4 fon-co7">
+                                    <a href="#" class="fon-co4 ">소개 영상·사진</a>
+                                </h4>
+                                <p class="fon-siz4 mar-bo3 fon-co7">
+                                    사진과 영상을 모두 업로드하실 경우,영상만 노출됩니다. </p>
+                                <h4 class="mar-bo5 fon-siz4 fon-co7">
+                                    영상 썸네일 이미지
+                                </h4>
+                                <p class="fon-siz4 mar-bo3 fon-co7">
+                                    youtube, vimeo 등에서 영상 썸네일을 지정할 수 있으며, 와디즈에서는 썸네일 지정 기능을 제공하지 않습니다.
+                                </p>
                             </div>
                         </div>
                     </div>
+                    <!-- 2번 -->
+                    <div class="flex-basic2 ba-pro-name">
+                        <div class="mar-bo2 wid4">
+                            <div class="name-left">
+                                <div class="box-text-one">
+                                    <h4>프로젝트 요약<span class="fon-co5">
+                                            *</span></h4>
+                                    <p class="fon-col fon-siz3 mar-bo4">프로젝트 페이지 상단 및 지지서명 시 노출됩니다.</p>
+                                </div>
 
+                                <div class="text-area">
+                                    <textarea name="" id="" cols="30" rows="3" maxlength="500"
+                                        style="margin-top: 0px; margin-bottom: 0px; height: 165px; width: 100%; padding:15px; font-family: 'Noto Sans KR', sans-serif; color: #90949c;"
+                                        placeholder="내용을 입력하세요."></textarea>
+                                    <p class="fon-siz3 fon-col mar-bo6 fon-wei1">100자 남음</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="ba-guide1">
+                            <div class=" text-padding3 box-li1 box-back1">
+                                <h4 class="mar-bo5 fon-siz4 fon-co7">
+                                    이것만은 알아주었으면 좋겠어요!
+                                </h4>
+                                <p class="fon-siz4 mar-bo3 fon-co7">서포터들이 꼭 알아주었으면 하는 리워드/프로젝트의 매력 포인트가 있다면 적어주세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3번 -->
+                    <div class="flex-basic2">
+                        <div class=" mar-bo2 wid4">
+                            <label for="projectimg" class="di-la1 mar-top1 fon-wei1">스토리 광고 심의 동의<span class="fon-co5">
+                                    *</span></label><br>
+                            <p class="fon-siz3 fon-col mar-bo5 ">스토리 작성 전, 와디즈에서 제공하는 광고 심의 가이드라인을 반드시 확인하세요. 동의를 진행해야
+                                스토리 작성이 가능합니다. 오픈예정 스토리도 적용됩니다.</p>
+                            <div class="three-text-box">
+                                <ul>
+                                    <li><a href="#" class="fon-co4">공통 표시·광고 가이드라인</a></li>
+                                    <li><a href="#" class="fon-co4">식품 표시·광고 가이드라인</a></li>
+                                    <li><a href="#" class="fon-co4">화장품 표시·광고 가이드라인</a></li>
+                                    <li><a href="#" class="fon-co4">건강보조기구 표시·광고 가이드라인</a></li>
+                                </ul>
+                                <button type="button" class="fon-siz1 box-ra1 fon-co9 hei5 fon-wei1 text-padding7 box-back4 mar-top4 all-btn"><i class="fas fa-check"></i>동의하기</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 4번 -->
+                    <div class="flex-basic2">
+                        <div class="ba-pro-day mar-bo2 wid4">
+                            <label for="project-day" class="di-la mar2 fon-wei1">프로젝트 스토리<span class="fon-co5">
+                                    *</span></label>
+                            <p class="fon-siz2 fon-col mar-bo3">진정성 있고 매력적인 스토리로 서포터의 마음을 움직여볼까요? 우측의 스토리 필수 항목을 꼼꼼하게 확인
+                                후 작성해 주세요. 필수 항목이 누락될 경우 오픈이 지연될 수 있습니다.</p>
+                            텍스트 박스 들어가는 자리
+                        </div>
+
+
+                    </div>
+
+                    <!-- 5번 -->
+                    <div class="flex-basic2 wid1">
+                        <div class="ba-pro-day mar-bo2 wid4">
+                            <label for="project-day" class="di-la mar2 fon-wei1">오픈예정 스토리<span class="fon-co5">
+                                    *</span></label>
+                            <p class="fon-siz2 fon-col mar-bo3">프로젝트 오픈 전, 오픈예정 스토리를 서포터에게 프로젝트를 미리 알려주세요.</p>
+                            텍스트 박스 들어가는 자리
+                            <div class="ba-pro-day mar-bo2 wid4 flex-basic2 mar-top3">
+                                <div class="five-text">
+                                    <p class="fon-siz3 fon-col m5">오픈예정 상세 페이지 미리 보기</p>
+                                    <p class="fon-siz3 fon-col mar-bo5">작성된 내용을 반드시 저장한 후에 모바일·PC 화면으로 미리 확인해보세요</p>
+                                </div>
+                                <div class="five-btn">
+                                    <button class="wid9 mar-left2">모바일 미리보기</button>
+                                    <button class="wid9 mar-left2">PC화면 미리보기</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 6번 -->
                     <div class="btn-save">
                         <button class="btn-end" type="button">저장하기</button>
                     </div>
                 </div>
-            </div>
-        </div><!-- 전체 container 박스 -->
 
+
+            </div><!-- 중간 container 박스 -->
+
+        </div><!-- 전체 container 박스 -->
 
     </main>
     <footer></footer>
@@ -320,7 +337,7 @@
     // 스토리 작성 Q1번 
     $(function () {
         $(".one-text-box1").hide();
-
+        
 
         $("#projectimg1").click(function () {
             $(".one-text-box1").show();
@@ -329,11 +346,11 @@
         $("#projectimg2").click(function () {
             $(".one-text-box1").hide();
         });
-
+       
         $("#projectimg1").click(function () {
             $(".one-text-box2").hide();
         });
-
+        
         $("#projectimg2").click(function () {
             $(".one-text-box2").show();
         });
@@ -420,6 +437,9 @@
 </script>
 
 </html>
+
+
+
 
 
 
