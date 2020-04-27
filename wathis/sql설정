@@ -1,0 +1,17 @@
+DB생성 
+CREATE DATABASE project;
+
+사용자 생성
+CREATE USER 'project'@'localhost'  identified by 'r4e3w2a1@!';
+flush privileges;
+
+권한생성
+grant select,insert,delete,update on project.* to 'project'@'localhost';
+flush privileges;
+
+sql dump 파일 적용
+mysql -u root -p project < setting-1.sql
+
+#200424 사이트 설정 테이블 추가
+CREATE TABLE tb_site_config( id int UNSIGNED NOT NULL AUTO_INCREMENT  COMMENT '', title varchar(10)    COMMENT '', content varchar(100)    COMMENT '', reg_date datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP   COMMENT '등록일자', PRIMARY KEY(id) );
+#ㅅㅈㅁㅅsda
