@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.ProductNoticeMapper">
+	<select id="getAll" resultType="productnoticevo">
+	
+	</select>
+	<select id="getCount" resultType="int">
+	
+	</select>
+	<select id="getList" resultType="productnoticevo">
+	
+	</select>
+	<select id="getOne" resultType="productnoticevo">
+	
+	</select>
+	<insert id="setItem">
+	
+	</insert>
+	<update id="updateItem">
+	
+	</update>
+	<delete id="deleteItem">
+	
+	</delete>
+</mapper>

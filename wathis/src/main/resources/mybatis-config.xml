@@ -16,6 +16,20 @@
 				type="com.example.site.model.UserVO"
 				alias="uservo"
 			/>
+		<typeAlias type="com.krahs123.wathis.model."/>
 		-->
+		<typeAlias type="com.krahs123.wathis.model.BoardConfigVO" alias="boardconfigvo"/>
+		<typeAlias type="com.krahs123.wathis.model.BoardVO" alias="boardvo"/>
+		<typeAlias type="com.krahs123.wathis.model.CategoryVO" alias="categoryvo"/>
+		<typeAlias type="com.krahs123.wathis.model.MemberVO" alias="membervo"/>
+		<typeAlias type="com.krahs123.wathis.model.MemberAddrVO" alias="memberaddrvo"/>
+		<typeAlias type="com.krahs123.wathis.model.MenuVO" alias="menuvo"/>
+		<typeAlias type="com.krahs123.wathis.model.OrderDetailVO" alias="orderdetailvo"/>
+		<typeAlias type="com.krahs123.wathis.model.OrderVO" alias="ordervo"/>
+		<typeAlias type="com.krahs123.wathis.model.ProductVO" alias="productvo"/>
+		<typeAlias type="com.krahs123.wathis.model.ProductCommentVO" alias="productcommentvo"/>
+		<typeAlias type="com.krahs123.wathis.model.ProductNoticeVO" alias="productnoticevo"/>
+		<typeAlias type="com.krahs123.wathis.model.ProductOptionVO" alias="productoptionvo"/>
+		<typeAlias type="com.krahs123.wathis.model.SiteConfigVO" alias="siteconfigvo"/>
 	</typeAliases>
 </configuration>

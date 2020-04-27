@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MenuDAOImpl implements MenuDAO{
 
+	final String namespace ="mappers.MenuMapper";
 }
