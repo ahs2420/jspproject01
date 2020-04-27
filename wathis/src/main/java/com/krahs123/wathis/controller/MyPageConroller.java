@@ -7,8 +7,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/page")
 public class MyPageConroller {
 	final String DIR ="/page/";
+	
 	@RequestMapping("/mypage")
 	public String viewMypage(){
 		return DIR+"mypage";
 	}
+
+	@RequestMapping("/mypage-one")
+	public String viewMypageone(){
+		return DIR+"mypage-one";
+	}
+
+	@RequestMapping("/mypage-two")
+	public String viewMypagetwo(){
+		return DIR+"mypage-two";
+	}
+
+	@RequestMapping("/mypage-three")
+	public String viewMypagethree(){
+		return DIR+"mypage-three";
+	}
+
+
+
 }
