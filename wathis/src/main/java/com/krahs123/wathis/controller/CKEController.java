@@ -54,13 +54,14 @@ public class CKEController {
 		        	sb.append("{\"uploaded\" : 0, \"error\" : { \"message\" : \"첨부 파일을 업로드 할수 없습니다.\\n 파일을 확인해 주세요.(err:02)\" } }");
 				}
 			}else {
-				
+            	sb.append("{\"uploaded\" : 0, \"error\" : { \"message\" : \"jpg, png, gif파일만 업로드 가능합니다.\\n 파일을 확인해 주세요.(err:03)\" } }");
 			}
 		}else{
         	sb.append("{\"uploaded\" : 0, \"error\" : { \"message\" : \"첨부 파일을 업로드 할수 없습니다.\\n 파일을 확인해 주세요.(err:01)\" } }");
 		}
 		return sb.toString();
 	}
+	//테스트 페이지
 	@RequestMapping("/")
 	public String ckeTestView() {
 		return "/ckeTest";

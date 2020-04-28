@@ -180,7 +180,7 @@
                                 customConfig: '/plugin/ckeditor/config.js',
                                 width: '100%',
                                 height: '500',
-                                filebrowserImageUploadUrl: '/plugin/ckeditor/ckeditor_upload.php?type=Images&CKEditor=editor1&CKEditorFuncNum=1&langCode=ko'
+                                filebrowserImageUploadUrl: '/cke/imageUpload'
                             });
                         </script>
                     </div>

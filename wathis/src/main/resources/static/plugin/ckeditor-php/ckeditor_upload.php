@@ -26,12 +26,6 @@ if (!is_dir($up_url)) {
 		echo "안되.........";
 	}
 }
-/*
-Warning: getimagesize(../upload/2015/1431330593.44.jpg) [function.getimagesize]: failed to open stream: No such file or directory in /home/hosting_users/fw_bumyang/www/ckeditor/func_image_resize.php on line 11
- Cannot Open File!
-
-Parse error: syntax error, unexpected ':' in /home/hosting_users/fw_bumyang/www/ckeditor/ckeditor_upload.php on line 25
-*/
 
 if (move_uploaded_file($src_file, $up_url . '/' . $filename)) {
 	$msg = '';

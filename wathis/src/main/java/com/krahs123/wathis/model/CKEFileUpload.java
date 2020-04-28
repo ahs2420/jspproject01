@@ -3,6 +3,7 @@ package com.krahs123.wathis.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CKEFileUpload {
+	//cke 파일 업로드용 건들지 마요.....
 	private String attachPath;
 	private String Filename;
 	private MultipartFile upload;
