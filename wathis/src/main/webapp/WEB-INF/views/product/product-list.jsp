@@ -149,7 +149,7 @@
                             </select>
                             <label for="select-state"></label>
                         </div>
-                        <div class="reward-select-custom">
+                        <div class="reward-select-custom reward-order">
                             <select name="" id="select-order">
                                 <option value="">추천순</option>
                                 <option value="">인기순</option>
