@@ -51,7 +51,7 @@ ul li {
 
 .reward-select-custom select+label {
 	position: absolute;
-    right: 5px;
+    right: 13px;
     top: 50%;
     transform: translateY(-50%);
     border-top: 5px solid #000;
@@ -60,7 +60,7 @@ ul li {
     display: block;
     z-index: -1;
 }
-reward-order select{
+.reward-order select{
 	    padding: 0 8px 0px 5px;
 }
 /* IE 10, 11의 네이티브 화살표 숨기기 */
