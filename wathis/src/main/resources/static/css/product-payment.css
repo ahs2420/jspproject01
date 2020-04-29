@@ -4,3 +4,62 @@
 	border-top : 1px solid #333;
 	border-bottom : 1px solid #ccc;
 }
+.modal-table{
+    width: 100%;
+}
+.delevery-modal .modal-content{
+    width: 758px;
+}
+@media (max-width:768px){
+    .delevery-modal .modal-content{
+        width: calc(100% - 20px);
+    }
+    .delevery-modal .modal-table,
+    .delevery-modal .modal-table tbody,
+    .delevery-modal .modal-table tr,
+    .delevery-modal .modal-table td,
+    .delevery-modal .modal-table th{
+        display: block;
+    }
+    .delevery-modal .modal-table tr td{
+        border-bottom: 0;
+        padding: 3px 0px;
+    }
+    .delevery-modal .modal-table tr td:nth-child(1){
+        width: calc(100% - 80px);
+        order: 0;
+        text-align: left;
+        display: flex;
+    }
+    .delevery-modal .modal-table tr td:nth-child(1) p:nth-child(n+2){
+        margin-left: 5px;
+    }
+    .delevery-modal .modal-table tr td:nth-child(2){
+        order: 2;
+        width: 100%;
+    }
+    .delevery-modal .modal-table tr td:nth-child(3){
+        order: 1;
+        width: 100%;
+        text-align: left;
+    }
+    .delevery-modal .modal-table tr td:nth-child(4){
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .delevery-modal .modal-table thead{
+        display: none;
+    }
+    .delevery-modal .modal-table tbody tr:first-child{
+        border-top: 1px solid #333;
+    }
+    .delevery-modal .modal-table tbody tr{
+        border-bottom: 1px solid #333;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px;
+        position: relative;
+    }
+}

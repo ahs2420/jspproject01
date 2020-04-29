@@ -451,7 +451,7 @@
                                 <div class="w-100p product-funding">
                                     <a href="/product/product-select" class="btn-stan tiny-content funding-btn on mb10"><i class="fas fa-gift"></i> 펀딩하기</a>
                                 </div>
-                                <a href="#" class="btn-stan tiny-content w-49p product-question"><i class="far fa-question-circle"></i> <span class="dis-pc">문의하기</span></a>
+                                <button class="btn-stan tiny-content w-49p product-question" data-target=".question-box" onclick="targetActive(this)"><i class="far fa-question-circle"></i> <span class="dis-pc">문의하기</span></a>
                                 <button class="btn-stan tiny-content w-49p product-share" data-target=".sns-share" onclick="targetActive(this)"><i class="fas fa-share-square"></i> <span class="dis-pc">공유하기</span></button>
                             </div>
                         </div>
@@ -482,9 +482,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="pt20 pb20 pr5p pl5p border-top">
                                     <div class="btn-box">
-                                        <button class="btn-stan w-100p small-title" href="#"><i class="far fa-question-circle"></i> 메이커에게 문의하기</button>
+                                        <button class="btn-stan w-100p small-title"  data-target=".question-box" onclick="targetActive(this)"><i class="far fa-question-circle"></i> 메이커에게 문의하기</button>
                                     </div>
                                 </div>
                                 <div class="border-top">
@@ -497,6 +498,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </div>
@@ -562,8 +564,8 @@
                 <!--우측메뉴끝-->
             </div>
             <!--sns공유 모달-->
-            <div class="sns-share flex-j-space w-100p gray-box">
-                <div class="sns-share-content">
+            <div class="sns-share flex-j-space w-100p gray-box modal-stan">
+                <div class="sns-share-content modal-content">
                     <button class="sns-share-close" data-target=".sns-share" onclick="targetActive(this)"></button>
                     <div class="sns-text border-bottom pb20">
                         <p class="sub-title bold main-color txt-center mt10 mb20">SNS 공유하기</p>
@@ -599,6 +601,40 @@
                 </div>
             </div>
             <!--sns공유 모달끝-->
+            <!--문의하기 모달-->
+            <div class="question-box flex-j-space w-100p gray-box modal-stan">
+                <div class="question-box-content modal-content">
+                    <p class="sub-title bold main-color txt-center mt10 mb20">문의 하기</p>
+                    <button class="question-box-close sns-share-close modal-close modal-close-btn" data-target=".question-box" onclick="targetActive(this)"></button>
+                    <div class="flex-box flex-j-space pt20 pb20 pr5p pl5p border-bottom pb20">
+                        <div class="round-img-box product-maker-img">
+                            <img src="/images/product/maker-img.jpg" alt="메이커로고">
+                        </div>
+                        <div class="product-maker-link">
+                            <div class="small-content bold mb5">앤커코리아</div>
+                            <div class="mb5 tiny-content">
+                                <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
+                                <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
+                            </div>
+                            <div class="maker-sns-container flex-box">
+                                <a href="#" class="bg-sns bg-facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-blog" target="_blank">
+                                    <div class="bg-img"></div>
+                                </a>
+                                <a href="#" class="bg-sns bg-external" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt20 maker-info-box">
+                        <p><a href="tel:050713667088"><i class="fas fa-mobile-alt" aria-hidden="true"></i> 050713667088</a></p>
+                        <p><a href="mailto:support@distyfactory.com"><i class="far fa-envelope" aria-hidden="true"></i> support@distyfactory.com</a></p>
+                        <p><a href="#"><i class="fas fa-comment" aria-hidden="true"></i> 카카오 플러스친구 앤커코리아</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--문의하기 모달끝-->
         </section>
     </main>
 <%@ include file="/WEB-INF/views/include/foot.jspf"%>

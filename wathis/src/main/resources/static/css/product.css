@@ -159,7 +159,7 @@
     align-items: center;
     justify-content: center;
 }
-.sns-share-content{
+.sns-share-content,.question-box-content{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -188,6 +188,10 @@
 }
 .product-faq-item button{
     text-align: left;
+}
+.maker-info-box i{
+	width:20px;
+	text-align:center;
 }
 @media (max-width:1400px){
     
@@ -236,7 +240,7 @@
     }
     .product-reward-info-table th{
         width: 100%;
-        padding: 0;
+        padding: 10px 0px 0px;
     }
     /* .sns-share{
         order: 4;    

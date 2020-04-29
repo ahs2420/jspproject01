@@ -141,12 +141,12 @@
         </section>
     </main>
     <div class="delevery-modal modal-stan">
-    	<div class="modal-content pt30 pb30 pl20 pr20 max-800 container">
+    	<div class="modal-content pt30 pb30 pl20 pr20">
     		<div class="modal-close modal-btn-close" data-target=".delevery-modal" onclick="targetActive(this)"></div>
     		<h1 class="title main-color mb20 txt-center">
     			배송지 목록
     		</h1>
-    		<table class="table-stan tiny-content">
+    		<table class="table-stan modal-table tiny-content w-100p">
     			<thead>
     				<tr>
 	    				<th>
@@ -166,8 +166,8 @@
     			<tbody>
 	    			<tr>
 	    				<td class="txt-center">
-	    					<p>집</p><!-- 배송지 이름 -->
 	    					<p>안호수</p><!-- 수령인 이름 -->
+	    					<p>집</p><!-- 배송지 이름 -->
 	    					<p>[기본배송지]</p><!-- 기본 배송지만 띄움 -->
 	    				</td>
 	    				<td>
@@ -187,8 +187,8 @@
 	    			</tr>
 	    			<tr>
 	    				<td class="txt-center">
-	    					<p>집</p><!-- 배송지 이름 -->
 	    					<p>안호수</p><!-- 수령인 이름 -->
+	    					<p>집</p><!-- 배송지 이름 -->
 	    				</td>
 	    				<td>
 	    					<p>41324</p>
