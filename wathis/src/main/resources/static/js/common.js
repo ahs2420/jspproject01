@@ -345,16 +345,16 @@ function ajaxStan(option){
         data:option.data,
         success:function(data){
             returnData = {
-            	status:"success",
-            	data:data
+            	"status":"success",
+            	"data":data
             };
         },error:function(xhr,status,error){
             returnData = {
-            	status:"error",
-            	xhr:xhr,
-            	errstatus:status,
-            	error:error,
-            	setOption:option
+            	"status":"error",
+            	"xhr":xhr,
+            	"errstatus":status,
+            	"error":error,
+            	"setOption":option
             }
         }
     });

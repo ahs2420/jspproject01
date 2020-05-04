@@ -3,6 +3,8 @@ package com.krahs123.wathis.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,7 +25,7 @@ public class CKEController {
 	//cke fileUpload
 	@RequestMapping("/imageUpload")
 	@ResponseBody
-	public String ckeImageUpload(@ModelAttribute("fileUploadVO") CKEFileUpload fileUploadVO,HttpServletRequest request,Model model) {
+	public Map<String, Object> ckeImageUpload(@ModelAttribute("fileUploadVO") CKEFileUpload fileUploadVO,HttpServletRequest request,Model model) {
 		//날짜 생성(폴더이름 + 파일이름에 사용)
 		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
@@ -36,7 +38,8 @@ public class CKEController {
 		String filename;
 		String fileExt;
 		
-		StringBuilder sb = new StringBuilder();
+		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> errorMap = new HashMap<>();
 		if(upload!=null) {
 			filename = upload.getOriginalFilename();
 			fileExt = FilenameUtils.getExtension(filename).toLowerCase();
@@ -49,17 +52,25 @@ public class CKEController {
 						file.getParentFile().mkdirs();
 					}
 					upload.transferTo(file);
-	                sb.append("{\"filename\" : \""+filename+"\", \"uploaded\" : 1, \"url\":\"/"+attachPath + filename+"\"}");
+					map.put("filename", filename);
+					map.put("uploaded", 1);
+					map.put("url", "/"+attachPath + filename);
 				}catch(Exception e) {
-		        	sb.append("{\"uploaded\" : 0, \"error\" : { \"message\" : \"첨부 파일을 업로드 할수 없습니다.\\n 파일을 확인해 주세요.(err:02)\" } }");
+					errorMap.put("message", "첨부 파일을 업로드 할수 없습니다.\\n 파일을 확인해 주세요.(err:02)");
+					map.put("uploaded", 0);
+					map.put("error", errorMap);
 				}
 			}else {
-            	sb.append("{\"uploaded\" : 0, \"error\" : { \"message\" : \"jpg, png, gif파일만 업로드 가능합니다.\\n 파일을 확인해 주세요.(err:03)\" } }");
+				errorMap.put("message", "jpg, png, gif파일만 업로드 가능합니다.\\n 파일을 확인해 주세요.(err:03)");
+				map.put("uploaded", 0);
+				map.put("error", errorMap);
 			}
 		}else{
-        	sb.append("{\"uploaded\" : 0, \"error\" : { \"message\" : \"첨부 파일을 업로드 할수 없습니다.\\n 파일을 확인해 주세요.(err:01)\" } }");
+			errorMap.put("message", "첨부 파일을 업로드 할수 없습니다.\\n 파일을 확인해 주세요.(err:01)");
+			map.put("uploaded", 0);
+			map.put("error", errorMap);
 		}
-		return sb.toString();
+		return map;
 	}
 	//테스트 페이지
 	@RequestMapping("/")

@@ -8,8 +8,8 @@
 </haed>
 <body>
 	<header>
-	<%@ include file="/WEB-INF/views/include/nav.jspf"%>
-	<!-- hero 삽입 -->
+		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
+		<!-- hero 삽입 -->
 	    <!--슬라이드 이미지 1개일때는 .hero.item-only추가-->
 	    <div class="hero item-only">
 	        <div class="owl-carousel owl-hero owl-theme">
@@ -209,7 +209,7 @@
     		</table>
     	</div>
     </div>
-<%@ include file="/WEB-INF/views/include/foot.jspf"%>
+	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- 추가 script 삽입 -->
 </html>
