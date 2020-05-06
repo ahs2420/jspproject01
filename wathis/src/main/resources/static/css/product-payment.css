@@ -10,6 +10,34 @@
 .delevery-modal .modal-content{
     width: 758px;
 }
+.btn-delivery-list{
+    height: 30px;
+    line-height: 30px;
+}
+#daum-map-wrap{
+    top: 50%;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    border:1px solid;
+    max-width:500px;
+    height:500px;
+    max-height: 500px;
+    position:relative;
+    background-color: #fff;
+}
+#btnFoldWrap{
+    cursor:pointer;
+}
+#daum-wrap-close-btn{
+    width: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+#daum-wrap{
+    display: none;
+}
 @media (max-width:768px){
     .delevery-modal .modal-content{
         width: calc(100% - 20px);
@@ -62,4 +90,12 @@
         padding: 10px;
         position: relative;
     }
+    #daum-map-wrap{
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: calc(100% - 20px);
+        margin: 0;
+    }
+}
+@media (max-width:480px){
 }

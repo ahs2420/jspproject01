@@ -254,6 +254,9 @@ nav{
 .txt-center{text-align: center;}
 .txt-left{text-align: left;}
 .txt-right{text-align: right;}
+.v-align-m{vertical-align: middle;}
+.v-align-t{vertical-align: top;}
+.v-align-b{vertical-align: bottom;}
 .dis-none{display: none;}
 .z-index-1{ z-index: 1;}
 .bold{font-weight: 700;}
@@ -297,12 +300,14 @@ nav{
 .w-80p{width: 80%;}
 .w-75p{width: 75%;}
 .w-70p{width: 70%;}
+.w-65p{width: 65%;}
 .w-60p{width: 60%;}
-.w-6{width: 50%;}
+.w-50p{width: 50%;}
 .w-49p{width: 49%;}
 .w-33p{width: calc(100% / 3);}
 .w-30p{width: 30%;}
 .w-25p{width: 25%;}
+.w-24p{width: 24%;}
 
 .h-100p{height: 100%;}
 .h-75p{height: 75%;}
@@ -901,7 +906,7 @@ nav.active{
     border: 1px solid transparent;
 }
 .bg-blog .bg-img{
-    background-image: url(../images/icon/blog_icon_gray.svg);
+    background-image: url(/images/icon/blog_icon_gray.svg);
     width: 75%;
     height: 68.75%;
     position: absolute;
@@ -913,7 +918,7 @@ nav.active{
     background-color: #00c23a;
     border: 1px solid transparent;
 }
-.bg-blog:hover .bg-img{background-image: url(../images/icon/blog_icon_white.svg);
+.bg-blog:hover .bg-img{background-image: url(/images/icon/blog_icon_white.svg);
 }
 .bg-external:hover{
     background-color: #3e2224;
@@ -963,7 +968,7 @@ nav.active{
     top: 10px;
     width: 20px;
     height: 20px;
-    background-image: url(../images/icon/close-icon-white.svg);
+    background-image: url(/images/icon/close-icon-white.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1098,11 +1103,11 @@ nav.active{
 }
 .modal-stan .modal-btn-close{
     position: absolute;
-    right: 20px;
-    top: 30px;
+    right: 10px;
+    top: 10px;
     width: 20px;
     height: 20px;
-    background-image: url(../images/icon/close-icon.svg);
+    background-image: url(/images/icon/close-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
