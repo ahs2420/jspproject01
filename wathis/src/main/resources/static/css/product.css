@@ -193,6 +193,26 @@
 	width:20px;
 	text-align:center;
 }
+.product-add-img.owl-theme .owl-nav{
+    margin-top: 0;
+}
+.product-add-img.owl-carousel .owl-nav button.owl-prev, 
+.product-add-img.owl-carousel .owl-nav button.owl-next{
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.product-add-img.owl-carousel .owl-nav button.owl-prev{
+    left: 0;
+}
+.product-add-img.owl-carousel .owl-nav button.owl-next{
+    right: 0;
+}
+.product-add-img.owl-theme .owl-nav [class*='owl-']:hover{
+    background-color: transparent;
+    transition: .3s;
+}
 @media (max-width:1400px){
     
 }

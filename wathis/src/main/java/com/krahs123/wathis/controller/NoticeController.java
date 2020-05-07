@@ -12,8 +12,11 @@ public class NoticeController {
 		return DIR+"notice-list";
 	}
 	@RequestMapping("/content")
-
 	public String viewContent() {
 		return DIR+"notice-content";
+	}
+	@RequestMapping("/write")
+	public String viewWrite() {
+		return DIR+"resive";
 	}
 }

@@ -290,6 +290,11 @@ nav{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bg-img-paral{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 .w-100{width: 100px;}
 .w-150{width: 150px;}
 .w-200{width: 200px;}
@@ -304,6 +309,7 @@ nav{
 .w-60p{width: 60%;}
 .w-50p{width: 50%;}
 .w-49p{width: 49%;}
+.w-45p{width: 45%;}
 .w-33p{width: calc(100% / 3);}
 .w-30p{width: 30%;}
 .w-25p{width: 25%;}
@@ -577,13 +583,6 @@ nav.active{
     border-color:var(--var-main-color);
     color: #fff;
 }
-.bg-main{
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-}
 .bg-txt{
     position: absolute;
     left: 50%;
@@ -594,6 +593,16 @@ nav.active{
 .hero,.hero .item{
     position: relative;
 }
+.bg-black-cover{
+    position: relative;
+}
+.bg-main{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
 .bg-main::after{
     position: absolute;
     content: '';
@@ -602,9 +611,6 @@ nav.active{
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.1);
-}
-.bg-black-cover{
-    position: relative;
 }
 .bg-main::after,.bg-black-cover::after{
     position: absolute;
@@ -800,6 +806,7 @@ nav.active{
     padding: 0px 5%;
     word-break: keep-all;
 }
+.word-break{word-break: keep-all;}
 .close i:before{
     content: "\f00d" !important;
 }

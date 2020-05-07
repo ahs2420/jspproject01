@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
     <link rel="stylesheet" href="/css/main.css">
@@ -9,50 +10,31 @@
 <header>
 <%@ include file="/WEB-INF/views/include/nav.jspf"%>
     <!--슬라이드 이미지 1개일때는 .hero.item-only추가-->
+    <!--팝업 이미지-->
     <div class="hero">
         <div class="owl-carousel owl-hero owl-theme">
-            <div class="item">
-                <a href="/product/product">
-                    <div class="bg-hero-cover">
-                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
-                        <div class="container bg-txt">
-                            <div class="hero-text-box">
-                                <div class="small-title"></div>
-                                <h1 class="title mb20">잘 먹고 잘 쉬기<br>만원 혜택 받고 시작해요</h1>
-                                <div class="sub-title">IT</div>
+            <c:forEach begin="1" end="3" var="i">
+                <!--팝업 아이템-->
+                <div class="item">
+                    <!--팝업 이동 주소-->
+                    <a href="/product/product">
+                        <div class="bg-hero-cover">
+                            <!--팝업 이미지-->
+                            <div class="bg-img bg-main" style="background-image: url(/images/main/main_${i}.jpg);"></div>
+                            <div class="container bg-txt">
+                                <div class="hero-text-box">
+                                    <div class="small-title"></div>
+                                    <!--팝업 타이틀-->
+                                    <h1 class="title mb20">잘 먹고 잘 쉬기<br>만원 혜택 받고 시작해요</h1>
+                                    <!--팝업 분류-->
+                                    <div class="sub-title">IT</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="/product/product">
-                    <div class="bg-hero-cover">
-                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_2.jpg);"></div>
-                        <div class="container bg-txt">
-                            <div class="hero-text-box">
-                                <div class="small-title"></div>
-                                <h1 class="title mb20">잘 먹고 잘 쉬기<br>만원 혜택 받고 시작해요</h1>
-                                <div class="sub-title">IT</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item">
-                <a href="/product/product">
-                    <div class="bg-hero-cover">
-                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_3.jpg);"></div>
-                        <div class="container bg-txt">
-                            <div class="hero-text-box">
-                                <div class="small-title"></div>
-                                <h1 class="title mb20">잘 먹고 잘 쉬기<br>만원 혜택 받고 시작해요</h1>
-                                <div class="sub-title">IT</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+                <!--//팝업 아이템-->
+            </c:forEach>
         </div>
         <!--슬라이더 버튼-->
         <div class="owl_hero_cotainer container flex-box flex-j-space flex-a-flexend">
@@ -71,230 +53,45 @@
                     와디즈에서 새로운 프로젝트들을 만나보세요
                 </h2>
                 <div class="flex-box flex-j-space flex-wrap">
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
+                    <c:forEach begin="1" end="8">
+                        <!--상품 아이템-->
+                        <div class="item-box mb20">
+                            <!--상품 주소-->
+                            <a href="/product/product">
+                                <div class="border-box">
+                                    <div class="img-box">
+                                        <!--상품 메인 이미지-->
+                                        <img src="/images/product/item_1.jpg" alt="" />
                                     </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
+                                    <div class="txt-box">
+                                        <!--상품 제목-->
+                                        <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
+                                        <!--상품분류 | 메이커이름-->
+                                        <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
+                                        <div class="progress-bar mb10">
+                                            <!--상품 펀딩 진척도(최대100%)-->
+                                            <span class="percent" style="width: 50%;"></span>
+                                        </div>
+                                        <div class="flex-box flex-j-space">
+                                            <p>
+                                                <!-- 펀딩금액  상품 펀딩 진척도-->
+                                                5,000만원<span class="ml5 gray">50%</span> 
+                                            </p>
+                                            <p class="gray">
+                                                <!-- 남은 기간 -->
+                                                28일 남음
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
-                    <div class="item-box mb20">
-                        <a href="/product/product">
-                            <div class="border-box">
-                                <div class="img-box">
-                                    <img src="/images/product/item_1.jpg" alt="" />
-                                </div>
-                                <div class="txt-box">
-                                    <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?</h3>
-                                    <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
-                                    <div class="progress-bar mb10">
-                                        <span class="percent" style="width: 50%;"></span>
-                                    </div>
-                                    <div class="flex-box flex-j-space">
-                                        <p>
-                                            5,000만원<span class="ml5 gray">50%</span> 
-                                        </p>
-                                        <p class="gray">
-                                            28일 남음
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="border-animation border-1"></span>
-                            <span class="border-animation border-2"></span>
-                            <span class="border-animation border-3"></span>
-                            <span class="border-animation border-4"></span>
-                        </a>
-                    </div>
+                                <span class="border-animation border-1"></span>
+                                <span class="border-animation border-2"></span>
+                                <span class="border-animation border-3"></span>
+                                <span class="border-animation border-4"></span>
+                            </a>
+                        </div>
+                        <!--//상품 아이템-->
+                    </c:forEach>
                 </div>
             </article>
         </section>
@@ -314,7 +111,7 @@
                         <div class="small-title mb20">
                             다양한 우리가 모여 함께 더 나은 세상을 만듭니다.
                         </div>
-                        <a href="#" class="btn-stan btn-alerm bold">
+                        <a href="/introduce" class="btn-stan btn-alerm bold">
                             바로가기 <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -327,7 +124,7 @@
                         <div class="small-title mb20">
                             메이커의 아이디어와 신용을 믿고 제품 생산을 위한 자금을 모으는 것입니다.
                         </div>
-                        <a href="#" class="btn-stan btn-alerm bold">
+                        <a href="/introduce" class="btn-stan btn-alerm bold">
                             바로가기 <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -353,6 +150,7 @@
                 <div class="small-title align-center">와디스의 다양한 소식을 빠르게 전달 드립니다.</div>
                 <div class="flex-box flex-j-space flex-wrap">
                     <div class="news-items flex-box flex-wrap flex-j-space">
+                        <!--뉴스 아이템1-->
                         <div class="news-item">
                             <a href="/sbg0212/ex3.html">
                                 <div class="main-color mb5 bold">[NOTICE]</div>
@@ -362,6 +160,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!--뉴스 아이템2-->
                         <div class="news-item">
                             <a href="/sbg0212/ex3.html">
                                 <div class="main-color mb5 bold">[NOTICE]</div>
@@ -372,6 +171,7 @@
                             </a>
                         </div>
                     </div>
+                    <!--뉴스 아이템3(이미지)-->
                     <div class="news-items">
                         <div class="news-item news-item-only">
                             <a class="flex-box flex-j-space flex-wrap h-100p"  href="#">
@@ -387,6 +187,7 @@
                             </a>
                         </div>
                     </div>
+                    <!--뉴스 아이템4-->
                     <div class="news-items flex-box flex-j-space flex-wrap">
                         <div class="news-item col-lg-6 col-sm-12">
                             <a href="/sbg0212/ex3.html">
@@ -397,6 +198,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!--뉴스 아이템5-->
                         <div class="news-item col-lg-6 col-sm-12">
                             <a href="/sbg0212/ex3.html">
                                 <div class="main-color mb5 bold">[NOTICE]</div>
@@ -406,6 +208,7 @@
                                 </div>
                             </a>
                         </div>
+                        <!--뉴스 아이템6(이미지)-->
                         <div class="news-item col-lg-12">
                             <a href="/sbg0212/ex3.html">
                                 <div class="flex-box flex-wrap flex-j-space">
@@ -428,6 +231,7 @@
             </div>
         </section>
         <section>
+            <!--오시는길-->
             <div class="container section-location">
                 <div class="flex-box flex-j-space flex-a-center flex-wrap ">
                     <div class="col-lg-5 col-sm-12" id="fadeInLeft">
