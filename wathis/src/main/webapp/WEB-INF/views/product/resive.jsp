@@ -3,49 +3,56 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="/plugin/ckeditor/ckeditor.js"></script>
-<!-- 
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/main.js"></script>
- -->
-     c <style>
+<style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        main{
+            background-color:#e6ffff;
+        }
         .resive-container {
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
+            background-color: #fff;
+            min-height:100vh ;
+            height: auto;
+            padding: 0 5%;
+            border: 0;
         }
         .resive-wrap{
             border: 1px solid #ccc;
             font-weight: 700;
-        }
-        .resive-span {
-            width: 70px;
-            display: inline-block;
-            margin-left: 40px;
-            height: 28px
-        }
+            border: 0;
 
+        }
         .resive-select-box {
-            margin-top: 20px;
+            margin-top: 100px;
         }
-
+        
+        .option{
+            text-align: center;
+        }
         .resive-title {
-            width: 500px;
-            height: 23px;
+            width: 100%;
+            height: 50px;
+            margin-top: 30px;
             margin-bottom: 10px;
+            border:0;
+            border-bottom:1px solid #00b2b2;
+            font-size: 30px;
         }
-
         select {
-            width: 150px;
+            width: 15px;
             height: 20px;
+            border: 0;
+            border-bottom: 1px solid #00b2b2;
+
         }
         .resive-btn-box{
             text-align: center;
@@ -77,6 +84,13 @@
         button:hover{
             color:#00c8c8;
         }
+        .resive-class{
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
         @media (max-width: 1200px){
             .resive-container {
                 width: 100%;
@@ -95,7 +109,7 @@
             .resive-container {
                 width: 100%;
             }
-            #resive-class{
+            .resive-class{
                 width: 100%;
                 height: 30px;
                 border: 1px solid #888;
@@ -109,7 +123,7 @@
             input.resive-title{
                 width: 100%;
                 height: 30px;
-                border: 1px solid #888;
+                border-bottom: 1px solid  #888;
                 border-top:0 ;
                 padding:0 10px;
             }
@@ -144,23 +158,25 @@
                 border: 3px solid #ccc;
                 color: #ccc;
             }
-      
+        
         }
+        
   </style>
- 
 </haed>
 <body>
+
 <header>
 <%@ include file="/WEB-INF/views/include/nav.jspf"%>
 <!-- hero 삽입 -->
 </header>
+<!-- main내용삽입 -->
 <main> 
         <form action="" enctype="multipart/form-data" method="post" id="">
             <div class="resive-container">
+                <div class="margin-top"></div>
                     <div class="resive-wrap">
                     <div class="resive-select-box">
-                        <span class="resive-span">게시판</span>
-                        <select name="title-select" id="resive-class">
+                        <select name="title-select" class="resive-class">
                             <option value="">게시판 선택</option>
                             <option value="">공지·알림</option>
                             <option value="">이벤트·진행중</option>
@@ -169,7 +185,6 @@
                         </select>
                     </div>
                     <div class="resive-title-box">
-                        <span class="resive-span">제목</span>
                         <input type="text" class="resive-title" name="title" data-pc-placeholder="게시글 제목을 입력해주세요."
                         data-mobile-placeholder="제목">
                     </div>
@@ -191,7 +206,33 @@
                 </div>
             </div>
         </form>
-    </main><%@ include file="/WEB-INF/views/include/foot.jspf"%>
+    </main>
+
+<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- 추가 script 삽입 -->
+<script>
+    $(function(){
+        placeholderChanger($(".resive-title"));
+        $(window).resize(function(){
+            $(".resive-title").placeholderChanger();
+        });
+    });
+    $.fn.placeholderChanger=function(){
+        var windowWidth=$("body").width();
+        if(windowWidth<=480){
+            $(this).attr("placeholder",$(this).data("mobile-placeholder"));
+        }else{
+            $(this).attr("placeholder",$(this).data("pc-placeholder"));
+        }
+    }
+    function placeholderChanger(target){
+        var windowWidth=$("body").width();
+        if(windowWidth<=480){
+            target.attr("placeholder",target.data("mobile-placeholder"));
+        }else{
+            target.attr("placeholder",target.data("pc-placeholder"));
+        }
+    }
+</script>
 </html>

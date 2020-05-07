@@ -9,7 +9,7 @@
 <style type="text/css">
 .cke_textarea_inline{
 	border: 1px solid #000;
-}
+	}
 </style>
 </head>
 <body>
@@ -32,5 +32,8 @@
         filebrowserImageUploadUrl: '/cke/imageUpload'
     });
     </script>
+    
+    
+ 
 </body>
 </html>
