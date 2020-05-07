@@ -9,7 +9,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	border: 0;
 }
 
 .resive-main {
@@ -42,14 +41,6 @@
 	border-bottom: 1px solid #00b2b2;
 	font-size: 30px;
 }
-
-select {
-	width: 15px;
-	height: 20px;
-	border: 0;
-	border-bottom: 1px solid #00b2b2;
-}
-
 .resive-btn-box {
 	text-align: center;
 	margin: 0 auto;
@@ -76,9 +67,7 @@ select {
 .resive-btn:first-child {
 	margin-right: 5px;
 }
-/* input.resive-title::placeholder{
-            color: transparent;
-        } */
+
 .resive-title-mobile {
 	display: none;
 }
@@ -89,6 +78,9 @@ select {
 	font-size: 20px;
 	font-weight: 700;
 	text-align: center;
+	border:0;
+	border-bottom: 1px solid #00b2b2;
+	
 }
 
 .ckeditor {
