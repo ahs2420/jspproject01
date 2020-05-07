@@ -1,7 +1,7 @@
 $(function(){
     $(".owl-carousel").owlCarousel({
-        loop:false,
-        nav:false,
+        loop:true,
+        nav:true,
         dots:false,
         items:1,
         autoPlay:true,
@@ -10,7 +10,7 @@ $(function(){
     });
 });
 $(function(){
-    var navOffset = $('.product-nav').offset().top-$("nav").height();
+    var navOffset = $('.product-nav').offset().top-$("nav").height()+1;
     $(".product-view-btn").click(function(e){
         var target=$(this).attr("href");
         var targetClass=$($(this).data("target"));

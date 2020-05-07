@@ -15,10 +15,14 @@
                 <div class="item">
                     <a href="#">
                         <div class="bg-hero-cover">
+                            <!--{상품이미지}-->
                             <div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
                             <div class="container bg-txt">
+                                <!--{상품분류}-->
                                 <div class="small-title">홈리빙</div>
+                                <!--{상품제목}-->
                                 <h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
+                                <!--{상품소제목}-->
                                 <div class="sub-title"></div>
                             </div>
                         </div>
@@ -48,26 +52,25 @@
                 <!--스토리-->
                 <article class="product-items product-main on" id="product-main">
                     <!--slide이미지-->
-                    <div class="owl-carousel mb20">
-                        <div class="item">
-                            <img src="/images/product/item_1.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="/images/product/item_1.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="/images/product/item_1.jpg">
-                        </div>
+                    <div class="owl-carousel owl-theme product-add-img mb20">
+                        <!--{상품 추가이미지}-->
+                        <c:forEach begin="1" end="3">
+                            <div class="item">
+                                <img src="/images/product/item_1.jpg">
+                            </div>
+                        </c:forEach>
                     </div>
                     <!--slide 끝-->
                     <!--sub title-->
                     <div class="small-title bold mb20">
+                        <!--{상품 설명}-->
                         누적 9.5억 펀딩 "진짜 로봇" 물걸레 로봇청소기, 스페셜 블랙 에디션으로 돌아왔습니다! 청소할 시간이 그렇게 많으면, 넌 놀기나 해! 똑똑한 진짜 로봇청소기 지금 시작합니다!
                     </div>
                     <!--sub title끝-->
                     <div class="product-green-box mb20">
                         <div class="main-color mb20">
                             <span class="bold">목표금액</span> 10,000,000원&nbsp;&nbsp;<span class="bold">펀딩기간</span> 2020.03.26~2020.04.20
+                            <!-- <span class="bold">목표금액</span> {금액}원&nbsp;&nbsp;<span class="bold">펀딩기간</span> {시작일}~{마감일} -->
                         </div>
                         <p>100% 이상 모이면 펀딩이 성공되는 프로젝트</p>
                         <p>이 프로젝트는 펀딩 마감일까지 목표 금액이 100% 모이지 않으면 결제가 진행되지 않습니다.</p>
@@ -76,6 +79,7 @@
                         프로젝트 스토리
                     </div>
                     <div class="product-story">
+                        <!--{상품 상세설명(스토리)}-->
                         <img src="/images/product/product-1.jpg" />
                     </div>
                 </article>
@@ -89,13 +93,16 @@
                         </p> 
                         <p class="tiny-content">
                             펀딩 결제는 예약 상태로 유지되다가, 펀딩 마감일 다음 영업일 2020.04.20 17시에 모두 함께 진행됩니다. 
+                            <!-- 펀딩 결제는 예약 상태로 유지되다가, 펀딩 마감일 다음 영업일 {마감일} 17시에 모두 함께 진행됩니다.  -->
                             결제 정보 변경은 결제가 진행되기 전까지 언제나 가능합니다. 참여한 펀딩 정보 변경은 펀딩 내역에서 진행해주세요. 
                             마감일 이후에는 펀딩에 대한 리워드 제작 및 배송이 시작되어, 취소와 더불어 배송지 및 리워드 옵션 변경은 2020.04.19 이후로는 불가합니다.
+                            <!-- 마감일 이후에는 펀딩에 대한 리워드 제작 및 배송이 시작되어, 취소와 더불어 배송지 및 리워드 옵션 변경은 {마감일}-1 이후로는 불가합니다.  -->
                         </p>
                     </div>
                     <div class="border-bottom pb20 mb20">
                         <p class="small-content bold mb10">리워드 정보 제공 고시</p>
                         <div>
+                            <!--{상품 정보 제공고시}-->
                             <div class="mb10">
                                 <span class="tiny-title bold mr10">리워드 상세정보</span>
                                 <span class="tiny-title">소형전자(MP3,전자사전 등)</span>
@@ -194,46 +201,34 @@
                 <article class="product-items product-news" id="product-news">
                     <div class="product-news">
                         <div class="product-news-items">
-                            <div class="product-news-item border-bottom">
-                                <button class="w-100p" data-target=".product-news-content2" onclick="slideToggle(this)">
-                                    <div class="flex-box flex-a-flexend flex-j-space pb20 pt20">
-                                        <div>
-                                            <p class="mb10">
-                                                <span class="main-color small-content v-align-middle">#2</span>
-                                                <span class="label-main-color tiny-content v-align-middle">이벤트</span>
-                                            </p>
-                                            <p class="gray-dark">
-                                                <span class="small-content">[이벤트] eufy 핸디형청소기 + 로봇청소기 동시 랭킹</span> 
-                                                <span class="tiny-content">| 2020.03.27</span>
-                                            </p>
+                            <!--새소식 아이템-->
+                            <c:forEach begin="1" end="5" var="i">
+                                <div class="product-news-item border-bottom">
+                                    <button class="w-100p" data-target=".product-news-content${i}" onclick="slideToggle(this)">
+                                        <div class="flex-box flex-a-flexend flex-j-space pb20 pt20">
+                                            <div>
+                                                <p class="mb10">
+                                                    <span class="main-color small-content v-align-middle">#${i}</span>
+                                                    <!--{순서}-->
+                                                    <span class="label-main-color tiny-content v-align-middle">이벤트</span>
+                                                    <!--{카테고리}-->
+                                                </p>
+                                                <p class="gray-dark">
+                                                    <span class="small-content">[이벤트] eufy 핸디형청소기 + 로봇청소기 동시 랭킹</span> 
+                                                    <!--{제목}-->
+                                                    <span class="tiny-content">| 2020.03.27</span>
+                                                    <!--{작성일}-->
+                                                </p>
+                                            </div>
+                                            <i class="large-content fas fa-chevron-down transition" aria-hidden="true"></i>
                                         </div>
-                                        <i class="large-content fas fa-chevron-down transition" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="dis-none pt20 product-news-content${i} pb20 pt20 pl3p pr3p">
+                                        <!--새소식 내용-->
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsum voluptates et, libero animi officia dolores, temporibus quod molestias repudiandae odio assumenda magni a quaerat optio laudantium iste quo itaque impedit quidem modi alias. Eligendi sunt obcaecati voluptatibus, hic voluptas quia ab architecto sed perferendis ullam nemo molestiae labore est doloremque. Nihil, ipsam recusandae, cupiditate quod accusamus labore itaque natus reiciendis consequatur aperiam eum eligendi iste expedita obcaecati? Reprehenderit consequatur ab iusto maxime sed quia quam animi fugiat in, aut veritatis ratione. Vero deserunt laborum velit veniam sed ab, unde accusantium totam et quos aut suscipit tempore autem pariatur voluptas.
                                     </div>
-                                </button>
-                                <div class="dis-none pt20 product-news-content2 pb20 pt20 pl3p pr3p">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsum voluptates et, libero animi officia dolores, temporibus quod molestias repudiandae odio assumenda magni a quaerat optio laudantium iste quo itaque impedit quidem modi alias. Eligendi sunt obcaecati voluptatibus, hic voluptas quia ab architecto sed perferendis ullam nemo molestiae labore est doloremque. Nihil, ipsam recusandae, cupiditate quod accusamus labore itaque natus reiciendis consequatur aperiam eum eligendi iste expedita obcaecati? Reprehenderit consequatur ab iusto maxime sed quia quam animi fugiat in, aut veritatis ratione. Vero deserunt laborum velit veniam sed ab, unde accusantium totam et quos aut suscipit tempore autem pariatur voluptas.
                                 </div>
-                            </div>
-                            <div class="product-news-item pt20 border-bottom">
-                                <button class="w-100p" data-target=".product-news-content1" onclick="slideToggle(this)">
-                                    <div class="flex-box flex-a-flexend flex-j-space pb20 pt20">
-                                        <div>
-                                            <p class="mb10">
-                                                <span class="main-color small-content v-align-middle">#1</span>
-                                                <span class="label-main-color tiny-content v-align-middle">이벤트</span>
-                                            </p>
-                                            <p class="gray-dark">
-                                                <span class="small-content">[필독] 펀딩 참여 꿀팁 안내 + 오픈 이벤트</span> 
-                                                <span class="tiny-content">| 2020.03.27</span>
-                                            </p>
-                                        </div>
-                                        <i class="large-content fas fa-chevron-down transition" aria-hidden="true"></i>
-                                    </div>
-                                </button>
-                                <div class="dis-none pt20 product-news-content1 pb20 pt20 pl3p pr3p">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsum voluptates et, libero animi officia dolores, temporibus quod molestias repudiandae odio assumenda magni a quaerat optio laudantium iste quo itaque impedit quidem modi alias. Eligendi sunt obcaecati voluptatibus, hic voluptas quia ab architecto sed perferendis ullam nemo molestiae labore est doloremque. Nihil, ipsam recusandae, cupiditate quod accusamus labore itaque natus reiciendis consequatur aperiam eum eligendi iste expedita obcaecati? Reprehenderit consequatur ab iusto maxime sed quia quam animi fugiat in, aut veritatis ratione. Vero deserunt laborum velit veniam sed ab, unde accusantium totam et quos aut suscipit tempore autem pariatur voluptas.
-                                </div>
-                            </div>
+                            </c:forEach> 
                         </div>
                     </div>
                 </article>
@@ -349,22 +344,28 @@
                         <div class="product-faq-item pt20 border-bottom">
                             <div class="comment-wrap">
                                 <div class="comment-items mb20">
-                                    <div class="comment-item-wrap mb20">
+                                    <!--댓글-->
+                                    <div class="comment-item-wrap">
                                         <div class="comment-item gray-round-box pt20 pb20 pl5p pr5p mb5">
                                             <div class="comment-profile flex-box flex-a-center mb10">
                                                 <div class="img-box"> 
+                                                    <!--{작성자 프로필 아이콘}-->
                                                     <img class="icon-50 icon-round" src="/images/common/profile-1.png">
                                                 </div>
                                                 <div class="comment-profile-txt ml20">
+                                                    <!--{작성자}-->
                                                     <p class="bold">안태민</p>
+                                                    <!--{작성자}|{작성일}-->
                                                     <p class="tiny-content"><span class="main-color">펀딩참여자</span><span class="gray"> | 20.04.02</span></p>
                                                 </div>
                                             </div>
                                             <div class="comment-content">
+                                                <!--댓글 내용-->
                                                 <p>"사전 공개 참여 후 펀딩까지 한 고객을 대상으로"라는 표현은 알림신청을 하고 펀딩까지 한 고객을 의미하는 것인가요?! ^^</p>
                                             </div>
                                         </div>
-                                        <div class="comment-recomment-form-wrap">
+                                        <!--답글달기-->
+                                        <div class="comment-recomment-form-wrap mb20">
                                             <div class="txt-right">
                                                 <button data-target="#comment-100" class="comment-btn main-color toggle-target" >답글달기</button>
                                             </div>
@@ -377,44 +378,51 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </div>
-                                    <div class="comment-item-wrap mb20">
-                                        <div class="comment-recomment-item gray-round-box pt20 pb20 pl5p pr5p">
-                                            <div class="comment-profile flex-box flex-a-center mb10">
-                                                <div class="img-box"> 
-                                                    <img class="icon-50 icon-round" src="/images/product/maker-img.jpg">
+                                        <!--//답글달기-->
+                                        <!--대댓글-->
+                                        <div class="comment-item-wrap mb20">
+                                            <div class="comment-recomment-item gray-round-box pt20 pb20 pl5p pr5p">
+                                                <div class="comment-profile flex-box flex-a-center mb10">
+                                                    <div class="img-box"> 
+                                                        <img class="icon-50 icon-round" src="/images/product/maker-img.jpg">
+                                                    </div>
+                                                    <div class="comment-profile-txt ml20">
+                                                        <p class="bold">앵커코리아</p>
+                                                        <p class="tiny-content"><span class="bg-main-alpha-color white-alpha pl5 pr5">진행자</span><span class="gray"> | 20.04.02</span></p>
+                                                    </div>
                                                 </div>
-                                                <div class="comment-profile-txt ml20">
-                                                    <p class="bold">앵커코리아</p>
-                                                    <p class="tiny-content"><span class="bg-main-alpha-color white-alpha pl5 pr5">진행자</span><span class="gray"> | 20.04.02</span></p>
+                                                <div class="comment-content">
+                                                    <p>안녕하세요 서포터님,</p>
+                                                    <p>프로젝트가 종료되고 일정대로 리워드를 수령하신 후 노매틱 코리아 홈페이지에 회원 가입을 하시고 1:1문의란을 통해 펀딩 증빙과 함께 요청글을 남겨주시면 적립해드리겠습니다.</p>
+                                                    <p>감사합니다!</p>
+                                                    <p>-노매틱코리아-</p>
                                                 </div>
+                                                
                                             </div>
-                                            <div class="comment-content">
-                                                <p>안녕하세요 서포터님,</p>
-                                                <p>프로젝트가 종료되고 일정대로 리워드를 수령하신 후 노매틱 코리아 홈페이지에 회원 가입을 하시고 1:1문의란을 통해 펀딩 증빙과 함께 요청글을 남겨주시면 적립해드리겠습니다.</p>
-                                                <p>감사합니다!</p>
-                                                <p>-노매틱코리아-</p>
-                                            </div>
-                                            
                                         </div>
-                                    </div>
-                                    <div class="comment-item-wrap mb20">
-                                        <div class="comment-recomment-item gray-round-box pt20 pb20 pl5p pr5p">
-                                            <div class="comment-profile flex-box flex-a-center mb10">
-                                                <div class="img-box"> 
-                                                    <img class="icon-50 icon-round" src="/images/common/profile-1.png">
+                                        <!--//대댓글-->
+                                        <!--대댓글-->
+                                        <div class="comment-item-wrap mb20">
+                                            <div class="comment-recomment-item gray-round-box pt20 pb20 pl5p pr5p">
+                                                <div class="comment-profile flex-box flex-a-center mb10">
+                                                    <div class="img-box"> 
+                                                        <img class="icon-50 icon-round" src="/images/common/profile-1.png">
+                                                    </div>
+                                                    <div class="comment-profile-txt ml20">
+                                                        <p class="bold">안태민</p>
+                                                        <p class="tiny-content"><span class="main-color">펀딩참여자</span><span class="gray"> | 20.04.02</span></p>
+                                                    </div>
                                                 </div>
-                                                <div class="comment-profile-txt ml20">
-                                                    <p class="bold">안태민</p>
-                                                    <p class="tiny-content"><span class="main-color">펀딩참여자</span><span class="gray"> | 20.04.02</span></p>
+                                                <div class="comment-content">
+                                                    <p>감사합니다!! 14번째 펀딩 참여했어요!! 해외사이트에서 눈여겨 보고 있었는데, 좋은 제품 펀딩 기획해주셔서 감사합니다. 제품 받는 그날까지, 기대하고 있을게요 ^^</p>
                                                 </div>
+                                                
                                             </div>
-                                            <div class="comment-content">
-                                                <p>감사합니다!! 14번째 펀딩 참여했어요!! 해외사이트에서 눈여겨 보고 있었는데, 좋은 제품 펀딩 기획해주셔서 감사합니다. 제품 받는 그날까지, 기대하고 있을게요 ^^</p>
-                                            </div>
-                                            
                                         </div>
+                                        <!--//대댓글-->
                                     </div>
+                                    <!--//댓글-->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -451,7 +459,7 @@
                                 <div class="w-100p product-funding">
                                     <a href="/product/product-select" class="btn-stan tiny-content funding-btn on mb10"><i class="fas fa-gift"></i> 펀딩하기</a>
                                 </div>
-                                <a href="#" class="btn-stan tiny-content w-49p product-question"><i class="far fa-question-circle"></i> <span class="dis-pc">문의하기</span></a>
+                                <button class="btn-stan tiny-content w-49p product-question" data-target=".question-box" onclick="targetActive(this)"><i class="far fa-question-circle"></i> <span class="dis-pc">문의하기</span></a>
                                 <button class="btn-stan tiny-content w-49p product-share" data-target=".sns-share" onclick="targetActive(this)"><i class="fas fa-share-square"></i> <span class="dis-pc">공유하기</span></button>
                             </div>
                         </div>
@@ -482,9 +490,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--
                                 <div class="pt20 pb20 pr5p pl5p border-top">
                                     <div class="btn-box">
-                                        <button class="btn-stan w-100p small-title" href="#"><i class="far fa-question-circle"></i> 메이커에게 문의하기</button>
+                                        <button class="btn-stan w-100p small-title"  data-target=".question-box" onclick="targetActive(this)"><i class="far fa-question-circle"></i> 메이커에게 문의하기</button>
                                     </div>
                                 </div>
                                 <div class="border-top">
@@ -497,6 +506,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </div>
@@ -550,6 +560,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 
                     <div class="product-report">
                         <div class="gray-box pt20 pb20 pr5p pl5p">
                             <p class="bold mb10">신고하기란?</p>
@@ -558,12 +569,13 @@
                             <a href="#" class="btn-stan w-100p"><i class="fas fa-bell"></i> 신고하기</a>
                         </div>
                     </div>
+                    -->
                 </aside>
                 <!--우측메뉴끝-->
             </div>
             <!--sns공유 모달-->
-            <div class="sns-share flex-j-space w-100p gray-box">
-                <div class="sns-share-content">
+            <div class="sns-share flex-j-space w-100p gray-box modal-stan">
+                <div class="sns-share-content modal-content">
                     <button class="sns-share-close" data-target=".sns-share" onclick="targetActive(this)"></button>
                     <div class="sns-text border-bottom pb20">
                         <p class="sub-title bold main-color txt-center mt10 mb20">SNS 공유하기</p>
@@ -599,6 +611,40 @@
                 </div>
             </div>
             <!--sns공유 모달끝-->
+            <!--문의하기 모달-->
+            <div class="question-box flex-j-space w-100p gray-box modal-stan">
+                <div class="question-box-content modal-content">
+                    <p class="sub-title bold main-color txt-center mt10 mb20">문의 하기</p>
+                    <button class="question-box-close sns-share-close modal-close modal-close-btn" data-target=".question-box" onclick="targetActive(this)"></button>
+                    <div class="flex-box flex-j-space pt20 pb20 pr5p pl5p border-bottom pb20">
+                        <div class="round-img-box product-maker-img">
+                            <img src="/images/product/maker-img.jpg" alt="메이커로고">
+                        </div>
+                        <div class="product-maker-link">
+                            <div class="small-content bold mb5">앤커코리아</div>
+                            <div class="mb5 tiny-content">
+                                <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
+                                <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
+                            </div>
+                            <div class="maker-sns-container flex-box">
+                                <a href="#" class="bg-sns bg-facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-blog" target="_blank">
+                                    <div class="bg-img"></div>
+                                </a>
+                                <a href="#" class="bg-sns bg-external" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt20 maker-info-box">
+                        <p><a href="tel:050713667088"><i class="fas fa-mobile-alt" aria-hidden="true"></i> 050713667088</a></p>
+                        <p><a href="mailto:support@distyfactory.com"><i class="far fa-envelope" aria-hidden="true"></i> support@distyfactory.com</a></p>
+                        <p><a href="#"><i class="fas fa-comment" aria-hidden="true"></i> 카카오 플러스친구 앤커코리아</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--문의하기 모달끝-->
         </section>
     </main>
 <%@ include file="/WEB-INF/views/include/foot.jspf"%>

@@ -121,19 +121,38 @@ $(function(){
 		target.val($(this).val());
 	})
 });
+//chk박스 전체 제어
 
+$(function(){
+    $(".chkAll").click(function(){
+        var bThis = $(this).is(":checked");
+        var $target = $($(this).data("target"));
+        $target.each(function(){
+            $(this).prop("checked",bThis);
+        });
+    });
+});
 //.chkitem 인거 value 있는지 체크
 //$(this).data("error")에 에러메시지에 띄울 값 입력
 function chkItem(item){
 	var $chkItem=$(item).find(".chkitem");
 	var bRetuen=true;
 	$chkItem.each(function(){
-		if($.trim($(this).val())==""){
-			alert($(this).data("error")+" 입력해 주세요");
-			$(this).focus();
-			bRetuen=false;
-			return false;
-		}
+        if($(this).attr("type")=="checkbox"||$(this).attr("type")=="radio"){
+            if(!$(this).is(":checked")){
+                alert($(this).data("error")+" 선택해 주세요");
+                $(this).focus();
+                bRetuen=false;
+                return false;
+            }
+        }else{
+            if($.trim($(this).val())==""){
+                alert($(this).data("error")+" 입력해 주세요");
+                $(this).focus();
+                bRetuen=false;
+                return false;
+            }
+        }
 	});
 	return bRetuen;
 }
@@ -299,6 +318,11 @@ $.fn.maxChk=function(){
     }
 };
 
+// 공백제거
+$.fn.trimVal=function(){
+    var val=$(this).val();
+    return $.trim(val);
+};
 //ajax 함수 option으로 값 설정
 //
 // url:option.url -> 보낼주소
@@ -345,16 +369,16 @@ function ajaxStan(option){
         data:option.data,
         success:function(data){
             returnData = {
-            	status:"success",
-            	data:data
+            	"status":"success",
+            	"data":data
             };
         },error:function(xhr,status,error){
             returnData = {
-            	status:"error",
-            	xhr:xhr,
-            	errstatus:status,
-            	error:error,
-            	setOption:option
+            	"status":"error",
+            	"xhr":xhr,
+            	"errstatus":status,
+            	"error":error,
+            	"setOption":option
             }
         }
     });

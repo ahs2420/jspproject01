@@ -15,10 +15,14 @@
 	            <div class="item">
 	                <a href="#">
 	                    <div class="bg-hero-cover">
+                            <!--메인 이미지-->
 	                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
 	                        <div class="container bg-txt">
+                                <!--상품 분류-->
 	                            <div class="small-title">홈리빙</div>
+                                <!--상품 제목-->
 	                            <h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
+                                <!--상품 소제목-->
 	                            <div class="sub-title"></div>
 	                        </div>
 	                    </div>
@@ -65,9 +69,13 @@
                         <div class="buy-select-item gray-round-box mb20">
                             <label for="buy-item-100">
                                 <div class="pt20 pb20 pr5p pl5p">
+                                    <!--{금액} 원 펀딩-->
                                     <p class="sub-title bold mb5">229,000원 펀딩</p>
+                                    <!--{옵션이름} 현제 n 개 남음!-->
                                     <p class="mb5"><span class="small-title bold">솔로버드[블랙]</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></p>
+                                    <!--{옵션구성상세}-->
                                     <p class="gray tiny-content mb5 bold">로보백 1 세트</p>
+                                    <!--배송비 {배송비} |  리워드 발송 시작일:{발송 예정일} 예정-->
                                     <p class="tiny-content bold">배송비 3,000원 | 리워드 발송 시작일:2020년 05월 말(21~말일) 예정</p>
                                     <div class="buy-select-option mt20">
                                         <div class="flex-box flex-j-space flex-wrap">
@@ -83,9 +91,12 @@
                                                 <p class="bold mb5">옵션</p>
                                                 <select class="select-stan" name="buy-item-100-option">
                                                     <option value="">선택해주세요</option>
-                                                    <option value="b">블랙</option>
-                                                    <option value="r">레드</option>
-                                                    <option value="g">그린</option>
+                                                    <!--
+                                                        {옵션이름} -> 구분자는 |로 해서 그대로 넣어라
+                                                    -->
+                                                    <c:forTokens var="item" items="블랙|레드|그린" delims="|">
+                                                        <option value="${item}">${item}</option>
+                                                    </c:forTokens> 
                                                 </select>
                                             </div>
                                         </div>
@@ -194,6 +205,7 @@
                         <div class="mb20">
                             <p class="small-content">
                                 <span class="bold">
+                                <!--상품 이름-->
                                 [마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!
                                 </span>
                                 에 

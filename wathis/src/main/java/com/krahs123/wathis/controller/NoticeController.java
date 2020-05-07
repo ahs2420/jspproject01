@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/notice")//사이트 큰 주소
 public class NoticeController {
 	final String DIR ="/notice/";
 	@RequestMapping("/list")
@@ -12,8 +12,12 @@ public class NoticeController {
 		return DIR+"notice-list";
 	}
 	@RequestMapping("/content")
-
 	public String viewContent() {
 		return DIR+"notice-content";
+	}
+	@RequestMapping("/write")//사이트 작은 주소
+	public String viewWrite() {
+		return DIR+"notice-write";//jsp파일 이름
+		
 	}
 }
