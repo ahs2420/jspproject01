@@ -1,0 +1,5 @@
+package com.krahs123.wathis.service.member;
+
+public interface MemberAddrService {
+
+}

@@ -47,12 +47,16 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- mysql jdbc -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>8.0.18</version>
 		</dependency>
+		
+		<!-- mybatis -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
@@ -65,18 +69,30 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>2.0.4</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+		<dependency>
+		    <groupId>org.mybatis.spring.boot</groupId>
+		    <artifactId>mybatis-spring-boot-starter</artifactId>
+		    <version>2.1.2</version>
+		</dependency>
+				
+		<!-- 개발환경에 필요해서 설치(배포시에는 삭제) -->
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		    <version>9.0.34</version>
 		</dependency>
+		
+		<!-- jsp에서 프로그램 처리 -->
 		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
 		<dependency>
 		    <groupId>jstl</groupId>
 		    <artifactId>jstl</artifactId>
 		    <version>1.2</version>
 		</dependency>
+		
+		<!-- 파일 업로드 사용 -->
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 		    <groupId>commons-io</groupId>
@@ -95,6 +111,7 @@
 		    <artifactId>commons-lang3</artifactId>
 		    <version>3.10</version>
 		</dependency>
+		
 		
 	</dependencies>
 
