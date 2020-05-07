@@ -266,7 +266,9 @@ input[type="radio"] { display: none;}
     /* margin-bottom: 50px; */
     font-size: 15px;
 }
-
+.line-he{
+	line-height: 39px
+}
 /* 이용약관 부분 */
 .all-img {
     width: 100%;
