@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/login")
 public class LoginController {
 	final String DIR ="/login/";
-	
+	//
 	@RequestMapping("/login-page")
 	public String viewLoginpage() {
 		return DIR +"login-page";
