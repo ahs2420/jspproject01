@@ -274,7 +274,7 @@ input[type="radio"] { display: none;}
 
     margin: 0 auto;
 
-    background-image: url(images/group.png);
+    background-image: url(../../hongimages/images/group.png);
     background-repeat: no-repeat;
     background-position: right bottom;
     position: relative;

@@ -1,20 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/log-one.css">
-<script src="https://kit.fontawesome.com/8838b56230.js"
-	crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-	crossorigin="anonymous"></script>
-<script src="../js/login-page.js"></script>
-<title>로그인 화면</title>
+<%@include file="../hong-include/head.jspf"%>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../hongcss/login/login-page.css">
+<script src="../hongjs/login/login-page.js"></script>
 <style>
 @media ( max-width : 768px) {
 	.all-box {
