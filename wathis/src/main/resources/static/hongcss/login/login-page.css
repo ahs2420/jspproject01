@@ -1,0 +1,432 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+}
+
+/* .all-img{//스타일 시크에서 사진 넣을떄는 ../해야함
+      width: 100%;
+      height: 900px;
+      background-image: url(../images/배경.jpg);
+      background-repeat: no-repeat;
+      
+    } */
+
+    .container{
+        position: relative;
+        min-height: 100vh;
+        align-items: center;
+        display: flex;
+    }
+
+    .sing-inup-box1 {
+    max-width:370px;
+    width: 100%;
+    /* background-color: rgba(8, 19, 80, 0.774); */
+    background: linear-gradient(#081350c5,#4f515bc4);
+    border-radius: 10px;
+    
+    padding: 30px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+    
+
+}
+/* .radio-in::after{
+    content: "";
+    display: inline-block;
+    width: 70px;
+    border: 2px solid blue;
+} */
+
+/* .in-box1{
+    background-color: green;
+   
+} */
+
+
+input[type="radio"] { display: none;}
+.sing-ra-box{
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+.radio-up{
+    margin-left: 30px;
+}
+
+.sing-inup-box1 .label{
+     
+    color: #fff;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.keep,.for{
+    color: #fff;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 600;
+    
+}
+
+.in-box-id>.in-name-text,
+.in-box-pwd>.in-pwd-text,
+.in-box-bu>.in-button {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 50px;
+    border-collapse: collapse;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, .2);
+    margin-bottom: 24px;
+
+}
+.label{
+    text-transform: capitalize;
+}
+.in-box-id,.in-box-pwd,
+.in-box-bu{
+    /* background-color: brown; */
+    height: 100px;
+}
+.in-name-text,.in-pwd-text{
+    margin-top:5px;
+}
+.in-box-bu{
+    margin-top:15px;
+    
+}
+.in-box-bu>.in-button {
+    /* background-color: rgba(16, 89, 255, 1); */
+    background-color:#0073b1;
+    color: #fff;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
+/* sign up */
+
+.up-box-text>.up-name-text,
+.up-box-text>.up-pwd-text,
+.up-box-text>.up-repwd-text,
+.up-box-text>.up-email-text,
+.up-box-text>.up-button {
+
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    border-collapse: collapse;
+    outline: none;
+    padding-left: 15px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    margin-bottom: 30px;
+}
+
+.up-box-text>.up-button {
+    /* background-color: rgba(16, 89, 255, 1); */
+    background-color:#0073b1;
+    color: #fff;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin: 20px 0 20px 0;
+    cursor: pointer;
+
+    border: none;
+}
+/* 
+.up-box1{
+    background-color: greenyellow;
+
+} */
+.in-box-ke{
+    margin-top: 10px;
+}
+
+.up-box-text{
+    /* background-color: brown; */
+    height: auto;
+}
+
+.up-text-label{
+    margin: 5px 0;
+}
+
+
+.hr {
+    margin: 10px 0 11px 0;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.foot-lnk{
+    text-align: center;
+
+}
+
+
+.foot-lnk a{
+    /* background-color: blue; */
+    font-size: 14px;
+    margin-top: 30px;
+    font-weight: 400;
+    /* margin-bottom: 10px; */
+}
+
+
+.site-box{
+    height:90px;
+    /* margin-top: 10px; */
+    /* background-color: indigo; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin-top: 20px;
+    
+}
+
+
+.facebook a{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: #3b5998;
+    /* margin-bottom: 50px; */
+    font-size: 15px;
+}
+
+
+.google a{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: #f43e57;
+    /* margin-top: 50px; */
+    font-size: 15px;
+}
+
+.linkedin a{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: #0073b1;
+    /* margin-bottom: 40px; */
+    font-size: 15px;
+}
+
+.twitter a{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: #ffb878;
+    /* margin-top: 50px; */
+    font-size: 15px;
+}
+.wadiz a{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: #00cccb;
+    /* margin-bottom: 50px; */
+    font-size: 15px;
+}
+
+/* 이용약관 부분 */
+.all-img {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    background-image: url(images/group.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+/* 라디오 부분 파란색 밑줄  */
+input[name=tab]:checked+label {
+    position: relative;
+}
+
+input[name=tab]:checked+label::after {
+    position: absolute;
+    content: "";
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #0073b1;
+
+}
+.all-img{
+    /* background-color: slategray; */
+    margin-top: 10px;
+}
+
+
+.all-box {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    height: 700px;
+
+}
+
+.flex-box {
+    display: flex;
+    /* background-color: slategray; */
+}
+
+/* 이용 약관 화면 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000080;
+
+}
+
+.modal-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal.active {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+.modal-container {
+    margin: 0 auto;
+    max-width: 560px;
+    width: 100%;
+    padding: 20px 30px;
+    background-color: rgba(242, 232, 232, 0.81);
+    border-radius: 5px;
+    z-index: 1;
+
+    position: relative;
+}
+
+.modal-container i {
+    position: absolute;
+    top: -17px;
+    right: -17px;
+    font-size: 40px;
+    background-color: #fffbfb;
+    border-radius: 50px;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.modal-content {
+    height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    /* background-color: saddlebrown; */
+}
+
+
+
+/* .modal-close-img {
+    background-color: royalblue;
+    display: inline-block;
+} */
+
+/* 체크박스  */
+/* .modal-flex {
+    position: relative;
+    background-color: #00f;
+} */
+
+.modal-text {
+    height: 40px;
+    /* background-color: salmon; */
+}
+
+.modal-text h3 {
+    text-align: center;
+    /* background-color: #fff; */
+}
+
+
+.in-box-ke {
+    /* background-color: bisque; */
+    height: 30px;
+
+}
+
+.keep-up {
+    font-size: 15px;
+    vertical-align: baseline;
+
+}
+
+.signin-ck {
+    vertical-align: middle;
+}
+
+
+a {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.signup-ck {
+    vertical-align: middle;
+}
+.signup-a-box{
+    
+    font-size: 14px;
+}
+.up-box-text a {
+    vertical-align: baseline;
+    display: inline;
+}

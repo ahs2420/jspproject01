@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="/css/reset.css">
-<link rel="stylesheet" href="/hongcss/mypage-two.css">
+<link rel="stylesheet" href="/hongcss/mypage/mypage-two.css">
 
 
     <header>
