@@ -124,7 +124,7 @@
                         <div class="small-title mb20">
                             메이커의 아이디어와 신용을 믿고 제품 생산을 위한 자금을 모으는 것입니다.
                         </div>
-                        <a href="/introduce" class="btn-stan btn-alerm bold">
+                        <a href="/introduce#why-crowd" class="btn-stan btn-alerm bold">
                             바로가기 <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
