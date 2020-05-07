@@ -85,7 +85,7 @@
 									</div>
 									<div>
 										<p class="bold mb5">휴대폰번호</p>
-										<p class="mb5"><input type="tel" name="phone" class="input-stan chkitem" data-error="휴대폰번호를" placeholder="숫자만 입력" /></p>
+										<p class="mb5"><input type="tel" name="phone" class="input-stan chkitem" data-error="휴대폰번호를" maxlength="15" placeholder="숫자만 입력" /></p>
 										<input type="checkbox" name="info-check"  value="1" id="info-check" checked />
 										<label for="info-check" class="tiny-content">(필수) 펀딩 진행에 대한 새소식 및 결제 관련 안내를 받습니다.</label>
 									</div>
@@ -223,26 +223,26 @@
 								<div class="mt10">
 									<p class="bold mb5">신용(체크)카드번호</p>
 									<div class="flex-box flex-j-space">
-										<input type="text" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
-										<input type="text" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
-										<input type="text" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
-										<input type="text" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
+										<input type="text" maxlength="4" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
+										<input type="text" maxlength="4" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
+										<input type="text" maxlength="4" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
+										<input type="text" maxlength="4" class="input-stan w-24p chkitem" data-error="신용(체크)카드번호를" />
 									</div>
 								</div>
 								<div class="mt10 flex-box flex-j-space">
 									<div class="w-49p">
 										<p class="bold mb5">유효기간</p>
-										<input type="text" class="input-stan w-100p chkitem" data-error="카드 유효기간을" />
+										<input type="text" name="cardValidity" id="cardValidity" maxlength="5" placeholder="MM/YY" class="input-stan w-100p chkitem" data-error="카드 유효기간을" />
 									</div>
 									<div class="w-49p">
 										<p class="bold mb5">비밀번호</p>
-										<input type="text" class="input-stan w-100p chkitem" data-error="카드 비밀번호를" />
+										<input type="text" maxlength="2" placeholder="앞2자리" class="input-stan w-100p chkitem" data-error="카드 비밀번호를" />
 									</div>
 								</div>
 								<div class="mt10">
 									<p class="bold mb5">생년월일 (주민번호 앞 6자리)</p>
 									<p class="tiny-content gray mb5">무기명 법인카드는 사업자등록번호 10자리를 입력하세요.</p>	
-									<input type="text" class="input-stan w-100p chkitem" data-error="생년월일(주민번호 앞 6자리)를" />
+									<input type="text" maxlength="10" class="input-stan w-100p chkitem" data-error="생년월일(주민번호 앞 6자리)를" />
 								</div>
 							</div>
 							<div class="dis-labtop mb20">&nbsp;</div>
@@ -265,7 +265,7 @@
 								<input type="checkbox" id="chkAll" class="chkAll" data-target=".termChk">
 								<label class="ml5" for="chkAll">전체 동의하기</label>
 							</div>
-							<div class="pl10 pr10 mt10 flex-box flex-j-space">
+							<div class="pl10 pr10 mt20 flex-box flex-j-space">
 								<p>
 									<input type="checkbox" id="termChk1" class="termChk chkitem" data-error="제 3자에 대한 개인정보 제공 동의를" value="1" data-target=".termChk">
 									<label class="ml5" for="termChk1">제 3자에 대한 개인정보 제공 동의</label>

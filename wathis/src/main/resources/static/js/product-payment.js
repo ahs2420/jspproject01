@@ -15,3 +15,11 @@ $(function(){
         return bReturn;
     });
 });
+$(function(){
+    $("#cardValidity").keydown(function(){
+        var val = $(this).trimVal();
+        if(val.length==2&&event.keyCode!=8){
+            $(this).val(val.toString().replace(/(.{2})/g,"$1/"));
+        }
+    });
+});

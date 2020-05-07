@@ -1358,6 +1358,9 @@ nav.active{
     .top-menu-m-side:last-child{
         text-align: right;
     }
+    .modal-stan .modal-content{
+        width: calc(100% - 20px);
+    }
 }
 @media (max-width:480px){
     .col-xs-1{width: calc(100% / 12);}

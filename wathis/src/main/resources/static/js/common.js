@@ -318,6 +318,11 @@ $.fn.maxChk=function(){
     }
 };
 
+// 공백제거
+$.fn.trimVal=function(){
+    var val=$(this).val();
+    return $.trim(val);
+};
 //ajax 함수 option으로 값 설정
 //
 // url:option.url -> 보낼주소
