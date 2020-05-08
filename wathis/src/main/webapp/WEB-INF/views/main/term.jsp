@@ -40,10 +40,10 @@
     </div>
     <div class="term-nav">
         <ul class="term-menu flex-box flex-j-center flex-wrap">
-            <li class="w-24p col-sm-6 bold term_register"><a class="term-view-btn" type="button" data-target="term_register">회원가입약관</a></li>
-            <li class="w-24p col-sm-6 bold term_service"><a class="term-view-btn" type="button" data-target="term_service">서비스이용약관</a></li>
-            <li class="w-24p col-sm-6 bold term_privacy"><a class="term-view-btn" type="button" data-target="term_privacy">개인정보처리방침</a></li>
-            <li class="w-24p col-sm-6 bold term_operation"><a class="term-view-btn" type="button" data-target="term_operation">운영정책</a></li>
+            <li class="w-24p col-sm-6 bold term_register"><a href="#term_register" class="term-view-btn" type="button" data-target="term_register">회원가입약관</a></li>
+            <li class="w-24p col-sm-6 bold term_service"><a href="#term_service" class="term-view-btn" type="button" data-target="term_service">서비스이용약관</a></li>
+            <li class="w-24p col-sm-6 bold term_privacy"><a href="#term_privacy" class="term-view-btn" type="button" data-target="term_privacy">개인정보처리방침</a></li>
+            <li class="w-24p col-sm-6 bold term_operation"><a href="#term_operation" class="term-view-btn" type="button" data-target="term_operation">운영정책</a></li>
             <!-- <li><a href="#">서포터</a></li> -->
         </ul>
     </div>
