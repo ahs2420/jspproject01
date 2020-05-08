@@ -358,7 +358,7 @@ $.fn.trimVal=function(){
 //      }
 // 	});
 // });
-
+//ajax 기본
 function ajaxStan(option){
     var returnData="";
     $.ajax({

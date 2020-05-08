@@ -97,7 +97,7 @@
                 </div>
             </div>
         </section>
-        <section id="why-crowd">
+        <section id="crowdInfo">
             <div class="container">
                 <div class="flex-box flex-wrap flex-j-space flex-a-flexend">
                     <div class="w-45p col-md-12">
@@ -105,9 +105,11 @@
                         <p class="mt50">
                             리워드형 크라우드펀딩은 아이디어나 제품이 있는
                             사람이 대중의 펀딩을 통해 자금을 모집하거나 수익을
-                            내는 크라우드 펀딩입니다. 수익금으로 시제품(서비스)
-                            단계의 제품을 발전시켜 리워드로 제공하는 형태부터,
-                            수익금의 전액 또는 일부를 기부하는 형태까지 다양한
+                            내는 크라우드 펀딩입니다. 
+                            <span class="main-color-dark bold"> 
+                                시제품(서비스) 단계의 제품을 발전시켜 리워드로 제공하는 형태부터, 수익금의 전액 또는 일부를 기부하는 형태
+                            </span>
+                            까지 다양한
                             형태의 크라우드펀딩이 이에 포함됩니다.
                         </p>
                         <p class="mt30">
@@ -135,8 +137,46 @@
                 </div>
             </div>
         </section>
+        <section class="bg-gray">
+            <!--오시는길-->
+            <div class="container section-location">
+                <div class="flex-box flex-j-space flex-a-center flex-wrap ">
+                    <div class="col-lg-5 col-sm-12" id="fadeInLeft">
+                        <h1 class="title mb10"><span class="main-color">L</span>ocation</h1>
+                        <p class="mb20">와디스로 오시는길</p>
+                        <p class="gray mb10">주소</p>
+                        <p class="mb20">OO시 OO구 OO로 123 (OO동) OOOO센터 O동 O층 OO호</p>
+                        <div class="flex-box flex-wrap">
+                            <div class="col-lg-6 col-sm-12">
+                                <p class="gray mb10">Phone:</p>
+                                <p class="mb20"><a href="tel:010-1234-1234">010-1234-1234</a></p>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <p class="gray mb10">Email:</p>
+                                <p class="mb20"><a href="mailto:admin@krahs123.co.kr">admin@krahs123.co.kr</a></p>
+                            </div>
+                        </div>
+                        <p class="gray mb10">Website:</p>
+                        <p>
+                            <a href="https://www.krahs123.co.kr">https://www.krahs123.co.kr</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 google-map" id="fadeInRight">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101324.72305476252!2d126.93800076924603!3d37.47494286708044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca7f433e4612b%3A0x6377f5a2f91812fa!2z7JmA65SU7KaI!5e0!3m2!1sko!2skr!4v1584952546931!5m2!1sko!2skr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                        
+                </div>
+            </div>
+        </section>
     </main>
 <%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- 추가 script 삽입 -->
+    <script>
+        $(function(){
+            if(location.hash=="#why-crowd"){
+                $("html,body").scrollTop($("#crowdInfo").offset().top-$("nav").height());
+            }
+        });
+    </script>
 </html>

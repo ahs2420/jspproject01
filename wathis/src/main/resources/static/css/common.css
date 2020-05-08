@@ -639,7 +639,7 @@ nav.active{
     color: #fff;
     text-align: center;
 }
-.hero.item-only .bg-img.bg-main{
+.hero.item-only:not(.no-blur) .bg-img.bg-main{
     filter: blur(8px);
     -webkit-filter: blur(8px);
 }

@@ -137,7 +137,7 @@
                         <div class="small-title mb20">
                             당신의 이야기를 소개하고 투자자와 서포터를 만나 보세요
                         </div>
-                        <a href="#" class="btn-stan btn-alerm bold">
+                        <a href="/page/mypage" class="btn-stan btn-alerm bold">
                             바로가기 <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>

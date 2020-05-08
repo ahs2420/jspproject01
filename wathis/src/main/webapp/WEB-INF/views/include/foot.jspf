@@ -4,14 +4,14 @@
     <footer>
         <div class="term-box">
             <div class="container">
-                <a href="#">회원가입약관</a>
-                <a href="#">서비스이용약관</a>
-                <a href="#">개인정보처리방침</a>
-                <a href="#">운영정책</a>
-                <a href="#">제휴문의</a>
+                <a href="/term">회원가입약관</a>
+                <a href="/term#term_service">서비스이용약관</a>
+                <a href="/term#term_privacy">개인정보처리방침</a>
+                <a href="/term#term_operation">운영정책</a>
+                <!-- <a href="#">제휴문의</a>
                 <a href="#">공지사항</a>
                 <a href="#">인제채용</a>
-                <a href="#">SNS</a>
+                <a href="#">SNS</a> -->
             </div>
         </div>
         <div class="footer-box"> 
