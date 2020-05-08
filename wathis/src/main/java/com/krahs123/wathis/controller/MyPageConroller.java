@@ -39,6 +39,11 @@ public class MyPageConroller {
 	public String viewMypagefive(){
 		return DIR+"mypage-five";
 	}
+	//회원 정보수정(setting)
+	@RequestMapping("/setting")
+	public String viewSettings(){
+		return DIR+"mypage-setting";
+	}
 
 
 }
