@@ -15,16 +15,14 @@
 	    <div class="hero item-only">
 	        <div class="owl-carousel owl-hero owl-theme">
 	            <div class="item">
-	                <a href="#">
-	                    <div class="bg-hero-cover">
-	                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
-	                        <div class="container bg-txt">
-	                            <div class="small-title">홈리빙</div>
-	                            <h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
-	                            <div class="sub-title"></div>
-	                        </div>
-	                    </div>
-	                </a>
+					<div class="bg-hero-cover">
+						<div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
+						<div class="container bg-txt">
+							<div class="small-title">홈리빙</div>
+							<h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
+							<div class="sub-title"></div>
+						</div>
+					</div>
 	            </div>
 	        </div>
 	        <!--슬라이더 버튼-->

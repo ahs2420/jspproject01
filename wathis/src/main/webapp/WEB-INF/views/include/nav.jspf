@@ -37,7 +37,7 @@
                             </ul> -->
                         </li>
                         <li>
-                            <a class="hover-underline" href="#">메뉴3</a>
+                            <a class="hover-underline" href="/introduce">와디즈 소개</a>
                             <!-- <ul class="sub-menu">
                                 <li><a class="hover-main" href="#">서브메뉴1</a></li>
                                 <li><a class="hover-main" href="#">서브메뉴2</a></li>
@@ -119,7 +119,7 @@
                     </ul> -->
                 </li>
                 <li class="mobile-menu">
-                    <a href="#">메뉴3</a>
+                    <a href="/introduce">와디즈 소개</a>
                     <!-- <ul class="sub-menu">
                         <li><a class="hover-main" href="#">서브메뉴1</a></li>
                         <li><a class="hover-main" href="#">서브메뉴2</a></li>
