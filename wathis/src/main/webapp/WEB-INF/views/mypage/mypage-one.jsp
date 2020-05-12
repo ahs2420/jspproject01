@@ -3,7 +3,7 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypage-one.css">
-
+<script src="../hongjs/mypage/common.js"></script>
     <header>
         <div class="position-fix">
             <div class="head-con">

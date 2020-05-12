@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<!-- 별명 설정을 위해서 -->
+	<typeAliases>
+		<!-- 
+			하는이유는
+			sql에 as 쓰는거와 비슷함
+			typeAlias를typeAliases안에 여러게 써도됨  
+		-->
+		<!-- model에 설정된 class(getter,setter)를 편하게 사용하기위해 -->
+		<!-- 
+			type -> 원래 class이름
+			alias -> 별명 
+			<typeAlias 
+				type="com.example.site.model.UserVO"
+				alias="uservo"
+			/>
+		-->
+	</typeAliases>
+</configuration>

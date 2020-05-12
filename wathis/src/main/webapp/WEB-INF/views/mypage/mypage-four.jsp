@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypage-four.css">
 <script src="/js/common.js"></script>
+<script src="../hongjs/mypage/common.js"></script>
     <header>
         <div class="position-fix">
             <div class="head-con">
