@@ -10,7 +10,6 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
 .resive-main {
 	background-color: #f9f9f9;
 }
@@ -80,7 +79,7 @@
 	text-align: center;
 	border:0;
 	border-bottom: 1px solid #00b2b2;
-	
+		outline: 0;
 }
 
 .ckeditor {
@@ -92,6 +91,28 @@
 	border:1px solid #999;
 	padding : 50px 30px;
 	min-height: 60vh;
+}
+
+.resive-select-box{
+position:relative;
+}
+.resive-class {
+	appearance: none;
+  -webkit-appearance : none ;
+}
+.resive-class::-ms-expand {
+  display : none ;
+}
+.resive-select-box select+label {
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    border-top: 10px solid #6b6b6b;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    display: block;
 }
 @media ( max-width : 1200px) {
 	.resive-container {
@@ -159,6 +180,7 @@
 		color: #ccc;
 	}
 }
+
 </style>
 </haed>
 <body>
@@ -174,13 +196,14 @@
 				<div class="margin-top"></div>
 				<div class="resive-wrap">
 					<div class="resive-select-box">
-						<select name="title-select" class="resive-class">
+						<select name="title-select" class="resive-class" id="">
 							<option value="">게시판 선택</option>
 							<option value="">공지·알림</option>
 							<option value="">이벤트·진행중</option>
 							<option value="">이벤트·종료</option>
 							<option value="">보도자료</option>
 						</select>
+						<label class="resive-label" form=""></label>
 					</div>
 					<div class="resive-title-box">
 						<input type="text" class="resive-title" name="title"
