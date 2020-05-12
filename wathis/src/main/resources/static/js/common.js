@@ -2,17 +2,21 @@
 //document.write('<scr'+'ipt type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js" ></scr'+'ipt>');
 // 히어로 슬라이드
 $(function(){
-    $('.owl-hero').owlCarousel({
-        loop:true,
-        nav:true,
-        items:1,
-        autoplay:true,
-        autoplayTimeout:3000,
-        autoplayHoverPause:true,
-        dotsContainer:".owl_hero_dots",
-        navContainer:".owl_hero_nav",
-        navContainerClass:"owl-nav"
-    });
+    try{
+        $('.owl-hero').owlCarousel({
+            loop:true,
+            nav:true,
+            items:1,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            dotsContainer:".owl_hero_dots",
+            navContainer:".owl_hero_nav",
+            navContainerClass:"owl-nav"
+        });
+    }catch{
+
+    }
 });
 // 타겟 토글
 $(function(){
@@ -155,6 +159,18 @@ function chkItem(item){
         }
 	});
 	return bRetuen;
+}
+//cke내용 확인
+$.fn.chkCke=function(){
+    var ckeditor = CKEDITOR.instances[$(this).attr('id')]; 
+    if (ckeditor.getData()=="")
+    {
+        alert('내용을 입력 하세요');
+        ckeditor.focus();
+        return false;
+    }
+    return true;
+
 }
 //비밀번호 확인
 function chkPasswd(item){
@@ -383,4 +399,62 @@ function ajaxStan(option){
         }
     });
     return returnData;
+}
+
+//파일 확장자 체크
+/*
+obj -> file태그 
+*/
+function checkFile(obj) {
+    var filename = $(obj).val().substring($(obj).val().lastIndexOf('\\')+1);//원래 파일 이름
+    var tg_name=$(obj).data("target");// 원래 파일이름이 보일곳(input)
+    var fileType=$(obj).data("file-type");//파일 확장자 비교 타입
+    var ext = filename.substring(filename.lastIndexOf('.')+1).toLowerCase();
+    var extChk=(fileType=="img")?["jpg","jpeg","png","gif"]:["jpg","png","gif","xls","doc","pptx","xlsx","docx","zip","txt","pdf"];
+    
+	if (extChk.indexOf(ext) >= 0 ) {
+		$(tg_name).val( filename );
+	} else {
+        alert("허용된 확장자가 아닙니다. 다시 선택해 주세요.\n(허용된 확장자 파일 : "+extChk.join(" , ")+")");
+        $(obj).val("");
+		return false;
+	}
+    return true;
+}
+//파일 용량 체크
+function checkFileSize(obj,maxSizeMB) {
+    var maxSize=maxSizeMB*1024*1024;//파일 확장자 비교 타입
+
+    var browser=navigator.appName;
+	var fileSize=0;
+	// 익스플로러일 경우
+	if (browser=="Microsoft Internet Explorer")
+	{
+		var oas = new ActiveXObject("Scripting.FileSystemObject");
+		fileSize = oas.getFile( obj.value ).size;
+	}
+	// 익스플로러가 아닐경우
+	else
+	{
+		fileSize = obj.files[0].size;
+	}
+    if(fileSize > maxSize){
+        alert("첨부파일 사이즈는 "+maxSizeMB+"MB 이내로 등록 가능합니다. ");
+        $(obj).val("");
+        return false;
+     }
+     return true;
+}
+//이미지 미리보기
+function imgPreview(obj) {
+    var preview = $(obj).data("preview")
+    if (obj.files && obj.files[0]) {
+     var reader = new FileReader();
+     
+     reader.onload = function (e) {
+        $(preview).attr('src', e.target.result);  
+     }
+     
+     reader.readAsDataURL(obj.files[0]);
+     }
 }

@@ -32,3 +32,4 @@
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/owl/owl.carousel.js"></script>
     <script src="/js/common.js"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

@@ -5,7 +5,6 @@
 <!-- 추가 css,js -->
     <link rel="stylesheet" href="/css/product-payment.css">
     <script src="/js/product-payment.js"></script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </haed>
 <body>
 	<header>
@@ -178,6 +177,8 @@
 									<div class="mt10">
 										<p class="bold mb5">이름</p>
 										<input type="text" class="input-stan w-100p chkitem" data-error="배송받을 사람의 이름을" id="deliveryName" placeholder="이름" />
+										<input type="hidden" name="newDeleveryChk" id="newDeleveryChk" value="false" />
+										<!--신규 배송지 체크(신규면 저장되게)-->
 									</div>
 									<div class="mt10">
 										<p class="bold mb5">연락처</p>
@@ -185,7 +186,7 @@
 									</div>
 									<div class="flex-box flex-j-space flex-a-center mt10">
 										<p class="bold mb5">주소</p>
-										<button type="button" class="btn-stan" onclick="execDaumPostcode()">주소검색</button>
+										<button type="button" class="btn-stan" id="daum-map-btn" onclick="execDaumPostcode()">주소검색</button>
 										<input type="hidden" name="" class="input-stan chkitem" data-error="우편주소를 검색해서 주소를" id="postcode" placeholder="우편번호" />
 										<input type="hidden" class="input-stan w-100p chkitem" data-error="우편주소를 검색해서 주소를" id="address" placeholder="주소" />
 										<input type="hidden" class="input-stan w-100p chkitem" data-error="우편주소를 검색해서 주소를" id="extraAddress" placeholder="참고항목" />
@@ -207,7 +208,9 @@
 									</div>
 								</div>
 							</div>
-							<!--//배송지 정보-->
+							<!--//배송지 정보 -> 기본 배송지 있을 경우 요청사항빼고 readonly추가
+												-> 기본 배송지 없을경우 신규배송지만 보이게 + readonly 빼라
+							-->
 						</div>
 					</div>
 					<!--//서포터 정보 + 배송지 정보-->
@@ -387,6 +390,10 @@
 										data-delivery-phone="modalphone1" onclick="targetActive(this)">
 										선택
 								</button>
+								<button class="btn-stan btn-main deleveryChk" type="button"
+									data-url="/delevery/deleteAjax"
+									data-id="1"
+								>삭제</button>
 							</div>
 	    				</td>
 	    			</tr>
@@ -418,6 +425,10 @@
 									data-delivery-phone="modalphone2" onclick="targetActive(this)">
 									선택
 								</button>
+								<button class="btn-stan btn-main deleveryChk" type="button"
+									data-url="/delevery/deleteAjax"
+									data-id="1"
+								>삭제</button>
 							</div>
 	    				</td>
 	    			</tr>
@@ -432,7 +443,17 @@
 		// 우편번호 찾기 찾기 화면을 넣을 element
 		var element_wrap = document.getElementById('daum-map-wrap');
 		var daum_wrap = document.getElementById('daum-wrap');
-
+		var themeObj = {
+							bgColor: "#FFFFFF", //바탕 배경색
+							//searchBgColor: "#0B65C8", //검색창 배경색
+							//contentBgColor: "", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+							//pageBgColor: "", //페이지 배경색
+							//textColor: "", //기본 글자색
+							//queryTextColor: "#FFFFFF" //검색창 글자색
+							//postcodeTextColor: "", //우편번호 글자색
+							//emphTextColor: "", //강조 글자색
+							//outlineColor: "", //테두리
+						};
 		function foldDaumPostcode() {
 			// iframe을 넣은 element를 안보이게 한다.
 			daum_wrap.style.display = 'none';
@@ -442,6 +463,7 @@
 			// 현재 scroll 위치를 저장해놓는다.
 			var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
 			new daum.Postcode({
+   				theme: themeObj,
 				oncomplete: function(data) {
 					// 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
