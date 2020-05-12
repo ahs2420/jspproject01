@@ -57,7 +57,8 @@
                     <h1 class="large-title bold">기본 정보 설정</h1>
                 </div>
                 <div class="mt20">
-                    <input type="file" id="thumbnail" data-target="" data-file-type="img" data-preview=".user-thumbnail-label img" class="dis-none"/>
+                    <input type="file" id="thumbnail" data-target=".test" data-file-type="img" data-preview=".user-thumbnail-label img" class="dis-none"/>
+                    <input  class="test" />
                     <label class="user-thumbnail-label" for="thumbnail">
                         <img src="/images/icon/file-upload-icon.png" alt="썸네일 기본"/>
                     </label>
