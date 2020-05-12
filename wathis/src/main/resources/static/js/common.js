@@ -161,6 +161,7 @@ function chkItem(item){
 	return bRetuen;
 }
 //cke내용 확인
+//$(this).chkCke();
 $.fn.chkCke=function(){
     var ckeditor = CKEDITOR.instances[$(this).attr('id')]; 
     if (ckeditor.getData()=="")
