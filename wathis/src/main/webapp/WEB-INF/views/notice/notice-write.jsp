@@ -38,7 +38,7 @@
 	margin-bottom: 10px;
 	border: 0;
 	border-bottom: 1px solid #00b2b2;
-	font-size: 30px;
+	font-size: 25px;
 }
 .resive-btn-box {
 	text-align: center;
@@ -119,15 +119,16 @@ position:relative;
 		width: 100%;
 		padding: 0px 20px;
 	}
+.resive-class{
+	margin-top:10px;
+}
 }
 
 @media ( max-width : 1080px) {
 }
 
 @media ( max-width : 768px) {
-	.resive-title {
-		width: 300px;
-	}
+
 }
 
 @media ( max-width : 480px) {
@@ -135,9 +136,8 @@ position:relative;
 		width: 100%;
 	}
 	.resive-class {
-		width: 100%;
+		width: 80%;
 		height: 30px;
-		border: 1px solid #888;
 		padding-left: 10px;
 		outline: none;
 	}
@@ -147,7 +147,7 @@ position:relative;
 	input.resive-title {
 		width: 100%;
 		height: 30px;
-		border-bottom: 1px solid #888;
+		
 		border-top: 0;
 		padding: 0 10px;
 	}
@@ -191,23 +191,23 @@ position:relative;
 	</header>
 	<!-- main내용삽입 -->
 	<main class="resive-main">
-		<form action="" enctype="multipart/form-data" method="post" id="">
+		<form action="" enctype="multipart/form-data" method="post" id="uploadForm">
 			<div class="resive-container">
 				<div class="margin-top"></div>
 				<div class="resive-wrap">
 					<div class="resive-select-box">
-						<select name="title-select" class="resive-class" id="">
+						<select name="title-select" class="resive-class write-chkItem " data-error="게시판 선택" id="">
 							<option value="">게시판 선택</option>
-							<option value="">공지·알림</option>
-							<option value="">이벤트·진행중</option>
-							<option value="">이벤트·종료</option>
-							<option value="">보도자료</option>
+							<option value="공지·알림">공지·알림</option>
+							<option value="이벤트·진행중">이벤트·진행중</option>
+							<option value="이벤트·종료">이벤트·종료</option>
+							<option value="보도자료">보도자료</option>
 						</select>
 						<label class="resive-label" form=""></label>
 					</div>
 					<div class="resive-title-box">
-						<input type="text" class="resive-title" name="title"
-							data-pc-placeholder="게시글 제목을 입력해주세요."
+						<input type="text" class="resive-title write-chkItem" data-error="제목을 입력" name="title"
+							data-pc-placeholder="제목을 입력해주세요."
 							data-mobile-placeholder="제목">
 					</div>
 					<div class="resive-border-box">
@@ -220,6 +220,8 @@ position:relative;
 								filebrowserImageUploadUrl : '/cke/imageUpload'
 							});
 						</script>
+						<input id="uploadFile" type="file" name="files" data-cke-target="editor1" data-preview="#preview" />
+						<img id="preview" src="" data-cke-target="editor1" style="max-width: 200px;" />
 					</div>
 				</div>
 				<div class="resive-btn-box">
@@ -234,27 +236,150 @@ position:relative;
 </body>
 <!-- 추가 script 삽입 -->
 <script>
-	$(function() {
-		placeholderChanger($(".resive-title"));
-		$(window).resize(function() {
-			$(".resive-title").placeholderChanger();
+$(function(){
+    placeholderChanger($(".resive-title"));
+    $(window).resize(function(){
+        $(".resive-title").placeholderChanger();
+    });
+});
+$.fn.placeholderChanger=function(){
+    var windowWidth=$("body").width();
+    if(windowWidth<=480){
+        $(this).attr("placeholder",$(this).data("mobile-placeholder"));
+    }else{
+        $(this).attr("placeholder",$(this).data("pc-placeholder"));
+    }
+}
+function placeholderChanger(target){
+    var windowWidth=$("body").width();
+    if(windowWidth<=480){
+        target.attr("placeholder",target.data("mobile-placeholder"));
+    }else{
+        target.attr("placeholder",target.data("pc-placeholder"));
+    }
+}
+$(function() {
+	$("form").submit(function() {
+		var bReturn = true;
+		$(".write-chkItem").each(function(){
+			if($.trim($(this).val())==""){
+				alert($(this).data("error")+"해주세요");
+				$(this).focus();
+				bReturn=false;
+				return false;
+			}
+		});
+		try{
+			if(bReturn){
+				var str = CKEDITOR.instances.editor1;
+				if($.trim(str.getData())  == "" ) {
+					alert("게시물 내용을 입력하세요.");
+					str.focus();
+					return false;
+				}
+			}
+		}catch{
+
+		}
+		return bReturn;
+	});
+});
+</script>
+
+<script>
+	$(function(){
+ 
+    	$('#uploadFile').change(function(){
+			if(checkFile(this)){
+				if(checkFileSize(this,3)){
+					imgPreview(this);
+					uploadFile($(this).data("cke-target"));
+				}
+			}
+	        //uploadFile($(this).data("cke-target"));
+	    });
+		$("#preview").click(function(){
+			var str = "<img src='"+$(this).attr("src")+"'/>";
+			ckeAddItem($(this).data("cke-target"),str);
+
 		});
 	});
-	$.fn.placeholderChanger = function() {
-		var windowWidth = $("body").width();
-		if (windowWidth <= 480) {
-			$(this).attr("placeholder", $(this).data("mobile-placeholder"));
+	 
+	function uploadFile(target){
+	    
+	    var form = $('#uploadForm')[0];
+	    var formData = new FormData(form);
+	 
+	    $.ajax({
+	        url : '/cke/imgUpload',
+	        type : 'POST',
+	        data : formData,
+	        contentType : false,
+	        processData : false        
+	    }).done(function(data){
+			var str = "<img src='"+data.uploadDIR+data.fileName+"'/>";
+			ckeAddItem(target,str);
+		});
+	}
+	function ckeAddItem(target,str){
+			var org=CKEDITOR.instances[target].getData();//cke에 입력한 데이터를 가져옴
+			CKEDITOR.instances[target].setData(org+str);//cke에 입력한 데이터에 내용을 추가함(org+를 빼면 내용전부가 바뀜)
+			//CKEDITOR.instances[target].setData(org+"<img src='"+data.uploadDIR+data.fileName+"'/>");//cke에 입력한 데이터에 내용을 추가함(org+를 빼면 내용전부가 바뀜)
+
+	}
+	function checkFile(obj) {
+		var filename = $(obj).val().substring($(obj).val().lastIndexOf('\\')+1);//원래 파일 이름
+		var tg_name=$(obj).data("target");// 원래 파일이름이 보일곳(input)
+		var fileType=$(obj).data("file-type");//파일 확장자 비교 타입
+		var ext = filename.substring(filename.lastIndexOf('.')+1).toLowerCase();
+		var extChk=(fileType=="img")?["jpg","jpeg","png","gif"]:["jpg","png","gif","xls","doc","pptx","xlsx","docx","zip","txt","pdf"];
+		
+		if (extChk.indexOf(ext) >= 0 ) {
+			$(tg_name).val( filename );
 		} else {
-			$(this).attr("placeholder", $(this).data("pc-placeholder"));
+			alert("허용된 확장자가 아닙니다. 다시 선택해 주세요.\n(허용된 확장자 파일 : "+extChk.join(" , ")+")");
+			$(obj).val("");
+			return false;
+		}
+		return true;
+	}
+	//파일 용량 체크
+	function checkFileSize(obj,maxSizeMB) {
+		var maxSize=maxSizeMB*1024*1024;//파일 확장자 비교 타입
+
+		var browser=navigator.appName;
+		var fileSize=0;
+		// 익스플로러일 경우
+		if (browser=="Microsoft Internet Explorer")
+		{
+			var oas = new ActiveXObject("Scripting.FileSystemObject");
+			fileSize = oas.getFile( obj.value ).size;
+		}
+		// 익스플로러가 아닐경우
+		else
+		{
+			fileSize = obj.files[0].size;
+		}
+		if(fileSize > maxSize){
+			alert("첨부파일 사이즈는 "+maxSizeMB+"MB 이내로 등록 가능합니다. ");
+			$(obj).val("");
+			return false;
+		}
+		return true;
+	}
+	//이미지 미리보기
+	function imgPreview(obj) {
+		var preview = $(obj).data("preview")
+		if (obj.files && obj.files[0]) {
+		var reader = new FileReader();
+		
+		reader.onload = function (e) {
+			$(preview).attr('src', e.target.result);  
+		}
+		
+		reader.readAsDataURL(obj.files[0]);
 		}
 	}
-	function placeholderChanger(target) {
-		var windowWidth = $("body").width();
-		if (windowWidth <= 480) {
-			target.attr("placeholder", target.data("mobile-placeholder"));
-		} else {
-			target.attr("placeholder", target.data("pc-placeholder"));
-		}
-	}
+
 </script>
 </html>
