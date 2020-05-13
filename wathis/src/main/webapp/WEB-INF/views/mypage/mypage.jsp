@@ -4,7 +4,7 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/hongcss/mypage/mypage.css">
-
+<script src="/hongjs/mypage/mypage.js"></script>
 <div class="position-fix">
             <div class="head-con">
                 <div class="logo">
@@ -155,7 +155,9 @@
                                     <h2>기본요건 및 정보</h2>
                                     <span>작성 중</span>
                                 </div>
-                                <button class="ready-btn">작성하기</button>
+                                <a href="/page/mypage-one">
+ 	                               <button class="ready-btn">작성하기</button>
+    							</a>                       
                             </div>
 
                             <div class="fun-ready">
@@ -163,40 +165,47 @@
                                     <h2>스토리 작성</h2>
                                     <span>작성 중</span>
                                 </div>
-                                <button class="ready-btn">작성하기</button>
+                               <a href="/page/mypage-two">
+ 	                               <button class="ready-btn">작성하기</button>
+    							</a>                       
                             </div>
                             <div class="fun-ready">
                                 <div class="readybox-basic">
                                     <h2>리워드 설계</h2>
                                     <span>작성 중</span>
                                 </div>
-                                <button class="ready-btn">작성하기</button>
+                                <a href="/page/mypage-three">
+ 	                               <button class="ready-btn">작성하기</button>
+    							</a>                       
                             </div>
                             <div class="fun-ready">
                                 <div class="readybox-basic">
                                     <h2>위험요인 및 정책</h2>
                                     <span>작성 중</span>
                                 </div>
-                                <button class="ready-btn">작성하기</button>
+                               <a href="/page/mypage-four">
+ 	                               <button class="ready-btn">작성하기</button>
+    							</a>                       
                             </div>
                             <div class="fun-ready">
                                 <div class="readybox-basic">
                                     <h2>메이커 정보</h2>
                                     <span>작성 중</span>
                                 </div>
-                                <button class="ready-btn">작성하기</button>
+                              <a href="/page/mypage-five">
+ 	                               <button class="ready-btn">작성하기</button>
+    							</a>                       
                             </div>
 
                             <div class="readybox-basic-end">
                                 <button class="ready-btn">제출하기</button>
-
                             </div>
 
                             <!-- <div class="fun-ready-bu">제출하기 버튼</div> -->
                         </div>
                         <div class="adver-boxwrap">
                             <div class="adver-box1">
-                                <img src="images/san.jpg" alt="">
+                                <img src="/hongimages/images/san.jpg" alt="">
                                 <div class="box1-center">
                                     <span class="readver">리워드펀딩을 준비하는 메이커님을 위한</span><br>
                                     <a href="#">필수 가이드-></a>
