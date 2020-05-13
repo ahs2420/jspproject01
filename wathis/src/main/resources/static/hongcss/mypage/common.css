@@ -441,9 +441,18 @@ textarea{
 .ba-guide7{
     width:20%;
     position: absolute;
-    top: -10px;
-    right:12%;
+    top: -20px;
+    right:12.8%;
     
+}
+
+.q1-guide,.q2-guide,
+.q3-guide,.q4-guide,
+.q5-guide,.q7-guide{
+    width:20%;
+    position: absolute;
+    top: 20px;
+    right:12.8%;
 }
 
 /* 공통 부분 */
@@ -459,9 +468,15 @@ textarea{
 .font-st1{font-family: 'Noto Sans KR', sans-serif;}
 .box-li1{line-height: 1.33;}
 
+
 .box-ra1{border-radius: .25em;}
 .box-ra2{border-radius: 6px;}
 .box-ra3{border-radius: 10px;}
+
+
+
+
+
 
 .fon-col { color: #90949c;}
 .fon-co2 { color: rgba(0, 0, 0, .4);}
@@ -479,7 +494,7 @@ textarea{
 .box-back3{background-color:gold;}
 .box-back4{background-color:#90949c;}
 .box-back5{background-color:#ffefef;}
-.box-back6{  background-color: #00c4c4;}
+.box-back6{background-color: #00c4c4;}
 .box-back7{background-color:#ffefef;}
 
 

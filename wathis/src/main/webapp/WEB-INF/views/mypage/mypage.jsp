@@ -4,8 +4,12 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/hongcss/mypage/mypage.css">
-<script src="/hongjs/mypage/mypage.js"></script>
+<script src="../hongjs/mypage/mypage.js"></script>
+<script src="../hongjs/mypage/common.js"></script>
+
 <div class="position-fix">
+
+    <!-- 지우리 -->
             <div class="head-con">
                 <div class="logo">
                     <a href="#"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
@@ -69,13 +73,13 @@
                 <ul class="menu-text" style="list-style: none;">
                     <li class="mypage-li-menu">
                         <div class="menu-text1">
-                            <a href="#">펀딩 준비<i class="fas fa-angle-down"></i></a>
+                            <a href="/page/mypage">펀딩 준비</a><i class="fas fa-angle-down"></i>
                             <ul class="hide">
-                                <li><a href="#">기본 요건 및 정보</a></li>
-                                <li><a href="#">스토리 작성</a></li>
-                                <li><a href="#">리워드 설계</a></li>
-                                <li><a href="#">위험요인 및 정책</a></li>
-                                <li><a href="#">메이커 정보</a></li>
+                                <li><a href="/page/mypage-one">기본 요건 및 정보</a></li>
+                                <li><a href="/page/mypage-two">스토리 작성</a></li>
+                                <li><a href="/page/mypage-three">리워드 설계</a></li>
+                                <li><a href="/page/mypage-four">위험요인 및 정책</a></li>
+                                <li><a href="/page/mypage-five">메이커 정보</a></li>
                             </ul>
                         </div>
                     </li>

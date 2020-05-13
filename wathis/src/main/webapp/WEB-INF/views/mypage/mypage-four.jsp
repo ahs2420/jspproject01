@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../hongcss/mypage/mypage-four.css">
-<script src="/js/common.js"></script>
+<!-- <link rel="stylesheet" href="../hongcss/mypage/mypage-four.css"> -->
+<link rel="stylesheet" href="../hongcss/mypage/common.css">
 <script src="../hongjs/mypage/common.js"></script>
+
+<body>
     <header>
         <div class="position-fix">
             <div class="head-con">
@@ -68,13 +70,13 @@
                 <ul class="menu-text" style="list-style: none;">
                     <li class="mypage-li-menu">
                         <div class="menu-text1">
-                            <a href="#">펀딩 준비<i class="fas fa-angle-down"></i></a>
+                            <a href="/page/mypage">펀딩 준비</a><i class="fas fa-angle-down"></i>
                             <ul class="hide">
-                                <li><a href="#">기본 요건 및 정보</a></li>
-                                <li><a href="#">스토리 작성</a></li>
-                                <li><a href="#">리워드 설계</a></li>
-                                <li><a href="#">위험요인 및 정책</a></li>
-                                <li><a href="#">메이커 정보</a></li>
+                                <li><a href="/page/mypage-one">기본 요건 및 정보</a></li>
+                                <li><a href="/page/mypage-two">스토리 작성</a></li>
+                                <li><a href="/page/mypage-three">리워드 설계</a></li>
+                                <li><a href="/page/mypage-four">위험요인 및 정책</a></li>
+                                <li><a href="/page/mypage-five">메이커 정보</a></li>
                             </ul>
                         </div>
                     </li>
@@ -127,7 +129,7 @@
                             </div>
                         </div>
 
-                        <div class="ba-adver-guide box-ra1 mar-right1 wid5">
+                        <div class="ba-adver-guide box-ra1 mar-right2 wid5">
                             가이드 박스
                         </div>
 
@@ -278,7 +280,7 @@
                                     위험요인 및 정책에서 작성하는 정보들은 <a href="#" class="fon-co4">프로젝트 상세 페이지 내 펀딩안내 탭</a>에 노출됩니다. 어떻게 보여지는지 궁금하신가요?</p>
                             </div>
                             <div class="box-text-one">
-                                <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1" data-target=".box-hidden" onclick="targetActive(this)">펀딩안내 미리보기</button>
+                                <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1">펀딩안내 미리보기</button>
                             </div>
                         </div>
                         <!-- 8번 -->
@@ -300,154 +302,6 @@
 
     </main>
     <footer></footer>
-    <input type="text" name="donation" class="isNumeric input-stan" id="add-donation">
-    <div class="box-hidden modal-stan">
-    	<div class="modal-content pt30 pb30 pl20 pr20">
-    		<div class="modal-close modal-btn-close" data-target=".box-hidden" onclick="targetActive(this)"></div>
-			<div class="border-bottom">
-				<h1 class="title main-color mb20 txt-center">
-					미리보기 내용
-				</h1>
-			</div>
-			<div class="mt20">
-				<p>내용ㅇㅇㅇ</p>
-			</div>
-		</div>
-	</div>
 </body>
-
-
-
-
-<script>
-    $(function(){
-        $("[name=donation]").keyup(function(){
-            $(this).comma();
-        });
-    });
-    $(function () {
-
-        $(".mypage-li-menu").click(function () {
-
-            $(this).find(".hide").toggle();
-            $(this).toggleClass("active");
-
-        });
-
-    });
-
-
-    $(function () {
-        $("#my-modal").click(function () {
-            $(".my-modal").addClass("active");
-        });
-
-    });
-
-
-    // 스토리 작성 Q1번 
-    $(function () {
-        $(".one-text-box1").hide();
-
-
-        $("#projectimg1").click(function () {
-            $(".one-text-box1").show();
-
-        });
-        $("#projectimg2").click(function () {
-            $(".one-text-box1").hide();
-        });
-
-        $("#projectimg1").click(function () {
-            $(".one-text-box2").hide();
-        });
-
-        $("#projectimg2").click(function () {
-            $(".one-text-box2").show();
-        });
-    });
-
-
-    $(function () {
-        $(".my-modal-close").click(function () {
-            $(".my-modal").removeClass("active")
-        });
-        // 가이드 박스 내용
-        $(function () {
-            $(".ba-guide1").hide();
-            $(".ba-guide2").hide();
-            $(".ba-guide4").hide();
-            $(".ba-guide5").hide();
-            $(".ba-guide6").hide();
-            $(".ba-guide7").hide();
-
-            // 1번
-            $(".ba-pro-name").mousemove(function () {
-                $(".ba-guide1").show()
-
-            });
-            $(".ba-pro-name").mouseleave(function () {
-                $(".ba-guide1").hide();
-
-            });
-            // 2번
-            $(".ba-pro-price").mouseover(function () {
-                $(".ba-guide2").show();
-
-            });
-            $(".ba-pro-price").mouseleave(function () {
-                $(".ba-guide2").hide();
-            });
-            // 3번
-            $(".ba-pro-img").mouseover(function () {
-                $(".ba-guide3").show();
-
-            });
-            $(".ba-pro-img").mouseleave(function () {
-                $(".ba-guide3").hide();
-            });
-            // // 4번
-            $(".ba-pro-ka").mouseover(function () {
-                $(".ba-guide4").show();
-
-            });
-            $(".ba-pro-ka").mouseleave(function () {
-                $(".ba-guide4").hide();
-            });
-            // 5번
-            $(".ba-pro-day").mouseover(function () {
-                $(".ba-guide5").show();
-
-            });
-            $(".ba-pro-day").mouseleave(function () {
-                $(".ba-guide5").hide();
-            });
-            // 6번
-            $(".ba-pro-adult").mouseover(function () {
-                $(".ba-guide6").show();
-
-            });
-            $(".ba-pro-adult").mouseleave(function () {
-                $(".ba-guide6").hide();
-            });
-            // 7번
-            $(".ba-pro-seach").mouseover(function () {
-                $(".ba-guide7").show();
-
-            });
-            $(".ba-pro-seach").mouseleave(function () {
-                $(".ba-guide7").hide();
-
-            });
-
-
-        });
-
-
-    });
-</script>
-
-</html>
-
 
 <%@include file="../hong-include/foot.jspf"%>

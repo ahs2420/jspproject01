@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../hongcss/mypage/mypage-five.css">
+<!-- <link rel="stylesheet" href="../hongcss/mypage/mypage-five.css"> -->
+<link rel="stylesheet" href="../hongcss/mypage/common.css">
 <script src="../hongjs/mypage/common.js"></script>
+<body>
     <header>
         <div class="position-fix">
             <div class="head-con">
@@ -22,6 +24,7 @@
                 </div>
 
                 <div class="head-close">
+                    <button name="" id="" class="head-show mar-right1">임시저장</button>
                     <button name="" id="" class="head-show">미리보기</button>
                     <button name="" id="" class="head-out">나가기</button>
                 </div>
@@ -53,7 +56,7 @@
 
                                 <ul class="hide">
                                     <li>
-                                        와디지 담당자와의 소통은 프로젝트 번호로 진행됩니다. 상세페이지는 프로젝트 번호를 포함한 URL 주소로 오픈 된 후 진입 가능합니다.
+                                     	와디지 담당자와의 소통은 프로젝트 번호로 진행됩니다. 상세페이지는 프로젝트 번호를 포함한 URL 주소로 오픈 된 후 진입 가능합니다.
                                     </li>
                                     <li class="reward-box-url">
                                         url 복사하기
@@ -67,13 +70,13 @@
                 <ul class="menu-text" style="list-style: none;">
                     <li class="mypage-li-menu">
                         <div class="menu-text1">
-                            <a href="#">펀딩 준비<i class="fas fa-angle-down"></i></a>
+                            <a href="/page/mypage">펀딩 준비</a><i class="fas fa-angle-down"></i>
                             <ul class="hide">
-                                <li><a href="#">기본 요건 및 정보</a></li>
-                                <li><a href="#">스토리 작성</a></li>
-                                <li><a href="#">리워드 설계</a></li>
-                                <li><a href="#">위험요인 및 정책</a></li>
-                                <li><a href="#">메이커 정보</a></li>
+                                <li><a href="/page/mypage-one">기본 요건 및 정보</a></li>
+                                <li><a href="/page/mypage-two">스토리 작성</a></li>
+                                <li><a href="/page/mypage-three">리워드 설계</a></li>
+                                <li><a href="/page/mypage-four">위험요인 및 정책</a></li>
+                                <li><a href="/page/mypage-five">메이커 정보</a></li>
                             </ul>
                         </div>
                     </li>
@@ -122,7 +125,7 @@
 
                         </div>
 
-                        <div class="ba-adver-guide box-ra1 mar-right1 wid5">
+                        <div class="ba-adver-guide box-ra1 mar-right2 wid5">
                             가이드 박스
                         </div>
 
