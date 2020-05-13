@@ -39,11 +39,9 @@
     	$('#uploadFile').change(function(){
 			if(checkFile(this)){
 				if(checkFileSize(this,3)){
-					imgPreview(this);
-					uploadFile($(this).data("cke-target"));
+					var imgUrl=uploadFile($(this).data("cke-target"));
 				}
 			}
-	        //uploadFile($(this).data("cke-target"));
 	    });
 		$("#preview").click(function(){
 			var str = "<img src='"+$(this).attr("src")+"'/>";
@@ -55,18 +53,23 @@
 	function uploadFile(target){
 	    
 	    var form = $('#uploadForm')[0];
-	    var formData = new FormData(form);
-	 
-	    $.ajax({
+		var formData = new FormData(form);
+		var str;
+		var ajaxReturn;
+		$.ajax({
 	        url : '/cke/imgUpload',
 	        type : 'POST',
 	        data : formData,
+	        dataType:"JSON",
 	        contentType : false,
-	        processData : false        
-	    }).done(function(data){
-			var str = "<img src='"+data.uploadDIR+data.fileName+"'/>";
-			ckeAddItem(target,str);
-		});
+			processData : false,
+			success:function(data){
+				var imgUrl=data.uploadDIR+data.fileName;
+				str = "<img src='"+imgUrl+"'/>";
+				ckeAddItem(target,str);
+				imgPreview2("#preview",imgUrl);
+			}
+	    });
 	}
 	function ckeAddItem(target,str){
 			var org=CKEDITOR.instances[target].getData();//cke에 입력한 데이터를 가져옴
@@ -116,7 +119,7 @@
 	}
 	//이미지 미리보기
 	function imgPreview(obj) {
-		var preview = $(obj).data("preview")
+		var preview = $(obj).data("preview");
 		if (obj.files && obj.files[0]) {
 		var reader = new FileReader();
 		
@@ -126,6 +129,9 @@
 		
 		reader.readAsDataURL(obj.files[0]);
 		}
+	}
+	function imgPreview2(target,imgurl) {
+		$(target).attr('src', imgurl);  
 	}
 
 </script>
