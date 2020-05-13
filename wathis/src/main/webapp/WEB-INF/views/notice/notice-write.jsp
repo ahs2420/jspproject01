@@ -4,6 +4,7 @@
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
 <script src="/plugin/ckeditor/ckeditor.js"></script>
+
 <style>
 * {
 	margin: 0;
@@ -88,7 +89,7 @@
 	font-weight: 700;
 }
 .cke_textarea_inline{
-	border:1px solid #999;
+	border:1px solid #dfdfdf;
 	padding : 50px 30px;
 	min-height: 60vh;
 }
@@ -113,6 +114,20 @@ position:relative;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     display: block;
+}
+.img-file{
+	font-size: 55px;
+	color: #ccc;
+}
+.img-file:hover,.img-file.on{
+	color: var(--var-main-color);
+	transition: 0.3s;
+}
+#preview{
+	width: 160px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
 }
 @media ( max-width : 1200px) {
 	.resive-container {
@@ -206,11 +221,11 @@ position:relative;
 						<label class="resive-label" form=""></label>
 					</div>
 					<div class="resive-title-box">
-						<input type="text" class="resive-title write-chkItem" data-error="제목을 입력" name="title"
+						<input type="text" class="resive-title write-chkItem " data-error="제목을 입력" name="title"
 							data-pc-placeholder="제목을 입력해주세요."
 							data-mobile-placeholder="제목">
 					</div>
-					<div class="resive-border-box">
+					<div class="resive-border-box mt50">
 						<textarea id="editor1" name="content" class="ckeditor"></textarea>
 						<script>
 							CKEDITOR.inline('editor1', {
@@ -220,11 +235,19 @@ position:relative;
 								filebrowserImageUploadUrl : '/cke/imageUpload'
 							});
 						</script>
-						<input id="uploadFile" type="file" name="files" data-cke-target="editor1" data-preview="#preview" />
-						<img id="preview" src="" data-cke-target="editor1" style="max-width: 200px;" />
+						<div class=" mt30">
+							<label for="uploadFile" title="내 컴퓨터에서 첨부하기" class="img-file">
+								<i class="fas fa-cloud-upload-alt"></i>
+								<span class="small-content black v-align-m">파일첨부하기</span>
+							</label>
+						</div>
+						<input id="uploadFile" class="dis-none" type="file" name="files" data-cke-target="editor1" data-preview=".preview-box" />
+						<div class="preview-box mt20" style="display: none;">
+							<img id="preview" class=" gray-box" src="" data-cke-target="editor1" />
+						</div>
 					</div>
 				</div>
-				<div class="resive-btn-box">
+				<div class="resive-btn-box mt30">
 					<button type="submit" class="resive-btn">저장하기</button>
 					<button type="reset" class="resive-btn">취소하기</button>
 				</div>
@@ -284,42 +307,43 @@ $(function() {
 		return bReturn;
 	});
 });
-</script>
-
-<script>
+</script><script>
 	$(function(){
  
     	$('#uploadFile').change(function(){
 			if(checkFile(this)){
 				if(checkFileSize(this,3)){
 					imgPreview(this);
-					uploadFile($(this).data("cke-target"));
+					$(".img-file").addClass("on");
+					return true;
 				}
 			}
-	        //uploadFile($(this).data("cke-target"));
+			$(".img-file").removeClass("on");
+			imgPreview2(this);
 	    });
-		$("#preview").click(function(){
-			var str = "<img src='"+$(this).attr("src")+"'/>";
-			ckeAddItem($(this).data("cke-target"),str);
-
-		});
+		
 	});
 	 
 	function uploadFile(target){
 	    
 	    var form = $('#uploadForm')[0];
-	    var formData = new FormData(form);
-	 
-	    $.ajax({
+		var formData = new FormData(form);
+		var str;
+		var ajaxReturn;
+		$.ajax({
 	        url : '/cke/imgUpload',
 	        type : 'POST',
 	        data : formData,
+	        dataType:"JSON",
 	        contentType : false,
-	        processData : false        
-	    }).done(function(data){
-			var str = "<img src='"+data.uploadDIR+data.fileName+"'/>";
-			ckeAddItem(target,str);
-		});
+			processData : false,
+			success:function(data){
+				var imgUrl=data.uploadDIR+data.fileName;
+				str = "<img src='"+imgUrl+"'/>";
+				ckeAddItem(target,str);
+				imgPreview2("#preview",imgUrl);
+			}
+	    });
 	}
 	function ckeAddItem(target,str){
 			var org=CKEDITOR.instances[target].getData();//cke에 입력한 데이터를 가져옴
@@ -369,7 +393,8 @@ $(function() {
 	}
 	//이미지 미리보기
 	function imgPreview(obj) {
-		var preview = $(obj).data("preview")
+		var target = $(obj).data("preview");
+		var preview = $(obj).data("preview")+" img";
 		if (obj.files && obj.files[0]) {
 		var reader = new FileReader();
 		
@@ -379,6 +404,11 @@ $(function() {
 		
 		reader.readAsDataURL(obj.files[0]);
 		}
+		$(target).fadeIn(300);
+	}
+	function imgPreview2(obj) {
+		var target = $(obj).data("preview");
+		$(target).fadeOut(300);
 	}
 
 </script>
