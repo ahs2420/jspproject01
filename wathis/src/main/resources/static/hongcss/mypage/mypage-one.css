@@ -69,9 +69,10 @@ body {
 }
 
 .userlogo {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+
     border-radius: 50px;
     text-align: center;
     background-color: teal;
@@ -80,8 +81,8 @@ body {
 }
 
 .userlogo i {
-    font-size: 18px;
-    color: #fff;
+   height: 30px;
+    line-height: 30px;
 
 }
 
@@ -368,23 +369,17 @@ border-radius: 3px;
 .ba-adver-guide{
     width: 100%;
     height:107px;
-    background-color: royalblue;
-    
 }
 
+/* box-설정 */
 .box-li1{line-height: 1.33;}
 .box-ra1{border-radius: 5px;}
 
-.di-la1 { 
-    display: inline-block;
-}
+/* display type */
+.di-la1 { display: inline-block;}
+.di-la2 { display: block;}
 
-.di-la2 {
-    display: block;
-}
-
-
-
+/* 폰트 색상 */
 .fon-col { color: #90949c;}
 .fon-co2 { color: rgba(0, 0, 0, .4);}
 .fon-co3 { color: #60656a;}
@@ -393,27 +388,36 @@ border-radius: 3px;
 .fon-co6 { color:#ccc;}
 .fon-co7 { color: rgba(0,0,0,.54);}
 .fon-co8 { color: rgba(0,0,0,.9);}
+.fon-co9 { color:#ffd31d;}
+.fon-co10 { color: rgba(0,0,0,.9);}
 
+/* 배경색상 */
 .box-back1{background-color: #f0f2f5;}
 .box-back2{background-color: rebeccapurple;}
-.box-back3{background-color: gold}
+.box-back3{background-color: gold;}
+.box-back4{background-color: #ffff;}
+.box-back5{background-color: royalblue;}
 
-
+/* 박스 라인 */
 .fon-bor1 { border: 1px solid #ccc;}
 
+/* 글자 굷기 */
 .fon-wei1 { font-weight: 700;}
 .fon-wei { font-weight: 600;}
 .fon-wei3 { font-weight: 400;}
 
+/* 글자 사이즈 */
 .fon-siz1 { font-size: 17px;}
 .fon-siz2 { font-size: 15px;}
 .fon-siz3 { font-size: 13px;}
 .fon-siz4 { font-size: 12px;}
 
+/* padding 박스 */
 .text-padding1{padding: 0 26px 0 10px ;}
 .text-padding2{padding:10px ;}
 .text-padding3{padding:16px ;}
 
+/*margin 값 */
 .mar-top1 { margin-top: 30px;}
 .mar-top2 { margin-top: 20px;}
 .mar-top3 { margin-top: 15px;}
@@ -432,6 +436,7 @@ border-radius: 3px;
 
 .mar-left1 { margin-left: 20px;}
 
+/* 가로 값 */
 .wid1 { width: 100%;}
 .wid2 { width: 95%;}
 .wid3 { width: 90%;}
@@ -439,10 +444,12 @@ border-radius: 3px;
 .wid5 { width: 20%;}
 /* .wid6 { width: 1000px;} */
 
+/* 세로 값 */
 .hei1 { height: 48px;}
 .hei2 { height: 48px;}
 .hei3 { height: 48px;}
 
+/* 손가락 모양 */
 .cu-poin{ cursor: pointer;}
 
 
@@ -537,4 +544,11 @@ text-align: center;
 
 #q1-guide h4 a{
     cursor: pointer;
+}
+
+.guid-icon{
+    width: 10px;
+    height: 10px;
+    background-image: url(/hongimages/images/learning.png);
+    background-position: center;
 }

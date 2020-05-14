@@ -3,6 +3,7 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypage-one.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <script src="../hongjs/mypage/mypage.js"></script>
 <script src="../hongjs/mypage/common.js"></script>
 
@@ -126,7 +127,12 @@
 						</div>
 					</div>
 
-					<div class="ba-adver-guide box-ra1 mar-right2 wid5">가이드 박스</div>
+					<div class="ba-adver-guide box-ra1 mar-right2 wid5 box-back2">
+						<div class="guid-icon">dsadadsada
+						<!-- <img src="/hongimages/images/learning.png" alt=""> -->
+						</div>
+
+					</div>
 
 				</div>
 
