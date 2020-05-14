@@ -25,10 +25,26 @@ ul li {
     padding: 100px 0;
 }
 
+
+.product-table-list-l-green {
+	color: #00b2b2;
+}
+
+.product-table-list-l-blue {
+	color: #4462ee;
+}
+
+.product-table-list-l-space {
+	letter-spacing: -1.6px;
+    font-weight: 700;
+}
+
+
 .product-table-container {
-    max-width: 1500px;
+    max-width: 1440px;
     margin: 0 auto;
     width: 100%;
+    padding:0 20px;
 }
 
 .product-table-item-title {
@@ -244,6 +260,7 @@ ul li {
 .notice-list-title {
     width: 95px;
     vertical-align: top;
+    
 }
 
 .product-table-btn-search input {
@@ -279,7 +296,6 @@ ul li {
 }
 
 .product-table-page {
-    margin-top: 40px;
     text-align: center;
     font-size: 20px;
     display: flex;
@@ -311,6 +327,7 @@ ul li {
     color: #777;
 }
 
+
 @media (max-width: 1400px) {
     .product-table-container {
         padding: 0 5%;
@@ -318,45 +335,27 @@ ul li {
 }
 
 @media (max-width: 1080px) {
-	.product-table-item {
-	width:49%;}
+.product-table-item {
+    width: 24%;
+    }
 }
-
+@media (max-width: 1024px) {
+    .product-table-item {
+        width: 32%;
+    }
+}
 @media (max-width: 768px) {
     body {
         font-size: 0.875em;
     }
-
     .product-table-item {
-        width: 100%;
+        width: 49%;
     }
-
-    .product-table-item a {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .product-table-item .product-table-img-box {
-        width: 30%;
-        padding-top: 16.875%;
-    }
-
-    .product-table-item .product-table-text-box {
-        width: 68%;
-    }
-
     .product-table-mobile-display-none {
         display: none;
     }
 
-    .product-table-box-title {
-        font-size: 1rem;
-    }
-
-    .product-table-sub-title {
-        font-size: 0.75rem;
-    }
-
+   
     .product-table-title {
         width: 95px;
         vertical-align: top;
@@ -364,12 +363,9 @@ ul li {
 }
 
 @media (max-width: 480px) {
-    .product-table-item .product-table-img-box {
-        width: 38%;
-        padding-top: 16.875%;
-    }
+   
+    .product-table-item {
+        width: 100%;
+        }
 
-    .product-table-item .product-table-text-box {
-        width: 58%;
-    }
 }

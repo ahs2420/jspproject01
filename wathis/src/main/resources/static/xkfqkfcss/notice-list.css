@@ -6,6 +6,12 @@
 	box-sizing: border-box;
 }
 
+.notice-list-select-box{
+	position: relative;
+}
+
+
+
 .logo a  {
 	text-decoration: none;
 	color: #333;
@@ -25,9 +31,7 @@
 	margin: 0 auto;
 }
 
-.notice-list-l-space {
-	letter-spacing: -1.6px;
-}
+
 
 .notice-list-box-text {
 	font-size: 1.25rem;
@@ -46,6 +50,10 @@
 
 .notice-list-l-blue {
 	color: #4462ee;
+}
+
+.notice-list-l-space {
+	letter-spacing: -1.6px;
 }
 
 .notice-list-box-text h4 {

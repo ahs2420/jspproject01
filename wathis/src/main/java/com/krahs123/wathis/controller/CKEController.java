@@ -102,4 +102,8 @@ public class CKEController {
 		Map<String,Object> map= fileAdd.fileUpload(files, hsr, "img");
 		return map;
 	}
+	@RequestMapping("aaaa")
+	public String aaa() {
+		return "/product/product-table-list";
+	}
 }

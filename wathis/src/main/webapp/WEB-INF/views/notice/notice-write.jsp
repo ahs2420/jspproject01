@@ -11,6 +11,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 .resive-main {
 	background-color: #f9f9f9;
 }
@@ -36,11 +37,11 @@
 	width: 100%;
 	height: 50px;
 	margin-top: 30px;
-	margin-bottom: 10px;
 	border: 0;
 	border-bottom: 1px solid #00b2b2;
 	font-size: 25px;
 }
+
 .resive-btn-box {
 	text-align: center;
 	margin: 0 auto;
@@ -78,9 +79,9 @@
 	font-size: 20px;
 	font-weight: 700;
 	text-align: center;
-	border:0;
+	border: 0;
 	border-bottom: 1px solid #00b2b2;
-		outline: 0;
+	outline: 0;
 }
 
 .ckeditor {
@@ -88,81 +89,93 @@
 	font-size: 20px;
 	font-weight: 700;
 }
-.cke_textarea_inline{
-	border:1px solid #dfdfdf;
-	padding : 50px 30px;
+
+.cke_textarea_inline {
+	border: 1px solid #dfdfdf;
+	padding: 50px 30px;
 	min-height: 60vh;
 }
 
-.resive-select-box{
-position:relative;
+.resive-select-box {
+	position: relative;
 }
+
 .resive-class {
 	appearance: none;
-  -webkit-appearance : none ;
+	-webkit-appearance: none;
 }
+
 .resive-class::-ms-expand {
-  display : none ;
+	display: none;
 }
+
 .resive-select-box select+label {
-    position: absolute;
-    right: 11px;
-    top: 50%;
-    z-index: 1;
-    transform: translateY(-50%);
-    border-top: 10px solid #6b6b6b;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    display: block;
+	position: absolute;
+	right: 11px;
+	top: 66%;
+	z-index: 1;
+	transform: translateY(-50%);
+	border-top: 10px solid #6b6b6b;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	display: block;
 }
-.img-file{
+.img-uploader{
+ margin-top:35px;
+}
+
+.img-file {
 	font-size: 55px;
 	color: #ccc;
 }
-.img-file:hover,.img-file.on{
+
+.img-file:hover, .img-file.on {
 	color: var(--var-main-color);
 	transition: 0.3s;
 }
-#preview{
+
+#preview {
 	width: 160px;
-    height: 120px;
-    object-fit: cover;
-    object-position: center;
+	height: 120px;
+	object-fit: cover;
+	object-position: center;
 }
+
 @media ( max-width : 1200px) {
 	.resive-container {
 		width: 100%;
 		padding: 0px 20px;
 	}
-.resive-class{
-	margin-top:10px;
-}
+	.resive-class {
+		margin-top: 10px;
+	}
 }
 
 @media ( max-width : 1080px) {
 }
 
 @media ( max-width : 768px) {
-
 }
 
 @media ( max-width : 480px) {
 	.resive-container {
 		width: 100%;
+		margin-top:20px;
 	}
 	.resive-class {
-		width: 80%;
+		width: 100%;
 		height: 30px;
 		padding-left: 10px;
 		outline: none;
+		margin-top:20px;
 	}
+	
 	.resive-span {
 		display: none;
 	}
 	input.resive-title {
 		width: 100%;
 		height: 30px;
-		
 		border-top: 0;
 		padding: 0 10px;
 	}
@@ -196,6 +209,9 @@ position:relative;
 	}
 }
 
+option{
+	padding-left:10px;
+}
 </style>
 </haed>
 <body>
@@ -206,55 +222,60 @@ position:relative;
 	</header>
 	<!-- main내용삽입 -->
 	<main class="resive-main">
-		<form action="" enctype="multipart/form-data" method="post" id="uploadForm">
+		<form action="" enctype="multipart/form-data" method="post"
+			id="uploadForm">
 			<div class="resive-container">
 				<div class="margin-top"></div>
 				<div class="resive-wrap">
 					<div class="resive-select-box">
-						<select name="title-select" class="resive-class write-chkItem " data-error="게시판 선택" id="">
+						<select name="title-select" class="resive-class write-chkItem "
+							data-error="게시판 선택" id="">
 							<option value="">게시판 선택</option>
 							<option value="공지·알림">공지·알림</option>
 							<option value="이벤트·진행중">이벤트·진행중</option>
 							<option value="이벤트·종료">이벤트·종료</option>
 							<option value="보도자료">보도자료</option>
 						</select>
-						<label class="resive-label" form=""></label>
+						 <label class="resive-label" form=""></label>
 					</div>
 					<div class="resive-title-box">
-						<input type="text" class="resive-title write-chkItem " data-error="제목을 입력" name="title"
-							data-pc-placeholder="제목을 입력해주세요."
-							data-mobile-placeholder="제목">
+						<input type="text" class="resive-title write-chkItem "
+							data-error="제목을 입력" name="title"
+							data-pc-placeholder="제목을 입력해주세요." data-mobile-placeholder="제목">
 					</div>
 					<div class="resive-border-box mt50">
-						<textarea id="editor1" name="content" class="ckeditor"></textarea>
-						<script>
-							CKEDITOR.inline('editor1', {
-								customConfig : '/plugin/ckeditor/config.js',
-								width : '100%',
-								height : '500',
-								filebrowserImageUploadUrl : '/cke/imageUpload'
-							});
-						</script>
-						<div class=" mt30">
+						<div class="ckebox">
+							<textarea id="editor1" name="content" class="ckeditor"></textarea>
+							<script>
+								CKEDITOR.inline('editor1', {
+									customConfig : '/plugin/ckeditor/config.js',
+									width : '100%',
+									height : '500',
+									filebrowserImageUploadUrl : '/cke/imageUpload'
+								});
+							</script>
+						</div>
+						<div class="img-uploader">
 							<label for="uploadFile" title="내 컴퓨터에서 첨부하기" class="img-file">
-								<i class="fas fa-cloud-upload-alt"></i>
+								<i class="fas fa-cloud-upload-alt"></i> 
 								<span class="small-content black v-align-m">파일첨부하기</span>
 							</label>
 						</div>
-						<input id="uploadFile" class="dis-none" type="file" name="files" data-cke-target="editor1" data-preview=".preview-box" />
+						<input id="uploadFile" class="dis-none" type="file" name="files"
+							data-cke-target="editor1" data-preview=".preview-box" />
 						<div class="preview-box mt20" style="display: none;">
-							<img id="preview" class=" gray-box" src="" data-cke-target="editor1" />
+							<img id="preview" class=" gray-box" src=""
+								data-cke-target="editor1" />
 						</div>
 					</div>
 				</div>
-				<div class="resive-btn-box mt30">
+				<div class="resive-btn-box mt30 pb50">
 					<button type="submit" class="resive-btn">저장하기</button>
 					<button type="reset" class="resive-btn">취소하기</button>
 				</div>
 			</div>
 		</form>
 	</main>
-
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- 추가 script 삽입 -->
@@ -307,7 +328,8 @@ $(function() {
 		return bReturn;
 	});
 });
-</script><script>
+</script>
+<script>
 	$(function(){
  
     	$('#uploadFile').change(function(){
@@ -410,6 +432,20 @@ $(function() {
 		var target = $(obj).data("preview");
 		$(target).fadeOut(300);
 	}
-
+	$(function(){
+		$(window).scroll(function(){
+			$(".cke").css({"transform":"translateY("+0+"px)"});
+		});
+	});
+	CKEDITOR.instances['editor1'].on('contentDom', function(){
+		this.document.on('click',function(event){
+			var margin = $(".cke").height();
+			$(".ckebox").css({"padding-top":margin+"px","padding-bottom":margin+"px"});
+			$(".cke").css({"transform":"translateY("+margin+"px)"});
+		});
+	});
+	CKEDITOR.instances['editor1'].on('blur', function(){
+		$(".ckebox").css({"padding-top":0+"px","padding-bottom":0+"px"});
+	});
 </script>
 </html>
