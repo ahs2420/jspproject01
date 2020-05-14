@@ -128,8 +128,8 @@
 					</div>
 
 					<div class="ba-adver-guide box-ra1 mar-right2 wid5 box-back2">
-						<div class="guid-icon">dsadadsada
-						<!-- <img src="/hongimages/images/learning.png" alt=""> -->
+						<div class="guid-icon">
+							<i class="fad fa-bookmark"></i>
 						</div>
 
 					</div>

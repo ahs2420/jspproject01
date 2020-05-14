@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+
+.update-box{
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 30px;
+    border: 2px solid #6ac5b8;
+
+    background-color: aquamarine;
+
+}
