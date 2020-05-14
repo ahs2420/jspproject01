@@ -156,7 +156,7 @@
                     <ul>
                         <li><a class="flex-box w-100p flex-j-space align-center" href="/page/mypage"><span><i class="fas fa-gift"></i> 펀딩한프로젝트</span><i class="fas fa-chevron-right"></i></a></li>
                         <li><a class="flex-box w-100p flex-j-space align-center" href="/page/mypage"><span><i class="fas fa-marker"></i> 제작한 프로젝트</span><i class="fas fa-chevron-right"></i></a></li>
-                        <li><a class="flex-box w-100p flex-j-space align-center" href="/page/setting"><span><i class="fas fa-cog"></i> 설정</span><i class="fas fa-chevron-right"></i></a></li>
+                        <li><a class="flex-box w-100p flex-j-space align-center" href="/page/userMypage"><span><i class="fas fa-cog"></i> 설정</span><i class="fas fa-chevron-right"></i></a></li>
                         <li><a class="flex-box w-100p flex-j-space align-center" href="/logout"><span><i class="fas fa-power-off"></i> 로그아웃</span><i class="fas fa-chevron-right"></i></a></li>
                     </ul>
                 </div>

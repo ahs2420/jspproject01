@@ -431,7 +431,7 @@
                 <aside class="product-aside">
                     <!--펀딩 상태 창 -> 모바일 하단 메뉴-->
                     <div class="product-status mb20">
-                        <div class="dis-mobile">
+                        <div class="dis-labtop">
                             <button type="button" class="show-menu box w-100p h-100p" data-target=".product-status-txt-container" onclick="slideToggle(this)">
                                 <i class="fas fa-angle-up transition"></i>
                             </button>
@@ -451,7 +451,6 @@
                                 <span class="sub-title">403</span> 명의 서포터
                             </div>
                         </div>
-
                         <div class="product-btn-container">
                             <div class="flex-box flex-j-space flex-wrap">
                                 <div class="w-100p product-funding">

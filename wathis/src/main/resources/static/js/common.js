@@ -386,12 +386,12 @@ function ajaxStan(option){
         data:option.data,
         success:function(data){
             returnData = {
-            	"status":"success",
+            	"status":true,
             	"data":data
             };
         },error:function(xhr,status,error){
             returnData = {
-            	"status":"error",
+            	"status":false,
             	"xhr":xhr,
             	"errstatus":status,
             	"error":error,

@@ -217,8 +217,6 @@
     
 }
 @media (max-width:1080px){
-}
-@media (max-width:768px){
     .product-items{
         width: 100%;
         margin-bottom: 20px;
@@ -294,10 +292,12 @@
         border-top-color: #dadce0;
     } */
 }
+@media (max-width:768px){
+}
 @media (max-width:480px){
     
 }
-@media (min-width:769px){
+@media (min-width:1081px){
     .product-status-txt-container{
         display: block !important;
     }
