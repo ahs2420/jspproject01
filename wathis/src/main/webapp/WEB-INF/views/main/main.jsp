@@ -52,10 +52,10 @@
                 <h2 class="sub-title align-center mb20">
                     와디즈에서 새로운 프로젝트들을 만나보세요
                 </h2>
-                <div class="flex-box flex-j-space flex-wrap">
+                <div class="float-box-item">
                     <c:forEach begin="1" end="8">
                         <!--상품 아이템-->
-                        <div class="item-box mb20">
+                        <div class="item-box float-left item-lg-3 item-md-4 item-sm-6 item-xs-12 mb20">
                             <!--상품 주소-->
                             <a href="/product/product">
                                 <div class="border-box">

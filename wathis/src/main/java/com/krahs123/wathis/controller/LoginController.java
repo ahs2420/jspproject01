@@ -12,4 +12,8 @@ public class LoginController {
 	public String viewLoginpage() {
 		return DIR +"login-page";
 	}
+	@RequestMapping("/login-page2")
+	public String viewLoginpage2() {
+		return DIR +"login-page-headerOn";
+	}
 }

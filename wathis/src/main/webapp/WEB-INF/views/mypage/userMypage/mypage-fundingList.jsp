@@ -1,6 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<section>
-    fundiglist
+<section class="">
+    <div class="container max1200">
+        <div class="border-bottom pb20">
+            <div class="flex-box flex-j-space">
+                <div class="">
+                    <h3 class="large-content bold">전체펀딩내역</h3>    
+                </div>
+                <div class="position-rel">
+                    <select class="h-100p select-no-arrow select-custom-arrow no-border pl10" id="select-fundingList">
+                        <option value="all">전체</option>
+                        <c:forTokens items="여행,디자인소품,패션"  delims="," var="serach">
+                            <option value="${serach}">${serach}</option>
+                        </c:forTokens>
+                    </select>
+                    <label for="select-fundingList"></label>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white pt40 pb40 mt50">
+            <c:forEach begin="0" end="2" varStatus="vs">
+                <div class="<c:if test="${vs.index != 0}">mt20</c:if> pb20 border-bottom">
+                    <a href="/page/userMypage?template=fundingList&page=detail">
+                        <div class="flex-box flex-j-space">
+                            <p class="blue">결제완료</p>
+                            <p class="gray tiny-content">2020-08-08 펀딩</p>
+                        </div>
+                        
+                        <p class="mt10 gray bold tiny-title">여행ㆍ레저</p>
+                        <p class="gray bold tiny-content mt10"><span class="icon-round-no-board inline-box bg-gray-dark icon-10"></span> 종료</p>
+                        <p class="bold large-title mt5">(앵콜) [킬리X여행에미치다] 청춘들을 위한 리얼 여행배낭 제작 프로젝트</p>
+                        <p class="gray tiny-title mt5">by 킬리아웃피터스</p>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
 </section>
+

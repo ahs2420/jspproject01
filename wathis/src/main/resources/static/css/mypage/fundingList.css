@@ -1,0 +1,16 @@
+@charset 'utf-8';
+.question-box-content{
+    min-width: 300px;
+}
+.product-maker-img{
+    width: 80px;
+}
+.product-maker-link{
+    width: calc(95% - 80px);
+}
+.maker-sns-container a:first-child{
+    margin-left: 0;
+}
+.maker-sns-container a {
+    margin-left: 5px;
+}
