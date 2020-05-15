@@ -110,8 +110,8 @@
 		<div class="box2-funReady">
 			<!-- 기본 정보 박스 -->
 			<!-- <div class="flex-basic-adver"> -->
-			<div class="basic-box">
-				<div class="mar-bo3">
+			<div class="basic-box-one">
+				<div class="mar-bo3 wid4">
 					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span
 						class=" fon-col fon-wei fon-siz3"><i
 						class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
@@ -127,11 +127,16 @@
 						</div>
 					</div>
 
-					<div class="ba-adver-guide box-ra1 mar-right2 wid5 box-back2">
-						<div class="guid-icon">
-							<i class="fad fa-bookmark"></i>
+					<!-- 가이드 박스 -->
+					<div class="ba-adver-guide box-ra1 mar-right1 wid5 cu-poin">
+						<div class="guide-br">
+							<div class="guide-box di-la1">
+								<div class="img"></div>
+							</div>
 						</div>
-
+						<div class="guide-text di-la1">
+							<a class="fon-wei1  di-la1 fon-siz2 fon-co9">메이커님을 위한 필수 가이드</a>
+						</div>
 					</div>
 
 				</div>
@@ -360,7 +365,18 @@
 							</div>
 						</div>
 
-						<div class="ba-adver-guide box-ra1 mar-right2 wid5">가이드 박스</div>
+						<!-- 가이드 박스 -->
+						<div class="ba-adver-guide box-ra1 mar-right1 wid5  cu-poin">
+							<div class="guide-br">
+								<div class="guide-box di-la1">
+									<div class="img"></div>
+								</div>
+							</div>
+							<div class="guide-text di-la1">
+								<a class="fon-wei1  di-la1 fon-siz2 fon-co9">메이커님을 위한 필수 가이드</a>
+							</div>
+						</div>
+
 					</div>
 				</div>
 				<div class="flex-basic2 q1-text">
@@ -424,9 +440,10 @@
 								Q2. 리워드가 금형을 이용하여 제작되는 제품인지 확인하고 리워드에 맞는 제조 형태를 선택하세요. <span
 									class="fon-co5"> *</span></label>
 							</p>
-							<p class="fon-siz3 fon-co7 mar-top4">※ 금형을 이용하지 않고 제작되는 리워드라면 다섯번째 답변을 선택해주세요.</p>
-							<p class="fon-siz3 fon-co7 mar-bo4">※ 제조 형태에 따라 필요한 서류는 반드시 아래 리워드 필수 인증 서류 항목에
-								업로드해주세요.</p>
+							<p class="fon-siz3 fon-co7 mar-top4">※ 금형을 이용하지 않고 제작되는 리워드라면
+								다섯번째 답변을 선택해주세요.</p>
+							<p class="fon-siz3 fon-co7 mar-bo4">※ 제조 형태에 따라 필요한 서류는 반드시
+								아래 리워드 필수 인증 서류 항목에 업로드해주세요.</p>
 
 							<div class="radio-box mar-bo3 mar-top1">
 								<input class="" name="q2" type="radio" id="ra-q2-1"> <label

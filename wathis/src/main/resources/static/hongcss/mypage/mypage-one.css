@@ -395,8 +395,15 @@ border-radius: 3px;
 .box-back1{background-color: #f0f2f5;}
 .box-back2{background-color: rebeccapurple;}
 .box-back3{background-color: gold;}
-.box-back4{background-color: #ffff;}
-.box-back5{background-color: royalblue;}
+.box-back4{background-color: #00c4c4;}
+.box-back5{background-color: #abf0e9;}
+.box-back6{background-color: #ff5200;}
+.box-back7{background-color: #ee8572;}
+.box-back8{background-color: #abf0e9;}
+.box-back9{background-color: #f0f0f0;}
+.box-back10{background-color: #27496d;}
+.box-back11{background-color: #024249;}
+.box-back12{background-color: #f79071;}
 
 /* 박스 라인 */
 .fon-bor1 { border: 1px solid #ccc;}
@@ -551,4 +558,62 @@ text-align: center;
     height: 20px;
     background-color: #00b2b2;
     font-size: 200px;
+}
+
+
+
+/* 가이드 박스 아이콘 */
+.ba-adver-guide{
+    height:107px;
+    line-height: 107px;
+    /* position: relative; */
+    /* background-color: #00b2b2; */
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #00c4c4;
+    transition: 0.5s;
+    /* border: 3px solid #00c4c4; */
+}
+.ba-adver-guide:hover{
+    
+    background-color: #27496d;
+    transition: 0.5s;
+
+}
+
+
+.guide-box{
+    width: 80px;
+    height: 80px;  
+    line-height: 80px;
+    border-radius: 50%;
+    margin:13px 10px 12px 10px;
+    border: 6px solid #f79071;
+    background-color: #f0f0f0;
+}
+.guide-box .img{
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(../images/flat.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px;
+    
+    /* position: absolute;
+    top: 0px;
+    left: 0px; */
+    
+}
+
+
+.guide-br{
+ flex-basis: 20%;
+    
+}
+.guide-text{
+    flex-basis: 75%;
+    vertical-align: middle;
+    /* background-color: forestgreen; */
 }
