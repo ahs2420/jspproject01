@@ -10,15 +10,24 @@
 <link rel="stylesheet" href="/css/product.css">
 <!-- <script src="/xkfqkfjs/owl.carousel.js"></script> -->
 <script src="/xkfqkfjs/product-list.js"></script>
+<link rel="stylesheet" href="/xkfqkfcss/assets/owl.carousel.css">
+    <link rel="stylesheet" href="/xkfqkfcss/assets/owl.theme.default.css">
+    <script src="/xkfqkfjs/owl.carousel.js"></script>
 </head>
 <body>
 	<header class=" no-hero">
 		<!-- nav 자리 -->
 		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
-		<!-- hero 자리 -->
+
 	</header>
 	<!-- 메인 내용 -->
 	<main>
+	<div class="owl-carousel owl-theme">
+        <div class="item bg1"></div>
+        <div class="item bg2"></div>
+        <div class="item bg3"></div>
+        <div class="item bg4"></div>
+    </div>
 		<section class="reward-section">
 			<div class="reward-container">
 				<div class="owl-carousel owl-theme owl-category owl-carousel2">
@@ -35,8 +44,6 @@
 						</div>
 						<div class="reward-it-text">전체보기</div>
 					</div>
-
-
 					<div class="reward-it">
 						<div class="reward-it-img">
 							<img src="/xkfqkfimages/1.jpg" alt="">
