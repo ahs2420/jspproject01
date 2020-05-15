@@ -9,14 +9,14 @@
 
 <link rel="stylesheet" href="/xkfqkfcss/owl.carousel.css">
 <link rel="stylesheet" href="/xkfqkfcss/owl.theme.default.css">
-<link rel="stylesheet" href="/xkfqkfcss/product-table-list.css">
+<link rel="stylesheet" href="/xkfqkfcss/notice-news.css">
 <script src="https://code.jquery.com/jquery-2.2.4.js"
 	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 	crossorigin="anonymous"></script>
 <script src="/xkfqkfjs/owl.carousel.js"></script>
 <script src="https://kit.fontawesome.com/9a4319ba17.js"
 	crossorigin="anonymous"></script>
-<script src="/xkfqkfjs/product-table-list.js"></script>
+<script src="/xkfqkfjs/notice-news.js"></script>
 
 <!-- 
     <link rel="stylesheet" href="/css/main.css">
@@ -31,8 +31,8 @@
 	<!-- main내용삽입 -->
 	<main>
 		<section>
-			<div class="product-table-container">
-				<div class="product-table-item-title">
+			<div class="product-table-container product-table-mt">
+				<div class="product-table-item-title ">
 					<h1>전체보기</h1>
 					<div class="product-table-btn">
 						<div class="product-table-select-custom">

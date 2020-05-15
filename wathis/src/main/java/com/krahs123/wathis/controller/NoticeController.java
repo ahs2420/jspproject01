@@ -18,6 +18,10 @@ public class NoticeController {
 	@RequestMapping("/write")//사이트 작은 주소
 	public String viewWrite() {
 		return DIR+"notice-write";//jsp파일 이름
-		
 	}
+	@RequestMapping("/news")//사이트 작은 주소
+	public String viewnews() {
+		return DIR+"notice-news";//jsp파일 이름
+	}
+	
 }
