@@ -442,7 +442,7 @@ textarea{
     width:20%;
     position: absolute;
     top: -20px;
-    right:12.8%;
+    right:12%;
     
 }
 
@@ -452,7 +452,7 @@ textarea{
     width:20%;
     position: absolute;
     top: 20px;
-    right:12.8%;
+    right:12%;
 }
 
 /* 공통 부분 */
@@ -494,7 +494,7 @@ textarea{
 .box-back3{background-color:gold;}
 .box-back4{background-color:#90949c;}
 .box-back5{background-color:#ffefef;}
-.box-back6{background-color: #00c4c4;}
+.box-back6{background-color:#00c4c4;}
 .box-back7{background-color:#ffefef;}
 
 

@@ -31,12 +31,9 @@
 	margin: 0 auto;
 }
 
-
-
 .notice-list-box-text {
 	font-size: 1.25rem;
 	font-weight: 600;
-	margin-bottom: 20px;
 	width: calc(95% - 120px);
 }
 
@@ -63,13 +60,13 @@
 .notice-list-box-text p {
 	color: #666;
 	font-size: 12px;
+	margin-bottom:15px;
 }
 
 .notice-list-container {
 	max-width: 800px;
 	margin: 0 auto;
 	width: 100%;
-	margin-top: 20px;
 	line-height: 30px;
 	font-size: 10px;
 }
@@ -148,6 +145,7 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	
 }
 
 .notice-list-text {
@@ -273,7 +271,7 @@
 
 @media ( max-width : 1080px) {
 	.notice-list-container {
-		padding: 0 3%;
+		padding: 0 40px;
 	}
 }
 
@@ -281,13 +279,15 @@
 	.notice-list-box-text h4 {
 		font-size: 16px;
 		margin: 10px 0;
+		line-height: 20px;
 	}
 	.notice-list-box-text {
 		font-size: 16px;
 		margin-bottom: 5px;
 	}
 	.notice-list-bar {
-		margin-left: 20px;
+		width: 200px;
+		margin-left: 15px;
 	}
 	.notice-list h1 {
 		text-align: left;
@@ -299,6 +299,7 @@
 @media ( max-width : 480px) {
 	.notice-list-box-text {
 		margin-bottom: 0px;
+		    width: calc(95% - 100px);
 	}
 	.notice-list-box-text-l span {
 		font-size: 13px;
@@ -307,4 +308,14 @@
 		font-size: 16px;
 		margin: 0;
 	}
+	.notice-list-container{
+	    padding: 0 20px;
+	}
+	.notice-list-box-img{
+	    min-width: 100px;
+	}
+	.notice-list-box-text p{
+	margin-top: 10px;
+    line-height: 17px;
+    }
 }

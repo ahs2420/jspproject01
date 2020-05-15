@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
-<!-- <link rel="stylesheet" href="../hongcss/mypage/mypage-three.css"> -->
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
+<link rel="stylesheet" href="../hongcss/mypage/mypage-three.css">
 <script src="../hongjs/mypage/common.js"></script>
     <header>
         <div class="position-fix">
@@ -172,7 +172,7 @@
                                         </ul> 
                                     </div>
                                 </div>
-                                <div class="ba-guide3 box-back1 text-padding6">
+                                <div class="ba-guide3 box-back1 text-padding3">
                                     <a href="#" class="fon-siz3 fon-co4">리워드를 잘 설계해야 펀딩률이 쑥쑥!</a>
                                     <p class="fon-siz3 fon-co3">오픈하자마자 빠른 펀딩을 유도할 수 있는 얼리버드 리워드! 가이드를 통해 리워드를 만들어보세요.</p>
                                 </div>
