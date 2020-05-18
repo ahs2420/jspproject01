@@ -15,19 +15,45 @@
     <script src="/xkfqkfjs/owl.carousel.js"></script>
 </head>
 <body>
-	<header class=" no-hero">
+	<header>
 		<!-- nav 자리 -->
 		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
+    <div class="hero">
+        <div class="owl-carousel owl-hero owl-theme">
+            <c:forEach begin="1" end="3" var="i">
+                <!--팝업 아이템-->
+                <div class="item">
+                    <!--팝업 이동 주소-->
+                    <a href="/product/product">
+                        <div class="bg-hero-cover">
+                            <!--팝업 이미지-->
+                            <div class="bg-img bg-main" style="background-image: url(/xkfqkfimages/${i}.jpg);"></div>
+                            <div class="container bg-txt">
+                                <div class="hero-text-box">
+                                    <div class="small-title"></div>
+                                    <!--팝업 타이틀-->
+                                    <h1 class="title mb10">놓치면 끝<br>마감 임박 모음</h1>
+                                    <!--팝업 분류-->
+                                    <div class="sub-title">IT</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!--//팝업 아이템-->
+            </c:forEach>
+        </div>
+        <!--슬라이더 버튼-->
+        <div class="owl_hero_cotainer container flex-box flex-j-space flex-a-flexend">
+            <div class="owl_hero_dots owl-dots"></div>
+            <div class="owl_hero_nav owl-dots"></div>
+        </div>
+    </div>
 
 	</header>
 	<!-- 메인 내용 -->
 	<main>
-	<div class="owl-carousel owl-theme">
-        <div class="item bg1"></div>
-        <div class="item bg2"></div>
-        <div class="item bg3"></div>
-        <div class="item bg4"></div>
-    </div>
+	
 		<section class="reward-section">
 			<div class="reward-container">
 				<div class="owl-carousel owl-theme owl-category owl-carousel2">

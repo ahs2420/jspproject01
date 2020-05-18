@@ -4,34 +4,22 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: #333;
 }
 
 .item {
         width: 100%;
         height: 80vh;
-        background-image: url(/xkfqkfimages/1.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
 }
 
- .bg1 {
-     background-image: url(/xkfqkfimages/2.jpg);
- }
-
- .bg2 {
-     background-image: url(/xkfqkfimages/3.jpg);
- }
-
- .bg3 {
-     background-image: url/xkfqkfimages/4.jpg);
- }
-
- .bg4 {
-     background-image: url(/xkfqkfimages/5.jpg);
- }
-
+.bg-hero-cover,.item{
+	height:60vh;
+}
+body{
+		color: #333;
+}
 
 a {
 	text-decoration: none;

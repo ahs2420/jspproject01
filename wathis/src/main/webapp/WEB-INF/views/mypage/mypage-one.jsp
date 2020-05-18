@@ -12,8 +12,7 @@
 	<div class="position-fix">
 		<div class="head-con">
 			<div class="logo">
-				<a href="#"><span class="main-color">W</span>a<span
-					class="main-color">T</span>his</a>
+				<a href="#"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
 			</div>
 
 			<div class="head-userid">
@@ -52,7 +51,8 @@
 				<ul class="jq-box">
 					<li class="mypage-li-menu-not">
 						<div class="reward-box-num">
-							<a href="#">프로젝트 번호 <!-- <i class="fas fa-angle-down"></i> -->
+							<a href="#">프로젝트 번호
+								<!-- <i class="fas fa-angle-down"></i> -->
 							</a>
 
 							<ul class="hide">
@@ -110,16 +110,15 @@
 		<div class="box2-funReady">
 			<!-- 기본 정보 박스 -->
 			<!-- <div class="flex-basic-adver"> -->
-			<div class="basic-box">
-				<div class="mar-bo3">
-					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span
-						class=" fon-col fon-wei fon-siz3"><i
-						class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
+			<div class="basic-box-one">
+				<div class="mar-bo3 wid4">
+					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span class=" fon-col fon-wei fon-siz3"><i
+							class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
 						정보</span>
 				</div>
 
 
-				<div class="flex-basic2">
+				<div class="flex-basic1 wid1">
 					<div class="basic-box-one wid4">
 						<h1 class="di-la2 mar-bo6">기본 정보</h1>
 						<div class="info-box">
@@ -127,11 +126,16 @@
 						</div>
 					</div>
 
-					<div class="ba-adver-guide box-ra1 mar-right2 wid5 box-back2">
-						<div class="guid-icon">
-							<i class="fad fa-bookmark"></i>
+					<!-- 가이드 박스 -->
+					<div class="ba-adver-guide box-ra1 mar-right1 wid5 cu-poin">
+						<div class="guide-br">
+							<div class="guide-box di-la1">
+								<div class="img"></div>
+							</div>
 						</div>
-
+						<div class="guide-text di-la1">
+							<a class="fon-wei1  di-la1 fon-siz2 fon-co9">메이커님을 위한 필수 가이드</a>
+						</div>
 					</div>
 
 				</div>
@@ -144,8 +148,8 @@
 						<div class="name-left">
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
 								제목 <span class="fon-co5"> *</span>
-							</label> <input class="wid1 hei1 fon-bor1 text-padding1" type="text"
-								id="projectname" placeholder="제목 입력">
+							</label> <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectname"
+								placeholder="제목 입력">
 							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">40자 남음</p>
 						</div>
 					</div>
@@ -166,13 +170,19 @@
 				<!-- 2번 -->
 				<div class="flex-basic2 ba-pro-price">
 					<div class="wid4 mar-top3">
-						<label for="projectprice" class="di-ia1 mar-bo6 fon-wei1">목표금액<span
-							class="fon-co5"> *</span></label>
+						<label for="projectprice" class="di-ia1 mar-bo6 fon-wei1">목표금액<span class="fon-co5">
+								*</span></label>
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">최소 50 만원 ~ 최대 1억
 							원으로 설정하세요.</p>
-						<input class="wid1 hei1 fon-bor1 text-padding1" type="text"
-							id="projectprice" placeholder="목표 금액 입력">
-						<div class="money-box">원</div>
+						<div class="flex-box">
+							<div class="money-box wid1">
+								<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
+									placeholder="목표 금액 입력">
+							</div>
+							<div class="paybox hei1 box-back13 wid6  fon-co11 text-padding2">
+								<h4 class="mar-left3">원</h4>
+							</div>
+						</div>
 					</div>
 
 					<div class="ba-guide2">
@@ -192,10 +202,15 @@
 					<div class="wid4 mar-top3">
 						<label for="projectimg" class="di-ia1 mar-bo3 fon-wei1 ">대표
 							이미지<span class="fon-co5"> *</span>
-						</label> <br> <input class="" type="file" id="projectimg">
+						</label> <br> 
+						<!-- <input class="" type="file" id="projectimg"> -->
+						<div class="file-box">
+                           <label for="file1" class="fon-co9">등록하기</label>
+                           <input  type="file" id="file1">
+                        </div>
+						
 						<p class="fon-siz4 fon-co7 fon-wei1 mar-top1">3MB 이하의 JPEG,PNG
 							파일</p>
-						<p class="fon-siz4 fon-co7 fon-wei1">사이즈: 1200 X 675 픽셀이상</p>
 						<p class="fon-siz4 fon-co7 fon-wei1">텍스트 및 로고 삽입 금지</p>
 					</div>
 					<div class="ba-guide3">
@@ -219,9 +234,7 @@
 							선택<span class="fon-co5"> *</span>
 						</label>
 						<!-- <input class="" type="text" id="projectname" placeholder="카테고리 선택"> -->
-						<select
-							class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder"
-							name="" id="project-ka">
+						<select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="" id="project-ka">
 
 							<option value="">카테고리선택</option>
 							<option value="">테크.가전</option>
@@ -262,8 +275,8 @@
 						</label>
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
 							종료일을 선택하세요.</p>
-						<input class="wid1 hei1 fon-bor1 text-padding1" type="text"
-							id="project-day" placeholder="예? 20200401">
+						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="project-day"
+							placeholder="예? 20200401">
 					</div>
 
 					<div class="ba-guide5">
@@ -286,8 +299,8 @@
 							</h3>
 							<span class="fon-siz2 fon-co2">(선택사항)</span>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" type="checkbox" id="age"> <label
-									for="age"> <span class="fon-siz1 fon-co3 text-padding2">19세
+								<input class="" type="checkbox" id="age"> <label for="age"> <span
+										class="fon-siz1 fon-co3 text-padding2">19세
 										이상 펀딩 가능한 리워드입니다.</span>
 								</label>
 							</div>
@@ -314,8 +327,8 @@
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">엔터를 누르면 태그가 등록
 							됩니다.(최대 10개까지 입력가능)</p>
 
-						<input class="wid1 hei1 fon-bor1 text-padding1" type="text"
-							id="projectname" placeholder="태그 입력">
+						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectname"
+							placeholder="태그 입력">
 						<div class="tag fon-co4 fon-siz3 fon-wei1 mar-bo4">0/10개의 태그
 						</div>
 					</div>
@@ -340,9 +353,8 @@
 				<!-- 기본 요건 -->
 				<div class="basic-box">
 					<div class="basic-head mar-bo3">
-						<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span
-							class=" fon-col fon-wei fon-siz3"><i
-							class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
+						<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span class=" fon-col fon-wei fon-siz3"><i
+								class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
 							요건</span>
 					</div>
 
@@ -360,7 +372,18 @@
 							</div>
 						</div>
 
-						<div class="ba-adver-guide box-ra1 mar-right2 wid5">가이드 박스</div>
+						<!-- 가이드 박스 -->
+						<div class="ba-adver-guide box-ra1 mar-right1 wid5  cu-poin">
+							<div class="guide-br">
+								<div class="guide-box di-la1">
+									<div class="img"></div>
+								</div>
+							</div>
+							<div class="guide-text di-la1">
+								<a class="fon-wei1  di-la1 fon-siz2 fon-co9">메이커님을 위한 필수 가이드</a>
+							</div>
+						</div>
+
 					</div>
 				</div>
 				<div class="flex-basic2 q1-text">
@@ -371,16 +394,14 @@
 								유통 중인가요? <span class="fon-co5"> *</span></label>
 							</p>
 							<div class="radio-box mar-bo5 mar-top4">
-								<input class="" name="q1" type="radio" id="ra-q1-no"> <label
-									for="ra-q1-no"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
+								<input class="" name="q1" type="radio" id="ra-q1-no"> <label for="ra-q1-no"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
 										곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
 								</label>
 							</div>
 							<div class="radio-box mar-bo3 mar-top4">
-								<input class="" name="q1" type="radio" id="ra-q2-yes"> <label
-									for="ra-q2-yes"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2">예. 다른
+								<input class="" name="q1" type="radio" id="ra-q2-yes"> <label for="ra-q2-yes"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2">예. 다른
 										곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
 								</label>
 								<div class="yes-box">
@@ -421,17 +442,17 @@
 					<div class="mar-bo2 wid4">
 						<div class="name-left">
 							<p class="  di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								Q2. 리워드가 금형을 이용하여 제작되는 제품인지 확인하고 리워드에 맞는 제조 형태를 선택하세요. <span
-									class="fon-co5"> *</span></label>
+								Q2. 리워드가 금형을 이용하여 제작되는 제품인지 확인하고 리워드에 맞는 제조 형태를 선택하세요. <span class="fon-co5">
+									*</span></label>
 							</p>
-							<p class="fon-siz3 fon-co7 mar-top4">※ 금형을 이용하지 않고 제작되는 리워드라면 다섯번째 답변을 선택해주세요.</p>
-							<p class="fon-siz3 fon-co7 mar-bo4">※ 제조 형태에 따라 필요한 서류는 반드시 아래 리워드 필수 인증 서류 항목에
-								업로드해주세요.</p>
+							<p class="fon-siz3 fon-co7 mar-top4">※ 금형을 이용하지 않고 제작되는 리워드라면
+								다섯번째 답변을 선택해주세요.</p>
+							<p class="fon-siz3 fon-co7 mar-bo4">※ 제조 형태에 따라 필요한 서류는 반드시
+								아래 리워드 필수 인증 서류 항목에 업로드해주세요.</p>
 
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-1"> <label
-									for="ra-q2-1"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
+								<input class="" name="q2" type="radio" id="ra-q2-1"> <label for="ra-q2-1"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
 										이용하여 제작되는 리워드이며,메이커가 아이디어 단계부터 리워드의 기획 및 개발, 생산까지의 전 과정을
 										담담합니다. </span></label>
 
@@ -443,9 +464,8 @@
 
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-2"> <label
-									for="ra-q2-2"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
+								<input class="" name="q2" type="radio" id="ra-q2-2"> <label for="ra-q2-2"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
 										이용하여 제작되는 리워드이며, 메이커가 아이디어 단계부터 직접 기획 및 개발한 제품이지만, 제품의 양산 등의
 										과정은 메이커가 아닌 위탁 생산 업체가 담당합니다. </span></label>
 								<div class="q2-ra-text2 fon-siz1 fon-co7 text-padding2 fon-siz3">
@@ -458,9 +478,8 @@
 								</div>
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-3"> <label
-									for="ra-q2-3"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
+								<input class="" name="q2" type="radio" id="ra-q2-3"> <label for="ra-q2-3"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
 										이용하여 제작되는 리워드이며, 메이커가 국내외 제조업체에서 개발이 완료된 제품의 일부를 개선 혹은 변경한 뒤
 										자신의 브랜드로 위탁 생산을 의뢰하였습니다. </span></label>
 								<div class="q2-ra-text3 fon-siz1 fon-co7 text-padding2 fon-siz3">
@@ -473,9 +492,8 @@
 								</div>
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-4"> <label
-									for="ra-q2-4"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형 이용
+								<input class="" name="q2" type="radio" id="ra-q2-4"> <label for="ra-q2-4"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형 이용
 										여부와 관계없이 이미 제작 완료된 해외 브랜드의 제품을 메이커가 국내 첫 단독 총판의 자격으로 수입하여
 										유통합니다. </span></label>
 								<div class="q2-ra-text4 fon-siz1 fon-co7 text-padding2 fon-siz3">
@@ -488,9 +506,8 @@
 								</div>
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-5"> <label
-									for="ra-q2-5"> <span
-									class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 패션잡화,
+								<input class="" name="q2" type="radio" id="ra-q2-5"> <label for="ra-q2-5"> <span
+										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 패션잡화,
 										디자인 소품, 화장품, 식품, 서비스 이용권 등 금형을 이용하지 않고 제작되는 리워드입니다. </span></label>
 								<div class="q2-ra-text5 fon-siz1 fon-co7 text-padding2 fon-siz3">
 									<p>· 메이커가 리워드의 제작 및 유통 과정에서 어떤 역할을 담당하였는지 스토리에 작성해주세요.</p>
@@ -512,8 +529,7 @@
 					<div class="mar-bo2 wid1">
 						<div class="name-left">
 							<p class=" di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								Q3. 현재까지 진행된 리워드의 준비 상태 및 앞으로의 계획을 구체적으로 설명해주세요. <span
-									class="fon-co5"> *</span></label>
+								Q3. 현재까지 진행된 리워드의 준비 상태 및 앞으로의 계획을 구체적으로 설명해주세요. <span class="fon-co5"> *</span></label>
 							</p>
 							<div class="q3-texe wid4">
 								<p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4">
@@ -569,8 +585,7 @@
 									3)공연,영화,전시 등 무형 서비스의 경우 좌석수, 일 최대 예약 가능 수량 등을 작성해주세요.
 								</p>
 								<div class="text-area">
-									<textarea name="" id="" cols="30" rows="3" maxlength="500"
-										class="noresize"
+									<textarea name="" id="" cols="30" rows="3" maxlength="500" class="noresize"
 										style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
 										placeholder="내용을 입력하세요."></textarea>
 									<p class="fon-siz4 fon-col mar-bo6 fon-wei1">500자 남음</p>
@@ -599,9 +614,8 @@
 							<h4 class="di-ia1 mar-bo6 fon-wei1 fon-siz1 mar-top3">
 								리워드 필수 인증 코드 <span class="fon-co5"> *</span></label>
 							</h4>
-							<select
-								class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder"
-								name="" id="project-ka">
+							<select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name=""
+								id="project-ka">
 
 								<option value="">리워드의 종류를 선택하세요</option>
 								<option value="">HW(하드웨어)</option>
@@ -624,8 +638,8 @@
 							</div>
 							<div class="re-file-box">
 								<input class="" name="q5-ra" type="radio" id="upload-file">
-								<label for="upload-file"> <span
-									class="fon-siz1 fon-co3 text-padding2"> 필수 인증 서류 업로드 </span></label>
+								<label for="upload-file"> <span class="fon-siz1 fon-co3 text-padding2"> 필수 인증 서류 업로드
+									</span></label>
 								<div class="upload">
 									<label for="re-upload" class="di-ia1 mar-top1 fon-wei1">리워드
 										인증 서류<span class="fon-co5"> *</span>
@@ -643,8 +657,8 @@
 											<p>메일 보내기 전에 확인 사항(이미지 ?)</p>
 										</div>
 									</div>
-									<input class="" type="checkbox" id="email"> <label
-										for="email" class="di-ia1 mar-top1 fon-wei1">메일로
+									<input class="" type="checkbox" id="email"> <label for="email"
+										class="di-ia1 mar-top1 fon-wei1">메일로
 										전송하였습니다.</label>
 									<p class="fon-co5">필수 항목 값을 등록하세요.</p>
 									<div class="hr-bar fon-bor1"></div>
@@ -652,9 +666,9 @@
 								<div class="not-upload">
 									<div class="flex-box">
 										<div class="not-up-left">
-											<label for="not-upload-file"> <input class=""
-												name="q5-ra" type="radio" id="not-upload-file"> <span
-												class="fon-siz1 fon-co3 text-padding2"> 서류를 첨부하지
+											<label for="not-upload-file"> <input class="" name="q5-ra" type="radio"
+													id="not-upload-file"> <span class="fon-siz1 fon-co3 text-padding2">
+													서류를 첨부하지
 													않습니다. </span></label>
 										</div>
 										<div class="not-up-right">
@@ -664,17 +678,15 @@
 									</div>
 									<div class="not-upload-rabox">
 										<div class="not-up-ra-one">
-											<label for="q5-not-ra-one"> <input
-												class="text-padding3" name="q5-not-ra " type="radio"
-												id="q5-not-ra-one"> <span
-												class="fon-siz3 fon-co3 text-padding2"> 서류를 제출하지 않아도
+											<label for="q5-not-ra-one"> <input class="text-padding3" name="q5-not-ra "
+													type="radio" id="q5-not-ra-one"> <span
+													class="fon-siz3 fon-co3 text-padding2"> 서류를 제출하지 않아도
 													되는 리워드 </span></label>
 										</div>
 										<div class="not-up-ra-two">
-											<label for="q5-not-ra-two"> <input
-												class="text-padding3" name="q5-not-ra " type="radio"
-												id="q5-not-ra-two"> <span
-												class="fon-siz3 fon-co3 text-padding2"> 리워드 발송 전까지 서류
+											<label for="q5-not-ra-two"> <input class="text-padding3" name="q5-not-ra "
+													type="radio" id="q5-not-ra-two"> <span
+													class="fon-siz3 fon-co3 text-padding2"> 리워드 발송 전까지 서류
 													제출 가능한 리워드 </span></label>
 										</div>
 									</div>
@@ -702,8 +714,7 @@
 							</h3>
 							<div class="q6-texe fon-bor1">
 								<div class="q6-text-box">
-									<p
-										class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
+									<p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
 										리워드 오픈 수수료는 7% (VAT별도)입니다. <br> · 부가 서비스 이용 시, 추가 수수료가
 										발생될 수 있습니다. <br> · 리워드가 없는 기부후원 프로젝트의 경우, 수수료가 다르게 적용됩니다.
 										<br> · 자세한 내용은와디즈 수수료 정책을 확인해주세요.
@@ -711,8 +722,8 @@
 								</div>
 							</div>
 							<div class="q6-check ">
-								<label for="q6-check-box"> <input class=""
-									name="q6-check-box" type="checkbox" id="q6-check-box">
+								<label for="q6-check-box"> <input class="" name="q6-check-box" type="checkbox"
+										id="q6-check-box">
 									<span class="fon-siz1 fon-co3 text-padding2"> 리워드 발송 전까지
 										서류 제출 가능한 리워드 </span></label>
 							</div>
@@ -725,13 +736,12 @@
 					<div class="mar-bo2 wid1 ">
 						<div class="name-left ">
 							<h3 class="di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								오픈예정 서비스 신청 <span
-									class="di-ia1 mar-bo6 fon-wei1 fon-siz1 fon-co2"> (선택사항)</span></label>
+								오픈예정 서비스 신청 <span class="di-ia1 mar-bo6 fon-wei1 fon-siz1 fon-co2">
+									(선택사항)</span></label>
 							</h3>
 							<div class="q7-texe fon-bor1 wid4">
 								<div class="q7-text-box">
-									<p
-										class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
+									<p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
 										오픈예정 서비스란? <br> 프로젝트 오픈에 대하여, 사전에 알림 홍보를 할 수 있는 서비스 페이지를
 										말합니다. <br> 프로젝트 펀딩에 관심 있는 예비 서포터들이 펀딩 시작전에 내용을 둘러 보고, 관심이
 										있을 경우 알림 신청을 할 수 있는 페이지입니다. <br> 성공 프로젝트의 경우 평균적으로 오픈 직후
@@ -740,8 +750,8 @@
 								</div>
 							</div>
 							<div class="q7-check">
-								<label for="q7-check-box"> <input class=""
-									name="q7-check-box" type="checkbox" id="q7-check-box">
+								<label for="q7-check-box"> <input class="" name="q7-check-box" type="checkbox"
+										id="q7-check-box">
 									<span class="fon-siz1 fon-co3 text-padding2"> 오픈예정 서비스
 										신청 </span></label>
 								<div class="q7-end"></div>
