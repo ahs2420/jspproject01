@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/login/login-page.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
+<!-- fontawesome 코드 -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+<script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
+<!-- fontawesome 코드 -->
 <script src="../hongjs/login/login-page.js"></script>
 <style>
 @media ( max-width : 768px) {
@@ -160,7 +164,7 @@
 				</div>
 
 				<div class="modal-close modal-close-img">
-					<i class="far fa-times-circle"></i>
+					<i class="fal fa-times-square"></i>
 				</div>
 
 				<div class="modal-content">

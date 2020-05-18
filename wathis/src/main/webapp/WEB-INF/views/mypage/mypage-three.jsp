@@ -184,7 +184,7 @@
                                 <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
                                 <input type="file" id="file1">
                             </div>
-                            <div class="add-text-box">
+                            <div class="add-text-box mar-top4">
                                 <span class="fon-siz3 fon-co5">
                                     <i class="fas fa-exclamation-circle"></i>
                                     리워드를 추가하기 전에 프로젝트 종료일을 설정해주세요.
@@ -198,35 +198,35 @@
 
                         <!-- 3번 -->
 
-                        <div class="mar-bo2 wid6 text-padding9">
-                            <div class="name-left bor-box1 fon-bor1 text-padding6">
+                        <div class="mar-bo2 text-padding9">
+                            <div class="name-left bor-box1 fon-bor2 text-padding5 wid11 box-sh hei7">
                                 <div class="flex-box">
                                     <div class="">5000원</div>
                                     <div class="fl-sp"> 제한 수량 3개</div>
                                 </div>
 
-                                <div class="receipt box text-padding3">
+                                <div class="receipt text-padding3 hei2">
                                     <div class="flex-box fl-sp">
-                                        <span class="fl-sp fon-siz3 mar-bo6">킬리가방 얼리버드</span>
-                                        <span class="fl-sp fon-siz3 mar-bo6">$ 100,000</span>
+                                        <span class="fl-sp fon-siz3 mar-bo4">킬리가방 얼리버드</span>
+                                        <span class="fl-sp fon-siz3 mar-bo4 mar-left3">$ 100,000</span>
                                     </div>
-                                    <div class="flex-box fl-sp fon-siz3 mar-bo6">
-                                        <span class="fl-sp fon-siz3 mar-bo6"> 배송비</span>
-                                        <span class="fl-sp fon-siz3 mar-bo6 "> 해당 없음</span>
+                                    <div class="flex-box fl-sp fon-siz3 mar-bo7">
+                                        <span class="fl-sp fon-siz3 mar-bo4"> 배송비</span>
+                                        <span class="fl-sp fon-siz3 mar-bo4 mar-left3"> 해당 없음</span>
                                     </div>
-                                    <div class="flex-box fl-sp fon-siz3 mar-bo6">
-                                        <span class="fl-sp fon-siz3 mar-bo6 "> 리워드 발송 시작일</span>
-                                        <span class="fl-sp fon-siz3 mar-bo6 "> 2020년 중손 (11~20일)</span>
+                                    <div class="flex-box fl-sp fon-siz3 mar-bo4">
+                                        <span class="fl-sp fon-siz3 mar-bo4 "> 리워드 발송 시작일</span>
+                                        <span class="fl-sp fon-siz3 mar-bo4 mar-left3"> 2020년 중손 (11~20일)</span>
                                     </div>
 
                                     <span class="fon-siz3 fon-co5"> <i class="fas fa-exclamation-circle"></i> 리워드 발송
                                         시작일을
                                         다시 선택하세요.</span>
-                                    <div class="flex-box mar-top4">
-                                        <div class="update-box">
+                                    <div class="flex-box mar-top2">
+                                        <div class="update-box tex-al2 cu-poin">
                                             <span class="fl-sp fon-siz3"> 편집 </span>
                                         </div>
-                                        <div class="update-box">
+                                        <div class="update-box tex-al2 cu-poin mar-left4">
                                             <span class="fl-sp fon-siz3"> 삭제</span>
                                         </div>
                                     </div>

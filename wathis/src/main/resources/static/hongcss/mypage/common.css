@@ -423,12 +423,15 @@ textarea{
 }
 /* 광고 및 설명 부분 */
 
+
+
 .flex-box{
     display: flex;
-    justify-content:space-between;
-    
 }
-
+.flex-box1{
+    display: flex;
+    justify-content:space-between;
+}
 
 .flex-basic2{
     display: flex;
@@ -474,10 +477,6 @@ textarea{
 .box-ra3{border-radius: 10px;}
 
 
-
-
-
-
 .fon-col { color: #90949c;}
 .fon-co2 { color: rgba(0, 0, 0, .4);}
 .fon-co3 { color: #60656a;}
@@ -500,6 +499,11 @@ textarea{
 
 
 .fon-bor1 { border: 1px solid #ccc;}
+.fon-bor2 { border: 1px solid red;}
+.fon-bor3 { border: 1px solid #ccc;}
+.fon-bor4 { border: 1px solid #ccc;}
+.fon-bor5 { border: 1px solid #ccc;}
+.fon-bor6 { border: 1px solid #ccc;}
 
 .fon-wei1 { font-weight: 700;}
 .fon-wei2 { font-weight: 600;}
@@ -555,6 +559,8 @@ textarea{
 .wid8 { width: 5%;}
 .wid9 { width: 150px;}
 .wid10 { width: 69%;}
+.wid11 { width: 25%;}
+.wid12 { width: 15%;}
 /* .wid6 { width: 1000px;} */
 
 .hei1 { height: 48px;}
@@ -563,10 +569,14 @@ textarea{
 .hei4 { height: 50px;}
 .hei5 { height: 45px;}
 .hei6 { height: 30px;}
+.hei7 { height: 45%;}
 
 .cu-poin{ cursor: pointer;}
 /* 저장 버튼 */
 .tex-al1{text-align: justify;}
+.tex-al2{text-align: center;}
+.tex-al3{text-align: end;}
+
 .btn-save{
     width: 65%;
     text-align: center;
@@ -599,3 +609,5 @@ textarea{
     right: 0;
     text-align: center;
 }
+
+
