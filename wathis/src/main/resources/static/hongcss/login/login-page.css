@@ -315,7 +315,7 @@ input[name=tab]:checked+label::after {
 
 }
 
-main .flex-box {
+.flex-box {
     display: flex;
     /* background-color: slategray; */
 }
@@ -360,10 +360,10 @@ main .flex-box {
 
 .modal-container i {
     position: absolute;
-    top: -17px;
-    right: -17px;
+    top: 14px;
+    right: 17px;
     font-size: 40px;
-    background-color: #fffbfb;
+    /* background-color: #fffbfb; */
     border-radius: 50px;
     border-collapse: collapse;
     cursor: pointer;

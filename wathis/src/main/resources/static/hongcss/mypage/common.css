@@ -423,12 +423,14 @@ textarea{
 }
 /* 광고 및 설명 부분 */
 
+
+
 .flex-box{
     display: flex;
-    justify-content:space-between;
-    
 }
-
+.flex-basic1{
+    display: flex;  
+}
 
 .flex-basic2{
     display: flex;
@@ -474,10 +476,6 @@ textarea{
 .box-ra3{border-radius: 10px;}
 
 
-
-
-
-
 .fon-col { color: #90949c;}
 .fon-co2 { color: rgba(0, 0, 0, .4);}
 .fon-co3 { color: #60656a;}
@@ -486,8 +484,11 @@ textarea{
 .fon-co6 { color:#ccc;}
 .fon-co7 { color: rgba(0,0,0,.54);}
 .fon-co8 { color: rgba(0,0,0,.9);}
-.fon-co9 { color: #fff;}
-.fon-co10 { color: rgba(0,0,0,.3);}
+.fon-co9 { color:#ffd31d;}
+.fon-co10 { color: rgba(0,0,0,.9);}
+.fon-co11 { color: #f0f2f5;}
+.fon-co12 { color: #fff;}
+.fon-co13 { color: rgba(0,0,0,.3);}
 
 .box-back1{background-color:#f0f2f5;}
 .box-back2{background-color:rebeccapurple;}
@@ -496,10 +497,20 @@ textarea{
 .box-back5{background-color:#ffefef;}
 .box-back6{background-color:#00c4c4;}
 .box-back7{background-color:#ffefef;}
-
+.box-back8{background-color: #abf0e9;}
+.box-back9{background-color: #f0f0f0;}
+.box-back10{background-color: #27496d;}
+.box-back11{background-color: #024249;}
+.box-back12{background-color: #f79071;}
+.box-back13{background-color: #90949c;}
 
 
 .fon-bor1 { border: 1px solid #ccc;}
+.fon-bor2 { border: 1px solid red;}
+.fon-bor3 { border: 1px solid #ccc;}
+.fon-bor4 { border: 1px solid #ccc;}
+.fon-bor5 { border: 1px solid #ccc;}
+.fon-bor6 { border: 1px solid #ccc;}
 
 .fon-wei1 { font-weight: 700;}
 .fon-wei2 { font-weight: 600;}
@@ -512,7 +523,9 @@ textarea{
 .fon-siz4 { font-size: 12px;}
 .fon-siz5 { font-size: 11px;}
 .fon-siz6 { font-size: 14px;}
-.fon-siz7 { font-size: inherit;}
+.fon-siz7 { font-size: 18px;}
+.fon-siz8 { font-size: 12px;}
+.fon-siz9 { font-size: inherit;}
 
 .text-padding1{padding: 0 26px 0 10px ;}
 .text-padding2{padding:10px ;}
@@ -555,6 +568,8 @@ textarea{
 .wid8 { width: 5%;}
 .wid9 { width: 150px;}
 .wid10 { width: 69%;}
+.wid11 { width: 25%;}
+.wid12 { width: 15%;}
 /* .wid6 { width: 1000px;} */
 
 .hei1 { height: 48px;}
@@ -563,10 +578,14 @@ textarea{
 .hei4 { height: 50px;}
 .hei5 { height: 45px;}
 .hei6 { height: 30px;}
+.hei7 { height: 45%;}
 
 .cu-poin{ cursor: pointer;}
 /* 저장 버튼 */
 .tex-al1{text-align: justify;}
+.tex-al2{text-align: center;}
+.tex-al3{text-align: end;}
+
 .btn-save{
     width: 65%;
     text-align: center;
@@ -598,4 +617,47 @@ textarea{
     top: 0;
     right: 0;
     text-align: center;
+}
+
+
+/* 가이드 박스 아이콘 */
+.ba-adver-guide{
+    height:107px;
+    line-height: 107px;
+    /* position: relative; */
+    
+    padding: 10px;
+     background-color: #8fcebb;
+    transition: 0.5s;
+    /* border: 3px solid #00c4c4; */
+    /* margin-left: 12%; */
+    margin-left:3%;
+    
+}
+.ba-adver-guide:hover{
+    /* background: linear-gradient(#8fcebb, #85cfd3); */
+    background-color:  #1bb8c0;
+    transition: 0.5s;
+    
+}
+.guide-box{
+    height: 90px;
+    line-height: 90px;
+    vertical-align: middle;
+    border-radius: 50px;
+    text-align: center;
+       
+}
+
+.guide-box i{
+    line-height: 60px;
+    display: inline-block;
+    font-size: 30px;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.guide-text{
+    vertical-align: middle;
+    display: inline-block;
 }

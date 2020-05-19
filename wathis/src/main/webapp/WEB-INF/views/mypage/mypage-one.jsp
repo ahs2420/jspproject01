@@ -3,7 +3,10 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypage-one.css">
+<!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+<script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
+<!-- fontawesome 코드 -->
 <script src="../hongjs/mypage/mypage.js"></script>
 <script src="../hongjs/mypage/common.js"></script>
 
@@ -112,9 +115,9 @@
 			<!-- <div class="flex-basic-adver"> -->
 			<div class="basic-box-one">
 				<div class="mar-bo3 wid4">
-					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span class=" fon-col fon-wei fon-siz3"><i
-							class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
-						정보</span>
+					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span>
+					<span class=" fon-col fon-wei fon-siz3"><i class="fas fa-chevron-right"></i></span>
+					<span class=" fon-wei fon-siz3">기본 정보</span>
 				</div>
 
 
@@ -128,17 +131,15 @@
 
 					<!-- 가이드 박스 -->
 					<div class="ba-adver-guide box-ra1 mar-right1 wid5 cu-poin">
-						<div class="guide-br">
-							<div class="guide-box di-la1">
-								<div class="img"></div>
-							</div>
-						</div>
-						<div class="guide-text di-la1">
-							<a class="fon-wei1  di-la1 fon-siz2 fon-co9">메이커님을 위한 필수 가이드</a>
+						<div class="guide-box">
+							<a class="fon-wei1 fon-siz6 fon-co11 di-la1 ">
+								<i class="fal fa-book"></i>
+								메이커님을 위한 필수 가이드
+							</a>
 						</div>
 					</div>
-
 				</div>
+
 
 			</div>
 			<div class="ba-project">
@@ -179,7 +180,7 @@
 								<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
 									placeholder="목표 금액 입력">
 							</div>
-							<div class="paybox hei1 box-back13 wid6  fon-co11 text-padding2">
+							<div class="paybox hei1 box-back13 wid8  fon-co11 text-padding2">
 								<h4 class="mar-left3">원</h4>
 							</div>
 						</div>
@@ -202,13 +203,13 @@
 					<div class="wid4 mar-top3">
 						<label for="projectimg" class="di-ia1 mar-bo3 fon-wei1 ">대표
 							이미지<span class="fon-co5"> *</span>
-						</label> <br> 
+						</label> <br>
 						<!-- <input class="" type="file" id="projectimg"> -->
 						<div class="file-box">
-                           <label for="file1" class="fon-co9">등록하기</label>
-                           <input  type="file" id="file1">
-                        </div>
-						
+							<label for="file1" class="fon-co9">등록하기</label>
+							<input type="file" id="file1">
+						</div>
+
 						<p class="fon-siz4 fon-co7 fon-wei1 mar-top1">3MB 이하의 JPEG,PNG
 							파일</p>
 						<p class="fon-siz4 fon-co7 fon-wei1">텍스트 및 로고 삽입 금지</p>
@@ -359,7 +360,7 @@
 					</div>
 
 
-					<div class="flex-basic2 ">
+					<div class="flex-basic1 ">
 						<div class="basic-box-one wid4">
 							<h1 class="di-la2 mar-bo6">기본 요건</h1>
 							<br />
@@ -373,17 +374,14 @@
 						</div>
 
 						<!-- 가이드 박스 -->
-						<div class="ba-adver-guide box-ra1 mar-right1 wid5  cu-poin">
-							<div class="guide-br">
-								<div class="guide-box di-la1">
-									<div class="img"></div>
-								</div>
-							</div>
-							<div class="guide-text di-la1">
-								<a class="fon-wei1  di-la1 fon-siz2 fon-co9">메이커님을 위한 필수 가이드</a>
+						<div class="ba-adver-guide box-ra1 mar-right1 wid5 cu-poin">
+							<div class="guide-box">
+								<i class="fal fa-book"></i>
+								<a class="fon-wei1 fon-siz6 fon-co11 di-la1 ">
+									메이커님을 위한 필수 가이드
+								</a>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<div class="flex-basic2 q1-text">
@@ -394,15 +392,16 @@
 								유통 중인가요? <span class="fon-co5"> *</span></label>
 							</p>
 							<div class="radio-box mar-bo5 mar-top4">
-								<input class="" name="q1" type="radio" id="ra-q1-no"> <label for="ra-q1-no"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
+								<input class="ra-size" name="q1" type="radio" id="ra-q1-no"> <label for="ra-q1-no">
+									<span class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
 										곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
 								</label>
 							</div>
 							<div class="radio-box mar-bo3 mar-top4">
-								<input class="" name="q1" type="radio" id="ra-q2-yes"> <label for="ra-q2-yes"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2">예. 다른
-										곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
+								<input class="ra-size" name="q1" type="radio" id="ra-q2-yes">
+								<label for="ra-q2-yes">
+									<span class="fon-siz1 fon-co8 text-padding2 fon-siz2">
+										예. 다른 곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
 								</label>
 								<div class="yes-box">
 									<h4 class="fon-siz4 fon-co7 fon-wei1 mar-top3 mar-bo4">
@@ -451,7 +450,7 @@
 								아래 리워드 필수 인증 서류 항목에 업로드해주세요.</p>
 
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-1"> <label for="ra-q2-1"> <span
+								<input class="ra-size" name="q2" type="radio" id="ra-q2-1"> <label for="ra-q2-1"> <span
 										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
 										이용하여 제작되는 리워드이며,메이커가 아이디어 단계부터 리워드의 기획 및 개발, 생산까지의 전 과정을
 										담담합니다. </span></label>
@@ -464,7 +463,7 @@
 
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-2"> <label for="ra-q2-2"> <span
+								<input class="ra-size" name="q2" type="radio" id="ra-q2-2"> <label for="ra-q2-2"> <span
 										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
 										이용하여 제작되는 리워드이며, 메이커가 아이디어 단계부터 직접 기획 및 개발한 제품이지만, 제품의 양산 등의
 										과정은 메이커가 아닌 위탁 생산 업체가 담당합니다. </span></label>
@@ -478,7 +477,7 @@
 								</div>
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-3"> <label for="ra-q2-3"> <span
+								<input class="ra-size" name="q2" type="radio" id="ra-q2-3"> <label for="ra-q2-3"> <span
 										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
 										이용하여 제작되는 리워드이며, 메이커가 국내외 제조업체에서 개발이 완료된 제품의 일부를 개선 혹은 변경한 뒤
 										자신의 브랜드로 위탁 생산을 의뢰하였습니다. </span></label>
@@ -492,7 +491,7 @@
 								</div>
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-4"> <label for="ra-q2-4"> <span
+								<input class="ra-size" name="q2" type="radio" id="ra-q2-4"> <label for="ra-q2-4"> <span
 										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형 이용
 										여부와 관계없이 이미 제작 완료된 해외 브랜드의 제품을 메이커가 국내 첫 단독 총판의 자격으로 수입하여
 										유통합니다. </span></label>
@@ -506,7 +505,7 @@
 								</div>
 							</div>
 							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" name="q2" type="radio" id="ra-q2-5"> <label for="ra-q2-5"> <span
+								<input class="ra-size" name="q2" type="radio" id="ra-q2-5"> <label for="ra-q2-5"> <span
 										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 패션잡화,
 										디자인 소품, 화장품, 식품, 서비스 이용권 등 금형을 이용하지 않고 제작되는 리워드입니다. </span></label>
 								<div class="q2-ra-text5 fon-siz1 fon-co7 text-padding2 fon-siz3">
@@ -637,7 +636,7 @@
 									종류 별 필수 인증 서류 확인하러가기</a>
 							</div>
 							<div class="re-file-box">
-								<input class="" name="q5-ra" type="radio" id="upload-file">
+								<input class="ra-size" name="q5-ra" type="radio" id="upload-file">
 								<label for="upload-file"> <span class="fon-siz1 fon-co3 text-padding2"> 필수 인증 서류 업로드
 									</span></label>
 								<div class="upload">
@@ -666,8 +665,9 @@
 								<div class="not-upload">
 									<div class="flex-box">
 										<div class="not-up-left">
-											<label for="not-upload-file"> <input class="" name="q5-ra" type="radio"
-													id="not-upload-file"> <span class="fon-siz1 fon-co3 text-padding2">
+											<label for="not-upload-file"> <input class="ra-size" name="q5-ra"
+													type="radio" id="not-upload-file"> <span
+													class="fon-siz1 fon-co3 text-padding2">
 													서류를 첨부하지
 													않습니다. </span></label>
 										</div>
@@ -722,7 +722,7 @@
 								</div>
 							</div>
 							<div class="q6-check ">
-								<label for="q6-check-box"> <input class="" name="q6-check-box" type="checkbox"
+								<label for="q6-check-box"> <input class="ra-size" name="q6-check-box" type="checkbox"
 										id="q6-check-box">
 									<span class="fon-siz1 fon-co3 text-padding2"> 리워드 발송 전까지
 										서류 제출 가능한 리워드 </span></label>
@@ -750,7 +750,7 @@
 								</div>
 							</div>
 							<div class="q7-check">
-								<label for="q7-check-box"> <input class="" name="q7-check-box" type="checkbox"
+								<label for="q7-check-box"> <input class="ra-size" name="q7-check-box" type="checkbox"
 										id="q7-check-box">
 									<span class="fon-siz1 fon-co3 text-padding2"> 오픈예정 서비스
 										신청 </span></label>

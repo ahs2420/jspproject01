@@ -3,7 +3,12 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
+<!-- fontawesome 코드 -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+<script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
+<!-- fontawesome 코드 -->
 <script src="../hongjs/mypage/common.js"></script>
+
 <body>
     <header>
         <div class="position-fix">
@@ -55,7 +60,7 @@
 
                                 <ul class="hide">
                                     <li>
-                                     	와디지 담당자와의 소통은 프로젝트 번호로 진행됩니다. 상세페이지는 프로젝트 번호를 포함한 URL 주소로 오픈 된 후 진입 가능합니다.
+                                        와디지 담당자와의 소통은 프로젝트 번호로 진행됩니다. 상세페이지는 프로젝트 번호를 포함한 URL 주소로 오픈 된 후 진입 가능합니다.
                                     </li>
                                     <li class="reward-box-url">
                                         url 복사하기
@@ -118,14 +123,19 @@
                     </div>
 
 
-                    <div class="flex-basic2">
+                    <div class="flex-basic1 wid1">
                         <div class="basic-box-one wid4">
                             <h1 class="di-la2 mar-bo6">메이커 정보</h1>
 
                         </div>
-
-                        <div class="ba-adver-guide box-ra1 mar-right2 wid5">
-                            가이드 박스
+                        <!-- 가이드 박스 -->
+                        <div class="ba-adver-guide box-ra1 mar-right1 wid5 cu-poin">
+                            <div class="guide-box">
+                                <a class="fon-wei1 fon-siz7 fon-co11 di-la1 ">
+                                    <i class="fal fa-book "></i>
+                                    메이커님을 위한 필수 가이드
+                                </a>
+                            </div>
                         </div>
 
                     </div>
@@ -215,8 +225,8 @@
                                             </span>
                                         </span>
                                     </label>
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="이메일 입력">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="이메일 입력">
 
                                 </div>
                                 <div class="ba-guide3">
@@ -235,8 +245,8 @@
                                     <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class="">문의
                                             전화번호<span class="fon-co5"> *
                                             </span></label>
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="전화번호 입력">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="전화번호 입력">
 
                                 </div>
                                 <div class="ba-guide4">
@@ -257,10 +267,10 @@
                                         <span class="fon-co10 fon-siz2">(선택사항)</span>
                                     </label>
 
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="검색용 아이디 입력">
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="홈페이지 URL 입력">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="검색용 아이디 입력">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="홈페이지 URL 입력">
 
                                 </div>
                                 <div class="ba-guide5">
@@ -282,10 +292,10 @@
                                         <span class="fon-co10 fon-siz2">(선택사항)</span>
                                     </label>
 
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="홈페이지 URL 입력">
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="홈페이지 URL 입력">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="홈페이지 URL 입력">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="홈페이지 URL 입력">
 
                                 </div>
                                 <div class="ba-guide6">
@@ -302,17 +312,17 @@
                             <div class="flex-basic2 ba-pro-seach">
                                 <div class="mar-bo2 wid4">
                                     <label for="projectprice" class="di-la1 mar-top1 fon-wei1">
-                                        
+
                                         <h4 class="di-in1">SNS</h4>
-                                        <span class="fon-co10 fon-siz2">(선택사항)</span>                                     </span>
+                                        <span class="fon-co10 fon-siz2">(선택사항)</span> </span>
                                     </label>
 
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="https://www.facebook.com/">
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="https://www.twitter.com/">
-                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                        placeholder="https://www.instagram.com/">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="https://www.facebook.com/">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="https://www.twitter.com/">
+                                    <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                        id="projectprice" placeholder="https://www.instagram.com/">
 
                                 </div>
                                 <div class="ba-guide7">
@@ -329,7 +339,8 @@
                             <div class="box-container">
                                 <div class="box-text-one">
                                     <h3>대표자 정보 </h3>
-                                    <p class="fon-siz2 fon-col fon-wei mar-bo3">정산과 관련된 전자 약정 체결을 위한 정보이니, 정확하게 입력해주세요.</p>
+                                    <p class="fon-siz2 fon-col fon-wei mar-bo3">정산과 관련된 전자 약정 체결을 위한 정보이니, 정확하게 입력해주세요.
+                                    </p>
                                 </div>
                             </div>
                             <!--  대표자 1번 -->
@@ -366,10 +377,10 @@
                                     <label for="projectimg" class="di-la1 mar-top1 fon-wei1">통장 사본
                                         <span class="fon-co5">
                                             *</span></label><br>
-                                            <div class="file-box mar-top4">
-                                                <label for="file1"><i class="fas fa-file-upload fon-co9"></i> 업로드</label>
-                                                <input type="file" id="file1">
-                                            </div>
+                                    <div class="file-box mar-top4">
+                                        <label for="file1"><i class="fas fa-file-upload fon-co9"></i> 업로드</label>
+                                        <input type="file" id="file1">
+                                    </div>
                                     <p class="fon-siz3 fon-col mar-top5">펀딩 성공 시 펀딩 금액을 수령할 법인 명의의 계좌 사본을 첨부하세요.</p>
                                     <p class="fon-siz3 fon-col mar-top5"> jpg, jpeg, png, pdf / 10MB 이하 파일 1개만 업로드
                                         가능합니다.
@@ -419,16 +430,17 @@
                                     <div class="mar-bo2 wid4 ">
                                         <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class="">
                                                 <h4 class="di-in1">공동 대표자</h4>
-                                                <span class="fon-co10 fon-siz2">(선택사항)</span> 
+                                                <span class="fon-co10 fon-siz2">(선택사항)</span>
                                             </span></label>
                                         <div class="flex-end">
                                             <input class="wid6 hei1 fon-bor1 text-padding1" type="text"
                                                 id="projectprice" placeholder="공통 대표자 입력">
                                             <input class="wid10 hei1 fon-bor1 text-padding1" type="text"
                                                 id="projectprice" placeholder="공통 대표자 이메일 입력">
-                                                <span class="add-btn ">
-                                                    <button class="hei1 fon-bor1 text-padding3 box-back4 fon-co9 cu-poin fon-wei1">추가</button>
-                                                </span>
+                                            <span class="add-btn ">
+                                                <button
+                                                    class="hei1 fon-bor1 text-padding3 box-back4 fon-co9 cu-poin fon-wei1">추가</button>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="ba-guide5">

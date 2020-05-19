@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/login/login-page.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
+<!-- fontawesome 코드 -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+<script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
+<!-- fontawesome 코드 -->
 <script src="../hongjs/login/login-page.js"></script>
 <style>
 @media ( max-width : 768px) {
@@ -73,30 +77,30 @@
 						<div class="site-box">
 							<div class="facebook">
 								<a href="https://www.facebook.com" id="site" target="_blank">
-									<i class="fab fa-facebook-f line-he"></i>
+									<i class="fab fa-facebook-f"></i>
 								</a>
 							</div>
 							<div class="google">
 								<a href="https://www.google.com" id="site" target="_blank">
-									<i class="fab fa-google line-he"></i>
+									<i class="fab fa-google"></i>
 								</a>
 							</div>
 							<div class="wadiz">
 								<a
 									href="https://www.wadiz.kr/web/wevent/202002?gclid=EAIaIQobChMI2qa5ztO36AIVfCCtBh2-7gniEAAYASAAEgLgifD_BwE"
-									id="site" target="_blank"> <i class="fab fa-weebly line-he"></i>
+									id="site" target="_blank"> <i class="fab fa-weebly"></i>
 								</a>
 							</div>
 
 							<div class="twitter">
 								<a href="https://twitter.com/explore" id="site" target="_blank">
-									<i class="fab fa-twitter line-he"></i>
+									<i class="fab fa-twitter"></i>
 								</a>
 							</div>
 
 							<div class="linkedin">
 								<a href="https://kr.linkedin.com/" id="site" target="_blank">
-									<i class="fab fa-linkedin-in line-he"></i>
+									<i class="fab fa-linkedin-in"></i>
 								</a>
 							</div>
 
@@ -160,7 +164,7 @@
 				</div>
 
 				<div class="modal-close modal-close-img">
-					<i class="far fa-times-circle"></i>
+					<i class="fal fa-times-square"></i>
 				</div>
 
 				<div class="modal-content">
