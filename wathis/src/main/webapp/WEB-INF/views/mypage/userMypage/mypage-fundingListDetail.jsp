@@ -99,7 +99,7 @@
                 <p class="mt10">[12345] OO시 OO구 OO로 123 (OO동) </p>
                 <p class="mt10">OOOO센터 O동 O층 OO호</p>
                 <p class="mt10">부재중이면 경비실에 맡겨주세요.</p>
-                <h1 class="small-title gray bold mt40">배송지 상태</h1>
+                <h1 class="small-title gray bold mt40">배송지 상태<button class="deleveryChk" data-tracks="417472558775" data-carriers="kr.hanjin"  data-target=".delevery-modal">배송조회</button></h1>
                 <p class="gray mt10">미발송</p>
                 <h1 class="small-title bold mt20">혹시 리워드를 수령했나요?</h1>
                 <button class="btn-stan tiny-content w-100p product-question btn-white mt10">
@@ -110,7 +110,7 @@
                 <span class="tiny-tiny-content bold">
                     펀딩 종료 이 후에는 서포터의 배송지 정보가 프로젝트 메이커에게 전달되기 때문에, 종료 이 후 배송 정보 변경 등에 대한 문의는 메이커에게 직접하셔야 합니다.
                 </span>
-                <button class="btn-stan tiny-content w-100p product-question btn-white mt10"  data-target=".question-box" onclick="targetActive(this)">
+                <button class="btn-stan tiny-content w-100p product-question btn-white mt10"  data-target=".question-box" onclick="targetActive(this)" >
                     <i class="far fa-question-circle" aria-hidden="true"></i> <span>메이커에게 문의하기</span>
                 </button>
             </div>
@@ -162,4 +162,54 @@
         </div>
     </div>
 </div>
-<!--문의하기 모달끝-->
+<!--//문의하기 모달끝-->
+
+<!-- 배송조회 모달-->
+
+<div class="delevery-modal modal-stan">
+    <div class="modal-content pt30 pb30">
+        <div class="modal-close modal-btn-close" data-target=".delevery-modal" onclick="targetActive(this)"></div>
+        <div class="border-bottom pl20 pr20">
+            <h1 class="title main-color mb20 txt-center">
+                배송조회
+            </h1>
+        </div>
+        <div class="mt20 delevery-content-wrap pl20 pr20">
+            <div>
+                <h3 class="delevery-status large-title bold align-center"></h3>
+            </div>
+            <div class="mt20">
+                <table class="delevery-table">
+                    <colgroup>
+                        <col width="33%" />
+                        <col width="*" />
+                        <col width="33%" />
+                    </colgroup>
+                    <thead>
+                        <tr class="border-bottom">
+                            <th>처리일시</th>
+                            <th>현재위치</th>
+                            <th>상태</th>
+                        </tr>
+                        <tbody>
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+            <div class="mt20">
+                <h4 class="large-title bold align-center">기본정보</h4>
+                <div class="pt20 pb20 pl30 pr30 border-gray mt20">
+                    <table class="delevery-info mt10">
+                        <colgroup>
+                            <col width="100px" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //배송조회 모달-->

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <section>
     <div class="container max600" id="term-box">
-        <form action="" enctype="multipart/form-data">
+        <form name="baseInfoForm" action="" enctype="multipart/form-data">
             <div class="pb20  border-bottom">
                 <h1 class="large-title bold">기본 정보 설정</h1>
             </div>
@@ -41,13 +41,12 @@
             </div>
         
         </form>
-        <form>
+        <form name="passwdChangeForm">
             <div class="pb20  border-bottom">
                 <h1 class="large-title bold">비밀번호 변경</h1>
             </div>
             <div class="mt10">
                 <input type="password" name="orgPasswd" class="input-stan w-100p chkitem chkPasswd" data-error="비밀번호를" id="detailAddress" placeholder="기존 비밀번호" />
-                <span class="confirmPwd caution-color"></span>
             </div>
             <div class="mt10">
                 <input type="password" name="passwd" class="input-stan w-100p chkitem chkPasswd" data-error="비밀번호를" id="detailAddress" placeholder="변경할 비밀번호" />

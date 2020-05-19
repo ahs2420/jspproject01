@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white pt40 pb40 mt50">
+        <div class="bg-white pt40 pb40">
             <c:forEach begin="0" end="2" varStatus="vs">
                 <div class="<c:if test="${vs.index != 0}">mt20</c:if> pb20 border-bottom">
                     <a href="/page/userMypage?template=fundingList&page=detail">

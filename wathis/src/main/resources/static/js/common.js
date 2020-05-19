@@ -138,27 +138,37 @@ $(function(){
 });
 //.chkitem 인거 value 있는지 체크
 //$(this).data("error")에 에러메시지에 띄울 값 입력
-function chkItem(item){
+function chkItem(item,pwdChk=false){
 	var $chkItem=$(item).find(".chkitem");
-	var bRetuen=true;
-	$chkItem.each(function(){
+    var bReturn= true;
+    $chkItem.each(function(){
         if($(this).attr("type")=="checkbox"||$(this).attr("type")=="radio"){
             if(!$(this).is(":checked")){
                 alert($(this).data("error")+" 선택해 주세요");
                 $(this).focus();
-                bRetuen=false;
+                bReturn=false;
                 return false;
             }
         }else{
             if($.trim($(this).val())==""){
                 alert($(this).data("error")+" 입력해 주세요");
                 $(this).focus();
-                bRetuen=false;
+                bReturn=false;
+                return false;
+            }
+        }
+        if(pwdChk&&$(this).attr("name")=="passwdChk"){
+            if($(this).val()!=$("[name=passwd]").val()){
+                alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+                $(this).val("");
+                $("[name=passwd]").val("");
+                $("[name=passwd]").focus();
+                bReturn=false;
                 return false;
             }
         }
 	});
-	return bRetuen;
+	return bReturn;
 }
 //cke내용 확인
 //$(this).chkCke();

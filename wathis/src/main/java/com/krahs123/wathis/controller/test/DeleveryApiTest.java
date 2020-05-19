@@ -65,19 +65,19 @@ public class DeleveryApiTest {
         
 		return result;
 	}
-//	@RequestMapping("test")
-//	@ResponseBody
-//	public String postTest() {
-//		Map<String, Object> map = new HashMap<>();
-//		ApiUseSample aus = new ApiUseSample();
-//		map.put("boardCode", "picture");
-//		map.put("aid", 16);
-//		String result = aus.getApi("http://localhost:9999/comment/commentList", null, map, false);
-//		//test URL = http://localhost:8888/deleveryTest/parseDelivery?carriers=kr.hanjin&tracks=417472558775
-//		JSONParser jps = new JSONParser();
-//		StringBuilder sb = new StringBuilder();
-//		
-//		return result;
-//	}
+	@RequestMapping("test")
+	@ResponseBody
+	public String postTest() {
+		Map<String, Object> map = new HashMap<>();
+		ApiUseSample aus = new ApiUseSample();
+		map.put("boardCode", "picture");
+		map.put("aid", 16);
+		String result = aus.postApi("http://localhost:9999/comment/commentList", null, map, false);
+		//test URL = http://localhost:8888/deleveryTest/parseDelivery?carriers=kr.hanjin&tracks=417472558775
+		JSONParser jps = new JSONParser();
+		StringBuilder sb = new StringBuilder();
+		
+		return result;
+	}
 	
 }

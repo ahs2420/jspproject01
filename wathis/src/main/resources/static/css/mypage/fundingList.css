@@ -14,3 +14,10 @@
 .maker-sns-container a {
     margin-left: 5px;
 }
+.delevery-modal .modal-content{
+    max-width: 500px;
+}
+.delevery-content-wrap{
+    max-height: 60vh;
+    overflow-y: auto;
+}

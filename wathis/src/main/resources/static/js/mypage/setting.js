@@ -28,6 +28,19 @@ $(function(){
         confirmPwd();
     });
 });
+//폼 확인
+$(function(){
+    $("form[name=passwdChangeForm]").submit(function(){
+        var bReturn=chkItem($(this),true);
+        return false;
+    });
+});
+$(function(){
+    $("form[name=baseInfoForm]").submit(function(){
+        var bReturn=chkItem($(this));
+        return false;
+    });
+});
 function confirmPwd(){
     var $target=$(".confirmPwd");
     var $pwd=$("[name=passwd]");
@@ -35,5 +48,4 @@ function confirmPwd(){
     if($pwd.val()!=$pwdChk.val()){
         $target.html("비밀번호가 일치하지 않습니다.");
     }
-
 }
