@@ -115,9 +115,9 @@
 			<!-- <div class="flex-basic-adver"> -->
 			<div class="basic-box-one">
 				<div class="mar-bo3 wid4">
-					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span> <span class=" fon-col fon-wei fon-siz3"><i
-							class="fas fa-chevron-right"></i></span> <span class=" fon-wei fon-siz3">기본
-						정보</span>
+					<span class=" fon-col fon-wei fon-siz3 ">펀딩 준비</span>
+					<span class=" fon-col fon-wei fon-siz3"><i class="fas fa-chevron-right"></i></span>
+					<span class=" fon-wei fon-siz3">기본 정보</span>
 				</div>
 
 
@@ -376,8 +376,8 @@
 						<!-- 가이드 박스 -->
 						<div class="ba-adver-guide box-ra1 mar-right1 wid5 cu-poin">
 							<div class="guide-box">
+								<i class="fal fa-book"></i>
 								<a class="fon-wei1 fon-siz6 fon-co11 di-la1 ">
-									<i class="fal fa-book"></i>
 									메이커님을 위한 필수 가이드
 								</a>
 							</div>
@@ -392,14 +392,14 @@
 								유통 중인가요? <span class="fon-co5"> *</span></label>
 							</p>
 							<div class="radio-box mar-bo5 mar-top4">
-								<input class="ra-size" name="q1" type="radio" id="ra-q1-no"> <label for="ra-q1-no"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
+								<input class="ra-size" name="q1" type="radio" id="ra-q1-no"> <label for="ra-q1-no">
+									<span class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
 										곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
 								</label>
 							</div>
 							<div class="radio-box mar-bo3 mar-top4">
-								<input class="ra-size" name="q1" type="radio" id="ra-q2-yes"> 
-								<label for="ra-q2-yes"> 
+								<input class="ra-size" name="q1" type="radio" id="ra-q2-yes">
+								<label for="ra-q2-yes">
 									<span class="fon-siz1 fon-co8 text-padding2 fon-siz2">
 										예. 다른 곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
 								</label>
@@ -665,8 +665,9 @@
 								<div class="not-upload">
 									<div class="flex-box">
 										<div class="not-up-left">
-											<label for="not-upload-file"> <input class="ra-size" name="q5-ra" type="radio"
-													id="not-upload-file"> <span class="fon-siz1 fon-co3 text-padding2">
+											<label for="not-upload-file"> <input class="ra-size" name="q5-ra"
+													type="radio" id="not-upload-file"> <span
+													class="fon-siz1 fon-co3 text-padding2">
 													서류를 첨부하지
 													않습니다. </span></label>
 										</div>

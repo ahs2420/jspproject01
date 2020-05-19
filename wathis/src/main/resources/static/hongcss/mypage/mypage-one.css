@@ -414,7 +414,7 @@ border-radius: 3px;
 
 /* 글자 굷기 */
 .fon-wei1 { font-weight: 700;}
-.fon-wei { font-weight: 600;}
+.fon-wei2 { font-weight: 600;}
 .fon-wei3 { font-weight: 400;}
 
 /* 글자 사이즈 */
@@ -449,6 +449,7 @@ border-radius: 3px;
 .mar-right2 { margin-right: 12%;}
 .mar-right3 { margin-right: 12%;}
 .mar-right4 { margin-right: 3px;}
+.mar-right5 { margin-right: 6px;}
 
 .mar-left1 { margin-left: 20px;}
 .mar-left2 { margin-left: 15px;}
@@ -636,34 +637,35 @@ text-align: center;
 .ba-adver-guide:hover{
     /* background: linear-gradient(#8fcebb, #85cfd3); */
     
-   
+    
     background-color:  #1bb8c0;
     transition: 0.5s;
-
+    
 }
 .guide-box{
     height: 90px;
     line-height: 90px;
-
-}
-.guide-box a{
-
-
+    vertical-align: middle;
+   
+    border-radius: 50px;
+    text-align: center;
+    
+    
 }
 
 
 .guide-box i{
-    width: 60px;
-    height: 60px;
     line-height: 60px;
-    border-radius: 50px;
     display: inline-block;
-    background-color: #1559c5; 
-    text-align: center;
     font-size: 30px;
     vertical-align: middle;
+    color: #fff;
 }
 
+.guide-text{
+    vertical-align: middle;
+    display: inline-block;
+}
 /* 라디오 버튼 스타일 */
 
 .ra-size{
@@ -674,5 +676,6 @@ text-align: center;
     border: 1px solid  #90949c;
     vertical-align: middle;
     color:#00b2b2;
+    /* background-color: transparent; */
 }
 

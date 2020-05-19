@@ -77,30 +77,30 @@
 						<div class="site-box">
 							<div class="facebook">
 								<a href="https://www.facebook.com" id="site" target="_blank">
-									<i class="fab fa-facebook-f line-he"></i>
+									<i class="fab fa-facebook-f"></i>
 								</a>
 							</div>
 							<div class="google">
 								<a href="https://www.google.com" id="site" target="_blank">
-									<i class="fab fa-google line-he"></i>
+									<i class="fab fa-google"></i>
 								</a>
 							</div>
 							<div class="wadiz">
 								<a
 									href="https://www.wadiz.kr/web/wevent/202002?gclid=EAIaIQobChMI2qa5ztO36AIVfCCtBh2-7gniEAAYASAAEgLgifD_BwE"
-									id="site" target="_blank"> <i class="fab fa-weebly line-he"></i>
+									id="site" target="_blank"> <i class="fab fa-weebly"></i>
 								</a>
 							</div>
 
 							<div class="twitter">
 								<a href="https://twitter.com/explore" id="site" target="_blank">
-									<i class="fab fa-twitter line-he"></i>
+									<i class="fab fa-twitter"></i>
 								</a>
 							</div>
 
 							<div class="linkedin">
 								<a href="https://kr.linkedin.com/" id="site" target="_blank">
-									<i class="fab fa-linkedin-in line-he"></i>
+									<i class="fab fa-linkedin-in"></i>
 								</a>
 							</div>
 
