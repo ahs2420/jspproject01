@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+
+.update-box{
+    width: 50px;
+    height: 30px;
+    line-height: 26px;
+    border: none;
+    border-radius: 30px;
+    border: 2px solid #6ac5b8;
+    
+    /* background-color: aquamarine; */
+
+}
+
+.box-sh{
+    box-shadow: 0 20px 16px -10px rgba(0,0,0,.15);
+}
