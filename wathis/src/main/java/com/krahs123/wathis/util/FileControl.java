@@ -70,7 +70,7 @@ public class FileControl {
 		
 		//static 경로를 구하기 위해 사용함
 		DefaultResourceLoader drl = new DefaultResourceLoader();
-		Resource resource=drl.getResource("classpath:/static");
+		Resource resource=drl.getResource("file:src/resources/static");
 		String rootPath="";
 
 		Map<String,Object> result = new HashMap<>();// return으로 넘겨줄거
