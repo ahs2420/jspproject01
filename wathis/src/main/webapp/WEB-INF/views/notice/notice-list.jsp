@@ -12,9 +12,8 @@
 		<!-- hero 자리 -->
 	</header>
 	<!-- 메인 내용 -->
-	<main>
-		<section>
-			<div class="notice-list-test">
+	<main><section>
+			<div >
 				<div class="notice-list-box">
 					<div class="notice-list">
 						<h1>공지사항</h1>
@@ -211,7 +210,8 @@
 							</select>
 						</div>
 						<div class="notice-list-btn-search">
-							<input type="text">
+							<input type="text" class="notice-list-search-input"
+							data-error="검색어를 입력" name="search-input" placeholder="검색">
 							<button type="submit">검색</button>
 						</div>
 					</div>
@@ -226,7 +226,26 @@
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- script 자리-->
+
+<script>
+$(function() {
+	$("form").submit(function() {
+		var bReturn = true;
+		$(".notice-list-search-input").each(function(){
+			if($.trim($(this).val())==""){
+				alert($(this).data("error")+"해주세요");
+				$(this).focus();
+				bReturn=false;
+				return false;
+			}
+		});
+		return bReturn;
+	});
+});
+</script>
 <script type="text/javascript">
+
+
 <!--
 
 //-->
@@ -242,4 +261,8 @@ $("#tawk_5e81913535bcbb0c9aabba5a").toggle(); }); });
 
 </script>
 
+<!--
+
+//-->
+</script>
 </html>

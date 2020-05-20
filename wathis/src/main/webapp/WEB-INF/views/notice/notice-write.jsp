@@ -140,6 +140,10 @@
 	object-fit: cover;
 	object-position: center;
 }
+.notice-write-container{
+padding: 3% 0;
+
+}
 
 @media ( max-width : 1200px) {
 	.resive-container {
@@ -224,12 +228,12 @@ option{
 	<main class="resive-main">
 		<form action="" enctype="multipart/form-data" method="post"
 			id="uploadForm">
-			<div class="resive-container">
-				<div class="margin-top"></div>
+			  <div class="notice-write-container"></div>
+			  <div class="resive-container">
 				<div class="resive-wrap">
 					<div class="resive-select-box">
 						<select name="title-select" class="resive-class write-chkItem "
-							data-error="게시판 선택" id="">
+							data-error="게시판을 선택" id="">
 							<option value="">게시판 선택</option>
 							<option value="공지·알림">공지·알림</option>
 							<option value="이벤트·진행중">이벤트·진행중</option>
@@ -274,6 +278,7 @@ option{
 					<button type="reset" class="resive-btn">취소하기</button>
 				</div>
 			</div>
+			<div class="notice-write-container"></div>
 		</form>
 	</main>
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
