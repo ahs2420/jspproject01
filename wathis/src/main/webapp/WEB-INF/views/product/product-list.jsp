@@ -49,11 +49,9 @@
             <div class="owl_hero_nav owl-dots"></div>
         </div>
     </div>
-
 	</header>
 	<!-- 메인 내용 -->
 	<main>
-	
 		<section class="reward-section">
 			<div class="reward-container">
 				<div class="owl-carousel owl-theme owl-category owl-carousel2">
