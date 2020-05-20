@@ -271,19 +271,18 @@
 				<!-- 5번 -->
 				<div class="flex-basic2 ba-pro-day ">
 					<div class="wid4 mar-top3">
-						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트
-							종료일<span class="fon-co5"> *</span>
+						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 시작일<span class="fon-co5"> *</span>
 						</label>
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
-							종료일을 선택하세요.</p>
+							시작을 선택하세요.</p>
 						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="project-day"
 							placeholder="예? 20200401">
 					</div>
 
 					<div class="ba-guide5">
 						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">오픈일을 기준으로 최소
-								7일 ~ 최대 60일로 설정해 주세요.</h4>
+							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
+								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
 							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
 								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
 							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
@@ -292,28 +291,25 @@
 
 				</div>
 
-				<!-- 6번 -->
+				
+				<!-- 6번 성인 인증에서 프로젝트 종료일로 수정 -->
 				<div class="flex-basic2 ba-pro-adult">
-					<div class="mar-top3 wid4 ">
-						<div class="di-ia1 mar-bo6 fon-wei1">
-							성인인증
-							</h3>
-							<span class="fon-siz2 fon-co2">(선택사항)</span>
-							<div class="radio-box mar-bo3 mar-top1">
-								<input class="" type="checkbox" id="age"> <label for="age"> <span
-										class="fon-siz1 fon-co3 text-padding2">19세
-										이상 펀딩 가능한 리워드입니다.</span>
-								</label>
-							</div>
-						</div>
+					<div class="wid4 mar-top3">
+						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 종료일<span class="fon-co5"> *</span>
+						</label>
+						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">
+							리워드를 설계하기 위해 프로젝트 종료일을 선택하세요.</p>
+						<input class="wid1 hei1 fon-bor1 text-padding1 mar-bo7" type="text" id="project-day"
+							placeholder="예? 20200401">
 					</div>
+
 					<div class="ba-guide6">
 						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1">리워드가 19세 이상만
-								사용할 수 있나요?</h4>
-							<p class="fon-siz4 mar-bo5 fon-co7">· 체크시 성인 인증을 완료한 서포터만 해당
-								프로젝트에 펀딩할 수 있습니다.</p>
-							<p class="fon-siz4 fon-co7">· (예)전통주, 성인 대상 공연 티켓 등</p>
+							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
+								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
+							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
+								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
+							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
 						</div>
 					</div>
 

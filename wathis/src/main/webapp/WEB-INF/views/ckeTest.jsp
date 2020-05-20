@@ -17,13 +17,22 @@
 </head>
 <body>
 
-    <select id="test" >
-        <option value="0">1</option>
-        <option value="1">2</option>
-        <option value="2">3</option>
-        <option value="3">4</option>
-        <option value="4">5</option>
-        <option value="5">6</option>
+    <select id="
+    Reward-documents" >
+        <option value="0">HW(하드웨어)</option>
+        <option value="1">SW(소프트웨어)</option>
+        <option value="2">HW+SW(하드웨어 + 소프트웨어)</option>
+        <option value="3">화장품</option>
+        <option value="4">의약용품</option>
+        <option value="5">디자인 제품(디자인 소품, 패션, 잡화 ,액세서리</option>
+        <option value="4">디퓨저, 향초 등 위해 우려 제품</option>
+        <option value="4">가공식품</option>
+        <option value="4">건강기능식품</option>
+        <option value="4">신선식품</option>
+        <option value="4">문화(공연/영화 등)</option>
+        <option value="4">출판</option>
+        <option value="4">의료기기</option>
+        <option value="4">위 항목에 없는 기타</option>
     </select>
     <textarea id="editor1" name="content" class="ckeditor"></textarea>
     <script>
