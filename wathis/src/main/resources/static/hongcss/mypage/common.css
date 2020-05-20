@@ -427,7 +427,9 @@ textarea{
 
 .flex-box{
     display: flex;
+    justify-content: flex-end;
 }
+
 .flex-basic1{
     display: flex;  
 }
@@ -504,13 +506,17 @@ textarea{
 .box-back12{background-color: #f79071;}
 .box-back13{background-color: #90949c;}
 
-
+.bor-no{border: none;}
 .fon-bor1 { border: 1px solid #ccc;}
 .fon-bor2 { border: 1px solid red;}
-.fon-bor3 { border: 1px solid #ccc;}
-.fon-bor4 { border: 1px solid #ccc;}
+.fon-bor3 { border: 1px solid #efef;}
+.fon-bor4 { border: 1px solid rgb(167, 164, 164);}
 .fon-bor5 { border: 1px solid #ccc;}
 .fon-bor6 { border: 1px solid #ccc;}
+
+.fon-bor-bot1 { border-bottom: 1px solid black;}
+.fon-bor-bot2 { border: 1px solid #ccc;}
+.fon-bor-bot3 { border: 1px solid #ccc;}
 
 .fon-wei1 { font-weight: 700;}
 .fon-wei2 { font-weight: 600;}
@@ -660,4 +666,11 @@ textarea{
 .guide-text{
     vertical-align: middle;
     display: inline-block;
+}
+
+/* underline */
+.line-one{
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
 }

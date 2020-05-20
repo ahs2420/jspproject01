@@ -270,6 +270,9 @@ input[type="radio"] { display: none;}
 .line-he{
 	line-height: 39px
 }
+.line-he1{
+	line-height: 40px
+}
 /* 이용약관 부분 */
 .all-img {
     width: 100%;

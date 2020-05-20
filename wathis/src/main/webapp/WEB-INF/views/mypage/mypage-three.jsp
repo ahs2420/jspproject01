@@ -190,7 +190,7 @@
                     <!-- 2번 -->
                     <div class="add-box">
                         <div class="file-box">
-                            <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
+                            <label for="file1"><i class="fas fa-plus fon-co11"></i> 추가하기</label>
                             <input type="file" id="file1">
                         </div>
                         <div class="add-text-box mar-top4">
@@ -209,11 +209,14 @@
 
                     <div class="mar-bo2 text-padding9">
                         <div class="name-left bor-box1 fon-bor2 text-padding5 wid11 box-sh hei7">
-                            <div class="flex-box">
-                                <div class="">5000원</div>
-                                <div class="fl-sp"> 제한 수량 3개</div>
+                            <!-- 마이페이지3 번 영수증 부분 -->
+                            <div class="flex-box text-padding2">
+                                <span class="fl-sp fon-wei4 ">5,000원</span>
+                                <span class="fl-sp"> 제한 수량 3개</span>
                             </div>
-
+                            <div class="line-one"></div>
+                            
+                           
                             <div class="receipt text-padding3 hei2">
                                 <div class="flex-box fl-sp">
                                     <span class="fl-sp fon-siz3 mar-bo4">킬리가방 얼리버드</span>
