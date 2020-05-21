@@ -4,8 +4,8 @@ $(function(){
         nav:false,
         dots:false,
         items:1,
-        autoPlay:true,
+        autoplay:true,
         autoplayTimeout:3000,
-        autoplayHoverPause:false
+        autoplayHoverPause:true
     });
 });

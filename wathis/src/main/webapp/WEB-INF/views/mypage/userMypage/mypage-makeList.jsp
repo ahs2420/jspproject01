@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <section class="bg-gray">
-    <div class="container max1200">
+    <div class="container max1000">
+        <div class="border-bottom pb20">
+            <div class="flex-box flex-j-space">
+                <div class="">
+                    <h3 class="large-content bold">제작한 프로젝트</h3>    
+                </div>
+            </div>
+        </div>
         <div class="float-box-item w-100p">
             <c:forEach begin="1" end="2">
-                <div class="maker-item-box float-left item-lg-3 item-sm-6 item-xs-12 mt20">
+                <div class="maker-item-box float-left item-lg-4 item-sm-6 item-xs-12 mt20">
                     <!--상품 주소-->
                     <a href="/page/mypage">
                         <div class="border-box bg-white">
@@ -29,7 +36,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="maker-item-box float-left item-lg-3 item-sm-6 item-xs-12 mt20">
+                <div class="maker-item-box float-left item-lg-4 item-sm-6 item-xs-12 mt20">
                     <!--상품 주소-->
                     <a href="/page/mypage">
                         <div class="border-box bg-white">
@@ -53,7 +60,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="maker-item-box float-left item-lg-3 item-sm-6 item-xs-12 mt20">
+                <div class="maker-item-box float-left item-lg-4 item-sm-6 item-xs-12 mt20">
                     <!--상품 주소-->
                     <a href="/page/mypage">
                         <div class="border-box bg-white">
@@ -77,7 +84,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="maker-item-box float-left item-lg-3 item-sm-6 item-xs-12 mt20">
+                <div class="maker-item-box float-left item-lg-4 item-sm-6 item-xs-12 mt20">
                     <!--상품 주소-->
                     <a href="/page/mypage">
                         <div class="border-box bg-white">

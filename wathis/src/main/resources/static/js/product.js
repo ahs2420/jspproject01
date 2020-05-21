@@ -44,7 +44,7 @@ $(function(){
         var windowOffset = $(window).scrollTop();
         var windowWidth = $(document).width();
 
-        console.log(windowWidth);
+        //console.log(windowWidth);
         if(windowWidth>1080&&windowOffset>moveTop+10){
             $(".product-status ").css({"position":"fixed","top":"50%","width":"300px","transform":"translateY(-50%)"});
         }else{

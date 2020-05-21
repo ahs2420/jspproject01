@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mappers.BoardConfigMapper">
-	<select id="getAll" resultType="boardconfigvo">
+<mapper namespace="mappers.MarketInfoMapper">
+	<select id="getAll" resultType="marketinfovo">
 	
 	</select>
 	<select id="getCount" resultType="int">
 	
 	</select>
-	<select id="getList" resultType="boardconfigvo">
+	<select id="getList" resultType="marketinfovo">
 	
 	</select>
-	<select id="getOne" resultType="boardconfigvo">
+	<select id="getOne" resultType="marketinfovo">
 	
 	</select>
 	<insert id="setItem">

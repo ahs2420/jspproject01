@@ -93,15 +93,24 @@
         </div>
         <div class="bg-white mt20 border-gray">
             <div class="p20 border-bottom">
-                <h1 class="small-title gray bold mb20">배송지 정보</h1>
-                <p class="mt20">홍길동</p>
-                <p class="mt5">01012345678</p>
-                <p class="mt10">[12345] OO시 OO구 OO로 123 (OO동) </p>
-                <p class="mt10">OOOO센터 O동 O층 OO호</p>
-                <p class="mt10">부재중이면 경비실에 맡겨주세요.</p>
-                <h1 class="small-title gray bold mt40">배송지 상태<button class="deleveryChk" data-tracks="417472558775" data-carriers="kr.hanjin"  data-target=".delevery-modal">배송조회</button></h1>
-                <p class="gray mt10">미발송</p>
-                <h1 class="small-title bold mt20">혹시 리워드를 수령했나요?</h1>
+                <div class="">
+                    <h1 class="small-title gray bold mb20">배송지 정보</h1>
+                    <p class="mt20">홍길동</p>
+                    <p class="mt5">01012345678</p>
+                    <p class="mt10">[12345] OO시 OO구 OO로 123 (OO동) </p>
+                    <p class="mt10">OOOO센터 O동 O층 OO호</p>
+                    <p class="mt10">부재중이면 경비실에 맡겨주세요.</p>
+                </div>
+                <div class=" mt40">
+                    <div class="flex-box flex-a-center flex-j-space">
+                        <h1 class="small-title gray bold">
+                            배송지 상태
+                        </h1>
+                        <button class="deleveryChk btn-stan btn-white" data-tracks="417472558775" data-carriers="kr.hanjin"  data-target=".delevery-modal">배송조회</button>
+                    </div>
+                    <p class="gray mt10 deleveryStatus">미발송</p>
+                    <h1 class="small-title bold mt20">혹시 리워드를 수령했나요?</h1>
+                </div>
                 <button class="btn-stan tiny-content w-100p product-question btn-white mt10">
                     <span>이미 리워드를 수령했습니다.</span>
                 </button>
