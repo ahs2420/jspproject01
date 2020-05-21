@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 <!-- 2번 -->
-                <div class="flex-basic1 box-back13">
+                <div class="flex-basic1 ba-pro-price">
                     <div class="mar-bo2 wid4">
                         <div class="name-left ">
                             <div class="box-text-one">

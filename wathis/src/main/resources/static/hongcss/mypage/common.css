@@ -432,6 +432,7 @@ textarea{
 
 .flex-basic1{
     display: flex;  
+    position: relative;
 }
 
 .flex-basic2{
@@ -504,8 +505,7 @@ textarea{
 .box-back10{background-color: #27496d;}
 .box-back11{background-color: #024249;}
 .box-back12{background-color: #f79071;}
-.box-back13{background-color: #90949c;
-position: relative;}
+.box-back13{background-color: #90949c;}
 
 .bor-no{border: none;}
 .fon-bor1 { border: 1px solid #ccc;}

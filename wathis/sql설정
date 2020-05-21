@@ -2,6 +2,7 @@ DB생성
 CREATE DATABASE project;
 
 사용자 생성
+DROP USER 'project'@'localhost';
 CREATE USER 'project'@'localhost'  identified by 'r4e3w2a1@!';
 flush privileges;
 
