@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.ArticleMapper">
+	<select id="getAll" resultType="articlevo">
+	
+	</select>
+	<select id="getCount" resultType="int">
+	
+	</select>
+	<select id="getList" resultType="articlevo">
+	
+	</select>
+	<select id="getOne" resultType="articlevo">
+	
+	</select>
+	<insert id="setItem">
+	
+	</insert>
+	<update id="updateItem">
+	
+	</update>
+	<delete id="deleteItem">
+	
+	</delete>
+</mapper>

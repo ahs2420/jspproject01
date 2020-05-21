@@ -14,7 +14,7 @@ $(function(){
             navContainer:".owl_hero_nav",
             navContainerClass:"owl-nav"
         });
-    }catch{
+    }catch(e){
 
     }
 });
@@ -411,7 +411,41 @@ function ajaxStan(option){
     });
     return returnData;
 }
-
+function ajaxLoading(option){
+    var returnData="";
+    $.ajax({
+        url:option.url,
+        async:(option.async)?option.async:false,
+        type:(option.type)?option.type:"post",
+        dataType:(option.dataType)?option.dataType:"json",
+        data:option.data,
+        success:function(data){
+            returnData = {
+            	"status":"success",
+            	"data":data
+            };
+        },error:function(xhr,status,error){
+            returnData = {
+            	"status":"error",
+            	"xhr":xhr,
+            	"errstatus":status,
+            	"error":error,
+            	"setOption":option
+            }
+        },beforeSend : function(){
+            $("body").append('\
+                    <div class="loding-modal modal-stan active">\
+                        <div class="w-100p h-100p flex-box flex-a-center flex-j-center">\
+                            <p class="white"><i class="xi-spinner-2 xi-spin"></i> 배송정보를 불러오는 중 입니다.</p>\
+                        </div>\
+                    </div>\
+            ');
+        },complete : function(){
+            $(".loding-modal").removeClass("active");
+        }
+    });
+    return returnData;
+}
 //파일 확장자 체크
 /*
 obj -> file태그 

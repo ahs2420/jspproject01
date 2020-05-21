@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.OrderDetailMapper">
-	<select id="getAll" resultType="ordervo">
+	<select id="getAll" resultType="orderdetailvo">
 	
 	</select>
 	<select id="getCount" resultType="int">
 	
 	</select>
-	<select id="getList" resultType="ordervo">
+	<select id="getList" resultType="orderdetailvo">
 	
 	</select>
-	<select id="getOne" resultType="ordervo">
+	<select id="getOne" resultType="orderdetailvo">
 	
 	</select>
 	<insert id="setItem">

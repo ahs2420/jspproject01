@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <section class="">
-    <div class="container max1200">
+    <div class="container max1000">
         <div class="border-bottom pb20">
             <div class="flex-box flex-j-space">
                 <div class="">

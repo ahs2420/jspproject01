@@ -412,6 +412,7 @@ nav{
 .btn-main:hover{
     background-color: #fff;
     color: var(--var-main-color);
+    border-color: var(--var-main-color);
 }
 .btn-white{
     background-color: #fff;
@@ -758,6 +759,8 @@ nav.active{
     top: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .item-box .img-box::after{
     position: absolute;
@@ -1636,6 +1639,7 @@ nav.active{
     }
     .float-box-item > .item-xs-12:nth-child(n){
         width: 100%;
+        margin-left: 0%;
     }
     .float-box-item > .item-xs-3:nth-child(4n+1),
     .float-box-item > .item-xs-4:nth-child(3n+1),
