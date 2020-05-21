@@ -49,7 +49,7 @@ $(function () {
 
     $(function () {
         $(".ba-guide1").hide();
-        $(".ba-guide2").hide();
+        // $(".ba-guide2").hide();
         $(".ba-guide3").hide();
         $(".ba-guide4").hide();
         $(".ba-guide5").hide();
@@ -73,7 +73,7 @@ $(function () {
 
         });
         $(".ba-pro-price").mouseleave(function () {
-            $(".ba-guide2").hide();
+            // $(".ba-guide2").hide();
         });
 
         // 3번
