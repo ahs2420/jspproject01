@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.krahs123.wathis.config.DbStatus;
 import com.krahs123.wathis.util.AES256;
 import com.krahs123.wathis.util.ShaEncrypt;
 
@@ -23,7 +24,8 @@ public class EncryptTest {
 			String shaTest = ShaEncrypt.sha256(str);	
 			result += "aesTest:"+aesTest+"<br/>";	
 			result += "shaTest:"+shaTest+"<br/>";
-			result += "aesTest복호화:"+aesDecrypt+"<br/>";	
+			result += "aesTest복호화:"+aesDecrypt+"<br/>";
+			result += "회원상태:"+DbStatus.ugroup[1]+"<br/>";
 		}catch(Exception e) {
 			result=e.toString();
 		}
