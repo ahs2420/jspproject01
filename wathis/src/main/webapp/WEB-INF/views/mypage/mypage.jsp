@@ -73,7 +73,9 @@
                 <ul class="menu-text" style="list-style: none;">
                     <li class="mypage-li-menu">
                         <div class="menu-text1">
-                            <a href="/page/mypage">펀딩 준비</a><i class="fas fa-angle-down"></i>
+                            <a href="/page/mypage">펀딩 준비</a>
+                            <a href="#"><i class="fas fa-angle-down"></i>
+                            
                             <ul class="hide">
                                 <li><a href="/page/mypage-one">기본 요건 및 정보</a></li>
                                 <li><a href="/page/mypage-two">스토리 작성</a></li>

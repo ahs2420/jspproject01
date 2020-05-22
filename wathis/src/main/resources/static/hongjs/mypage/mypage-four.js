@@ -1,9 +1,9 @@
-\var KIND = '<table style=\"width:100%\">\
+var KIND = '<table cellpadding="10px" style="width:100%">\
 <tr>\
-    <th style=\"width:5%\background-color:black\color: #fff\">리워드 종류</th>\
-    <th style=\"width:10%\background-color:black\color: #fff\">항목</th>\
-    <th style=\"width:25%\background-color:black\color: #fff\">부연설명</th>\
-    <th style=\"width:55%\background-color:black\color: #fff\">직접 작성</th>\
+    <th style=\"width:5%;padding:10px;\">리워드 종류</th>\
+    <th style=\"width:10%;padding:10px;\">항목</th>\
+    <th style=\"width:25%;padding:10px;\">부연설명</th>\
+    <th style=\"width:55%;padding:10px;\">직접 작성</th>\
 </tr>\
 </table>';
 var clothing = '<table style=\"width:100%\">\

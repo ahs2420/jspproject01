@@ -18,6 +18,31 @@
         border: 1px solid #000;
     }
 
+.modal{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+}
+.modal.on{
+    
+    display: block;
+
+}
+.modal .text-bocx{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: #fff;
+
+}
 </style>
 <body>
     <header>
@@ -347,7 +372,7 @@
                                     어떻게 보여지는지 궁금하신가요?</p>
                             </div>
                             <div class="box-text-one">
-                                <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1">펀딩안내
+                                <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내
                                     미리보기</button>
                             </div>
                         </div>
@@ -369,7 +394,28 @@
 
 
     </main>
+    <div class="modal">
+        <div class="text-bocx">
+            모달내용 
+            <button class="moX" onclick="toggleOn('.modal')" data-ton=".modal">X</button>
+        </div>
+    </div>
     <footer></footer>
 </body>
+<script>
+    $(function(){
+        $(".bubu").click(function(){
+            $(this).toggleOn();
+        });
+    });
+    function toggleOn(item){
+        var $ton = $(item);
+        $ton.toggleClass("on");
+    }
+    $.fn.toggleOn=function(){
+        var ton = $(this).data("ton");
+        $(ton).toggleClass("on");
+    }
 
+</script>
 <%@include file="../hong-include/foot.jspf"%>

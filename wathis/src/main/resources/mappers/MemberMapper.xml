@@ -3,22 +3,31 @@
 <mapper namespace="mappers.Member">
 	<select id="getAll" resultType="membervo">
 		SELECT 
-			id,
-			member_id,
-			subject,
-			writer,
-			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
-			reg_date
-			FROM
-			tb_member
-		ORDER BY id DESC
+		id,
+		uid,
+		upassword,
+		sns_type,
+		sns_id,
+		uname,
+		utel,
+		uemail,
+		ugroup,
+		uimg,
+		status,
+		reg_date
+		FROM tb_member
+		ORDER BY id desc
+	</select>
+	
+	<select id="getlogin" resultType="membervo">
+		SELECT 
+				id, uid, uname
+			FROM tb_member
+				
+				WHERE uid = #{uid} AND upassword = #{upassword}
+					  
+	
+	
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -31,40 +40,31 @@
 	</select>
 	<insert id="setItem">
 		INSERT INTO tb_member
-			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
-			reg_date=#{reg_date}
 		SET
+		uid=#{uid},
+		upassword=#{upassword},
+		uname=#{uname},
+		uemail=#{uemail}
 	</insert>
 	<update id="updateItem">
-		UPDATE SET tb_member
-			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
-			reg_date=#{reg_date}
+		UPADTE tb_member SET
+		id=#{id},
+		uid=#{uid},
+		upassword=#{upassword},
+		sns_type=#{sns_type},
+		sns_id=#{sns_id},
+		uname=#{uname},
+		utel=#{utel},
+		uemail=#{uemail},
+		ugroup=#{ugroup},
+		uimg=#{uimg},
+		status=#{status},
+		reg_date=#{reg_date}
+		
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-		DELETE FROM tb_member
+		DELETE FORM tb_member
 
 		WHERE id=#{id}
 	</delete>
