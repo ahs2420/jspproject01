@@ -8,7 +8,16 @@
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
 <script src="../hongjs/mypage/common.js"></script>
+<!-- CKeditor -->
+<script src="/plugin/ckeditor/ckeditor.js"></script>
+<!-- 리워드 고지 js -->
+<script src="../hongjs/mypage/mypage-four.js"></script>
+<style type="text/css">
+    .cke_textarea_inline {
+        border: 1px solid #000;
+    }
 
+</style>
 <body>
     <header>
         <div class="position-fix">
@@ -154,10 +163,48 @@
                                             따라 리워드 정보 제공 고시를 반드시 입력해야
                                             합니다.</p>
                                     </div>
-                                    <div class="file-box mar-top4">
+                                    <!-- 리워드 정보 고시 -->
+                                    <!-- <div class="file-box mar-top4">
                                         <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
                                         <input type="file" id="file1">
-                                    </div>
+                                    </div> -->
+                                    <select id="Reward-documents">
+                                        <option value="0">주요 카테고리별 작성 예시</option>
+                                        <option value="1">의류</option>
+                                        <option value="2">구두/신발</option>
+                                        <option value="3">가방</option>
+                                        <option value="4">패션잡화(모자/벨트.액세서리)</option>
+                                        <option value="5">침구류/커튼</option>
+                                        <option value="6">가구(침대/소파/싱크대/DTY제품)</option>
+                                        <option value="7">주방용품</option>
+                                        <option value="8">화장품</option>
+                                        <option value="9">귀금속/보석/시계류</option>
+                                        <option value="10">식품(농・축・수산물)</option>
+                                        <option value="11">건강 기능 식품</option>
+                                        <option value="12">가공식품</option>
+                                        <option value="13">영유아 용품</option>
+                                        <option value="14">서적</option>
+                                        <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option>
+                                    </select>
+                                    <textarea id="editor1" name="content" class="ckeditor"></textarea>
+                                    <script>
+                                        CKEDITOR.replace('editor1', {
+                                            customConfig: '/plugin/ckeditor/config.js',
+                                            width: '100%',
+                                            height: '500',
+                                            filebrowserImageUploadUrl: '/cke/imageUpload'
+                                        });
+                                    </script>
+                                    <!-- inline 타입으로 생성 -->
+                                    <textarea id="editor2" name="content" class="ckeditor"></textarea>
+                                    <script>
+                                        CKEDITOR.inline('editor2', {
+                                            customConfig: '/plugin/ckeditor/config.js',
+                                            width: '100%',
+                                            height: '500',
+                                            filebrowserImageUploadUrl: '/cke/imageUpload'
+                                        });
+                                    </script>
                                 </div>
                             </div>
                             <div class="ba-guide3">
