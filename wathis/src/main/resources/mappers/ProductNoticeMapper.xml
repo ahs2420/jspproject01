@@ -2,7 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ProductNoticeMapper">
 	<select id="getAll" resultType="productnoticevo">
-	
+	SELECT id,        
+		 member_id, 
+		 product_id,
+		 title,     
+		 content,   
+		 reg_date,
+		FROM tb_product_notice
+		ORDER BY id desc
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -14,12 +21,29 @@
 	
 	</select>
 	<insert id="setItem">
-	
+	INSERT INTO tb_product_notice
+		SET
+		id =#{id}       
+		 member_id =#{ member_id}
+		 product_id =#{ product_id}
+		 title =#{ title}    
+		 content   =#{ content}
+		 reg_date =#{ reg_date} 
 	</insert>
 	<update id="updateItem">
-	
+	UPADTE tb_product_notice SET
+		 member_id =#{ member_id}
+		 product_id =#{ product_id}
+		 title =#{ title}    
+		 content   =#{ content}
+		 reg_date =#{ reg_date} 
+		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
+	
+	DELETE FORM tb_product_notice
+	WHERE id=#{id}
+
 	
 	</delete>
 </mapper>

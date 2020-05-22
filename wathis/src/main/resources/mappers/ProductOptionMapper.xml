@@ -2,7 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ProductOptionMapper">
 	<select id="getAll" resultType="productoptionvo">
-	
+	SELECT 
+		id,            
+		member_id,     
+		product_id,    
+		title,         
+		description,   
+		market_price,  
+		price,         
+		stock,         
+		delevery_price,
+		option_type,   
+		option_kind,   
+		delivery_date, 
+		reg_date
+		FROM tb_product_option
+		ORDER BY id desc
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -14,12 +29,43 @@
 	
 	</select>
 	<insert id="setItem">
-	
+	INSERT INTO tb_product_option
+		SET
+			id = #{id}            
+			member_id = #{member_id}     
+			product_id = #{product_id}    
+			title = #{title}         
+			description = #{description}   
+			market_price = #{market_price}  
+			price  = #{price }        
+			stock = #{stock }         
+			delevery_price = #{delevery_price}
+			option_type  = #{option_type}  
+			option_kind  = #{option_kind}  
+			delivery_date = #{delivery_date}
+			reg_date = #{reg_date}
 	</insert>
 	<update id="updateItem">
-	
+		UPADTE tb_product_option SET
+	    
+			member_id = #{member_id}     
+			product_id = #{product_id}    
+			title = #{title}         
+			description = #{description}   
+			market_price = #{market_price}  
+			price  = #{price }        
+			stock = #{stock }         
+			delevery_price = #{delevery_price}
+			option_type  = #{option_type}  
+			option_kind  = #{option_kind}  
+			delivery_date = #{delivery_date}
+			reg_date = #{reg_date}
+			WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-	
+
+	DELETE FORM tb_product_option
+
+		WHERE id=#{id}
 	</delete>
 </mapper>

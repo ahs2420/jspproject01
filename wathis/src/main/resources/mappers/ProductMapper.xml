@@ -2,7 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ProductMapper">
 	<select id="getAll" resultType="productvo">
-	
+	SELECT 
+			id,            
+			member_id,     
+			category_id,   
+			audit_id,      
+			status,        
+			title,         
+			sub_title,     
+			video_chk,     
+			img_upload_dir,
+			img,           
+			content,       
+			price,         
+			start_date,    
+			end_date,      
+			maker_name,    
+			maker_tel,     
+			maker_homepage,
+			maker_sns_type,
+			maker_sns_url, 
+			keyword,       
+			reg_date,    
+			FROM tb_product
+			ORDER BY id desc
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -14,12 +37,58 @@
 	
 	</select>
 	<insert id="setItem">
-	
+	INSERT INTO tb_product
+			SET
+			id = #{id}
+			member_id = #{member_id}
+			category_id = #{category_id}
+			audit_id = #{audit_id}
+			status = #{status}
+			title = #{title}
+			sub_title = #{sub_title}
+			video_chk = #{video_chk}
+			img_upload_dir = #{img_upload_dir}
+			img = #{img}
+			content = #{content}
+			price = #{price}
+			start_date = #{start_date}
+			end_date = #{end_date}
+			maker_name = #{maker_name}
+			maker_tel = #{maker_tel}
+			maker_homepag = #{maker_homepag}
+			maker_sns_typ = #{maker_sns_typ}
+			maker_sns_url = #{maker_sns_url}
+			keyword = #{keyword}
+			reg_date = #{reg_date}
+					
 	</insert>
 	<update id="updateItem">
-	
+	UPADTE tb_product SET
+			member_id = #{member_id}
+			category_id = #{category_id}
+			audit_id = #{audit_id}
+			status = #{status}
+			title = #{title}
+			sub_title = #{sub_title}
+			video_chk = #{video_chk}
+			img_upload_dir = #{img_upload_dir}
+			img = #{img}
+			content = #{content}
+			price = #{price}
+			start_date = #{start_date}
+			end_date = #{end_date}
+			maker_name = #{maker_name}
+			maker_tel = #{maker_tel}
+			maker_homepag = #{maker_homepag}
+			maker_sns_typ = #{maker_sns_typ}
+			maker_sns_url = #{maker_sns_url}
+			keyword = #{keyword}
+			reg_date = #{reg_date}
+			WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-	
+		DELETE FORM tb_product
+		
+		WHERE id=#{id}
 	</delete>
 </mapper>

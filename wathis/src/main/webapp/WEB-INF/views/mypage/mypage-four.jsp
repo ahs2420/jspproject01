@@ -12,6 +12,7 @@
 <script src="/plugin/ckeditor/ckeditor.js"></script>
 <!-- 리워드 고지 js -->
 <script src="../hongjs/mypage/mypage-four.js"></script>
+
 <style type="text/css">
     .cke_textarea_inline {
         border: 1px solid #000;
@@ -168,7 +169,7 @@
                                         <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
                                         <input type="file" id="file1">
                                     </div> -->
-                                    <select id="Reward-documents">
+                                    <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
                                         <option value="0">주요 카테고리별 작성 예시</option>
                                         <option value="1">의류</option>
                                         <option value="2">구두/신발</option>
