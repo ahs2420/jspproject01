@@ -16,16 +16,10 @@
 			re_step,
 			re_level,
 			reg_date
-<<<<<<< HEAD
 		FROM
 			tb_category
 		ORDER BY id DESC
-		
-=======
-			FROM
-			tb_category
-		ORDER BY id DESC
->>>>>>> refs/remotes/origin/master
+
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -37,7 +31,7 @@
 	
 	</select>
 	<insert id="setItem">
-<<<<<<< HEAD
+
 		INSERT INTO tb_category SET
 			id=#{id},
 			member_id=#{member_id},
@@ -52,23 +46,7 @@
 			re_step=#{re_step},
 			re_level=#{re_level},
 			reg_date=#{reg_date}
-=======
-		INSERT INTO tb_category 
-			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
-			reg_date=#{reg_date}
-		SET
->>>>>>> refs/remotes/origin/master
+
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_category
@@ -89,10 +67,6 @@
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_category
-<<<<<<< HEAD
-=======
-		
->>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</delete>
 </mapper>

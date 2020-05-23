@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ProductNoticeMapper">
 	<select id="getAll" resultType="productnoticevo">
-<<<<<<< HEAD
 		SELECT 
 			 id,        
 			 member_id, 
@@ -12,16 +11,6 @@
 			 reg_date
 		FROM tb_product_notice
 		ORDER BY id DESC
-=======
-	SELECT id,        
-		 member_id, 
-		 product_id,
-		 title,     
-		 content,   
-		 reg_date,
-		FROM tb_product_notice
-		ORDER BY id desc
->>>>>>> refs/remotes/origin/master
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -33,7 +22,6 @@
 	
 	</select>
 	<insert id="setItem">
-<<<<<<< HEAD
 		INSERT INTO tb_product_notice
 		SET
 			 id =#{id},       
@@ -42,19 +30,8 @@
 			 title = #{ title},    
 			 content   = #{ content},
 			 reg_date = #{ reg_date} 
-=======
-	INSERT INTO tb_product_notice
-		SET
-		id =#{id}       
-		 member_id =#{ member_id}
-		 product_id =#{ product_id}
-		 title =#{ title}    
-		 content   =#{ content}
-		 reg_date =#{ reg_date} 
->>>>>>> refs/remotes/origin/master
 	</insert>
 	<update id="updateItem">
-<<<<<<< HEAD
 		UPADTE tb_product_notice SET
 			 member_id = #{member_id},
 			 product_id = #{product_id},
@@ -62,26 +39,10 @@
 			 content = #{content},
 			 reg_date = #{reg_date}
 		WHERE id= #{id}
-=======
-	UPADTE tb_product_notice SET
-		 member_id =#{ member_id}
-		 product_id =#{ product_id}
-		 title =#{ title}    
-		 content   =#{ content}
-		 reg_date =#{ reg_date} 
-		WHERE id=#{id}
->>>>>>> refs/remotes/origin/master
+
 	</update>
 	<delete id="deleteItem">
-<<<<<<< HEAD
 		DELETE FORM tb_product_notice
 		WHERE id = #{id}
-=======
-	
-	DELETE FORM tb_product_notice
-	WHERE id=#{id}
-
-	
->>>>>>> refs/remotes/origin/master
 	</delete>
 </mapper>

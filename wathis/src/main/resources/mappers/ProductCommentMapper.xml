@@ -11,16 +11,9 @@
 			member_status,
 			member_userid,
 			comment,      
-<<<<<<< HEAD
 			reg_date 
 		FROM tb_product_comment
 		ORDER BY id DESC
-=======
-			reg_date,     
-			
-			FROM tb_product_comment
-			ORDER BY id desc
->>>>>>> refs/remotes/origin/master
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -34,7 +27,6 @@
 	<insert id="setItem">
 		INSERT INTO tb_product_comment
 			SET
-<<<<<<< HEAD
 				id=#{id},          
 				member_id=#{member_id}, 
 				product_id=#{product_id}, 
@@ -43,24 +35,10 @@
 				member_status=#{member_status},
 				member_userid=#{member_userid},
 				comment=#{comment},    
-				reg_date=#{reg_date}    
-		
-=======
-				id=#{id}          
-				member_id=#{member_id}   
-				product_id=#{product_id}  
-				parent_id=#{parent_id}   
-				member_imgae=#{member_imgae}
-				member_status=#{member_status}
-				member_userid=#{member_userid}
-				comment=#{comment}     
-				reg_date=#{reg_date}    
->>>>>>> refs/remotes/origin/master
-		
+				reg_date=#{reg_date}
 	</insert>
 	<update id="updateItem">
 		UPADTE tb_product_comment SET
-<<<<<<< HEAD
 			member_id=#{member_id},   
 			product_id=#{product_id},  
 			parent_id=#{parent_id},  
@@ -70,28 +48,9 @@
 			comment=#{comment},     
 			reg_date=#{reg_date}
 		WHERE id=#{id}
-=======
-			member_id=#{member_id}   
-			product_id=#{product_id}  
-			parent_id=#{parent_id}   
-			member_imgae=#{member_imgae}
-			member_status=#{member_status}
-			member_userid=#{member_userid}
-			comment=#{comment}     
-			reg_date=#{reg_date}
-			WHERE id=#{id}
-		
->>>>>>> refs/remotes/origin/master
 	</update>
 	<delete id="deleteItem">
-<<<<<<< HEAD
 		DELETE FORM tb_product_comment
 		WHERE id=#{id}
-=======
-			DELETE FORM tb_product_comment
-			WHERE id=#{id}
-				
-		
->>>>>>> refs/remotes/origin/master
 	</delete>
 </mapper>
