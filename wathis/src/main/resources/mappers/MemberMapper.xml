@@ -3,6 +3,7 @@
 <mapper namespace="mappers.Member">
 	<select id="getAll" resultType="membervo">
 		SELECT 
+<<<<<<< HEAD
 			id,
 			uid,
 			upassword,
@@ -17,6 +18,33 @@
 			reg_date
 		FROM tb_member
 		ORDER BY id DESC
+=======
+		id,
+		uid,
+		upassword,
+		sns_type,
+		sns_id,
+		uname,
+		utel,
+		uemail,
+		ugroup,
+		uimg,
+		status,
+		reg_date
+		FROM tb_member
+		ORDER BY id desc
+	</select>
+	
+	<select id="getlogin" resultType="membervo">
+		SELECT 
+				id, uid, uname
+			FROM tb_member
+				
+				WHERE uid = #{uid} AND upassword = #{upassword}
+					  
+	
+	
+>>>>>>> refs/remotes/origin/master
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -34,13 +62,21 @@
 	<insert id="setItem">
 		INSERT INTO tb_member
 		SET
+<<<<<<< HEAD
 			uid = #{uid},
 			upassword = #{upassword},
 			uname = #{uname},
 			uemail = #{uemail}
+=======
+		uid=#{uid},
+		upassword=#{upassword},
+		uname=#{uname},
+		uemail=#{uemail}
+>>>>>>> refs/remotes/origin/master
 	</insert>
 	<update id="updateItem">
 		UPADTE tb_member SET
+<<<<<<< HEAD
 			id=#{id},
 			uid=#{uid},
 			upassword=#{upassword},
@@ -53,10 +89,29 @@
 			uimg=#{uimg},
 			status=#{status},
 			reg_date=#{reg_date}
+=======
+		id=#{id},
+		uid=#{uid},
+		upassword=#{upassword},
+		sns_type=#{sns_type},
+		sns_id=#{sns_id},
+		uname=#{uname},
+		utel=#{utel},
+		uemail=#{uemail},
+		ugroup=#{ugroup},
+		uimg=#{uimg},
+		status=#{status},
+		reg_date=#{reg_date}
+		
+>>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
 		DELETE FORM tb_member
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</delete>
 </mapper>

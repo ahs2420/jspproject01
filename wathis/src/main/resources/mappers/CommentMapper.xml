@@ -16,10 +16,16 @@
 			re_step,
 			re_level,
 			reg_date
+<<<<<<< HEAD
 		FROM
 			tb_comment_boardcode
 		ORDER BY id DESC
 		
+=======
+			FROM
+			tb_comment_boardcode
+		ORDER BY id DESC
+>>>>>>> refs/remotes/origin/master
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -31,6 +37,7 @@
 	
 	</select>
 	<insert id="setItem">
+<<<<<<< HEAD
 		INSERT INTO tb_comment_boardcode SET
 			id=#{id},
 			member_id=#{member_id},
@@ -45,6 +52,23 @@
 			re_step=#{re_step},
 			re_level=#{re_level},
 			reg_date=#{reg_date}
+=======
+		INSERT INTO tb_comment_boardcode 
+			id=#{id},
+			member_id=#{member_id},
+			subject=#{subject},
+			writer=#{writer},
+			content=#{content},
+			hit=#{hit},
+			fileName=#{fileName},
+			fileOriName=#{fileOriName},
+			fileUrl=#{fileUrl},
+			ref=#{ref},
+			re_step=#{re_step},
+			re_level=#{re_level},
+			reg_date=#{reg_date}
+		SET
+>>>>>>> refs/remotes/origin/master
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_comment_boardcode
@@ -65,6 +89,10 @@
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_comment_boardcode
+<<<<<<< HEAD
+=======
+		
+>>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</delete>
 </mapper>

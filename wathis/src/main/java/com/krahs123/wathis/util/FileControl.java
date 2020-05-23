@@ -55,10 +55,9 @@ public class FileControl {
 		//날짜 구하기(파일이름 넣게)
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");//폴더이름
-		long timeStamp = date.getTime();//파일이름에 쓸거
 		//파일이름
 
-		String fileName =timeStamp+""+(int)(Math.random()*1000);//파일이름, 확장자는 나중에
+		String fileName =System.currentTimeMillis()+""+(int)(Math.random()*1000);//파일이름, 확장자는 나중에
 		String uploadDIR  ="/upload/"+sdf.format(date)+"/";//업로드할 폴더 경로
 		if(option!=null) {
 			//옵션이 있을때 파일이름 , 폴더이름 체크함

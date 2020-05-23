@@ -3,6 +3,7 @@
 <mapper namespace="mappers.PopupMapper">
 	<select id="getAll" resultType="popupvo">
 		SELECT 
+<<<<<<< HEAD
 			id,
 			member_id,
 			title,
@@ -15,6 +16,21 @@
 			reg_date
 		FROM tb_popup
 		ORDER BY id DESC
+=======
+		id,
+		member_id,
+		title,
+		subtitle,
+		img,
+		url,
+		start_date,
+		end_date,
+		status,
+		reg_date
+		FROM tb_popup
+		ORDER BY id desc
+	
+>>>>>>> refs/remotes/origin/master
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -23,9 +39,10 @@
 	
 	</select>
 	<select id="getOne" resultType="popupvo">
-	
+		
 	</select>
 	<insert id="setItem">
+<<<<<<< HEAD
 		INSERT INTO tb_popup
 		SET
 			id=#{id},
@@ -38,8 +55,23 @@
 			end_date=#{end_date},
 			status=#{status},
 			reg_date=#{reg_date}
+=======
+	INSERT INTO tb_popup
+		SET
+		id=#{id},
+		member_id=#{member_id},
+		title=#{title},
+		subtitle=#{subtitle},
+		img=#{img},
+		url=#{url},
+		start_date=#{start_date},
+		end_date=#{end_date},
+		status=#{status},
+		reg_date=#{reg_date}
+>>>>>>> refs/remotes/origin/master
 	</insert>
 	<update id="updateItem">
+<<<<<<< HEAD
 		UPADTE tb_popup SET
 			member_id=#{member_id},
 			title=#{title},
@@ -51,9 +83,29 @@
 			status=#{status},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
+=======
+	UPADTE tb_popup SET
+		member_id=#{member_id},
+		title=#{title},
+		subtitle=#{subtitle},
+		img=#{img},
+		url=#{url},
+		start_date=#{start_date},
+		end_date=#{end_date},
+		status=#{status},
+		reg_date=#{reg_date}
+		
+		WHERE id=#{id}
+		
+		
+>>>>>>> refs/remotes/origin/master
 	</update>
 	<delete id="deleteItem">
 		DELETE FORM tb_popup
+<<<<<<< HEAD
 		WHERE id=#{id}
+=======
+			WHERE id=#{id}
+>>>>>>> refs/remotes/origin/master
 	</delete>
 </mapper>

@@ -16,7 +16,11 @@
 			re_step,
 			re_level,
 			reg_date
+<<<<<<< HEAD
 		FROM
+=======
+			FROM
+>>>>>>> refs/remotes/origin/master
 			tb_audit
 		ORDER BY id DESC
 	</select>
@@ -30,6 +34,7 @@
 	
 	</select>
 	<insert id="setItem">
+<<<<<<< HEAD
 		INSERT INTO tb_audit SET
 			id=#{id},
 			member_id=#{member_id},
@@ -44,6 +49,23 @@
 			re_step=#{re_step},
 			re_level=#{re_level},
 			reg_date=#{reg_date}
+=======
+		INSERT INTO tb_audit
+			id=#{id},
+			member_id=#{member_id},
+			subject=#{subject},
+			writer=#{writer},
+			content=#{content},
+			hit=#{hit},
+			fileName=#{fileName},
+			fileOriName=#{fileOriName},
+			fileUrl=#{fileUrl},
+			ref=#{ref},
+			re_step=#{re_step},
+			re_level=#{re_level},
+			reg_date=#{reg_date}
+		SET
+>>>>>>> refs/remotes/origin/master
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_audit
@@ -61,10 +83,17 @@
 			re_level=#{re_level},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> refs/remotes/origin/master
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_audit
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</delete>
 </mapper>

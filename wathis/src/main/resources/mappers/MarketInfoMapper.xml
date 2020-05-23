@@ -16,7 +16,11 @@
 			re_step,
 			re_level,
 			reg_date
+<<<<<<< HEAD
 		FROM
+=======
+			FROM
+>>>>>>> refs/remotes/origin/master
 			tb_maker_info
 		ORDER BY id DESC
 	</select>
@@ -30,6 +34,7 @@
 	
 	</select>
 	<insert id="setItem">
+<<<<<<< HEAD
 		INSERT INTO tb_maker_info SET
 			id=#{id},
 			member_id=#{member_id},
@@ -44,6 +49,23 @@
 			re_step=#{re_step},
 			re_level=#{re_level},
 			reg_date=#{reg_date}
+=======
+		INSERT INTO tb_maker_info 
+			id=#{id},
+			member_id=#{member_id},
+			subject=#{subject},
+			writer=#{writer},
+			content=#{content},
+			hit=#{hit},
+			fileName=#{fileName},
+			fileOriName=#{fileOriName},
+			fileUrl=#{fileUrl},
+			ref=#{ref},
+			re_step=#{re_step},
+			re_level=#{re_level},
+			reg_date=#{reg_date}
+		SET
+>>>>>>> refs/remotes/origin/master
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_maker_info
@@ -64,6 +86,10 @@
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_maker_info
+<<<<<<< HEAD
+=======
+		
+>>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</delete>
 </mapper>

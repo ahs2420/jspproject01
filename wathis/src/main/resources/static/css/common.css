@@ -532,7 +532,6 @@ nav{
     line-height: var(--var-nav-height);
     color: #fff;
     z-index: 100;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
 }
 .no-hero nav{
 	color:#333;
