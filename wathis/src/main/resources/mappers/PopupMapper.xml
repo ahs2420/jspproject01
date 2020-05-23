@@ -2,7 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.PopupMapper">
 	<select id="getAll" resultType="popupvo">
-	
+		SELECT 
+			id,
+			member_id,
+			title,
+			subtitle,
+			img,
+			url,
+			start_date,
+			end_date,
+			status,
+			reg_date
+		FROM tb_popup
+		ORDER BY id DESC
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -14,12 +26,34 @@
 	
 	</select>
 	<insert id="setItem">
-	
+		INSERT INTO tb_popup
+		SET
+			id=#{id},
+			member_id=#{member_id},
+			title=#{title},
+			subtitle=#{subtitle},
+			img=#{img},
+			url=#{url},
+			start_date=#{start_date},
+			end_date=#{end_date},
+			status=#{status},
+			reg_date=#{reg_date}
 	</insert>
 	<update id="updateItem">
-	
+		UPADTE tb_popup SET
+			member_id=#{member_id},
+			title=#{title},
+			subtitle=#{subtitle},
+			img=#{img},
+			url=#{url},
+			start_date=#{start_date},
+			end_date=#{end_date},
+			status=#{status},
+			reg_date=#{reg_date}
+		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-	
+		DELETE FORM tb_popup
+		WHERE id=#{id}
 	</delete>
 </mapper>

@@ -2,7 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ProductCommentMapper">
 	<select id="getAll" resultType="productcommentvo">
-	
+		SELECT 
+			id,           
+			member_id,    
+			product_id,   
+			parent_id,    
+			member_imgae, 
+			member_status,
+			member_userid,
+			comment,      
+			reg_date 
+		FROM tb_product_comment
+		ORDER BY id DESC
 	</select>
 	<select id="getCount" resultType="int">
 	
@@ -14,12 +25,34 @@
 	
 	</select>
 	<insert id="setItem">
-	
+		INSERT INTO tb_product_comment
+			SET
+				id=#{id},          
+				member_id=#{member_id}, 
+				product_id=#{product_id}, 
+				parent_id=#{parent_id},   
+				member_imgae=#{member_imgae},
+				member_status=#{member_status},
+				member_userid=#{member_userid},
+				comment=#{comment},    
+				reg_date=#{reg_date}    
+		
+		
 	</insert>
 	<update id="updateItem">
-	
+		UPADTE tb_product_comment SET
+			member_id=#{member_id},   
+			product_id=#{product_id},  
+			parent_id=#{parent_id},  
+			member_imgae=#{member_imgae},
+			member_status=#{member_status},
+			member_userid=#{member_userid},
+			comment=#{comment},     
+			reg_date=#{reg_date}
+		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-	
+		DELETE FORM tb_product_comment
+		WHERE id=#{id}
 	</delete>
 </mapper>
