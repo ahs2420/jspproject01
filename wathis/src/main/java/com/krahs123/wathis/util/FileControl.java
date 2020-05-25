@@ -69,8 +69,8 @@ public class FileControl {
 		
 		//static 경로를 구하기 위해 사용함
 		DefaultResourceLoader drl = new DefaultResourceLoader();
-		//Resource resource=drl.getResource("classpath:/static");
-		Resource resource=drl.getResource("file:src/main/resources/static");//파일 경로가 안보이는 곳으로 가서 임시로 변경..
+		Resource resource=drl.getResource("classpath:/static");
+		//Resource resource=drl.getResource("file:src/main/resources/static");//파일 경로가 안보이는 곳으로 가서 임시로 변경..
 		String rootPath="";
 
 		Map<String,Object> result = new HashMap<>();// return으로 넘겨줄거
@@ -130,23 +130,27 @@ public class FileControl {
 		Map<String,Object> map = new HashMap<>();
 		DefaultResourceLoader drl = new DefaultResourceLoader();
 		Resource resource=drl.getResource("classpath:/static");
+		//Resource resource=drl.getResource("file:src/main/resources/static");//파일 경로가 안보이는 곳으로 가서 임시로 변경..
 		String rootPath="";
 		String msg="파일 삭제에 실패하였습니다.";
 		boolean status=false;
 		try {
-			File file = new File(rootPath+dirUrl+fileName);
 			rootPath = resource.getFile().getAbsolutePath();
+			File file = new File(rootPath+"/"+dirUrl+fileName);
 			if(file.exists()) {
 				if(file.delete()) {
 					msg="파일이 삭제되었습니다";
 					status=true;
 				}
+			}else {
+				msg="존재하지 않는 파일입니다. 파일경로를 확인해 주세요";
+				
 			}
 			if(option!=null) {
 				//옵션이 있을때
 				if(option.get("dirDel")!=null&&(boolean)option.get("dirDel")) {
 					// 폴더 삭제가 같이되야 할경우
-					File dir = new File(rootPath+dirUrl);
+					File dir = new File(rootPath+"/"+dirUrl);
 					if(dir.exists()) {
 						dir.delete();
 					}
@@ -155,6 +159,8 @@ public class FileControl {
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
+			msg="시스템 오류 입니다. 관리자에게 문의해 주세요.(err03 : fileErr)";
+			status=false;
 		}
 		map.put("msg",msg);
 		map.put("status",status);
@@ -164,6 +170,6 @@ public class FileControl {
 		 msg -> 파일 오류 생성
 		*/
 	}
-
+	
 	
 }
