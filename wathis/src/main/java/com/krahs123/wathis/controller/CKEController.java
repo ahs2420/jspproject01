@@ -30,9 +30,11 @@ public class CKEController {
 	//cke fileUpload
 	@RequestMapping("/imageUpload")
 	@ResponseBody
-	public Map<String, Object> ckeImageUpload(@ModelAttribute("fileUploadVO") CKEFileUpload fileUploadVO) {
+	public Map<String, Object> ckeImageUpload(@ModelAttribute("fileUploadVO") CKEFileUpload fileUploadVO,HttpServletRequest request) {
 		//fileUploadVO -> 앞서 만든 모델에 파일이나 설정을 저장함
 		//request root경로를 알기 위해  사용(static경로 아님)
+		String hostName =request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();
+
 		//날짜 생성(폴더이름 + 파일이름에 사용)
 		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
@@ -70,7 +72,7 @@ public class CKEController {
 		}else {
 			map.put("filename", resultMap.get("fileName"));
 			map.put("uploaded", 1);
-			map.put("url", resultMap.get("uploadDIR").toString() + resultMap.get("fileName").toString());
+			map.put("url", hostName+resultMap.get("uploadDIR").toString() + resultMap.get("fileName").toString());
 		}
 		
 		return map;
