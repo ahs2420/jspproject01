@@ -15,7 +15,7 @@
 	<div class="position-fix">
 		<div class="head-con">
 			<div class="logo">
-				<a href="#"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
+				<a href="http://localhost:8888"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
 			</div>
 
 			<div class="head-userid">
@@ -83,11 +83,6 @@
 				</li>
 				<li class="mypage-li-menu">
 					<div class="menu-text1">
-						<a href="#">오픈예정 현황<i class="fas fa-angle-down"></i></a>
-					</div>
-				</li>
-				<li class="mypage-li-menu">
-					<div class="menu-text1">
 						<a href="#">결제 현황<i class="fas fa-angle-down"></i></a>
 					</div>
 				</li>
@@ -100,12 +95,7 @@
 					<div class="menu-text1">
 						<a href="#">서포터<i class="fas fa-angle-down"></i></a>
 					</div>
-				</li>
-				<li class="mypage-li-menu">
-					<div class="menu-text1">
-						<a href="#">자료및 도움말<i class="fas fa-angle-down"></i></a>
-					</div>
-				</li>
+				</li>	
 			</ul>
 
 
@@ -268,54 +258,8 @@
 					</div>
 				</div>
 
-				<!-- 5번 -->
-				<div class="flex-basic2 ba-pro-day ">
-					<div class="wid4 mar-top3">
-						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 시작일<span class="fon-co5"> *</span>
-						</label>
-						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
-							시작을 선택하세요.</p>
-						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="project-day"
-							placeholder="예? 20200401">
-					</div>
-
-					<div class="ba-guide5">
-						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
-								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
-							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
-								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
-							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
-						</div>
-					</div>
-
-				</div>
-
-				
-				<!-- 6번 성인 인증에서 프로젝트 종료일로 수정 -->
-				<div class="flex-basic2 ba-pro-adult">
-					<div class="wid4 mar-top3">
-						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 종료일<span class="fon-co5"> *</span>
-						</label>
-						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">
-							리워드를 설계하기 위해 프로젝트 종료일을 선택하세요.</p>
-						<input class="wid1 hei1 fon-bor1 text-padding1 mar-bo7" type="text" id="project-day"
-							placeholder="예? 20200401">
-					</div>
-
-					<div class="ba-guide6">
-						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
-								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
-							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
-								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
-							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
-						</div>
-					</div>
-
-				</div>
-
-				<!-- 7번 -->
+				<!-- 5번  프로젝트 일정을 삭제 하였음-->
+				<!-- 5번-->
 				<div class="flex-basic2 ba-pro-seach">
 					<div class=" mar-bo3  wid4">
 						<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">검색용
@@ -432,99 +376,14 @@
 					</div>
 				</div>
 
-				<!-- Q2 -->
-				<div class="flex-basic2 q2-text">
-					<div class="mar-bo2 wid4">
-						<div class="name-left">
-							<p class="  di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								Q2. 리워드가 금형을 이용하여 제작되는 제품인지 확인하고 리워드에 맞는 제조 형태를 선택하세요. <span class="fon-co5">
-									*</span></label>
-							</p>
-							<p class="fon-siz3 fon-co7 mar-top4">※ 금형을 이용하지 않고 제작되는 리워드라면
-								다섯번째 답변을 선택해주세요.</p>
-							<p class="fon-siz3 fon-co7 mar-bo4">※ 제조 형태에 따라 필요한 서류는 반드시
-								아래 리워드 필수 인증 서류 항목에 업로드해주세요.</p>
-
-							<div class="radio-box mar-bo3 mar-top1">
-								<input class="ra-size" name="q2" type="radio" id="ra-q2-1"> <label for="ra-q2-1"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
-										이용하여 제작되는 리워드이며,메이커가 아이디어 단계부터 리워드의 기획 및 개발, 생산까지의 전 과정을
-										담담합니다. </span></label>
-
-								<div class="q2-ra-text1 fon-siz1 fon-co7 text-padding2 fon-siz3">
-									<p>· 금형의 독점 소유권을 확인할 수 있는 금형 제조사와의 (제작 의뢰) 계약서를 업로드해주세요.</p>
-									<p>· 금형 보관증 혹은 금형 구매 영수증 등을 업로드해주세요.</p>
-
-								</div>
-
-							</div>
-							<div class="radio-box mar-bo3 mar-top1">
-								<input class="ra-size" name="q2" type="radio" id="ra-q2-2"> <label for="ra-q2-2"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
-										이용하여 제작되는 리워드이며, 메이커가 아이디어 단계부터 직접 기획 및 개발한 제품이지만, 제품의 양산 등의
-										과정은 메이커가 아닌 위탁 생산 업체가 담당합니다. </span></label>
-								<div class="q2-ra-text2 fon-siz1 fon-co7 text-padding2 fon-siz3">
-									<p>
-										· 금형의 독점 소유권을 확인할 수 있는 금형 제조사와의 (제작 의뢰) 계약서를 업로드해주세요. <br>
-										· 금형 보관증 혹은 금형 구매 영수증 등을 업로드해주세요. <br> · 리워드 위탁 생산 업체와의
-										업무협약서를 업로드해주세요. (원본+한글 번역본)
-									</p>
-
-								</div>
-							</div>
-							<div class="radio-box mar-bo3 mar-top1">
-								<input class="ra-size" name="q2" type="radio" id="ra-q2-3"> <label for="ra-q2-3"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형을
-										이용하여 제작되는 리워드이며, 메이커가 국내외 제조업체에서 개발이 완료된 제품의 일부를 개선 혹은 변경한 뒤
-										자신의 브랜드로 위탁 생산을 의뢰하였습니다. </span></label>
-								<div class="q2-ra-text3 fon-siz1 fon-co7 text-padding2 fon-siz3">
-									<p>
-										· 국내외 생산 업체와의 위탁제조계약서를 업로드해주세요. 메이커가 의뢰하여 개선한 리워드의 변경 내용을 확인할
-										수 있어야 합니다. <br> · 국내외 타 채널에서 유사 제품이 판매되고 있다면 리워드가 해당 제품과
-										기능, 외관상 어떠한 차이가 있는지 스토리 최상단에 작성해주세요.
-									</p>
-
-								</div>
-							</div>
-							<div class="radio-box mar-bo3 mar-top1">
-								<input class="ra-size" name="q2" type="radio" id="ra-q2-4"> <label for="ra-q2-4"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 금형 이용
-										여부와 관계없이 이미 제작 완료된 해외 브랜드의 제품을 메이커가 국내 첫 단독 총판의 자격으로 수입하여
-										유통합니다. </span></label>
-								<div class="q2-ra-text4 fon-siz1 fon-co7 text-padding2 fon-siz3">
-									<p>
-										· 해외 브랜드와의 국내 독점 총판 계약서 및 리워드의 수입신고필증을 업로드해주세요. <br> ·
-										서포터들이 메이커의 총판 지위를 확인할 수 있도록 해외 브랜드로부터 제공받은 공식 소개 영상 혹은 공문(레터
-										형식)을 스토리에 작성해주세요.
-									</p>
-
-								</div>
-							</div>
-							<div class="radio-box mar-bo3 mar-top1">
-								<input class="ra-size" name="q2" type="radio" id="ra-q2-5"> <label for="ra-q2-5"> <span
-										class="fon-siz1 fon-co8 text-padding2 fon-siz2"> 패션잡화,
-										디자인 소품, 화장품, 식품, 서비스 이용권 등 금형을 이용하지 않고 제작되는 리워드입니다. </span></label>
-								<div class="q2-ra-text5 fon-siz1 fon-co7 text-padding2 fon-siz3">
-									<p>· 메이커가 리워드의 제작 및 유통 과정에서 어떤 역할을 담당하였는지 스토리에 작성해주세요.</p>
-
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="q2-guide">
-						<div class=" text-padding3 box-li1 box-back1">
-							<p class="fon-siz4 mar-bo3 fon-co7">국내외 다른 경로에서 판매중인 제품과 사실상
-								동일하거나, 동일 제품에 브랜드 상표만 변경된 제품이라면 와디지 진행이 불가능합니다.</p>
-						</div>
-					</div>
-				</div>
+				<!-- Q2 금형 부분 -->
+				
 				<!-- 질문 3 번 -->
 				<div class="flex-basic2 q3-text">
 					<div class="mar-bo2 wid1">
 						<div class="name-left">
 							<p class=" di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								Q3. 현재까지 진행된 리워드의 준비 상태 및 앞으로의 계획을 구체적으로 설명해주세요. <span class="fon-co5"> *</span></label>
+								Q2. 현재까지 진행된 리워드의 준비 상태 및 앞으로의 계획을 구체적으로 설명해주세요. <span class="fon-co5"> *</span></label>
 							</p>
 							<div class="q3-texe wid4">
 								<p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4">
@@ -543,7 +402,7 @@
 					</div>
 					<div class="q3-guide">
 						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="mar-bo5 fon-siz4 fon-co7">Q3에 대한 예씨 답변을 참고하여 작성해
+							<h4 class="mar-bo5 fon-siz4 fon-co7">Q2에 대한 예씨 답변을 참고하여 작성해
 								주세요.</h4>
 							<p>1)리워드가 유형의 제품인 경우</p>
 							<a href="">금형을 사용하여 생산되는 제품인 경우</a>
@@ -571,7 +430,7 @@
 					<div class="q4-text mar-bo2 wid4">
 						<div class="name-left">
 							<p class="di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								Q4. 리워드의 전달 계획을 알려주세요. <span class="fon-co5"> *</span></label>
+								Q3. 리워드의 전달 계획을 알려주세요. <span class="fon-co5"> *</span></label>
 							</p>
 							<div class="q3-texe">
 								<p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4">
@@ -591,7 +450,7 @@
 					</div>
 					<div class="q4-guide cu-poin">
 						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="mar-bo5 fon-siz4 fon-co7">Q4에 대한 예시 답변을 참고하여 작성해
+							<h4 class="mar-bo5 fon-siz4 fon-co7">Q3에 대한 예시 답변을 참고하여 작성해
 								주세요.</h4>
 							<p class="fon-siz4 mar-bo3 fon-co7">
 								· 리워드는 A 물류 창고에서 보관 루 택배사 B를 통해 일괄 발송 될 예정입니다. <br> · 명절 연휴
@@ -607,7 +466,7 @@
 					<div class="mar-bo2 wid4">
 						<div class="name-left">
 							<h4 class="di-ia1 mar-bo6 fon-wei1 fon-siz1 mar-top3">
-								리워드 필수 인증 코드 <span class="fon-co5"> *</span></label>
+								리워드 필수 인증 코드 <span class="fon-co5"> *</span>
 							</h4>
 							<select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name=""
 								id="project-ka">
@@ -636,9 +495,15 @@
 								<label for="upload-file"> <span class="fon-siz1 fon-co3 text-padding2"> 필수 인증 서류 업로드
 									</span></label>
 								<div class="upload">
-									<label for="re-upload" class="di-ia1 mar-top1 fon-wei1">리워드
-										인증 서류<span class="fon-co5"> *</span>
-									</label><br> <input class="" type="file" id="re-upload">
+									<h4 class="di-ia1 mar-bo6 fon-wei1 fon-siz1 mar-top3">
+										리워드 인증 서류 <span class="fon-co5"> *</span>
+									</h4>
+									<div class="flex-box">
+										
+											<label for="file1" class="fon-co9">업로드</label>
+											<input type="file" id="file1">
+									</div>
+									
 									<p class="fon-siz2 fon-col mar-top1">리워드 종류에 맞는 최소한의 인증 서류를
 										확인하고,서류를 첨부하세요.</p>
 									<p class="fon-siz2 fon-col">jpg, jpeg, png, pdf, zip, xlsx,

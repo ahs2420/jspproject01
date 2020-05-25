@@ -49,7 +49,7 @@
         <div class="position-fix">
             <div class="head-con">
                 <div class="logo">
-                    <a href="#"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
+                    <a href="http://localhost:8888"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
                 </div>
 
                 <div class="head-userid">
@@ -118,11 +118,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="mypage-li-menu">
-                        <div class="menu-text1">
-                            <a href="#">오픈예정 현황<i class="fas fa-angle-down"></i></a>
-                        </div>
-                    </li>
+                  
                     <li class="mypage-li-menu">
                         <div class="menu-text1">
                             <a href="#">결제 현황<i class="fas fa-angle-down"></i></a>
@@ -138,11 +134,7 @@
                             <a href="#">서포터<i class="fas fa-angle-down"></i></a>
                         </div>
                     </li>
-                    <li class="mypage-li-menu">
-                        <div class="menu-text1">
-                            <a href="#">자료및 도움말<i class="fas fa-angle-down"></i></a>
-                        </div>
-                    </li>
+                  
                 </ul>
 
             </div>

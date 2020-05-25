@@ -1,3 +1,4 @@
+// ALL 메뉴 부분
 $(function () {
 
     $(".mypage-li-menu").click(function () {

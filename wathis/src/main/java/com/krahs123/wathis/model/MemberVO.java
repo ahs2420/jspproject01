@@ -31,6 +31,7 @@ public class MemberVO {
 	private String uimg;
 	private int status;
 	private String reg_date;
+	
 	public int getId() {
 		return id;
 	}

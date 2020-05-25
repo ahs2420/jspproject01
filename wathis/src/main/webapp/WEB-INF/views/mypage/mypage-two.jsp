@@ -16,7 +16,7 @@
     <div class="position-fix">
         <div class="head-con">
             <div class="logo">
-                <a href="#"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
+                <a href="http://localhost:8888"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
             </div>
 
             <div class="head-userid">
@@ -85,11 +85,7 @@
                             <li><a href="/page/mypage-five">메이커 정보</a></li>
                         </ul>
                     </div>
-                <li class="mypage-li-menu">
-                    <div class="menu-text1">
-                        <a href="#">오픈예정 현황<i class="fas fa-angle-down"></i></a>
-                    </div>
-                </li>
+               
                 <li class="mypage-li-menu">
                     <div class="menu-text1">
                         <a href="#">결제 현황<i class="fas fa-angle-down"></i></a>
@@ -105,11 +101,7 @@
                         <a href="#">서포터<i class="fas fa-angle-down"></i></a>
                     </div>
                 </li>
-                <li class="mypage-li-menu">
-                    <div class="menu-text1">
-                        <a href="#">자료및 도움말<i class="fas fa-angle-down"></i></a>
-                    </div>
-                </li>
+             
             </ul>
 
         </div>
@@ -205,7 +197,7 @@
                 </div>
                 <!-- 2번 -->
                 <div class="flex-basic1 ba-pro-price">
-                    <div class="mar-bo2 wid4">
+                    <div class="mar-bo3 wid4">
                         <div class="name-left ">
                             <div class="box-text-one">
                                 <h4>프로젝트 요약<span class="fon-co5">
@@ -233,29 +225,54 @@
                         </div>
                     </div>
                 </div>
-                <!-- 3번 -->
-                <div class="flex-basic2">
-                    <div class=" mar-bo2 wid4">
-                        <label for="projectimg" class="di-la1 mar-top1 fon-wei1">스토리 광고 심의 동의<span class="fon-co5">
-                                *</span></label><br>
-                        <p class="fon-siz3 fon-col mar-bo5 ">스토리 작성 전, 와디즈에서 제공하는 광고 심의 가이드라인을 반드시 확인하세요. 동의를 진행해야
-                            스토리 작성이 가능합니다. 오픈예정 스토리도 적용됩니다.</p>
-                        <div class="three-text-box">
-                            <ul>
-                                <li><a href="#" class="fon-co4">공통 표시·광고 가이드라인</a></li>
-                                <li><a href="#" class="fon-co4">식품 표시·광고 가이드라인</a></li>
-                                <li><a href="#" class="fon-co4">화장품 표시·광고 가이드라인</a></li>
-                                <li><a href="#" class="fon-co4">건강보조기구 표시·광고 가이드라인</a></li>
-                            </ul>
-                            <button type="button"
-                                class="fon-siz1 box-ra1 fon-co11 hei5 fon-wei1 text-padding7 box-back4 mar-top4 all-btn"><i
-                                    class="fas fa-check"></i>동의하기</button>
-                        </div>
-                    </div>
+                <!-- 3번,4번  각종 가이드 부분에서 달력으로 수정-->
 
-                </div>
+                <div class="flex-basic2 ba-pro-day ">
+					<div class="wid4 mar-top3">
+						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 시작일<span class="fon-co5"> *</span>
+						</label>
+						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
+							시작을 선택하세요.</p>
+						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="project-day"
+							placeholder="예? 20200401">
+					</div>
 
-                <!-- 4번 -->
+					<div class="ba-guide5">
+						<div class=" text-padding3 box-li1 box-back1">
+							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
+								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
+							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
+								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
+							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
+						</div>
+					</div>
+
+				</div>
+
+				
+				<!-- 4번-->
+				<div class="flex-basic2 ba-pro-adult mar-bo3">
+					<div class="wid4 mar-top3">
+						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 종료일<span class="fon-co5"> *</span>
+						</label>
+						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">
+							리워드를 설계하기 위해 프로젝트 종료일을 선택하세요.</p>
+						<input class="wid1 hei1 fon-bor1 text-padding1 mar-bo7" type="text" id="project-day"
+							placeholder="예? 20200401">
+					</div>
+
+					<div class="ba-guide6">
+						<div class=" text-padding3 box-li1 box-back1">
+							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
+								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
+							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
+								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
+							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
+						</div>
+					</div>
+
+				</div>
+                <!-- 5번 -->
 
                 <div class="flex-basic2 ba-pro-name">
                     <div class="mar-bo2 wid4">

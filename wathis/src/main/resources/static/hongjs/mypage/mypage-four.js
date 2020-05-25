@@ -1,9 +1,9 @@
 var KIND = '<table cellpadding="10px" style="width:100%">\
 <tr>\
-    <th style=\"width:5%;padding:10px;\">리워드 종류</th>\
-    <th style=\"width:10%;padding:10px;\">항목</th>\
-    <th style=\"width:25%;padding:10px;\">부연설명</th>\
-    <th style=\"width:55%;padding:10px;\">직접 작성</th>\
+    <th style=\"width:7%;padding:10px;\">리워드 종류</th>\
+    <th style=\"width:10%;padding:10px;\"></th>\
+    <th style=\"width:25%;padding:10px;\"></th>\
+    <th style=\"width:55%;padding:10px;\"></th>\
 </tr>\
 </table>';
 var clothing = '<table style=\"width:100%\">\
@@ -17,7 +17,7 @@ var clothing = '<table style=\"width:100%\">\
     <th rowspan="9">의류</th>\
     <th>제품소재</th>\
     <td>섬유의 조성 또는 혼용률을 백분율로 입력/기능성인 경우 성적서 또는 허가서 내용 입력</td>\
-    <td>dsadasdsadfkdslkkkkkk;l</td>\
+    <td></td>\
 </tr>\
 <tr>\
     <th >색상</th>\

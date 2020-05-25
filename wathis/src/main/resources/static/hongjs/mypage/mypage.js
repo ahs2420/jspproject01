@@ -138,6 +138,7 @@ $(function () {
 
 
     });
+    
     $(function () {
         $(".upload").hide();
         $(".not-upload-rabox").hide();

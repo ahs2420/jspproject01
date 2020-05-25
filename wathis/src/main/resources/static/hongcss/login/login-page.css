@@ -58,8 +58,8 @@ input[type="radio"] { display: none;}
     text-transform: capitalize;
     font-size: 20px;
     color: #fff;
-    margin-top: 30px;
-    margin-bottom: 70px;
+    margin-top: 15px;
+    margin-bottom: 50px;
 }
 .radio-up{
     margin-left: 30px;
@@ -92,7 +92,7 @@ input[type="radio"] { display: none;}
     border-collapse: collapse;
     outline: none;
     border: 1px solid rgba(0, 0, 0, .2);
-    margin-bottom: 24px;
+    margin-bottom: 23px;
 
 }
 .label{
@@ -140,7 +140,7 @@ input[type="radio"] { display: none;}
     outline: none;
     padding-left: 15px;
     border: 1px solid rgba(0, 0, 0, .2);
-    margin-bottom: 30px;
+    margin-bottom: 23px;
 }
 
 .up-box-text>.up-button {
@@ -435,4 +435,7 @@ main a {
 .up-box-text a {
     vertical-align: baseline;
     display: inline;
+}
+.line-heall{
+ line-height: 38px;
 }
