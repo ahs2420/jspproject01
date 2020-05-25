@@ -4,17 +4,11 @@
 	<select id="getAll" resultType="menuvo">
 		SELECT 
 			id,
-			member_id,
-			subject,
-			writer,
-			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
+			parent_id,
+			dept,
+			morder,
+			title,
+			url,
 			reg_date
 		FROM
 			tb_menu
@@ -33,33 +27,21 @@
 		INSERT INTO tb_menu 
 		SET
 			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			parent_id=#{parent_id},
+			dept=#{dept},
+			morder=#{morder},
+			title=#{title},
+			url=#{url},
 			reg_date=#{reg_date}
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_menu
 			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			parent_id=#{parent_id},
+			dept=#{dept},
+			morder=#{morder},
+			title=#{title},
+			url=#{url},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
 	</update>

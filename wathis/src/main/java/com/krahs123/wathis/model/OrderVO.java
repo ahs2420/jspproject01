@@ -2,30 +2,30 @@ package com.krahs123.wathis.model;
 
 public class OrderVO {
 //주문
-//	+-----------------+------------------+------+-----+-------------------+-------------------+
-//	| Field           | Type             | Null | Key | Default           | Extra             |
-//	+-----------------+------------------+------+-----+-------------------+-------------------+
-//	| id              | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
-//	| member_id       | int(10) unsigned | NO   |     | 0                 |                   |
-//	| product_id      | int(10) unsigned | NO   |     | 0                 |                   |
-//	| price           | int(11)          | NO   |     | 0                 |                   |
-//	| delivery_fee    | int(11)          | NO   |     | NULL              |                   |
-//	| payment         | int(11)          | NO   |     | 0                 |                   |
-//	| account_num     | varchar(20)      | YES  |     | NULL              |                   |
-//	| account_name    | varchar(20)      | YES  |     | NULL              |                   |
-//	| account_bank    | varchar(20)      | YES  |     | NULL              |                   |
-//	| pay_type        | char(1)          | NO   |     | 0                 |                   |
-//	| receiver_addr1  | varchar(20)      | NO   |     | NULL              |                   |
-//	| receiver_addr2  | varchar(100)     | NO   |     | NULL              |                   |
-//	| receiver_addr3  | varchar(100)     | NO   |     | NULL              |                   |
-//	| receiver_tel    | varchar(255)     | NO   |     | NULL              |                   |
-//	| receiver_name   | varchar(50)      | NO   |     | NULL              |                   |
-//	| receiver_etc    | varchar(100)     | NO   |     | NULL              |                   |
-//	| state           | char(1)          | NO   |     | 1                 |                   |
-//	| delivery_id     | varchar(30)      | NO   |     | NULL              |                   |
-//	| delivery_number | varchar(30)      | NO   |     | NULL              |                   |
-//	| reg_date        | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-//	+-----------------+------------------+------+-----+-------------------+-------------------+
+	//	+-----------------+------------------+------+-----+-------------------+-------------------+
+	//	| Field           | Type             | Null | Key | Default           | Extra             |
+	//	+-----------------+------------------+------+-----+-------------------+-------------------+
+	//	| id              | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
+	//	| member_id       | int(10) unsigned | NO   |     | 0                 |                   |
+	//	| product_id      | int(10) unsigned | NO   |     | 0                 |                   |
+	//	| price           | int(11)          | NO   |     | 0                 |                   |
+	//	| delivery_fee    | int(11)          | NO   |     | NULL              |                   |
+	//	| payment         | int(11)          | NO   |     | 0                 |                   |
+	//	| account_num     | varchar(20)      | YES  |     | NULL              |                   |
+	//	| account_name    | varchar(20)      | YES  |     | NULL              |                   |
+	//	| account_bank    | varchar(20)      | YES  |     | NULL              |                   |
+	//	| pay_type        | char(1)          | NO   |     | 0                 |                   |
+	//	| receiver_addr1  | varchar(20)      | NO   |     | NULL              |                   |
+	//	| receiver_addr2  | varchar(100)     | NO   |     | NULL              |                   |
+	//	| receiver_addr3  | varchar(100)     | NO   |     | NULL              |                   |
+	//	| receiver_tel    | varchar(255)     | NO   |     | NULL              |                   |
+	//	| receiver_name   | varchar(50)      | NO   |     | NULL              |                   |
+	//	| receiver_etc    | varchar(100)     | NO   |     | NULL              |                   |
+	//	| state           | char(1)          | NO   |     | 1                 |                   |
+	//	| delivery_id     | varchar(30)      | NO   |     | NULL              |                   |
+	//	| delivery_number | varchar(30)      | NO   |     | NULL              |                   |
+	//	| reg_date        | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+	//	+-----------------+------------------+------+-----+-------------------+-------------------+
 	private int id;
 	private int member_id;
 	private int product_id;

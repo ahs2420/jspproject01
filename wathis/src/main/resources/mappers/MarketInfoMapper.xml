@@ -4,17 +4,20 @@
 	<select id="getAll" resultType="marketinfovo">
 		SELECT 
 			id,
-			member_id,
-			subject,
-			writer,
-			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
+			audit_id,
+			marker_name,
+			img_dir,
+			marker_img,
+			marker_email,
+			marker_phone,
+			marker_kakao_id,
+			marker_kakao_url,
+			marker_home_page_url,
+			marker_facebook_url,
+			marker_twiter_url,
+			marker_instagram_url,
+			business_type,
+			bankbook_img,
 			reg_date
 		FROM
 			tb_maker_info
@@ -30,37 +33,41 @@
 	
 	</select>
 	<insert id="setItem">
-
 		INSERT INTO tb_maker_info SET
 			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			audit_id=#{audit_id},
+			marker_name=#{marker_name},
+			img_dir=#{img_dir},
+			marker_img=#{marker_img},
+			marker_email=#{marker_email},
+			marker_phone=#{marker_phone},
+			marker_kakao_id=#{marker_kakao_id},
+			marker_kakao_url=#{marker_kakao_url},
+			marker_home_page_url=#{marker_home_page_url},
+			marker_facebook_url=#{marker_facebook_url},
+			marker_twiter_url=#{marker_twiter_url},
+			marker_instagram_url=#{marker_instagram_url},
+			business_type=#{business_type},
+			bankbook_img=#{bankbook_img},
 			reg_date=#{reg_date}
-
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_maker_info
 			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			audit_id=#{audit_id},
+			marker_name=#{marker_name},
+			img_dir=#{img_dir},
+			marker_img=#{marker_img},
+			marker_email=#{marker_email},
+			marker_phone=#{marker_phone},
+			marker_kakao_id=#{marker_kakao_id},
+			marker_kakao_url=#{marker_kakao_url},
+			marker_home_page_url=#{marker_home_page_url},
+			marker_facebook_url=#{marker_facebook_url},
+			marker_twiter_url=#{marker_twiter_url},
+			marker_instagram_url=#{marker_instagram_url},
+			business_type=#{business_type},
+			bankbook_img=#{bankbook_img},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
 	</update>

@@ -3,19 +3,15 @@
 <mapper namespace="mappers.OrderDetailMapper">
 	<select id="getAll" resultType="orderdetailvo">
 		SELECT 
-			id,
-			member_id,
-			subject,
-			writer,
-			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
-			reg_date
+				id,
+		member_id,
+		order_id,
+		product_id,
+		option_id,
+		option_name,
+		amount,
+		price,
+		reg_date,
 		FROM
 			tb_order_detail
 		ORDER BY id DESC
@@ -34,32 +30,24 @@
 		SET
 			id=#{id},
 			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			order_id=#{order_id},
+			product_id=#{product_id},
+			option_id=#{option_id},
+			option_name=#{option_name},
+			amount=#{amount},
+			price=#{price},
 			reg_date=#{reg_date}
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_order_detail
 			id=#{id},
 			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			order_id=#{order_id},
+			product_id=#{product_id},
+			option_id=#{option_id},
+			option_name=#{option_name},
+			amount=#{amount},
+			price=#{price},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
 	</update>

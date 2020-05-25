@@ -4,17 +4,14 @@
 	<select id="getAll" resultType="boardvo">
 		SELECT 
 			id,
+			config_id,
 			member_id,
-			subject,
-			writer,
+			title,
+			category,
+			member_imgae,
+			member_userid,
 			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
+			img,
 			reg_date
 		FROM
 			tb_board
@@ -30,37 +27,29 @@
 	
 	</select>
 	<insert id="setItem">
-
 		INSERT INTO tb_board  SET
 			id=#{id},
+			config_id=#{config_id},
 			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
+			title=#{title},
+			category=#{category},
+			member_imgae=#{member_imgae},
+			member_userid=#{member_userid},
 			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			img=#{img},
 			reg_date=#{reg_date}
-
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_board
 			id=#{id},
+			config_id=#{config_id},
 			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
+			title=#{title},
+			category=#{category},
+			member_imgae=#{member_imgae},
+			member_userid=#{member_userid},
 			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			img=#{img},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
 	</update>

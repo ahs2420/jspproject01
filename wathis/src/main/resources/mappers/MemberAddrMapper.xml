@@ -5,16 +5,12 @@
 		SELECT 
 			id,
 			member_id,
-			subject,
-			writer,
-			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
+			addr1,
+			addr2,
+			addr3,
+			ship_name,
+			ship_tel,
+			ship_desc,
 			reg_date
 		FROM
 			tb_member_addr
@@ -34,32 +30,24 @@
 		SET
 			id=#{id},
 			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			addr1=#{addr1},
+			addr2=#{addr2},
+			addr3=#{addr3},
+			ship_name=#{ship_name},
+			ship_tel=#{ship_tel},
+			ship_desc=#{ship_desc},
 			reg_date=#{reg_date}
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_member_addr
 			id=#{id},
 			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
+			addr1=#{addr1},
+			addr2=#{addr2},
+			addr3=#{addr3},
+			ship_name=#{ship_name},
+			ship_tel=#{ship_tel},
+			ship_desc=#{ship_desc},
 			reg_date=#{reg_date}
 		WHERE id=#{id}
 
