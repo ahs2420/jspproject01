@@ -3,7 +3,7 @@
 <mapper namespace="mappers.OrderDetailMapper">
 	<select id="getAll" resultType="orderdetailvo">
 		SELECT 
-				id,
+		id,
 		member_id,
 		order_id,
 		product_id,
