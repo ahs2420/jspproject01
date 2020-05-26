@@ -11,13 +11,23 @@ public class MyPageConroller {
 	final String DIR ="/mypage/";
 	
 	@RequestMapping("/mypage")
-	public String viewMypage(){
-		return DIR+"mypage";
+	public ModelAndView viewMypageList(){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "prepare");
+		
+		mav.setViewName(DIR+"mypagePrepare");
+		return mav;
 	}
 
 	@RequestMapping("/mypage-one")
-	public String viewMypageone(){
-		return DIR+"mypage-one";
+	public ModelAndView viewMypageInfo(){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "Information");
+		
+		mav.setViewName(DIR+"mypageInfo");
+		return mav;
 	}
 
 	@RequestMapping("/mypage-two")
