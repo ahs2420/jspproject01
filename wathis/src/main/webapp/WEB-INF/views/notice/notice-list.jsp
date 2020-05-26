@@ -4,6 +4,8 @@
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
 <link rel="stylesheet" href="/xkfqkfcss/notice-list.css">
+<script src="/xkfqkfjs/notice-list.js"></script>
+
 </head>
 <body>
 	<header class=" no-hero">
@@ -219,50 +221,7 @@
 			</div>
 		</section>
 	</main>
-
-
-
-
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- script 자리-->
-
-<script>
-$(function() {
-	$("form").submit(function() {
-		var bReturn = true;
-		$(".notice-list-search-input").each(function(){
-			if($.trim($(this).val())==""){
-				alert($(this).data("error")+"해주세요");
-				$(this).focus();
-				bReturn=false;
-				return false;
-			}
-		});
-		return bReturn;
-	});
-});
-</script>
-<script type="text/javascript">
-
-
-<!--
-
-//-->
-$(function () { $(window).scroll(function () { if ($(window).scrollTop()
-> 100) { $(".notice-list-up").fadeIn(300);
-$(".notice-list-chat").fadeIn(300); } else {
-$(".notice-list-up").fadeOut(300); $(".notice-list-chat").fadeOut(300);
-
-} }); }); $(function(){ $(".notice-list-up").click(function(){ $("html,
-body").animate({scrollTop:0},300); }); }); $(function(){
-$(".notice-list-chat").click(function(){
-$("#tawk_5e81913535bcbb0c9aabba5a").toggle(); }); });
-
-</script>
-
-<!--
-
-//-->
-</script>
 </html>

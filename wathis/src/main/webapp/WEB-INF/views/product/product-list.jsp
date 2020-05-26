@@ -314,51 +314,6 @@
 </body>
 <!-- script 자리-->
 <script>
-	$(function() {
-		$(".reward-search").click(function() {
-			$(this).addClass("on");
-		});
-	});
-	$(function() {
-		$(".reward-search-btn").click(function() {
-			var target = $(this).siblings(".reward-search");
-			if (target.val()) {
-
-			} else {
-				target.addClass("on");
-				target.focus();
-			}
-		})
-	});
-
-	$(function() {
-		$('.owl-carousel2').owlCarousel(
-				{
-					loop : false,
-					nav : true,
-					dots : false,
-					navContainerClass : 'owl-nav custom',
-					navText : [ '<i class="fas fa-chevron-left"></i>',
-							'<i class="fas fa-chevron-right"></i>' ],
-					responsive : {
-						0 : {
-							items : 3,
-							slideBy : 3
-						},
-						425 : {
-							items : 4,
-							slideBy : 4
-						},
-						768 : {
-							items : 6,
-							slideBy : 6
-						},
-						1080 : {
-							items : 10,
-							slideBy : 10
-						}
-					}
-				});
-	});
+	
 </script>
 </html>
