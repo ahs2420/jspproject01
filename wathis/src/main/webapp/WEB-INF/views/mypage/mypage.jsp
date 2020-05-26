@@ -4,9 +4,16 @@
 
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="../hongcss/mypage/common.css">
 <link rel="stylesheet" href="/hongcss/mypage/mypage.css">
 <script src="../hongjs/mypage/mypage.js"></script>
 <script src="../hongjs/mypage/common.js"></script>
+<link rel="stylesheet" href="/hongcss/mypage/${template}_${mypage}.css">
+<script src="../hongjs/mypage/${template}_${mypage}.js"></script>
+<!-- fontawesome 코드 -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+<script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
+<!-- fontawesome 코드 -->
 <div class="position-fix">
 
 
@@ -71,17 +78,17 @@
 
             </div>
             <ul class="menu-text" style="list-style: none;">
-                <li class="mypage-li-menu">
+                <li class="mypage-li-menu Reward">
                     <div class="menu-text1">
                         <a href="/page/mypage">펀딩 준비</a>
                         <a href="#"><i class="fas fa-angle-down"></i>
 
                             <ul class="hide">
-                                <li><a href="/page/mypage-one">기본 요건 및 정보</a></li>
-                                <li><a href="/page/mypage-two">스토리 작성</a></li>
-                                <li><a href="/page/mypage-three">리워드 설계</a></li>
-                                <li><a href="/page/mypage-four">위험요인 및 정책</a></li>
-                                <li><a href="/page/mypage-five">메이커 정보</a></li>
+                                <li><a href="/page/mypage-one">기본 요건</a></li>
+                                <li><a href="/page/mypage-two">메이커 정보</a></li>
+                                <li><a href="/page/mypage-three">스토리 작성</a></li>
+                                <li><a href="/page/mypage-four">리워드 설계</a></li>
+                                <li><a href="/page/mypage-five">위험요인 및 정책</a></li>
                             </ul>
                     </div>
                 </li>
@@ -136,20 +143,56 @@
 	                <div class="adver-box4">4</div>
 	                <div class="adver-box5">5</div>
                 </div> -->
-<!-- 지우기 --><!-- 지우기 --><!-- 지우기 -->
+
         </div>
 		
 		<!-- 달라지는 부분 -->
+ 		<!-- 펀딩 준비가는 부분 -->
         <c:if test="${template eq 'Reward' && mypage eq 'prepare'}">
             <%@ include file = "mypageList.jsp" %>
         </c:if>
         
-        <c:if test="${template eq 'Reward' && mypage eq 'Information'}">
-            <%@ include file = "mypageInfo.jsp" %>
+        <!-- 기본 요건 가는 부분 -->
+        <c:if test="${template eq 'Reward' && mypage eq 'information'}">
+            <%@ include file = "mypageOne.jsp" %>
         </c:if>
          
+         <!-- 메이커정보 가는 부분 -->
+        <c:if test="${template eq 'Reward' && mypage eq 'maker'}">
+            <%@ include file = "mypageTwo.jsp" %>
+        </c:if>
+        
+        <!-- 스토리 작성 가는 부분 -->
+        <c:if test="${template eq 'Reward' && mypage eq 'story'}">
+            <%@ include file = "mypageThree.jsp" %>
+        </c:if>
+        
+        <!-- 리워드 설계 가는 부분 -->
+        <c:if test="${template eq 'Reward' && mypage eq 'design'}">
+            <%@ include file = "mypageFour.jsp" %>
+        </c:if>
+        
+        <!-- 위험 요인 및 정책 가는 부분 -->
+        <c:if test="${template eq 'Reward' && mypage eq 'riskFactors'}">
+            <%@ include file = "mypageFive.jsp" %>
+        </c:if>
+              
     </div>
 
 
 </main>
+<script>
+//ALL 메뉴 부분
+$(function () {
+	<c:if test="${mypage ne 'prepare'}">
+	    $(".mypage-li-menu.${template}").find(".hide").toggle();
+	    $(".mypage-li-menu.${template}").toggleClass("active");
+	</c:if>
+});
+
+
+
+
+
+</script>
 <%@include file="../hong-include/foot.jspf"%>

@@ -28,6 +28,7 @@
                         </div>
                     </div>
                 </div>
+                	<!-- 기본요건 부분 -->
                 <div class="fun-ready">
                     <div class="readybox-basic">
                         <h2>기본요건 및 정보</h2>
@@ -37,44 +38,47 @@
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
-
-                <div class="fun-ready">
+                <!-- 메이커부분 부분 -->
+				<div class="fun-ready">
                     <div class="readybox-basic">
-                        <h2>스토리 작성</h2>
+                        <h2>메이커 정보</h2>
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-two">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
+				<!-- 스토리 부분 -->
                 <div class="fun-ready">
                     <div class="readybox-basic">
-                        <h2>리워드 설계</h2>
+                        <h2>스토리 작성</h2>
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-three">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
+                <!-- 리워드설계 부분 -->
                 <div class="fun-ready">
                     <div class="readybox-basic">
-                        <h2>위험요인 및 정책</h2>
+                        <h2>리워드 설계</h2>
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-four">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
+                <!-- 위험 요건 및 정책  부분 -->
                 <div class="fun-ready">
                     <div class="readybox-basic">
-                        <h2>메이커 정보</h2>
+                        <h2>위험요인 및 정책</h2>
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-five">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
-
+           
                 <div class="readybox-basic-end">
                     <button class="ready-btn">제출하기</button>
                 </div>
