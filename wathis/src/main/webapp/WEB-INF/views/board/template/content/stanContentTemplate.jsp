@@ -2,14 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
-<!-- 추가 css,js -->
-<link rel="stylesheet" href="/xkfqkfcss/notice-content.css">
-<link rel="stylesheet" href="/xkfqkfcss/reset.css">
-</head>
-<body>
-	<header class=" no-hero">
-		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
-	</header>
+
 	<main>
 		<section>
 			<div class="notice-content-container">
@@ -180,8 +173,3 @@
 				</div></section>
 	</main>
 	<!-- 메인 내용 -->
-
-	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
-</body>
-<!-- script 자리-->
-</html>

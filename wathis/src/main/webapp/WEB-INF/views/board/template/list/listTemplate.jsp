@@ -2,17 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
-<!-- 추가 css,js -->
-<link rel="stylesheet" href="/xkfqkfcss/notice-list.css">
-<script src="/xkfqkfjs/notice-list.js"></script>
 
-</head>
-<body>
-	<header class=" no-hero">
-		<!-- nav 자리 -->
-		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
-		<!-- hero 자리 -->
-	</header>
 	<!-- 메인 내용 -->
 	<main><section>
 			<div >
@@ -221,7 +211,3 @@
 			</div>
 		</section>
 	</main>
-	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
-</body>
-<!-- script 자리-->
-</html>

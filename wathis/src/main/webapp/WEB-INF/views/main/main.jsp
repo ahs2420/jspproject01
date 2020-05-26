@@ -44,7 +44,6 @@
                 <div class="owl_hero_nav owl-dots"></div>
             </div>
         </div>
-<<<<<<< HEAD
         <!--슬라이더 버튼-->
         <div class="owl_hero_cotainer container flex-box flex-j-space flex-a-flexend">
             <div class="owl_hero_dots owl-dots"></div>
@@ -53,13 +52,8 @@
     </div>
 </header>
 <main>
-=======
     </header>
-    ${sessionScope.id}
-    ${sessionScope.uid}
-    ${sessionScope.uname}
     <main>
->>>>>>> branch 'master' of https://github.com/ahs2420/jspproject01.git
         <section>
             <article class="container">
                 <h1 class="title align-center mb10">

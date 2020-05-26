@@ -2,32 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
-<!-- 추가 css,js -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
 
-<link rel="stylesheet" href="/xkfqkfcss/owl.carousel.css">
-<link rel="stylesheet" href="/xkfqkfcss/owl.theme.default.css">
-<link rel="stylesheet" href="/xkfqkfcss/notice-news.css">
-<script src="https://code.jquery.com/jquery-2.2.4.js"
-	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-	crossorigin="anonymous"></script>
-<script src="/xkfqkfjs/owl.carousel.js"></script>
-<script src="https://kit.fontawesome.com/9a4319ba17.js"
-	crossorigin="anonymous"></script>
-<script src="/xkfqkfjs/notice-news.js"></script>
-
-<!-- 
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/js/main.js"></script>
- -->
-</haed>
-<body>
-	<header class=" no-hero">
-		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
-		<!-- hero 삽입 -->
-	</header>
 	<!-- main내용삽입 -->
 	<main>
 		<section class="product-table-section">
@@ -101,9 +76,3 @@
 		</div>
 		</section>
 	</main>
-	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
-</body>
-<!-- 추가 script 삽입 -->
-<script>
-</script>
-</html>

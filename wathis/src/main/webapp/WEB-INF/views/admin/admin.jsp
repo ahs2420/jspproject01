@@ -112,8 +112,8 @@
                     <!--우측 상단-->
                     <div class="main-top ">
                         <div class="main-top-left">
-                            <span class="info-img"><img src="/images/admin/icon.png" alt=""></span>
-                            <span class="info-text font-12">${sessionScope.userName }/${sessionScope.userID }/${sessionScope.auth }님 안녕하세요.</span>
+                            <span class="info-img"><img src="${sessionScope.uimg }" alt=""></span>
+                            <span class="info-text font-12">${sessionScope.uname }/${sessionScope.uid }님 안녕하세요.</span>
                             <span class="">
                                 <i class="fa fa-bell pos-rel msg-cnt" data-count="2"></i>
                             </span>
@@ -121,7 +121,7 @@
                         <div class="main-top-right">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="">
-                                <a href="/logout" class="eng bold">Logout</a>
+                                <a href="/login/logout" class="eng bold">Logout</a>
                             </span>
                         </div>
                     </div>

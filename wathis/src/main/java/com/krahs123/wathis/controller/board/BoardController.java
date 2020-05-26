@@ -225,4 +225,19 @@ public class BoardController {
 		map.put("msg", msg);
 		return map;
 	}
+	@RequestMapping("/boardTest")
+	public ModelAndView boardTest(@RequestParam String template) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template",template);
+		mav.setViewName("/board/boardList");
+		return mav;
+	}
+	@RequestMapping("/boardTest2")
+	public ModelAndView boardTest2(@RequestParam String template) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template",template);
+		mav.setViewName("/board/boardContent");
+		return mav;
+	}
 }
+
