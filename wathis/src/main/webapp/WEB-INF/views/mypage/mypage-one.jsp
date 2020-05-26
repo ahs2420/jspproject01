@@ -10,7 +10,7 @@
 <script src="../hongjs/mypage/mypage.js"></script>
 <script src="../hongjs/mypage/common.js"></script>
 
-<!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 --><!-- 지우기 -->
+
 <header>
 	<div class="position-fix">
 		<div class="head-con">

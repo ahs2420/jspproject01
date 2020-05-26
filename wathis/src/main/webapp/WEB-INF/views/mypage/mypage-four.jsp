@@ -32,7 +32,7 @@
     display: block;
 
 }
-.modal .text-bocx{
+.modal .text-box-mo{
 
     position: absolute;
     top: 50%;
@@ -387,7 +387,7 @@
 
     </main>
     <div class="modal">
-        <div class="text-bocx">
+        <div class="text-box-mo">
             모달내용 
             <button class="moX" onclick="toggleOn('.modal')" data-ton=".modal">X</button>
         </div>

@@ -228,7 +228,7 @@
                                     다시 선택하세요.</span>
                                 <div class="flex-box mar-top2">
                                     <div class="update-box tex-al2 cu-poin">
-                                        <span class="fl-sp fon-siz3"> 편집 </span>
+                                        <span class="fl-sp fon-siz3 mobu" data-ton=".modal"> 편집 </span>
                                     </div>
                                     <div class="update-box tex-al2 cu-poin mar-left4">
                                         <span class="fl-sp fon-siz3"> 삭제</span>
@@ -245,10 +245,40 @@
             </div>
         </div>
     </div><!-- 전체 container 박스 -->
-
-
 </main>
+<div class="modal">
+    <div class="text-box-mo">
+        <div class="Reward-Edit-box">
+            <h4>리워드 편집</h4>
+            <button class="moX" onclick="toggleOn('.modal')" data-ton=".modal">X</button>
+            <form action="">
+                <div class="Edit-box">
+                    금액
+                    <input type="text" name="" id="" value="5,000">원
+                    
+                </div>
+            </form>       
+
+        </div>
+    </div>
+</div>
 <footer></footer>
 </body>
+<script>
+$(function(){
+    $(".mobu").click(function(){
+        $(this).toggleOn();
+    });
+});
 
+function toggleOn(item){
+    var $ton = $(item);
+    $(ton).toggleClass("on");
+}
+
+$.fn.toggleOn=function(){
+        var ton = $(this).data("ton");
+        $(ton).toggleClass("on");
+}
+</script>
 <%@include file="../hong-include/foot.jspf"%>
