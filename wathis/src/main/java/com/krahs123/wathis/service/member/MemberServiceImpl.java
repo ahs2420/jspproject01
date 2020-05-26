@@ -27,7 +27,17 @@ public class MemberServiceImpl implements MemberService{
 			session.setAttribute("id", result.getId());
 			session.setAttribute("uid", result.getUid());
 			session.setAttribute("uname", result.getUname());
+			session.setAttribute("uimg", 
+					(result.getUimg()!=null&&result.getUimg().equals(""))?result.getUimg():"/images/icon/file-upload-icon.png"
+			);
+			session.setAttribute("ugroup", result.getUgroup());
 		}
 		return result;
+	}
+
+	@Override
+	public void getlogOut(HttpSession session) {
+		// TODO Auto-generated method stub
+		session.invalidate();
 	}
 }

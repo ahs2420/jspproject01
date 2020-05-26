@@ -78,4 +78,13 @@ public class LoginController {
 		
 		return sb.toString();
 	}
+
+	//로그아웃
+	@RequestMapping("/logout")
+	public ModelAndView logOutDo(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		memberService.getlogOut(session);
+		mav.setViewName("redirect:/");
+		return mav;
+	}
 }

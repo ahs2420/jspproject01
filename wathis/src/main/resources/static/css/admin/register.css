@@ -1,0 +1,29 @@
+@charset 'utf-8';
+
+body{
+    background-color: #012748;
+}
+#register-box{
+    width: 450px;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #555;
+    padding: 50px 40px;
+}
+.form-icon{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background-color: transparent;
+}
+.form-icon i{
+    color: #8898aa;
+    font-size: 20px;
+}
+
+form input::placeholder{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #8898aa;
+}

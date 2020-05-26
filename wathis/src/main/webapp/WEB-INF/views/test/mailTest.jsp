@@ -13,12 +13,6 @@
 <body>
 	<form action="/mail/mailSend" method="post">
 		<div>
-			네이버 아이디 입력:<input type="text" name="username">
-		</div>
-		<div>
-			네이버 비밀번호 입력:<input type="password" name="password">
-		</div>
-		<div>
 			받는 사람 아이디 입력:<input type="text" name="recipient">
 		</div>
 		<div>
@@ -32,7 +26,7 @@
 		            customConfig: '/plugin/ckeditor/config.js',
 		            width: '100%',
 		            height: '500',
-		            filebrowserImageUploadUrl: '/cke/imageUpload'
+		            filebrowserImageUploadUrl: '/cke/imageUpload?isHost=true'
 		        });
 		    </script>
 		</div>

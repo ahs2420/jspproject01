@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/*board paging design*/
+.board-page-number{
+    background-color: #fe5e71;
+    color: #fff;
+    border: 1px solid #fe5e71;
+}
+.board-page-number:hover{
+    color: #fe5e71;
+    background-color: transparent;
+    transition: .5s;
+}
+.page-number.on,.page-number.on:hover{
+    border: 1px solid #ccc;
+    color:#fff;
+    background-color: #ccc;
+}
+
+.clrBox{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+.radio-btn{
+    width: 20px;
+    height: 20px;
+}

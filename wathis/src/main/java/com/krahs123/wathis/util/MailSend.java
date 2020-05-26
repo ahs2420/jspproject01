@@ -1,5 +1,8 @@
 package com.krahs123.wathis.util;
 
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -17,13 +20,14 @@ import com.krahs123.wathis.model.MailVO;
 
 public class MailSend {
 
-	public void mailSender(HttpServletRequest request, MailVO mvo) throws AddressException, MessagingException { 
+	public void mailSender(HttpServletRequest request, MailVO mvo) throws AddressException, MessagingException, NoSuchAlgorithmException, UnsupportedEncodingException, GeneralSecurityException { 
 		// 네이버일 경우 smtp.naver.com 을 입력합니다. 
 		// Google일 경우 smtp.gmail.com 을 입력합니다. 
-		String host = "smtp.naver.com"; 
-		
-		String username = mvo.getUsername(); //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
-		String password = mvo.getPassword(); //네이버 이메일 비밀번호를 입력해주세요. 
+		//String host = "smtp.naver.com";
+		AES256 aes = new AES256();
+		String host = "smtp.gmail.com";
+		String username = "krahs213@gmail.com"; //네이버 아이디를 입력해주세요. @nave.com은 입력하지 마시구요. 
+		String password = aes.decrypt("mZsx/oq1Hj6GqJaQEBv4A4L2t6tAg3+U3lo4ZkMkuds="); //네이버 이메일 비밀번호를 입력해주세요. 
 		int port=465; //포트번호 
 		
 		Properties props = System.getProperties(); // 정보를 담기 위한 객체 생성 

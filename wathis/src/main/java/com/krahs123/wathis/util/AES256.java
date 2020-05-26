@@ -25,18 +25,24 @@ public class AES256 {
 	 */
 	final private String key = "aesTest123123123";
 
-	public AES256() throws UnsupportedEncodingException {
+	public AES256() {
 		this.iv = key.substring(0, 16);
 		byte[] keyBytes = new byte[16];
-		byte[] b = key.getBytes("UTF-8");
-		int len = b.length;
-		if (len > keyBytes.length) {
-			len = keyBytes.length;
-		}
-		System.arraycopy(b, 0, keyBytes, 0, len);
-		SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
+		byte[] b;
+		try {
+			b = key.getBytes("UTF-8");
+			int len = b.length;
+			if (len > keyBytes.length) {
+				len = keyBytes.length;
+			}
+			System.arraycopy(b, 0, keyBytes, 0, len);
+			SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
 
-		this.keySpec = keySpec;
+			this.keySpec = keySpec;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -49,13 +55,23 @@ public class AES256 {
 	 * @throws GeneralSecurityException
 	 * @throws UnsupportedEncodingException
 	 */
-	public String encrypt(String str) throws NoSuchAlgorithmException,
-			GeneralSecurityException, UnsupportedEncodingException {
-		Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
-		c.init(Cipher.ENCRYPT_MODE, keySpec, new IvParameterSpec(iv.getBytes()));
-		byte[] encrypted = c.doFinal(str.getBytes("UTF-8"));
-		String enStr = new String(Base64.encodeBase64(encrypted));
-		return enStr;
+	public String encrypt(String str)  {
+		try {
+			Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+			c.init(Cipher.ENCRYPT_MODE, keySpec, new IvParameterSpec(iv.getBytes()));
+			byte[] encrypted = c.doFinal(str.getBytes("UTF-8"));
+			String enStr = new String(Base64.encodeBase64(encrypted));
+			return enStr;
+		}catch (NoSuchAlgorithmException e) {
+			return "NoSuchAlgorithmException";
+		}catch (UnsupportedEncodingException e) {
+			// TODO: handle exception
+			return "UnsupportedEncodingException";
+		}catch (GeneralSecurityException e) {
+			// TODO: handle exception
+			return "GeneralSecurityException";
+		}
+		
 	}
 
 	/**
@@ -70,10 +86,20 @@ public class AES256 {
 	 */
 	public String decrypt(String str) throws NoSuchAlgorithmException,
 			GeneralSecurityException, UnsupportedEncodingException {
-		Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
-		c.init(Cipher.DECRYPT_MODE, keySpec, new IvParameterSpec(iv.getBytes()));
-		byte[] byteStr = Base64.decodeBase64(str.getBytes());
-		return new String(c.doFinal(byteStr), "UTF-8");
+		try {
+			Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
+			c.init(Cipher.DECRYPT_MODE, keySpec, new IvParameterSpec(iv.getBytes()));
+			byte[] byteStr = Base64.decodeBase64(str.getBytes());
+			return new String(c.doFinal(byteStr), "UTF-8");
+		} catch (NoSuchAlgorithmException e) {
+			return "NoSuchAlgorithmException";
+		}catch (UnsupportedEncodingException e) {
+			// TODO: handle exception
+			return "UnsupportedEncodingException";
+		}catch (GeneralSecurityException e) {
+			// TODO: handle exception
+			return "GeneralSecurityException";
+		}
 	}
 
 }

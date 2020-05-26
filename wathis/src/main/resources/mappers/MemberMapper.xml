@@ -21,7 +21,7 @@
 	
 	<select id="getlogin" resultType="membervo">
 		SELECT 
-				id, uid, uname
+				id, uid, uname,ugroup,uimg
 		FROM tb_member
 				
 		WHERE uid = #{uid} AND upassword = #{upassword}

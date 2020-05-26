@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="../hongcss/login/login-page.css">
 <%@include file="../hong-include/head.jspf"%>
 
 
 <link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../hongcss/login/login-page.css">
 <!-- <link rel="stylesheet" href="../hongcss/mypage/common.css"> -->
 <!-- fontawesome 코드 -->
 <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css"> -->

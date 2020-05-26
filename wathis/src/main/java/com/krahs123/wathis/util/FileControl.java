@@ -171,5 +171,15 @@ public class FileControl {
 		*/
 	}
 	
-	
+	public List<String> fileList(String dirPath) {
+		File path = new File(dirPath);
+		File[] fileList = path.listFiles();
+		List<String> fileString=new ArrayList<>();
+		if(fileList!=null&&fileList.length > 0){
+		    for(int i=0; i < fileList.length; i++){
+		    	fileString.add(fileList[i].getName()) ;
+		    }
+		}
+		return fileString;
+	}
 }

@@ -43,9 +43,6 @@
         </div>
     </div>
 </header>
-${sessionScope.id}
-${sessionScope.uid}
-${sessionScope.uname}
 <main>
         <section>
             <article class="container">
