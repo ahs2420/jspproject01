@@ -38,3 +38,17 @@ function ajax(url) {
     });
     return returnData;
 }
+$(function() {
+	$("form").submit(function() {
+		var bReturn = true;
+		$(".news-search-input").each(function(){
+			if($.trim($(this).val())==""){
+				alert($(this).data("error")+"해주세요");
+				$(this).focus();
+				bReturn=false;
+				return false;
+			}
+		});
+		return bReturn;
+	});
+});
