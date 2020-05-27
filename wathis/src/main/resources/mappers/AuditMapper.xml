@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.AuditMapper">
+
+	
+	
+	
 	<select id="getAll" resultType="auditvo">
 		SELECT 
 			id,
@@ -35,7 +39,6 @@
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
 			member_id=#{member_id},
-			
 			circulation_chk=#{circulation_chk},
 			circulation_content=#{circulation_content},
 			preparations_plan=#{preparations_plan},

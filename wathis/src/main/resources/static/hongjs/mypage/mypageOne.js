@@ -1,3 +1,28 @@
+  
+    $(function () {
+        $(".upload").hide();
+        $(".not-upload-rabox").hide();
+
+        $("#upload-file").click(function () {
+            $(".upload").show();
+        });
+        $("#not-upload-file").click(function () {
+            $(".upload").hide();
+        });
+
+        $("#not-upload-file").click(function () {
+            $(".not-upload-rabox").show();
+        });
+        $("#upload-file").click(function () {
+            $(".not-upload-rabox").hide();
+        });
+
+
+
+    });
+
+
+
 var KIND = '<table cellpadding="10px" style="width:100%">\
 <tr>\
     <th style=\"width:7%;padding:10px;\">리워드 종류</th>\

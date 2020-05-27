@@ -189,12 +189,12 @@
 </main>
 <script>
 //ALL 메뉴 부분
-$(function () {
-	<c:if test="${mypage ne 'prepare'}">
-	    $(".mypage-li-menu.${template}").find(".hide").toggle();
-	    $(".mypage-li-menu.${template}").toggleClass("active");
-	</c:if>
-});
+// $(function () {
+// 	<c:if test="${mypage ne 'prepare'}">
+// 	    $(".mypage-li-menu.${template}").find(".hide").toggle();
+// 	    $(".mypage-li-menu.${template}").toggleClass("active");
+// 	</c:if>
+// });
 
 
 
