@@ -3,7 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../hongcss/mypage/mypage-one.css">
+<link rel="stylesheet" href="../hongcss/mypage/mypageOne.css">
 
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">

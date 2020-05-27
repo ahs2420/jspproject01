@@ -1,0 +1,69 @@
+
+
+.box-sh{
+    box-shadow: 0 20px 16px -10px rgba(0,0,0,.15);
+}
+
+
+    .cke_textarea_inline {
+        border: 1px solid #000;
+    }
+
+.modal{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+}
+.modal.on{
+    
+    display: block;
+
+}
+.modal .text-box-mo{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 730px;
+    height: auto;
+    background: #fff;
+    padding:80px 100px;
+}
+.edit-box{
+    height: auto;
+}
+
+.btn-up-box{
+    width: 100%;
+    text-align: center;
+}
+
+.btn-up-box .btn-up{
+    margin-top: 30px;
+    width: 48%;
+    font-weight: 700;
+    /* height: 100px; */
+    background-color: #00c4c4;
+    color: #fff;
+    outline: none;
+    height: 48px;
+    padding: 1.2px 24px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    border-collapse: collapse;
+    cursor: pointer;
+    
+}
+
+/* 수정,취소 라디오 박스 */
+input[type="radio"]{
+    width: 25px;
+    height: 25px;
+
+}

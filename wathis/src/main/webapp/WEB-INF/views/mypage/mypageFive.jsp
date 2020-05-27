@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../hong-include/head.jspf"%>
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../hongcss/mypage/common.css">
+<link rel="stylesheet" href="../hongcss/mypage/mypageFive.css">
+
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
-<script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
+
 <script src="../hongjs/mypage/common.js"></script>
 <!-- CKeditor -->
 <script src="/plugin/ckeditor/ckeditor.js"></script>
