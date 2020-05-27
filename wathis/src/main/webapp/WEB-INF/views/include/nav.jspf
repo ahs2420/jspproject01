@@ -28,7 +28,7 @@
                             </ul> -->
                         </li>
                         <li>
-                            <a class="hover-underline" href="/notice/list">공지사항</a>
+                            <a class="hover-underline" href="/article?boardCode=notice">공지사항</a>
                             <!-- <ul class="sub-menu">
                                 <li><a class="hover-main" href="#">서브메뉴1</a></li>
                                 <li><a class="hover-main" href="#">서브메뉴2</a></li>
@@ -126,7 +126,7 @@
                     <a href="/product/product-list">리워드</a>
                 </li>
                 <li class="mobile-menu">
-                    <a href="/notice/list">공지사항</a>
+                    <a href="/article?boardCode=notice">공지사항</a>
                     <!-- <ul class="sub-menu">
                         <li><a class="hover-main" href="#">서브메뉴1</a></li>
                         <li><a class="hover-main" href="#">서브메뉴2</a></li>
