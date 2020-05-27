@@ -2,14 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="../css/reset.css">
+
 <link rel="stylesheet" href="../hongcss/mypage/mypageOne.css">
 
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <!-- fontawesome 코드 -->
+<!-- CKeditor -->
+<script src="/plugin/ckeditor/ckeditor.js"></script>
+
+<!-- 리워드 고지 js -->
+<script src="../hongjs/mypage/mypageOne.js"></script>
+<script src="../hongjs/mypage/common.js"></script>
+
 
 <div class="box2-funReady">
+<form action="/article/" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+	<input type="hidden" name="member_id" value="${sessionScope.id }"/>
 		<div class="ba-project">
 				
 <!-- 				정보 및 요건 중간선 -->
@@ -317,55 +326,80 @@
 					</div>
 				</div>
 				<!-- 7번 -->
-				<div class="flex-basic2 q7-text ">
-					<div class="mar-bo2 wid1 ">
-						<div class="name-left ">
-							<h3 class="di-ia1 mar-bo6 fon-wei1 fon-siz1">
-								오픈예정 서비스 신청 <span class="di-ia1 mar-bo6 fon-wei1 fon-siz1 fon-co2">
-									(선택사항)</span></label>
-							</h3>
-							<div class="q7-texe fon-bor1 wid4">
-								<div class="q7-text-box">
-									<p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
-										오픈예정 서비스란? <br> 프로젝트 오픈에 대하여, 사전에 알림 홍보를 할 수 있는 서비스 페이지를
-										말합니다. <br> 프로젝트 펀딩에 관심 있는 예비 서포터들이 펀딩 시작전에 내용을 둘러 보고, 관심이
-										있을 경우 알림 신청을 할 수 있는 페이지입니다. <br> 성공 프로젝트의 경우 평균적으로 오픈 직후
-										3일 안에 전체 펀딩액의 약 35%를 모집합니다.
-									</p>
-								</div>
-							</div>
-							<div class="q7-check">
-								<label for="q7-check-box"> <input class="ra-size" name="q7-check-box" type="checkbox"
-										id="q7-check-box">
-									<span class="fon-siz1 fon-co3 text-padding2"> 오픈예정 서비스
-										신청 </span></label>
-								<div class="q7-end"></div>
-								<div class="">
-									<a href="#" class="">오픈예정 서비스 이용 약관에 동의합니다. 추가 플랫폼 수수료: 3%
-										(VAT별도)</a>
-								</div>
-
-								<div class="">오픈예정 서비스를 진행 하는 경우, 스토리작성 > 오픈예정 스토리 항목을 반드시
-									작성해주세요.</div>
-							</div>
-						</div>
-					</div>
-					<div class="q7-guide cu-poin">
-						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 mar-bo3 fon-co7 di-ia1">
-								<a href="#" class="fon-siz4 mar-bo3 fon-co7">오픈예정 왜 해야 하나요?</a>
-							</h4>
-							<p class="di-ia1 fon-siz4 mar-bo3 fon-co7">· 성공한 메이커 70% 이상은
-								오픈예정 서비스를 이용합니다. 왜 오픈예정이 프로젝트 성공의 지름길인지 알고 싶다면 확인해주세요.</p>
-						</div>
-					</div>
-				</div>
+				<div class="flex-basic2 wid1 ba-pro-img">
+                    <div class="mar-bo2 wid4">
+                        <div class="box-container">
+                            <div class="box-text-one">
+                                <h4>리워드 정보 제공 고시<span class="fon-co5">*</span></h4>
+                                <p class="fon-siz3 fon-col">서포터에게 리워드를 제공하는 경우, 전자 상거래 등에서의 상품 등의 정보제공에 관한 고시법에
+                                    따라 리워드 정보 제공 고시를 반드시 입력해야
+                                    합니다.</p>
+                            </div>
+                            <!-- 리워드 정보 고시 -->
+                            <!-- <div class="file-box mar-top4">
+                                <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
+                                <input type="file" id="file1">
+                            </div> -->
+                            <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
+                                <option value="0">주요 카테고리별 작성 예시</option>
+                                <option value="1">의류</option>
+                                <option value="2">구두/신발</option>
+                                <option value="3">가방</option>
+                                <option value="4">패션잡화(모자/벨트.액세서리)</option>
+                                <option value="5">침구류/커튼</option>
+                                <option value="6">가구(침대/소파/싱크대/DTY제품)</option>
+                                <option value="7">주방용품</option>
+                                <option value="8">화장품</option>
+                                <option value="9">귀금속/보석/시계류</option>
+                                <option value="10">식품(농・축・수산물)</option>
+                                <option value="11">건강 기능 식품</option>
+                                <option value="12">가공식품</option>
+                                <option value="13">영유아 용품</option>
+                                <option value="14">서적</option>
+                                <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option>
+                            </select>
+                            <textarea id="editor1" name="content" class="ckeditor"></textarea>
+                            <script>
+                                CKEDITOR.replace('editor1', {
+                                    customConfig: '/plugin/ckeditor/config.js',
+                                    width: '100%',
+                                    height: '500',
+                                    filebrowserImageUploadUrl: '/cke/imageUpload'
+                                });
+                            </script>
+                            <!-- inline 타입으로 생성 -->
+                            <textarea id="editor2" name="content" class="ckeditor"></textarea>
+                            <script>
+                                CKEDITOR.inline('editor2', {
+                                    customConfig: '/plugin/ckeditor/config.js',
+                                    width: '100%',
+                                    height: '500',
+                                    filebrowserImageUploadUrl: '/cke/imageUpload'
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="ba-guide3">
+                        <div class="box-li1 box-back1 text-padding3">
+                            <h4 class="mar-bo5 fon-siz4 fon-co7">
+                                <a href="#" class="fon-co4 fon-wei1">리워드 정보 제공 고시 작성 가이드</a>
+                            </h4>
+                            <p class="fon-siz4 mar-bo6 fon-co7">
+                                · 여러 리워드를 제공하나 동일한 종류의 리워드인 경우, 종류를 한가지만 선택하고 모든 리워드의 내용을 함께 작성하여도 무방합니다. </p>
+                            <p class="fon-siz4 mar-bo6 fon-co7">
+                                · 해당 사항이 없는 항목에 대해서는 '해당 사항 없음' 으로 입력하세요.</p>
+                            <p class="fon-siz4 mar-bo6 fon-co7">
+                                · 기재 내용이 많고 스토리 상에 표시한 경우, '스토리 상세 내용 참조'로 입력 가능합니다.</p>
+                        </div>
+                    </div>
+                </div>
+				
 			</div>
 			<div class="btn-save">
 				<button class="btn-end" type="button">저장하기</button>
 			</div>
+</form>	
 		</div>
-
 	</div>
 	<!-- 프로젝트 박스 -->
 	</div>

@@ -564,7 +564,11 @@ textarea{
 .fon-siz6 { font-size: 14px;}
 .fon-siz7 { font-size: 18px;}
 .fon-siz8 { font-size: 12px;}
-.fon-siz9 { font-size: inherit;}
+.fon-siz9 { font-size: 35px;}
+.fon-siz10 { font-size: inherit;}
+.fon-siz11 { font-size: inherit;}
+.fon-siz12 { font-size: inherit;}
+.fon-siz13 { font-size: inherit;}
 
 .text-padding1{padding: 0 26px 0 10px ;}
 .text-padding2{padding:10px ;}
@@ -574,7 +578,7 @@ textarea{
 .text-padding6{padding:50px  40px;}
 .text-padding7{ padding: .65em 2.4em;}
 .text-padding8{ padding: 40px}
-.text-padding9{ padding: 80px 100px}
+.text-padding9{ padding: 50px 60px}
 .text-padding10{ padding:0 16px}
 
 .mar-top1 { margin-top: 30px;}
@@ -612,6 +616,7 @@ textarea{
 .wid11 { width: 25%;}
 .wid12 { width: 15%;}
 .wid13 { width: 60%;}
+.wid14 { width: 50%;}
 /* .wid6 { width: 1000px;} */
 
 .hei1 { height: 48px;}
@@ -709,5 +714,4 @@ textarea{
     height: 1px;
     background-color: #ccc;
 }
-
 

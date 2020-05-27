@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
+
 <link rel="stylesheet" href="../hongcss/mypage/mypageFour.css">
+
 
 <div class="box2-funReady">
     <!-- 기본 정보 박스 -->
@@ -128,7 +130,7 @@
                             다시 선택하세요.</span>
                         <div class="flex-box mar-top2">
                             <div class="update-box tex-al2 cu-poin">
-                                <span class="fl-sp fon-siz3 mobu" data-ton=".modal"> 편집 </span>
+                                <span class="mobu fl-sp fon-siz3" data-ton=".modal"> 편집 </span>
                             </div>
                             <div class="update-box tex-al2 cu-poin mar-left4">
                                 <span class="fl-sp fon-siz3"> 삭제</span>
@@ -149,10 +151,16 @@
 <div class="modal">
     <div class="text-box-mo">
         <div class="Reward-Edit-box">
-            <h4>리워드 편집</h4>
-            <button class="moX" onclick="toggleOn('.modal')" data-ton=".modal">X</button>
+            <div class="Reward-Edit-sub flex-basic2 mar-bo2">
+                <h2 class="wid14 tex-al2">리워드 편집</h2>
+                <div class="icon-X ">
+                    <button class="moX " onclick="toggleOn('.modal')" data-ton=".modal">
+                        <i class="fal fa-times fon-siz9"></i>
+                    </button>
+                </div>
+            </div>
             <form action="" name="">
-                <div class="edit-box box-back6">
+                <div class="edit-box">
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 flex-box-ba1 box-li2  tex-al2">금액</h4>
                         <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value="5,000">
@@ -169,7 +177,7 @@
                             placeholder="제공하는 리워드가 무엇인지 간략하게 입력해 주세요."></textarea>
                     </div>
                     <div class="edit-pay flex-box1 mar-bo7 ">
-                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">옵션조건(옵션 필요)</h4>
+                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">옵션조건</h4>
                         <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
                         <div class="option-box wid13">
                             <select class="wid1 hei1 text-padding2 mar-bo7">
@@ -179,11 +187,13 @@
                                 <option value="">직접입력 옵션(각인,메시지 등)</option>
                             </select>
 
+                            <span class="di-in1 fon-siz3 fon-wei1">옵션설정</span>
                             <textarea name="" id="" cols="30" rows="3" maxlength="100"
                                 style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 100%; padding: 16px;"
                                 placeholder="옵션 값을 입력하세요 옵션 값은 엔터로 구분 됩니다.ex) 블랙: 230mm , 화이트 : 240mm"></textarea>
 
-                            <select class="wid1 hei1 text-padding2 mar-bo7 mar-top4">
+                            <span class="di-in1 mar-top4 fon-siz3 fon-wei1">옵션미리보기</span>
+                            <select class="wid1 hei1 text-padding2  mar-bo7">
                                 <option value="">옵션 선택 미리보기</option>
                             </select>
 
@@ -193,23 +203,60 @@
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 box-li2  tex-al2 ">배송 조건</h4>
                         <div class="di-ra-box wid13">
-                            <div class="di-ra-box-do">
-                                <input type="radio" name="" id="" class="" text-padding3" value="">
-                                배송이 필요한 리워드 입니다.
+                            <!-- 배달 라디오 -->
+                            <div class="di-ra-box-do mar-bo5 mar-top4">
+                                <input class="doit ra-size ve-al2" name="q1" type="radio" id="do"> <label for="do">
+                                    <span class="fon-siz2 fon-co8 text-padding2">
+                                        배송이 필요한 리워드 입니다.
+                                    </span>
+                                </label>
+
+                                <div class="delivery-box">
+                                    <h4 class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">
+                                        배송료
+                                    </h4>
+                                    <input type="text" placeholder="0" class="text-padding10 hei1"> <span
+                                        class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">원</span>
+                                    <div class="text-area fon-siz4">(배송비가 없는 경우, 0원 입력)
+                                    </div>
+                                </div>
                             </div>
-                            <div class="di-ra-box-donot">
-                                <input type="radio" name="" id="" class="" value="">
-                                배송이 필요 없는 리워드 입니다.
+                            <div class="di-ra-box-donot mar-bo5 mar-top4">
+                                <input class="donot ra-size ve-al2" name="q1" type="radio" id="donot">
+                                <label for="donot">
+                                    <span class="fon-siz2 fon-co8 text-padding2">
+                                        배송이 필요하지 않은 리워드 입니다.
+                                    </span>
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 box-li2  tex-al2 ">제한 수량</h4>
-                        <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value="">
+                        <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""
+                            placeholder="수량입력">
                     </div>
                     <div class="edit-pay flex-box1">
                         <h4 class="flex-box-ba1 box-li2  tex-al2 ">발송 시작일</h4>
-                        <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value="">
+                        <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
+                        <div class="day-option flex-box1 wid13">
+                            <select class="wid14 hei1 text-padding2 mar-bo7">
+                                <option value="">연도 / 월</option>
+                                <option value="">2020/06/</option>
+                                <option value="">2020/05/</option>
+                                <option value="">2020/04/</option>
+                                <option value="">2020/03/</option>
+                                <option value="">2020/02/</option>
+                                <option value="">2020/01/</option>
+                            </select>
+                            <select class="wid14 hei1 text-padding2 mar-bo7">
+                                <option value="">시기</option>
+                            </select>
+
+                        </div>
+
+
+
                     </div>
                 </div>
                 <div class="btn-all-box flex-box1">
@@ -225,6 +272,7 @@
 </div>
 <footer></footer>
 </body>
+
 <script>
     $(function () {
         $(".mobu").click(function () {
@@ -234,12 +282,26 @@
 
     function toggleOn(item) {
         var $ton = $(item);
-        $(ton).toggleClass("on");
+        $ton.toggleClass("on");
     }
 
     $.fn.toggleOn = function () {
         var ton = $(this).data("ton");
         $(ton).toggleClass("on");
     }
+</script>
+
+<script>
+    $(function () {
+        $(".delivery-box").hide();
+
+        $("#do").click(function () {
+            $(".delivery-box").show();
+        });
+        $("#donot").click(function () {
+            $(".delivery-box").hide();
+        });
+
+    });
 </script>
 <%@include file="../hong-include/foot.jspf"%>
