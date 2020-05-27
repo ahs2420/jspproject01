@@ -34,9 +34,8 @@
 	</select>
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
-			id=#{id},
 			member_id=#{member_id},
-			category_id=#{category_id},
+			
 			circulation_chk=#{circulation_chk},
 			circulation_content=#{circulation_content},
 			preparations_plan=#{preparations_plan},
@@ -48,8 +47,7 @@
 			required_documents_url=#{required_documents_url},
 			fees_chk=#{fees_chk},
 			policy_agreement=#{policy_agreement},
-			status=#{status},
-			reg_date=#{reg_date}
+			status=#{status}
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_audit

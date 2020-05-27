@@ -16,41 +16,68 @@ public class MyPageConroller {
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "prepare");
 		
-		mav.setViewName(DIR+"mypagePrepare");
+		mav.setViewName(DIR+"mypage");
 		return mav;
 	}
 
 	@RequestMapping("/mypage-one")
-	public ModelAndView viewMypageInfo(){
+	public ModelAndView viewMypageOne(){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
-		mav.addObject("mypage", "Information");
+		mav.addObject("mypage", "information");
 		
-		mav.setViewName(DIR+"mypageInfo");
+		mav.setViewName(DIR+"mypage");
 		return mav;
 	}
 
 	@RequestMapping("/mypage-two")
-	public String viewMypagetwo(){
-		return DIR+"mypage-two";
+	public ModelAndView viewMypageTwo(){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "maker");
+		
+		mav.setViewName(DIR+"mypage");
+		
+		return mav;
 	}
 
 	@RequestMapping("/mypage-three")
-	public String viewMypagethree(){
-		return DIR+"mypage-three";
-	}
-
+	public ModelAndView viewMypageThree(){
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("template", "Reward");
+			mav.addObject("mypage", "story");
+			
+			mav.setViewName(DIR+"mypage");
+			
+			return mav;
+		}
+	
 
 	@RequestMapping("/mypage-four")
-	public String viewMypagefour(){
-		return DIR+"mypage-four";
-	}
+		public ModelAndView viewMypageFour(){
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("template", "Reward");
+			mav.addObject("mypage", "design");
+			
+			mav.setViewName(DIR+"mypage");
+			
+			return mav;
+		}
 
 
 	@RequestMapping("/mypage-five")
-	public String viewMypagefive(){
-		return DIR+"mypage-five";
+	public ModelAndView viewMypageFive(){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "riskFactors");
+		
+		mav.setViewName(DIR+"mypage");
+		
+		return mav;
+		
 	}
+	
+	
 	//회원 마이페이지
 	@RequestMapping("/userMypage")
 	public ModelAndView viewSettings(@RequestParam(defaultValue = "setting") String template,@RequestParam(defaultValue = "list") String page){
