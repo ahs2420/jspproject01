@@ -39,6 +39,7 @@
      </div>
      <div id="board-view" class="board-view margin-t30">
          <form action="/board/setBoard" method="POST" class="chkForm">
+            <input type="hidden" name="member_id" value="${sessionScope.id}" />
             <div class="font-16 margin-b10">
                 <h1>
                 <i class="fas fa-male"></i>

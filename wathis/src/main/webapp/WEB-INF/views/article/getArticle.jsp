@@ -15,7 +15,7 @@
 	</header>
 	<!-- 메인 내용 -->
 	
-	<c:import url="/WEB-INF/views/board/template/list/${template}" />
+	<c:import url="/WEB-INF/views/board/template/${mypage}/${template}" />
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- script 자리-->

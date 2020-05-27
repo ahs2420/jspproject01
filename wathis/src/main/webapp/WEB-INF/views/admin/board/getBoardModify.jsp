@@ -66,7 +66,7 @@
             </tr>
             <tr class="tr-45">
                 <td class="bg-color-10 w-15 f6 align">게시판 색상</td>
-                <td class="w-35 padding-lr-5">
+                <td class="w-85 padding-lr-5" colspan="3">
                     <select class="sel-180 valign chkItem" id="boardColor" name="boardColor" data-error="게시판 색상을">
                         <option value="">선택</option>
                         <c:forTokens items="#5D1049,#B00020,#1A237E,#2962FF" delims="," var="item">
@@ -75,27 +75,34 @@
                     </select>
                     <span id="clrBox" class="clrBox valign margin-l10" style="background-color: ${bvo.boardColor}"></span>
                 </td>
-                <td class="bg-color-10 w-15 f6 align">게시판 생성자</td>
-                <td class="w-35 padding-lr-5">
-                    <input type="text" name="boardMaker" class="input-200 padding-lr-5 chkItem"  value="${bvo.boardMaker}" readonly data-error="게시판 생성자">
-                </td>
             </tr>
             <tr>
                 <td class="tbl-line" colspan="4"></td>
             </tr>
+            
             <tr class="tr-45">
-                <td class="bg-color-10 w-15 f6 align">게시판 타입</td>
+                <td class="bg-color-10 w-15 f6 align">게시판 리스트 템플릿</td>
                 <td class="w-35 padding-lr-5">
-                    
-                    <c:forTokens items="일반게시판,갤러리게시판" delims="," var="item">
-                        <label class="valign">
-                            <input type="radio" name="boardType" id="boardType1" class="radio-btn valign" value="${item}" <c:if test="${bvo.boardType eq item}">checked</c:if> >
-                            ${item}
-                        </label>
-                    </c:forTokens>
+             		<c:forEach items="${listTemplate }" var="listTemplate" varStatus="vs">
+	             		<label class="valign">
+	             			<input type="radio" name="boardListTemplate" class="radio-btn valign" value="${listTemplate }"
+	             				<c:if test="${listTemplate eq bvo.boardListTemplate}">checked</c:if>
+	             			 >
+	                    	${listTemplate }
+	                    </label>
+             		</c:forEach>
                 </td>
-                <td class="bg-color-10 w-15 f6 align">게시판 생성일</td>
-                <td class="w-35 padding-lr-5">${bvo.boardRegdate}</td>
+                <td class="bg-color-10 w-15 f6 align">게시판 내용 템플릿</td>
+                <td class="w-35 padding-lr-5">
+             		<c:forEach items="${contentTemplate }" var="contentTemplate" varStatus="vs">
+	             		<label class="valign">
+	             			<input type="radio" name="boardContentTemplate" class="radio-btn valign" value="${contentTemplate }" 
+	             				<c:if test="${contentTemplate eq bvo.boardContentTemplate}">checked</c:if>
+	             			>
+	                    	${contentTemplate }
+	                    </label>
+             		</c:forEach>
+                </td>
             </tr>
             <tr>
                 <td class="tbl-line" colspan="4"></td>

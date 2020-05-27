@@ -1,69 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ArticleMapper">
-	<select id="getAll" resultType="articlevo">
-		SELECT 
-			id,
-			member_id,
-			subject,
-			writer,
-			content,
-			hit,
-			fileName,
-			fileOriName,
-			fileUrl,
-			ref,
-			re_step,
-			re_level,
-			reg_date
-		FROM
-			tb_article_boardcode
-		ORDER BY id DESC
-	</select>
-	<select id="getCount" resultType="int">
-	
-	</select>
-	<select id="getList" resultType="articlevo">
-	
-	</select>
-	<select id="getOne" resultType="articlevo">
-	
-	</select>
-	<insert id="setItem">
-		INSERT INTO tb_article_boardcode SET
-			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
-			reg_date=#{reg_date}
-	</insert>
-	<update id="updateItem">
-		UPDATE SET tb_article_boardcode
-			id=#{id},
-			member_id=#{member_id},
-			subject=#{subject},
-			writer=#{writer},
-			content=#{content},
-			hit=#{hit},
-			fileName=#{fileName},
-			fileOriName=#{fileOriName},
-			fileUrl=#{fileUrl},
-			ref=#{ref},
-			re_step=#{re_step},
-			re_level=#{re_level},
-			reg_date=#{reg_date}
-		WHERE id=#{id}
-	</update>
-	<delete id="deleteItem">
-		DELETE FROM tb_article_boardcode
 
+	<sql id="getInclude">
+		WHERE
+		<choose>
+			<when test="searchOpt == 'all'">
+				content like CONCAT('%',#{words},'%') or subject like CONCAT('%',#{words},'%')
+			</when>
+			<otherwise>
+				${searchOpt} like CONCAT('%',#{words},'%')
+			</otherwise>
+		</choose>
+	</sql>
+	<select id="getArticleList" resultType="articlevo">
+
+		SELECT 
+			art.id,
+			art.subject,
+			art.member_id,
+			art.fileUrl,
+			art.fileName,
+			mem.uname as writer,
+			art.hit,
+			date_format(art.reg_date,'%Y-%m-%d') as reg_date ,
+			art.re_level,
+			(SELECT count(id) FROM tb_comment_${boardCode} where id=art.id) as commentCnt
+		FROM tb_article_${boardCode} as art JOIN tb_member as mem ON art.member_id=mem.id 
+		<include refid="getInclude"></include>
+		ORDER BY ref desc,re_step asc
+		Limit ${pageStart},${pagePer}
+		
+		<!-- ref역순 + re_step 정순으로 정렬해서 답글 정렬을 함 -->
+	</select>
+	<select id="getArticleCount" resultType="int">
+		SELECT count(id) FROM tb_article_${boardCode}
+		<include refid="getInclude"></include>
+	</select>
+	<insert id="setArticle">
+		<!-- ref넣어주기 위해서 select로 값을 받아온 후에 insert할 값을 받아옴 -->
+		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
+		<!-- 
+			resultType-> 반환타입
+			keyProperty->변수명
+			order->실행전에 할건지 실행 후에 할건지(대문자로 써라..)
+		 -->
+		 <!-- 기존 reg값을 가져와서 뒤에 게시룸의 ref +1 해서 사용 -->
+		 	SELECT IFNULL(max(ref),0)+1 FROM tb_article_${boardCode}
+		 <!-- null값이면 1이되게 IFNULL사용 -->
+		</selectKey>
+		INSERT INTO tb_article_${boardCode} SET
+			member_id=#{member_id},
+			subject=#{subject},
+			content=#{content},
+			hit=0,
+			fileName=#{fileName},
+			fileOriName=#{fileOriName},
+			fileUrl=#{fileUrl},
+			ref=#{ref},
+			re_step=0,
+			re_level=0
+	</insert>
+	<update id="updateHit">
+		UPDATE tb_article_${boardCode} SET
+		hit=hit+1
+		where id=#{id}
+	</update>
+	<select id="getBoardConfig" resultType="boardvo">
+		SELECT 
+		boardCode,
+		boardName,
+		boardColor,
+		boardListTemplate,
+		boardContentTemplate
+		FROM tb_board WHERE boardCode=#{boardCode}
+	</select>
+	
+	<select id="getArticleDetail" resultType="articlevo">
+		SELECT 
+			art.id,
+			art.member_id,
+			mem.uname as writer,
+			art.subject,
+			art.content,
+			art.hit,
+			art.fileName,
+			art.fileOriName,
+			art.fileUrl,
+			art.ref,
+			art.re_step,
+			art.re_level,
+			date_format(art.reg_date,'%Y-%m-%d') as reg_date 
+		FROM tb_article_${boardCode} as art JOIN tb_member as mem ON art.member_id=mem.id 
+		WHERE art.id=#{id}
+	</select>
+	
+	<delete id="deleteArticle">
+		DELETE FROM tb_article_${boardCode} WHERE id=#{id}
+	</delete>
+	<update id="modifyArticle">
+		UPDATE tb_article_${boardCode} SET
+		subject=#{subject},
+		content=#{content},
+		fileName=#{fileName},
+		fileOriName=#{fileOriName},
+		fileUrl=#{fileUrl}
+		WHERE
+		id=#{id}
+	</update>
+	<!-- 답글 처리 -->
+	<select id="getArticleReplyInfo" resultType="articlevo">
+		<!-- 기존 게시글 정보를 가져옴 -->
+		SELECT id,ref,re_step,re_level FROM tb_article_${boardCode} where id=#{id}
+	</select>
+	<update id="setArticleRef">
+		<!-- 답글의 위치를 바꿔줌 -->
+		UPDATE tb_article_${boardCode} SET 
+		re_step = re_step+1,reg_date=now()
+		WHERE 
+		id=#{id} AND re_step > #{re_step}
+	</update>
+	<insert id="setArticleReply">
+		<!-- 답글을 저장함 -->
+		INSERT INTO tb_article_${boardCode} SET
+		subject=#{subject},
+		member_id=#{member_id},
+		content=#{content},
+		fileName=#{fileName},
+		fileOriName=#{fileOriName},
+		fileUrl=#{fileUrl},
+		ref=#{ref},
+		re_step=#{re_step}+1,
+		re_level=#{re_level}+1
+	</insert>
+	<delete id="deleteCommentLink">
+		DELETE FROM tb_comment_${boardCode}
+		WHERE
+		id=#{id}
 	</delete>
 </mapper>

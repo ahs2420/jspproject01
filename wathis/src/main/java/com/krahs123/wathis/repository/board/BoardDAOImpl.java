@@ -48,7 +48,7 @@ public class BoardDAOImpl implements BoardDAO{
 		String sql="CREATE TABLE tb_article_"+boardCode+"("
 				+"id int UNSIGNED NOT NULL auto_increment,"
 				+"subject varchar(300) NOT NULL COMMENT '제목',"
-				+"writer varchar(20) NOT NULL COMMENT '작성자',"
+				+"member_id int UNSIGNED NOT NULL COMMENT '작성자 일련번호',"
 				+"content text COMMENT '내용',"
 				+"hit int default 0 COMMENT '조회수',"
 				+"fileName varchar(300) COMMENT '첨부파일이름', "
@@ -72,7 +72,7 @@ public class BoardDAOImpl implements BoardDAO{
 				+"id int UNSIGNED NOT NULL auto_increment,"
 				+"aid int UNSIGNED NOT NULL COMMENT '게시판 아이디',"
 				+"comment text,"
-				+"writer varchar(20),"
+				+"member_id int UNSIGNED NOT NULL COMMENT '작성자 일련번호',"
 				+"reg_date datetime default CURRENT_TIMESTAMP,"
 				+"PRIMARY KEY(id)"
 				+")";

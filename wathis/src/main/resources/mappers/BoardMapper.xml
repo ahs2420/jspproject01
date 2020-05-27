@@ -15,7 +15,16 @@
 	</sql>
 	
 	<select id="getBoardList" resultType="boardvo">
-		SELECT * FROM tb_board
+		SELECT 
+		id,
+		member_id,
+		boardCode,
+		boardName,
+		boardColor,
+		boardListTemplate,
+		boardContentTemplate,
+		reg_date
+		FROM tb_board
 		<include refid="includeList"></include> 
 		ORDER BY id desc
 		Limit #{pageIndex},#{pagePer}
@@ -50,9 +59,9 @@
 		UPDATE tb_board SET
 			boardCode=#{boardCode},
 			boardName=#{boardName},
-			member_id=#{member_id},
 			boardColor=#{boardColor},
-			boardType=#{boardType}
+			boardContentTemplate=#{boardContentTemplate},
+			boardListTemplate=#{boardListTemplate}
 		WHERE id=#{id}
 		
 	</update>

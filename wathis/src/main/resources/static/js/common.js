@@ -136,6 +136,51 @@ $(function(){
         });
     });
 });
+//폼데이터 확인
+$(function(){
+    $("form.chkFormCke").submit(function(){
+        var $chkItem = $(this).find(".chkitem");
+        var bReturn=true;
+        $chkItem.each(function(){
+            if($(this).hasClass("ckeItem")){
+                bReturn=$(this).chkCke();
+            }else{
+                bReturn=$(this).itemChk();
+            }
+            if(!bReturn){
+                return false;
+            }
+        });
+        //return false;
+        return bReturn;
+    });
+});
+//.chkitem 인거 value 있는지 체크 -> 개별적으로 체크할대 사용(ex. cke체크도 같이 해야될때)
+//$(this).data("error")에 에러메시지에 띄울 값 입력
+$.fn.itemChk=function(){
+    var exp = /^[a-z]+[a-z0-9]{6,13}$/g;
+    var bReturn=true;
+    if(!$.trim($(this).val())){
+        alert($(this).data("error")+" 입력해주세요");
+        $(this).focus();
+        bReturn=false;
+    }else if($(this).hasClass("chkExp")){
+        if(!exp.test($(this).val())){
+            alert($(this).data("error")+" 영문소문자,숫자 조합하여 7~12자리까지 입력해 주세요.");
+            $(this).focus();
+            bReturn=false;
+        }
+    }else if($(this).attr("id")=="repasswd"){
+        if($(this).val()!=$("#passwd").val()){
+            alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+            $(this).val("");
+            $("#passwd").val("");
+            $("#passwd").focus();
+            bReturn=false;
+        }
+    }
+    return bReturn;
+};
 //.chkitem 인거 value 있는지 체크
 //$(this).data("error")에 에러메시지에 띄울 값 입력
 function chkItem(item,pwdChk=false){
@@ -492,14 +537,14 @@ function checkFileSize(obj,maxSizeMB) {
 }
 //이미지 미리보기
 function imgPreview(obj) {
-    var preview = $(obj).data("preview")
+    var preview = $(obj).data("preview");
     if (obj.files && obj.files[0]) {
-     var reader = new FileReader();
-     
-     reader.onload = function (e) {
-        $(preview).attr('src', e.target.result);  
-     }
-     
-     reader.readAsDataURL(obj.files[0]);
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $(preview).attr('src', e.target.result);  
+        }
+        
+        reader.readAsDataURL(obj.files[0]);
      }
 }

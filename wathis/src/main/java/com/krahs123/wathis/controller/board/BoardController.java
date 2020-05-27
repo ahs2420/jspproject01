@@ -120,9 +120,19 @@ public class BoardController {
 	}
 	//게시판 수정(화면)
 	@RequestMapping(value="/getBoardModify" , method = RequestMethod.GET)
-	public ModelAndView getBoardModify(@RequestParam int id) {
+	public ModelAndView getBoardModify(HttpServletRequest request,@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
 		BoardVO bvo = boardService.getBoardDetail(id);
+
+		HttpSession reSession =  request.getSession();
+		String rootPath=reSession.getServletContext().getRealPath("/");
+		String dirpath="WEB-INF/views/board/template";
+		FileControl fileCon = new FileControl();
+		List<String> listTemplate = fileCon.fileList(rootPath+dirpath+"/list");
+		List<String> contentTemplate = fileCon.fileList(rootPath+dirpath+"/content");
+
+		mav.addObject("listTemplate",listTemplate);
+		mav.addObject("contentTemplate",contentTemplate);
 		mav.addObject("template","board");
 		mav.addObject("mypage","modify");
 		mav.addObject("bvo",bvo);

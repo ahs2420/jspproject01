@@ -86,8 +86,6 @@
                 <td class="w-35 padding-lr-5">
                 	${bvo.boardContentTemplate}
                 </td>
-                <!-- <td class="bg-color-10 w-15 f6 align">게시판 생성일</td>
-                <td class="w-35 padding-lr-5">${bvo.boardRegdate}</td> -->
             </tr>
             <tr>
                 <td class="tbl-line" colspan="4"></td>
@@ -98,7 +96,7 @@
                <button type="button" onclick="javascript:location.href='/board';" class="btn-50 bold bo-blue">목록</button>
            </div>
            <div class="btn-left float-r">
-                <button type="button" onclick="javascript:location.href='/board/getBoardModify?bid=${bvo.bid}';"  class="btn-50 bold bo-blue">수정</button>   
+                <button type="button" onclick="javascript:location.href='/board/getBoardModify?id=${bvo.id}';"  class="btn-50 bold bo-blue">수정</button>   
                 <button type="button" onclick="javascript:location.href='/board/setBoardDelete?boardCode=${bvo.boardCode}';"  class= "btn-50 bold bo-pink">삭제</button>
            </div>
             <div class="clearfix"></div>
