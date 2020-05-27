@@ -1,13 +1,19 @@
 package com.krahs123.wathis.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.krahs123.wathis.service.mypage.MypageService;
+
 @Controller
 @RequestMapping("/page")
 public class MyPageConroller {
+	
+	@Autowired MypageService mypageService;
+	
 	final String DIR ="/mypage/";
 	
 	@RequestMapping("/mypage")
@@ -22,6 +28,9 @@ public class MyPageConroller {
 
 	@RequestMapping("/mypage-one")
 	public ModelAndView viewMypageOne(){
+		
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "information");
