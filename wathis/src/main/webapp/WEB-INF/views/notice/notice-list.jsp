@@ -47,127 +47,8 @@
 								style="background-image: url(/xkfqkfimages/1.jpg)"></div>
 						</div>
 					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
-					<div class="notice-list-box-flex">
-						<div class="notice-list-box-text">
-							<div class="notice-list-box-text-l">
-								<span class="notice-list-l-green notice-list-l-space">공지</span>
-								<span>ㆍ</span> <span
-									class="notice-list-l-blue notice-list-l-space">알림</span>
-							</div>
-							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
-							<p>와디즈 2020.01.17</p>
-						</div>
-						<div class="notice-list-box-img">
-							<div class="notice-list-box-img-img"></div>
-						</div>
-					</div>
-				</a> <a href="#">
+				</a>
+				<a href="#">
 					<div class="notice-list-box-flex">
 						<div class="notice-list-box-text">
 							<div class="notice-list-box-text-l">
@@ -183,6 +64,137 @@
 						</div>
 					</div>
 				</a>
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a> 
+				<a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				 <a href="#">
+					<div class="notice-list-box-flex">
+						<div class="notice-list-box-text">
+							<div class="notice-list-box-text-l">
+								<span class="notice-list-l-green notice-list-l-space">공지</span>
+								<span>ㆍ</span> <span
+									class="notice-list-l-blue notice-list-l-space">알림</span>
+							</div>
+							<h4>리워드 서비스 펀딩금 반환정책 시행 공지</h4>
+							<p>와디즈 2020.01.17</p>
+						</div>
+						<div class="notice-list-box-img">
+							<div class="notice-list-box-img-img"></div>
+						</div>
+					</div>
+				</a>
+				<div class="txt-right"> 
+					<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " >글쓰기</button>
+				</div>
 				<div class="notice-list-page">
 					<a href="#" class="notice-list-double-arrow-btn">
 						<img src="/xkfqkfimages/d-l.svg" alt="첫페이지로">

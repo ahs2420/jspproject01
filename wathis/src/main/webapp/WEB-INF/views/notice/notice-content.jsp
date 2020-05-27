@@ -112,38 +112,46 @@
 						<p>와디즈 드림&nbsp;</p>
 					</div>
 				</div>
-				<div class="notice-content-box-flex">
-					<div class="heart-box flex-box flex-j-end w-100p">
-						<div>
-							<button class="notice-content-sns-btn sns-share-btn"
-								data-url="https://www.krahs123.co.kr/product.html"
-								data-type="naver">
-								<i class=" xi-naver"></i>
-							</button>
-						</div>
-						<div class="notice-content-sns-flex">
-							<a href="#">
-								<div>
-									<button class="notice-content-sns-btn sns-share-btn"
-										data-url="https://www.krahs123.co.kr/product.html"
-										data-type="facebook">
-										<i class="fab fa-facebook-f"></i>
-									</button>
-								</div>
-							</a> 
-							<a href="#">
-								<div>
-									<button class="notice-content-sns-btn sns-share-btn"
-										data-url="https://www.krahs123.co.kr/product.html"
-										data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
-										<i class="fab fa-twitter"></i>
-									</button>
-								</div>
-							</a>
+				<div class="flex-box flex-j-space">
+					<div class="txt-right mt30"> 
+							<button class="notice-content-btn-border pl10 pr10 pt5 pb5 bold mr5" >수정하기</button>
+							<button class="notice-content-btn-border pl10 pr10 pt5 pb5 bold " >삭제하기</button>
+					</div>
+					<div class="notice-content-box-flex ">
+						<div class="heart-box flex-box flex-j-end w-100p mt10">
+							<div>
+								<button class="notice-content-sns-btn sns-share-btn"
+									data-url="https://www.krahs123.co.kr/product.html"
+									data-type="naver">
+									<i class=" xi-naver"></i>
+								</button>
+							</div>
+							<div class="notice-content-sns-flex">
+								<a href="#">
+									<div>
+										<button class="notice-content-sns-btn sns-share-btn"
+											data-url="https://www.krahs123.co.kr/product.html"
+											data-type="facebook">
+											<i class="fab fa-facebook-f"></i>
+										</button>
+									</div>
+								</a> 
+								<a href="#">
+									<div>
+										<button class="notice-content-sns-btn sns-share-btn"
+											data-url="https://www.krahs123.co.kr/product.html"
+											data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
+											<i class="fab fa-twitter"></i>
+										</button>
+									</div>
+								</a>
+							</div>
 						</div>
 					</div>
+					
 				</div>
-		</section><section class="p0"><div class="notice-content-gray">
+		</section>
+		<section class="p0"><div class="notice-content-gray">
 					<div class="notice-content-container">
 						<h3>공지 말머리의 다른 게시글</h3>
 						<a href="#">
@@ -159,7 +167,8 @@
 									<div class="notice-content-box-img-img" style="background-image: url(/xkfqkfimages/1.jpg);"></div>
 								</div>
 							</div>
-						</a> <a href="#">
+						</a>
+						<a href="#">
 							<div class="notice-content-box-flex notice-content-border-bottom">
 								<div class="notice-content-box-text">
 									<div class="notice-content-box-text-l">
@@ -178,7 +187,7 @@
 						</div>
 					</div>
 				</div></section>
-	</main>
+			</main>
 	<!-- 메인 내용 -->
 
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
