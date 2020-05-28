@@ -6,10 +6,11 @@ import java.io.IOException;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,7 +51,7 @@ public class MyPageConroller {
 	}
 
 	// 기본 요건 파일 작업하는 부분
-	@RequestMapping(value = "/mypageOne" , method = RequestMethod.POST)
+	@RequestMapping("/mypageOne")
 	@ResponseBody
 	public String setItem(@ModelAttribute AuditVO auvo, @RequestPart MultipartFile files) throws IllegalStateException, IOException{
 		
@@ -59,7 +60,10 @@ public class MyPageConroller {
 			
 		}else {
 			//파일 저장할 주소
-			String Required_documents_url ="C:\\Users\\user\\git\\jspproject012\\wathis\\src\\main\\resources\\static\\hongimages\\mypageOneImg";
+			DefaultResourceLoader drl = new DefaultResourceLoader();
+			Resource resource = drl.getResource("classpath:/static");//파일경로 설정을 할때 이렇게 설정 해야지 다른 컴퓨터 작업 할때 경로가 안 바뀐다. 저절로 찾아 간다.
+			String rootPath = resource.getFile().getAbsolutePath();
+			String Required_documents_url ="/hongimages/mypageOneImg/";
 			
 			String Required_documents_orgName = files.getOriginalFilename();
 			String RequiredDocumentsName = FilenameUtils.getExtension(Required_documents_orgName).toLowerCase();
@@ -69,7 +73,7 @@ public class MyPageConroller {
 			
 			do{
 				destinationFileName = RandomStringUtils.randomAlphanumeric(32)+ "."+ RequiredDocumentsName;
-				destinationFile = new File(Required_documents_url + destinationFileName);
+				destinationFile = new File(rootPath+Required_documents_url + destinationFileName);
 			
 			
 			}while(destinationFile.exists());

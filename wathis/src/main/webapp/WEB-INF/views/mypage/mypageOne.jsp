@@ -4,7 +4,6 @@
 
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypageOne.css">
-
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <!-- fontawesome 코드 -->
@@ -17,7 +16,7 @@
 
 
 <div class="box2-funReady">
-    <form action="/article/" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
         <input type="hidden" name="member_id" value="${sessionScope.id }" />
         <div class="ba-project">
 
@@ -65,13 +64,13 @@
                             유통 중인가요? <span class="fon-co5"> *</span></label>
                         </p>
                         <div class="radio-box mar-bo5 mar-top4">
-                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no"> <label for="ra-q1-no">
+                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no" value="0"> <label for="ra-q1-no">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
                                     곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
                             </label>
                         </div>
                         <div class="radio-box mar-bo3 mar-top4">
-                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q2-yes">
+                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q2-yes" value="1">
                             <label for="ra-q2-yes">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">
                                     예. 다른 곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
@@ -194,136 +193,7 @@
                     </div>
                 </div>
             </div>
-            <!-- 5번 -->
-            <div class="flex-basic2 q5-text">
-                <div class="mar-bo2 wid4">
-                    <div class="name-left">
-                        <h4 class="di-ia1 mar-bo6 fon-wei1 fon-siz1 mar-top3">
-                            리워드 필수 인증 코드 <span class="fon-co5"> *</span>
-                        </h4>
-                        <select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="reword_type" id="project-ka">
 
-                            <option value="">리워드의 종류를 선택하세요</option>
-                            <option value="">HW(하드웨어)</option>
-                            <option value="">SW(소프트웨어)</option>
-                            <option value="">HW+SW(하드웨어+소프트웨어)</option>
-                            <option value="">화장품</option>
-                            <option value="">의약외품</option>
-                            <option value="">디자인제품(소품,패션,잡화,액세서리</option>
-                            <option value="">디퓨저,향초,탈취제</option>
-                            <option value="">신선식품</option>
-                            <option value="">가공식품</option>
-                            <option value="">건강기능식품</option>
-                            <option value="">문화(공연,전시,영화)</option>
-                            <option value="">출판</option>
-                            <option value="">기타</option>
-                        </select>
-                        <div class="re-file-ch">
-                            <a href="#" class="di-ia1 fon-co4 fon-siz3 fon-wei1 mar-bo3 ">리워드
-                                종류 별 필수 인증 서류 확인하러가기</a>
-                        </div>
-                        <div class="re-file-box">
-                            <input class="ra-size" name="q5-ra" type="radio" id="upload-file">
-                            <label for="upload-file"> 
-                                <span class="fon-siz1 fon-co3 text-padding2"> 필수 인증 서류 업로드</span>
-                            </label>
-                            <div class="upload">
-                                <h4 class="di-ia1 mar-bo6 fon-wei1 fon-siz1 mar-top3">
-                                    리워드 인증 서류 <span class="fon-co5"> *</span>
-                                </h4>
-                                <div class="file-box-oth mar-top3">
-                                    <label for="file1"><i class="fas fa-camera fon-co9 fon-wei1 "></i> 업로드</label>
-                                    <input type="file" id="file1" name="files">
-                                </div>
-
-                                <!-- <p class="fon-siz2 fon-col mar-top1">리워드 종류에 맞는 최소한의 인증 서류를
-                                    확인하고,서류를 첨부하세요.</p>
-                                <p class="fon-siz2 fon-col">jpg, jpeg, png, pdf, zip, xlsx,
-                                    hwp / 10MB 이하 10개의 파일 업로드 가능</p> -->
-                                <!-- <div class="hr-bar fon-bor1"></div> -->
-                                <div class="flex-box">
-                                    <!-- <div class="no-file-box1">
-                                        <p>파일 첨부가 제한될 경우</p>
-                                    </div>
-                                    <div class="no-file-box2">
-                                        <p>메일 보내기 전에 확인 사항(이미지 ?)</p>
-                                    </div> -->
-                                </div>
-                                <input class="" type="checkbox" id="email"> <label for="email"
-                                    class="di-ia1 mar-top1 fon-wei1">메일로
-                                    전송하였습니다.</label>
-                                <!-- <p class="fon-co5">필수 항목 값을 등록하세요.</p> -->
-                                <div class="hr-bar fon-bor1"></div>
-                            </div>
-                            <div class="not-upload">
-                                <div class="flex-box">
-                                    <div class="not-up-left">
-                                        <label for="not-upload-file"> <input class="ra-size" name="q5-ra" type="radio"
-                                                id="not-upload-file"> <span class="fon-siz1 fon-co3 text-padding2">
-                                                서류를 첨부하지
-                                                않습니다. </span></label>
-                                    </div>
-                                    <div class="not-up-right">
-                                        <a href="#" class="di-ia1 fon-siz4 mar-bo3 fon-co7">해당되는지
-                                            학인하기</a>
-                                    </div>
-                                </div>
-                                <div class="not-upload-rabox">
-                                    <div class="not-up-ra-one">
-                                        <label for="q5-not-ra-one"> <input class="text-padding3" name="q5-not-ra "
-                                                type="radio" id="q5-not-ra-one"> <span
-                                                class="fon-siz3 fon-co3 text-padding2"> 서류를 제출하지 않아도
-                                                되는 리워드 </span></label>
-                                    </div>
-                                    <div class="not-up-ra-two">
-                                        <label for="q5-not-ra-two"> <input class="text-padding3" name="q5-not-ra "
-                                                type="radio" id="q5-not-ra-two"> <span
-                                                class="fon-siz3 fon-co3 text-padding2"> 리워드 발송 전까지 서류
-                                                제출 가능한 리워드 </span></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="q5-guide cu-poin">
-                        <div class=" text-padding3 box-li1 box-back1 ">
-                            <h4 class="mar-bo5 fon-siz4 fon-co7">리워드 필수 인증 서류</h4>
-                            <p class="fon-siz4 mar-bo3 fon-co7">· 서포터에게 제공한 리워드(제품/서비스)의
-                                생산, 유통 및 스토리 사실 확인에 필요한 인증 서류를 확인하여 첨부해주세요. 첨부해주신 서류는 유출되지 않고,
-                                리워드 배송 완료 후 파기 합니다.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 6번 -->
-            <div class="flex-basic2 q6-text ">
-                <div class="mar-bo2 wid4">
-                    <div class="name-left">
-                        <h3 class="di-ia1 mar-bo6 fon-wei1 fon-siz1">
-                            수수료 정책 동의 <span class="fon-co5"> *</span></label>
-                        </h3>
-                        <div class="q6-texe fon-bor1">
-                            <div class="q6-text-box">
-                                <p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
-                                    리워드 오픈 수수료는 7% (VAT별도)입니다. <br> · 부가 서비스 이용 시, 추가 수수료가
-                                    발생될 수 있습니다. <br> · 리워드가 없는 기부후원 프로젝트의 경우, 수수료가 다르게 적용됩니다.
-                                    <br> · 자세한 내용은와디즈 수수료 정책을 확인해주세요.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="q6-check ">
-                            <label for="q6-check-box"> <input class="ra-size" name="fees_chk" type="checkbox"
-                                    id="q6-check-box">
-                                <span class="fon-siz1 fon-co3 text-padding2"> 리워드 발송 전까지
-                                    서류 제출 가능한 리워드 </span></label>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- 7번 -->
             <div class="flex-basic2 wid1 ba-pro-img">
                 <div class="mar-bo2 wid4">
                     <div class="box-container">
@@ -393,8 +263,86 @@
             </div>
 
         </div>
+            <!-- 5번 -->
+            <div class="flex-basic2 q5-text">
+                <div class="mar-bo2 wid4">
+                    <div class="name-left">
+                        
+                        <!-- 파일 업로드 -->
+                        <div class="re-file-box">
+                            <h4 class="di-ia1 mar-bo6 fon-wei1 fon-siz1 mar-top3">
+                                리워드 인증 서류 <span class="fon-co5"> *</span>
+                            </h4>
+                            <div class="file-box-oth mar-top3">
+                                <label for="file1"><i class="fas fa-camera fon-co9 fon-wei1 "></i> 업로드</label>
+                                <input type="file" id="file1" name="files">
+                            </div>
+                            
+                        
+                        </div>
+                    </div>
+
+                    <div class="q5-guide cu-poin">
+                        <div class=" text-padding3 box-li1 box-back1 ">
+                            <h4 class="mar-bo5 fon-siz4 fon-co7">리워드 필수 인증 서류</h4>
+                            <p class="fon-siz4 mar-bo3 fon-co7">· 서포터에게 제공한 리워드(제품/서비스)의
+                                생산, 유통 및 스토리 사실 확인에 필요한 인증 서류를 확인하여 첨부해주세요. 첨부해주신 서류는 유출되지 않고,
+                                리워드 배송 완료 후 파기 합니다.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 6번 -->
+            <div class="flex-basic2 q6-text ">
+                <div class="mar-bo2 wid4">
+                    <div class="name-left">
+                        <h3 class="di-ia1 mar-bo6 fon-wei1 fon-siz1">
+                            수수료 정책 동의 <span class="fon-co5"> *</span></label>
+                        </h3>
+                        <div class="q6-texe fon-bor1">
+                            <div class="q6-text-box">
+                                <p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
+                                    리워드 오픈 수수료는 7% (VAT별도)입니다. <br> · 부가 서비스 이용 시, 추가 수수료가
+                                    발생될 수 있습니다. <br> · 리워드가 없는 기부후원 프로젝트의 경우, 수수료가 다르게 적용됩니다.
+                                    <br> · 자세한 내용은와디즈 수수료 정책을 확인해주세요.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="q6-check ">
+                            <label for="q6-check-box"> <input class="ra-size" name="fees_chk" type="checkbox"
+                                    id="q6-check-box" value="1">
+                                <span class="fon-siz1 fon-co3 text-padding2"> 리워드 발송 전까지
+                                    서류 제출 가능한 리워드 </span></label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+             <!-- 7번 -->
+             <div class="ba-pro-name mar-bo2 wid4 flex-basic2">
+                <div class="box-text-one wid4">
+                    <p class="fon-siz2">
+                        위험요인 및 정책에서 작성하는 정보들은 <a href="#" class="fon-co4">프로젝트 상세 페이지 내 펀딩안내 탭</a>에 노출됩니다.
+                        어떻게 보여지는지 궁금하신가요?</p>
+                </div>
+                <div class="box-text-one">
+                    <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
+                        펀딩안내 미리보기</button>
+                </div>
+            </div>
+            <!-- 8번 -->
+            <div class="end-radio">
+                <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1">
+
+                <label for="end-radio">
+                    <span class="fon-siz1 fon-co3 text-padding2">
+                        (필수) 펀딩안내 탭에 노출되는 위험요인 및 정책을 모두 확인하였습니다.
+                    </span></label>
+            </div>
+            
         <div class="btn-save">
-            <button class="btn-end" type="button">저장하기</button>
+            <button class="btn-end" type="submit">저장하기</button>
         </div>
     </form>
 </div>

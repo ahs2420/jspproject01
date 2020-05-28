@@ -27,15 +27,15 @@ public class AuditVO {
 	private int category_id;
 	private int circulation_chk;
 	private String circulation_content;
-	private String Preparations_plan;
+	private String preparations_plan;
 	private String relay_plan;
 	private int reword_type;
 	private String reword_info;
-	private String Required_documents_orgName;
-	private String Required_documents_Name;
-	private String Required_documents_url;
+	private String required_documents_orgName;
+	private String required_documents_Name;
+	private String required_documents_url;
 	private int fees_chk;
-	private String Policy_Agreement;
+	private String policy_agreement;
 	private int status;
 	private String reg_date;
 	public int getId() {
@@ -69,10 +69,10 @@ public class AuditVO {
 		this.circulation_content = circulation_content;
 	}
 	public String getPreparations_plan() {
-		return Preparations_plan;
+		return preparations_plan;
 	}
 	public void setPreparations_plan(String preparations_plan) {
-		Preparations_plan = preparations_plan;
+		this.preparations_plan = preparations_plan;
 	}
 	public String getRelay_plan() {
 		return relay_plan;
@@ -93,22 +93,22 @@ public class AuditVO {
 		this.reword_info = reword_info;
 	}
 	public String getRequired_documents_orgName() {
-		return Required_documents_orgName;
+		return required_documents_orgName;
 	}
 	public void setRequired_documents_orgName(String required_documents_orgName) {
-		Required_documents_orgName = required_documents_orgName;
+		this.required_documents_orgName = required_documents_orgName;
 	}
 	public String getRequired_documents_Name() {
-		return Required_documents_Name;
+		return required_documents_Name;
 	}
 	public void setRequired_documents_Name(String required_documents_Name) {
-		Required_documents_Name = required_documents_Name;
+		this.required_documents_Name = required_documents_Name;
 	}
 	public String getRequired_documents_url() {
-		return Required_documents_url;
+		return required_documents_url;
 	}
 	public void setRequired_documents_url(String required_documents_url) {
-		Required_documents_url = required_documents_url;
+		this.required_documents_url = required_documents_url;
 	}
 	public int getFees_chk() {
 		return fees_chk;
@@ -116,11 +116,11 @@ public class AuditVO {
 	public void setFees_chk(int fees_chk) {
 		this.fees_chk = fees_chk;
 	}
-	public String getPolicy_Agreement() {
-		return Policy_Agreement;
+	public String getPolicy_agreement() {
+		return policy_agreement;
 	}
-	public void setPolicy_Agreement(String policy_Agreement) {
-		Policy_Agreement = policy_Agreement;
+	public void setPolicy_agreement(String policy_agreement) {
+		this.policy_agreement = policy_agreement;
 	}
 	public int getStatus() {
 		return status;
@@ -134,4 +134,6 @@ public class AuditVO {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
+	
+	
 }
