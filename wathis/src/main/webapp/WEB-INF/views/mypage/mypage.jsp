@@ -5,8 +5,8 @@
 <%@include file="../hong-include/head.jspf"%>
 
 <link rel="stylesheet" href="/css/reset.css">
-<link rel="stylesheet" href="../hongcss/mypage/common.css">
-<link rel="stylesheet" href="/hongcss/mypage/mypage.css">
+<!-- <link rel="stylesheet" href="../hongcss/mypage/common.css"> -->
+<link rel="stylesheet" href="../hongcss/mypage/mypage.css">
 <link rel="stylesheet" href="/hongcss/mypage/${template}_${mypage}.css">
 
 <!-- fontawesome 코드 -->
@@ -25,7 +25,7 @@
 
     <div class="head-con">
         <div class="logo">
-            <a href="#"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
+            <a href="http://localhost:8888/"><span class="main-color">W</span>a<span class="main-color">T</span>his</a>
         </div>
 
         <div class="head-userid">

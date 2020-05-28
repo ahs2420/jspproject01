@@ -38,18 +38,17 @@
 	</select>
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
-			
-			circulation_chk=#{circulation_chk},
-			circulation_content=#{circulation_content},
-			preparations_plan=#{preparations_plan},
-			relay_plan=#{relay_plan},
-			reword_type=#{reword_type},
-			reword_info=#{reword_info},
-			required_documents_orgName=#{required_documents_orgName},
-			required_documents_Name=#{required_documents_Name},
-			required_documents_url=#{required_documents_url},
-			fees_chk=#{fees_chk},
-			policy_agreement=#{policy_agreement},
+			circulation_chk 		= #{circulation_chk},
+			circulation_content 	= #{circulation_content},
+			preparations_plan 		= #{preparations_plan},
+			relay_plan 				= #{relay_plan},
+			reword_type 			= #{reword_type},
+			reword_info 			= #{reword_info},
+			required_documents_orgName 	= #{required_documents_orgName},
+			required_documents_Name 	= #{required_documents_Name},
+			required_documents_url 		= #{required_documents_url},
+			fees_chk 					= #{fees_chk},
+			policy_agreement 			= #{policy_agreement},
 			
 	</insert>
 	<update id="updateItem">

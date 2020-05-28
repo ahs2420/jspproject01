@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../hongcss/mypage/mypageFive.css">
 
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <!-- fontawesome 코드 -->
-
-<script src="../hongjs/mypage/common.js"></script>
 <!-- CKeditor -->
 <script src="/plugin/ckeditor/ckeditor.js"></script>
 <!-- 리워드 고지 js -->
 <script src="../hongjs/mypage/mypage-four.js"></script>
+
+<!-- <script src="../hongjs/mypage/common.js"></script> -->
 
 
 

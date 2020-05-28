@@ -257,13 +257,7 @@
 								사전 안내 없이 삭제 될수 있습니다.</p>
 						</div>
 					</div>
-				</div>
-                
-                
-                
-                
-                
-                
+				</div>   
                 <!-- 2번 -->
                 <div class="flex-basic1 ba-pro-price">
                     <div class="mar-bo3 wid4">

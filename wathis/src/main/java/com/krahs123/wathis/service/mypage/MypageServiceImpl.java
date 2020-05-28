@@ -13,9 +13,9 @@ public class MypageServiceImpl  implements MypageService{
 	
 	
 	@Override
-	public int setItem(AuditVO avo) {
+	public int setItem(AuditVO auvo) {
 
-		return mypageDao.setItem(avo);
+		return mypageDao.setItem(auvo);
 	}
 
 }

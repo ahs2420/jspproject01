@@ -15,9 +15,9 @@ public class MypageDAOImpl implements MypageDAO {
 	final static String NAMESPACE = "mappers.AuditMapper";
 	
 	@Override
-	public int setItem(AuditVO avo) {
+	public int setItem(AuditVO auvo) {
 		
-		return sql.insert(NAMESPACE + ".setItem", avo);
+		return sql.insert(NAMESPACE + ".setItem", auvo);
 	}
 
 	

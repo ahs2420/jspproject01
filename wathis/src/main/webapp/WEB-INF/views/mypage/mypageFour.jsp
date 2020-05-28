@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="../hongcss/mypage/mypageFour.css">
 
 
+
 <div class="box2-funReady">
     <!-- 기본 정보 박스 -->
     <!-- <div class="flex-basic-adver"> -->

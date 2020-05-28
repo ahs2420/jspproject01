@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
-<script src="../hongjs/mypage/common.js"></script>
+<!-- <script src="../hongjs/mypage/common.js"></script> -->
 
 
 <div class="box2-funReady">

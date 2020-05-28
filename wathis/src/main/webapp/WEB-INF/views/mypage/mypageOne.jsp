@@ -13,7 +13,7 @@
 
 <!-- 리워드 고지 js -->
 <script src="../hongjs/mypage/mypageOne.js"></script>
-<script src="../hongjs/mypage/common.js"></script>
+
 
 
 <div class="box2-funReady">
@@ -233,7 +233,7 @@
                                 </h4>
                                 <div class="file-box-oth mar-top3">
                                     <label for="file1"><i class="fas fa-camera fon-co9 fon-wei1 "></i> 업로드</label>
-                                    <input type="file" id="file1" name="Required_documents_orgName">
+                                    <input type="file" id="file1" name="files">
                                 </div>
 
                                 <!-- <p class="fon-siz2 fon-col mar-top1">리워드 종류에 맞는 최소한의 인증 서류를

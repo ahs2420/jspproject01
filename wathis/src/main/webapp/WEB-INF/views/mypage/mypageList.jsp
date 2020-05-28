@@ -105,7 +105,7 @@
         <div class="my-modal-container">
 
             <div class="my-modal-close">
-                <i class="fas fa-times"></i>
+                <i class="fal fa-times fon-siz9"></i>
             </div>
 
             <div class="my-modal-text my-modal-img">
