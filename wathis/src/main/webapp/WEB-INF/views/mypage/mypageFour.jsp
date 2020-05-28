@@ -107,7 +107,7 @@
                     <!-- 마이페이지3 번 영수증 부분 -->
                     <div class="flex-box text-padding2">
                         <span class="fl-sp fon-wei4 ">5,000원</span>
-                        <span class="fl-sp"> 제한 수량 3개</span>
+                        <span class="flex-box-ba5 box-back6 fon-co14 fon-siz3 tex-al2 fon-wei1"> 제한 수량 3개</span>
                     </div>
                     <div class="line-one"></div>
 
