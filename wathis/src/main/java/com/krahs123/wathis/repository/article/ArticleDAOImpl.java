@@ -108,4 +108,20 @@ public class ArticleDAOImpl implements ArticleDAO {
 		// TODO Auto-generated method stub
 		return sql.update(NAMESPACE+".modifyArticle",avo);
 	}
+
+	@Override
+	public ArticleVO getArticlePrev(String boardCode, int id) {
+		Map<String,Object> map = new HashMap<>();
+		map.put("boardCode", boardCode);
+		map.put("id", id);
+		return sql.selectOne(NAMESPACE+".getArticlePrev",map);
+	}
+
+	@Override
+	public ArticleVO getArticleNext(String boardCode, int id) {
+		Map<String,Object> map = new HashMap<>();
+		map.put("boardCode", boardCode);
+		map.put("id", id);
+		return sql.selectOne(NAMESPACE+".getArticleNext",map);
+	}
 }

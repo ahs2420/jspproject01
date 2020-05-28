@@ -6,6 +6,7 @@
 			id,
 			parent_id,
 			dept,
+			group_id,
 			morder,
 			title,
 			url,
@@ -18,35 +19,103 @@
 	
 	</select>
 	<select id="getList" resultType="menuvo">
+		SELECT 
+			id,
+			parent_id,
+			dept,
+			group_id,
+			morder,
+			title,
+			url,
+			reg_date
+		FROM
+			tb_menu
+		ORDER BY group_id,parent_id
 	
+	</select>
+	<select id="getMenuList" resultType="menuvo">
+		WITH RECURSIVE CTE AS (
+		    SELECT 
+		        id,
+		        parent_id,
+		        dept,
+		        group_id,
+		        morder,
+		        title,
+		        url,
+		        reg_date,
+		        CAST(CONCAT(IFNULL(morder, 0), parent_id) AS CHAR(99)) x
+		    FROM tb_menu x
+		    where parent_id=0
+		    UNION ALL
+		        SELECT
+		            a.id,
+		            a.parent_id,
+		            a.dept,
+		            a.group_id,
+		            a.morder,
+		            a.title,
+		            a.url,
+		            a.reg_date, 
+		            CONCAT(b.x, '-', CONCAT(IFNULL(a.morder, 0), a.parent_id)) x
+		        FROM tb_menu a
+		        INNER JOIN CTE b ON a.parent_id = b.id 
+		)
+		select * from CTE order by x
 	</select>
 	<select id="getOne" resultType="menuvo">
 	
 	</select>
-	<insert id="setItem">
+	<select id="getGroupMax" resultType="int">
+		SELECT IFNULL(max(morder),0)+1 FROM tb_menu 
+		where
+		dept=#{dept}
+		<if test ="group_id gte 1">
+			AND group_id =#{group_id} AND parent_id = #{id}
+		</if>
+	</select>
+	<select id="getMenuDetail" resultType="menuvo">
+		SELECT 
+			id,
+			parent_id,
+			dept,
+			group_id,
+			morder,
+			title,
+			url,
+			reg_date
+		FROM tb_menu 
+		where
+		id=#{id}
+	</select>
+	<insert id="setMenu">
+		<selectKey  resultType="int" keyProperty="group_id" order="BEFORE">
+			<if test ="group_id lt 1">
+				SELECT IFNULL(max(group_id),0)+1 FROM tb_menu
+			</if>
+			<if test ="group_id gte 1">
+				SELECT #{group_id} as group_id
+			</if>
+		</selectKey>
+		
 		INSERT INTO tb_menu 
 		SET
-			id=#{id},
 			parent_id=#{parent_id},
 			dept=#{dept},
 			morder=#{morder},
+			group_id=#{group_id},
 			title=#{title},
-			url=#{url},
-			reg_date=#{reg_date}
+			url=#{url}
 	</insert>
-	<update id="updateItem">
-		UPDATE SET tb_menu
-			id=#{id},
-			parent_id=#{parent_id},
-			dept=#{dept},
+	<update id="setMenuModify">
+		UPDATE tb_menu SET
 			morder=#{morder},
 			title=#{title},
-			url=#{url},
-			reg_date=#{reg_date}
+			url=#{url}
 		WHERE id=#{id}
 	</update>
-	<delete id="deleteItem">
+	<delete id="deleteMenu">
 		DELETE FROM tb_menu
-		WHERE id=#{id}
+		WHERE id=#{id} or parent_id = #{id}
 	</delete>
 </mapper>

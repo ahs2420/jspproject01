@@ -564,7 +564,6 @@ nav.active{
 .gnb-menu .sub-menu{
     display: none;
     position: absolute;
-    border-top: 3px solid #2780E3;
     display: none;
     color: #333;
     left: 50%;
@@ -572,6 +571,10 @@ nav.active{
     border-radius: 0 0 2px 2px;
     background-color: #fff;
     box-shadow: 0 0 10px 3px rgba(0,0,0,.05);
+}
+.gnb-menu .sub-menu li:first-child{
+    border-top: 3px solid #2780E3;
+
 }
 .gnb-menu .sub-menu li{
     display: block;
@@ -1252,7 +1255,6 @@ nav.active{
 .sub-menu{
     max-width: 800px;
     width: 100%;
-    padding: 0 20px;
     margin: 0 auto;
     line-height: 60px;
 }
@@ -1494,7 +1496,8 @@ nav.active{
         padding-left: 20px;
     }
     .gnb-mobile-menu .sub-menu li{
-        padding: 5px 0px;
+        margin-top: 5px;
+        line-height: 20px;
     }
     .gnb-mobile-menu .search-cover{
         display: block;

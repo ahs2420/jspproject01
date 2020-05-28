@@ -1,6 +1,7 @@
 package com.krahs123.wathis.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +17,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.krahs123.wathis.model.MemberVO;
+import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.service.member.MemberService;
+import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.util.ShaEncrypt;
 
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+
+	@Autowired
+	MenuService menuService;
 	@Autowired
 	MemberService memberService;
 	final String DIR ="/login/";
@@ -31,8 +37,12 @@ public class LoginController {
 		return DIR +"login-page";
 	}
 	@RequestMapping("/login-page2")
-	public String viewLoginpage2() {
-		return DIR +"login-page-headerOn";
+	public ModelAndView viewLoginpage2() {
+		ModelAndView mav = new ModelAndView();
+		List<MenuVO> menuList = menuService.getMenuList();
+		mav.setViewName(DIR+"login-page-headerOn");
+		mav.addObject("menuList", menuList);
+		return mav;
 	}
 	@RequestMapping("/register")
 	public ModelAndView viewRegister(@ModelAttribute MemberVO mvo) {

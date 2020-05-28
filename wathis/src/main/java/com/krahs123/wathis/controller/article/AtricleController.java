@@ -21,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.krahs123.wathis.model.ArticleVO;
 import com.krahs123.wathis.model.BoardVO;
+import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.service.article.ArticleService;
+import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.util.FileControl;
 
 
@@ -32,6 +34,8 @@ public class AtricleController {
 	final String DIR = "/article/";
 	@Autowired
 	ArticleService articleService;
+	@Autowired
+	MenuService menuService;
 	//리스트
 	@RequestMapping("")
 	public ModelAndView viewArticleList(
@@ -61,6 +65,8 @@ public class AtricleController {
 		
 		List<ArticleVO> avoList = articleService.getArticleList(boardCode,searchOpt,words,pageStart,pagePer);
 
+		List<MenuVO> menuList = menuService.getMenuList();
+		mav.addObject("menuList", menuList);
 		mav.addObject("template", bvo.getBoardListTemplate());
 		mav.addObject("mypage", "list");
 		mav.addObject("bvo", bvo);
@@ -78,6 +84,8 @@ public class AtricleController {
 	public ModelAndView viewSetArticle(@RequestParam String boardCode) {
 		ModelAndView mav = new ModelAndView();
 		BoardVO bvo = articleService.getBoardConfig(boardCode);
+		List<MenuVO> menuList = menuService.getMenuList();
+		mav.addObject("menuList", menuList);
 		mav.addObject("bvo", bvo);
 		mav.addObject("template", "setArticle.jsp");
 		mav.addObject("mypage", "write");
@@ -117,7 +125,9 @@ public class AtricleController {
 	public ModelAndView viewDetail(@RequestParam String boardCode, int id,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		BoardVO bvo = articleService.getBoardConfig(boardCode);
-		
+
+		List<MenuVO> menuList = menuService.getMenuList();
+		mav.addObject("menuList", menuList);
 		//세션 등록으로 하루 동안 동일 게시물 보면 hit 한번만 올라가게 하기
 		List<Integer> hit = (List<Integer>) session.getAttribute("hit_"+boardCode);
 		//게시판 코드를 이용해서 세션을 가져옴 -> getAttribute는 Object이므로 형변환 필수
@@ -147,11 +157,14 @@ public class AtricleController {
 
 		
 		ArticleVO resultVO = articleService.getArticleDetail(boardCode,id); 
-
+		ArticleVO nextVO = articleService.getArticleNext(boardCode, id); 
+		ArticleVO prevVO = articleService.getArticlePrev(boardCode, id);
 		mav.addObject("template", bvo.getBoardContentTemplate());
 		mav.addObject("mypage", "content");
 		mav.addObject("bvo", bvo); 
 		mav.addObject("avo", resultVO);
+		mav.addObject("avoNext", nextVO);
+		mav.addObject("avoPrev", prevVO);
 		mav.setViewName(DIR+"getArticle");
 		return mav;
 	}
@@ -257,6 +270,8 @@ public class AtricleController {
 		ModelAndView mav = new ModelAndView();
 		BoardVO bvo = articleService.getBoardConfig(boardCode);
 		ArticleVO avo = articleService.getArticleDetail(boardCode, id);
+		List<MenuVO> menuList = menuService.getMenuList();
+		mav.addObject("menuList", menuList);
 		mav.addObject("bvo",bvo);
 		mav.addObject("avo",avo);
 		mav.setViewName(DIR+"/modifyArticle");

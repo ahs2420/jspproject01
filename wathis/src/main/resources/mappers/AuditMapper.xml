@@ -48,7 +48,7 @@
 			required_documents_Name 	= #{required_documents_Name},
 			required_documents_url 		= #{required_documents_url},
 			fees_chk 					= #{fees_chk},
-			policy_agreement 			= #{policy_agreement},
+			policy_agreement 			= #{policy_agreement}
 			
 	</insert>
 	<update id="updateItem">

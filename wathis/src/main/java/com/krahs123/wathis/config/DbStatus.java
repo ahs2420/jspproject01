@@ -1,5 +1,8 @@
 package com.krahs123.wathis.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DbStatus {
 	//설정 파일 삽입
 	final public static String[] ugroup= {"사용자","관리자"};
@@ -16,5 +19,7 @@ public class DbStatus {
 	//0: 옵션없음, 1: 선택형옵션,2: 서술형옵션
 	final public static String[] auditStatus = {"반려","심사중","승인"};
 	//심사 상태 0:반려 1:심사중 2:승인
+	final public static String[] popupStatus = {"숨김","표시"};
+	//팝업 상태 0: 숨김처리 1: 표시
 	
 }

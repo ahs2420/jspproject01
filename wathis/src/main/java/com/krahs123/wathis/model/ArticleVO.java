@@ -33,6 +33,14 @@ public class ArticleVO {
 	private int re_level;
 	private String reg_date;
 	private String boardCode;
+	private String uimg;
+	
+	public String getUimg() {
+		return uimg;
+	}
+	public void setUimg(String uimg) {
+		this.uimg = uimg;
+	}
 	public String getBoardCode() {
 		return boardCode;
 	}

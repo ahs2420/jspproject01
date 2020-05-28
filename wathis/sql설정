@@ -12,4 +12,8 @@ flush privileges;
 1
 sql dump 파일 적용
 mysql -u root -p project < setting-1.sql
+<<<<<<< HEAD
 mysqldump -u root -p project > setting-1.sql
+=======
+mysqldump -uroot -p project > setting-1.sql
+>>>>>>> branch 'master' of https://github.com/ahs2420/jspproject01.git
