@@ -105,6 +105,32 @@
                             </div>
                         </div>
                         <!--//사이트관리 & 관리자 정보 관리 Admin Managememt Page-->
+                        <!--메뉴 관리 Menu Managememt Page-->
+                        <div class="nav-wrap margin-t30">
+                            <div class="icon">
+                                <i class="fas fa-syringe gray-80"></i>
+                            </div>
+                            <div class="icon-title">
+                                <a href="/menu" class="gray-80">Menu Managememt Page</a>
+                            </div>
+                            <div class="icon-arrow ralign">
+                                <i class="fas fa-angle-right gray-80"></i>
+                            </div>
+                        </div>
+                        <!--//메뉴 관리 Menu Managememt Page-->
+                        <!--팝업 관리 Popup Managememt Page-->
+                        <div class="nav-wrap margin-t30">
+                            <div class="icon">
+                                <i class="fas fa-syringe gray-80"></i>
+                            </div>
+                            <div class="icon-title">
+                                <a href="/popup" class="gray-80">Popup Managememt Page</a>
+                            </div>
+                            <div class="icon-arrow ralign">
+                                <i class="fas fa-angle-right gray-80"></i>
+                            </div>
+                        </div>
+                        <!--//팝업 관리 Popup Managememt Page-->
                     </div>
                 </nav>
                 <!--우측-->
@@ -247,6 +273,21 @@
                             	<%@ include file="/WEB-INF/views/admin/board/getBoardModify.jsp" %>
                             </c:if>
                           
+                            <c:if test="${template eq 'menu' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/menu/getMenuListInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'menu' && mypage eq 'insert' }">
+                            	<%@ include file="/WEB-INF/views/admin/menu/setMenuInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'menu' && mypage eq 'modify' }">
+                            	<%@ include file="/WEB-INF/views/admin/menu/getMenuModifyInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'popup' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/popup/getPopupListInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'popup' && mypage eq 'insert' }">
+                            	<%@ include file="/WEB-INF/views/admin/popup/setPopupInc.jsp" %>
+                            </c:if>
                             <!--//if에 따라 바뀌는 부분-->
                         </div>
                     </div>

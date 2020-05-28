@@ -7,6 +7,7 @@ public class MenuVO {
 //	+-----------+------------------+------+-----+-------------------+-------------------+
 //	| id        | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
 //	| parent_id | int(10) unsigned | NO   |     | 0                 |                   |
+//	| group_id  | int(10) unsigned | NO   |     | 0                 |                   |
 //	| dept      | int(11)          | NO   |     | 1                 |                   |
 //	| morder    | int(11)          | NO   |     | 0                 |                   |
 //	| title     | varchar(100)     | NO   |     | NULL              |                   |
@@ -15,11 +16,18 @@ public class MenuVO {
 //	+-----------+------------------+------+-----+-------------------+-------------------+
 	private int id;
 	private int parent_id;
+	private int group_id;
 	private int dept;
 	private int morder;
 	private String title;
 	private String url;
 	private String reg_date;
+	public int getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
+	}
 	public int getId() {
 		return id;
 	}

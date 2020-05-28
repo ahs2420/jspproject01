@@ -64,6 +64,23 @@ public class BoardController {
 		mav.setViewName("/admin/admin");
 		return mav;
 	}
+	//게시판 리스트 AJAX
+	@RequestMapping("/boardListAjax")
+	@ResponseBody
+	public Map<String,Object> getListAjax(){
+		Map<String,Object> map= new HashMap<>();
+		List<BoardVO> boardList = boardService.getBoardList("all","",0,9999999);
+		String msg = "시스템 오류입니다. 관리자에게 문의 해 주세요";
+		boolean status = false;
+		if(boardList!=null) {
+			msg = "정상 출력 되었습니다.";
+			status = true;
+			map.put("boardList", boardList);
+		}
+		map.put("msg", msg);
+		map.put("status", status);
+		return map;
+	}
 	//관리자 게시판 상세보기
 	@RequestMapping("/getBoard")
 	public ModelAndView getBoard(int id) {

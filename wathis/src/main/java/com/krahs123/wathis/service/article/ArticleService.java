@@ -19,5 +19,9 @@ public interface ArticleService {
 	public int getArticleReplyInfo(ArticleVO avo);
 	//게시글 수정
 	public int modifyArticle(ArticleVO avo);
+	//게시글 이전글
+	public ArticleVO getArticlePrev(String boardCode,int id);
+	//게시글 이후글
+	public ArticleVO getArticleNext(String boardCode,int id);
 	
 }

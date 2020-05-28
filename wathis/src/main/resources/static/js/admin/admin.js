@@ -27,6 +27,7 @@ $(function(){
                 alert(ajaxResult.data.msg);
             }else{
                 alert("시스템 오류입니다. 확인하세요.(err01)");
+                return false;
             }
             window.location.reload();
         }

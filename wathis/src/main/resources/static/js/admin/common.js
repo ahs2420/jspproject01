@@ -162,3 +162,16 @@ function checkFile(obj) {
 	}
     return true;
 }
+//이미지 미리보기
+function imgPreview(obj) {
+    var preview = $(obj).data("preview");
+    if (obj.files && obj.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $(preview).attr('src', e.target.result);  
+        }
+        
+        reader.readAsDataURL(obj.files[0]);
+     }
+}

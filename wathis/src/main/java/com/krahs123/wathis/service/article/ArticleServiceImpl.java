@@ -81,5 +81,17 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleDao.modifyArticle(avo);
 	}
 
+	@Override
+	public ArticleVO getArticlePrev(String boardCode, int id) {
+		// TODO Auto-generated method stub
+		return articleDao.getArticlePrev(boardCode, id);
+	}
+
+	@Override
+	public ArticleVO getArticleNext(String boardCode, int id) {
+		// TODO Auto-generated method stub
+		return articleDao.getArticleNext(boardCode, id);
+	}
+
 
 }

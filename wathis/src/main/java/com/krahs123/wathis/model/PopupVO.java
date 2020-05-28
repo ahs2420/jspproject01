@@ -7,6 +7,7 @@ public class PopupVO {
 //	+------------+------------------+------+-----+-------------------+-------------------+
 //	| id         | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
 //	| member_id  | int(10) unsigned | NO   |     | NULL              |                   |
+//	| display    | varchar(20)      | NO   |     | NULL              |                   |
 //	| title      | varchar(30)      | NO   |     | NULL              |                   |
 //	| subtitle   | varchar(50)      | NO   |     | NULL              |                   |
 //	| img        | varchar(200)     | NO   |     | NULL              |                   |
@@ -19,6 +20,7 @@ public class PopupVO {
 	private int id;
 	private int member_id;
 	private String title;
+	private String display;
 	private String subtitle;
 	private String img;
 	private String url;
@@ -26,6 +28,12 @@ public class PopupVO {
 	private String end_date;
 	private String status;
 	private String reg_date;
+	public String getDisplay() {
+		return display;
+	}
+	public void setDisplay(String display) {
+		this.display = display;
+	}
 	public int getId() {
 		return id;
 	}

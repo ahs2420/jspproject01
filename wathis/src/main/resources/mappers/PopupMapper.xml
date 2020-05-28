@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.PopupMapper">
-	<select id="getAll" resultType="popupvo">
+	<sql id="getInclude">
+		WHERE
+		<choose>
+			<when test="searchOpt == 'all'">
+				content like CONCAT('%',#{words},'%') or subject like CONCAT('%',#{words},'%')
+			</when>
+			<otherwise>
+				${searchOpt} like CONCAT('%',#{words},'%')
+			</otherwise>
+		</choose>
+	</sql>
+	<select id="getPopupList" resultType="popupvo">
 		SELECT 
 			id,
+			display,
 			member_id,
 			title,
 			subtitle,
@@ -14,9 +26,15 @@
 			status,
 			reg_date
 		FROM tb_popup
+		<include refid="getInclude"></include>
 		ORDER BY id DESC
+		Limit ${pageStart},${pagePer}
 	</select>
-	<select id="getCount" resultType="int">
+	<select id="getPopupCount" resultType="int">
+		SELECT 
+			count(id)
+		FROM tb_popup
+		<include refid="getInclude"></include>
 	
 	</select>
 	<select id="getList" resultType="popupvo">
@@ -25,19 +43,18 @@
 	<select id="getOne" resultType="popupvo">
 		
 	</select>
-	<insert id="setItem">
+	<insert id="setPopup">
 		INSERT INTO tb_popup
 		SET
-			id=#{id},
 			member_id=#{member_id},
+			display=#{display},
 			title=#{title},
 			subtitle=#{subtitle},
 			img=#{img},
 			url=#{url},
 			start_date=#{start_date},
 			end_date=#{end_date},
-			status=#{status},
-			reg_date=#{reg_date}
+			status=1
 	</insert>
 	<update id="updateItem">
 		UPADTE tb_popup SET

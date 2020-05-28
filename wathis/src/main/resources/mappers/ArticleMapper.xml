@@ -81,6 +81,7 @@
 			art.id,
 			art.member_id,
 			mem.uname as writer,
+			mem.uimg as uimg,
 			art.subject,
 			art.content,
 			art.hit,
@@ -94,7 +95,40 @@
 		FROM tb_article_${boardCode} as art JOIN tb_member as mem ON art.member_id=mem.id 
 		WHERE art.id=#{id}
 	</select>
-	
+	<select id="getArticlePrev" resultType="articlevo">
+		SELECT 
+			art.id,
+			art.subject,
+			art.member_id,
+			art.fileUrl,
+			art.fileName,
+			mem.uname as writer,
+			art.hit,
+			date_format(art.reg_date,'%Y-%m-%d') as reg_date ,
+			art.re_level,
+			(SELECT count(id) FROM tb_comment_${boardCode} where id=art.id) as commentCnt
+		FROM tb_article_${boardCode} as art JOIN tb_member as mem ON art.member_id=mem.id 
+		WHERE art.id > #{id}
+		LIMIT 1
+	</select>
+	<select id="getArticleNext" resultType="articlevo">
+	 <![CDATA[
+		SELECT 
+			art.id,
+			art.subject,
+			art.member_id,
+			art.fileUrl,
+			art.fileName,
+			mem.uname as writer,
+			art.hit,
+			date_format(art.reg_date,'%Y-%m-%d') as reg_date ,
+			art.re_level,
+			(SELECT count(id) FROM tb_comment_${boardCode} where id=art.id) as commentCnt
+		FROM tb_article_${boardCode} as art JOIN tb_member as mem ON art.member_id=mem.id  
+		WHERE art.id < #{id}
+		LIMIT 1
+		]]>
+	</select>
 	<delete id="deleteArticle">
 		DELETE FROM tb_article_${boardCode} WHERE id=#{id}
 	</delete>
