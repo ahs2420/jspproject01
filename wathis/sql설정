@@ -12,3 +12,4 @@ flush privileges;
 1
 sql dump 파일 적용
 mysql -u root -p project < setting-1.sql
+mysqldump -uroot -p project > setting-1.sql

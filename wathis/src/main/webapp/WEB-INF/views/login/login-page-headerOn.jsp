@@ -5,7 +5,7 @@
 
 
 <link rel="stylesheet" href="../css/reset.css">
-<!-- <link rel="stylesheet" href="../hongcss/mypage/common.css"> -->
+
 <!-- fontawesome 코드 -->
 <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css"> -->
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
