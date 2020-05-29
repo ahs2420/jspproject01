@@ -5,7 +5,6 @@
 
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/login/login-page.css">
-<link rel="stylesheet" href="../hongcss/mypage/common.css">
 <link rel="stylesheet" href="/css/animation.css">
 
 <!-- fontawesome 코드 -->

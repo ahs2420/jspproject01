@@ -83,6 +83,39 @@ LOCK TABLES `tb_article_event` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tb_article_news`
+--
+
+DROP TABLE IF EXISTS `tb_article_news`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_article_news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `subject` varchar(300) NOT NULL COMMENT '제목',
+  `member_id` int(10) unsigned NOT NULL COMMENT '작성자 일련번호',
+  `content` text COMMENT '내용',
+  `hit` int(11) DEFAULT '0' COMMENT '조회수',
+  `fileName` varchar(300) DEFAULT NULL COMMENT '첨부파일이름',
+  `fileOriName` varchar(300) DEFAULT NULL COMMENT '첨부파일원래이름',
+  `fileUrl` varchar(300) DEFAULT NULL COMMENT '첨부파일저장 위치',
+  `ref` int(11) DEFAULT NULL COMMENT '답변형 게시판에서 정렬 할때 사용(id)',
+  `re_step` int(11) DEFAULT NULL COMMENT '답변형 게시판에서 사용하는 그룹(답글의 그룹)',
+  `re_level` int(11) DEFAULT NULL COMMENT '답변형 게시판에서 들여쓰기',
+  `reg_date` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '작성일',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_article_news`
+--
+
+LOCK TABLES `tb_article_news` WRITE;
+/*!40000 ALTER TABLE `tb_article_news` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_article_news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tb_article_notice`
 --
 
@@ -169,7 +202,7 @@ CREATE TABLE `tb_board` (
   `boardContentTemplate` varchar(100) NOT NULL COMMENT '  (jsp)',
   `reg_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +211,7 @@ CREATE TABLE `tb_board` (
 
 LOCK TABLES `tb_board` WRITE;
 /*!40000 ALTER TABLE `tb_board` DISABLE KEYS */;
-INSERT INTO `tb_board` VALUES (7,1,'notice','공지사항','#5D1049','listTemplate.jsp','stanContentTemplate.jsp','2020-05-27 14:30:48'),(8,1,'event','이벤트','#5D1049','photoTemplate.jsp','stanContentTemplate.jsp','2020-05-27 14:31:09');
+INSERT INTO `tb_board` VALUES (7,1,'notice','공지사항','#5D1049','listTemplate.jsp','stanContentTemplate.jsp','2020-05-27 14:30:48'),(8,1,'event','이벤트','#5D1049','photoTemplate.jsp','stanContentTemplate.jsp','2020-05-27 14:31:09'),(9,1,'news','언론보도','#2962FF','photoTemplate.jsp','stanContentTemplate.jsp','2020-05-29 14:07:13');
 /*!40000 ALTER TABLE `tb_board` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,6 +292,32 @@ CREATE TABLE `tb_comment_event` (
 LOCK TABLES `tb_comment_event` WRITE;
 /*!40000 ALTER TABLE `tb_comment_event` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_comment_event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_comment_news`
+--
+
+DROP TABLE IF EXISTS `tb_comment_news`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_comment_news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `aid` int(10) unsigned NOT NULL COMMENT '게시판 아이디',
+  `comment` text,
+  `member_id` int(10) unsigned NOT NULL COMMENT '작성자 일련번호',
+  `reg_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_comment_news`
+--
+
+LOCK TABLES `tb_comment_news` WRITE;
+/*!40000 ALTER TABLE `tb_comment_news` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_comment_news` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -690,4 +749,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-29 14:02:18
+-- Dump completed on 2020-05-29 14:07:26
