@@ -21,6 +21,49 @@
 
     // });
 
+//서류사항 textarea 체크
+//Q2
+$(function(){
+
+    $('.Preparations_plan').keyup(function (e) {
+        var content = $(this).val();
+        $('#counter-q2').html("[ " + content.length + "자 작성" + " / 최대 500자]"); //글자수 실시간 카운팅
+        if (content.length >= 500) {
+            alert("최대 500자까지 입력 가능합니다.");
+            $(this).val(content.substring(0, 500));
+            $('#counter').html("[ 500 자 작성 / 최대 500자 ]");
+        }
+    });
+});
+
+//Q3
+$(function(){
+
+    $('.relay_plan').keyup(function (e) {
+        var content = $(this).val();
+        $('#counter-q3').html("[ " + content.length + "자 작성" + " / 최대 500자]"); //글자수 실시간 카운팅
+        if (content.length >= 500) {
+            alert("최대 500자까지 입력 가능합니다.");
+            $(this).val(content.substring(0, 500));
+            $('#counter').html("[ 500 자 작성 / 최대 500자 ]");
+        }
+    });
+});
+
+//Q1번 YES 답변 텍스트 확인 js
+//$(function(){
+//
+//    $('.Preparations_plan').keyup(function (e) {
+//        var content = $(this).val();
+//        $('#counter').html("[ " + content.length + "자 작성" + " / 최대 500자]"); //글자수 실시간 카운팅
+//        if (content.length >= 500) {
+//            alert("최대 500자까지 입력 가능합니다.");
+//            $(this).val(content.substring(0, 500));
+//            $('#counter').html("[ 500 자 작성 / 최대 500자 ]");
+//        }
+//    });
+//});
+
 
 
 var KIND = '<table cellpadding="10px" style="width:100%">\

@@ -32,10 +32,9 @@
 	<select id="getOne" resultType="marketinfovo">
 	
 	</select>
-	<insert id="setItem">
+	<insert id="setMaker">
 		INSERT INTO tb_maker_info SET
-			id=#{id},
-			audit_id=#{audit_id},
+			
 			marker_name=#{marker_name},
 			img_dir=#{img_dir},
 			marker_img=#{marker_img},
@@ -48,8 +47,9 @@
 			marker_twiter_url=#{marker_twiter_url},
 			marker_instagram_url=#{marker_instagram_url},
 			business_type=#{business_type},
-			bankbook_img=#{bankbook_img},
-			reg_date=#{reg_date}
+			bankbook_img=#{bankbook_img}
+	
+	
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_maker_info

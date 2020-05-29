@@ -22,6 +22,8 @@ public class MaketInfoVO {
 //	| bankbook_img         | varchar(100)     | NO   |     | NULL              |                   |
 //	| reg_date             | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
 //	+----------------------+------------------+------+-----+-------------------+-------------------+
+// 대표자명 대표자 이메일  , 공동 대표자 (선택사항) 추가 필요	
+	
 	private int id;
 	private int audit_id;
 	private String marker_name;
@@ -38,6 +40,7 @@ public class MaketInfoVO {
 	private String business_type;
 	private String bankbook_img;
 	private String reg_date;
+	
 	public int getId() {
 		return id;
 	}

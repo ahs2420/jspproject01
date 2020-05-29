@@ -21,13 +21,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.krahs123.wathis.model.AuditVO;
+import com.krahs123.wathis.model.MaketInfoVO;
 import com.krahs123.wathis.service.mypage.MypageService;
+import com.krahs123.wathis.service.mypage.MypageTwoService;
 
 @Controller
 @RequestMapping("/page")
 public class MyPageConroller {
 	
 	@Autowired MypageService mypageService;
+	
+	@Autowired MypageTwoService mpTwoDao;
+	
 	
 	final String DIR ="/mypage/";
 	
@@ -106,11 +111,13 @@ public class MyPageConroller {
 	
 	
 	@RequestMapping("/mypage-two")
-	public ModelAndView viewMypageTwo(){
+	public ModelAndView viewMypageTwo(@ModelAttribute MaketInfoVO mfvo) {
+				
+
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
-		
+		mav.addObject("mypage", "");
 		mav.setViewName(DIR+"mypage");
 		
 		return mav;
