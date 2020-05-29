@@ -1,0 +1,8 @@
+@charset "UTF-8";
+.notice-list-btn-border{
+	border:1px solid #aaa;
+	color:#555;
+}
+.notice-list-btn-border:hover{
+	text-decoration: underline;
+}

@@ -41,6 +41,9 @@
 					</a> 
 				</c:forEach>
 				
+				<div class="txt-right"> 
+					<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " onclick="location.href='/article/setArticle?boardCode=${bvo.boardCode}'" >글쓰기</button>
+				</div>
 				<div class="notice-list-page">
 					<!--시작 페이지가 1보다 클때 생성-->
 					<c:if test="${paging.startPage>1 }">

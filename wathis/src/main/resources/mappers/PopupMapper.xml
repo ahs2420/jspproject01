@@ -40,8 +40,23 @@
 	<select id="getList" resultType="popupvo">
 	
 	</select>
-	<select id="getOne" resultType="popupvo">
+	<select id="getPopupDetail" resultType="popupvo">
 		
+		SELECT 
+			id,
+			display,
+			member_id,
+			title,
+			subtitle,
+			img,
+			url,
+			start_date,
+			end_date,
+			status,
+			reg_date
+		FROM tb_popup
+		WHERE id =#{id}
+	
 	</select>
 	<insert id="setPopup">
 		INSERT INTO tb_popup
@@ -56,21 +71,20 @@
 			end_date=#{end_date},
 			status=1
 	</insert>
-	<update id="updateItem">
-		UPADTE tb_popup SET
-			member_id=#{member_id},
+	<update id="getPopupModify">
+		UPDATE tb_popup SET
 			title=#{title},
 			subtitle=#{subtitle},
+			display=#{display},
 			img=#{img},
 			url=#{url},
 			start_date=#{start_date},
 			end_date=#{end_date},
-			status=#{status},
-			reg_date=#{reg_date}
+			status=#{status}
 		WHERE id=#{id}
 	</update>
-	<delete id="deleteItem">
-		DELETE FORM tb_popup
+	<delete id="deletePopup">
+		DELETE FROM tb_popup
 		WHERE id=#{id}
 	</delete>
 </mapper>

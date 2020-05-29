@@ -288,6 +288,9 @@
                             <c:if test="${template eq 'popup' && mypage eq 'insert' }">
                             	<%@ include file="/WEB-INF/views/admin/popup/setPopupInc.jsp" %>
                             </c:if>
+                            <c:if test="${template eq 'popup' && mypage eq 'modify' }">
+                            	<%@ include file="/WEB-INF/views/admin/popup/getPopupModifyInc.jsp" %>
+                            </c:if>
                             <!--//if에 따라 바뀌는 부분-->
                         </div>
                     </div>

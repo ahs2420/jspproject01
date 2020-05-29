@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,6 +29,7 @@ public class PopupController {
 	final String DIR = "/popup";
 	@Autowired
 	PopupService popupService;
+	//팝업 관리자 리스트
 	@RequestMapping("")
 	public ModelAndView popupView(
 			@RequestParam(defaultValue = "title") String searchOpt,
@@ -66,6 +68,7 @@ public class PopupController {
 		mav.setViewName("/admin/admin");
 		return mav;
 	}
+	//팝업 등록 화면
 	@RequestMapping(value="/setPopup",method = RequestMethod.GET)
 	public ModelAndView setPopupView() {
 
@@ -75,6 +78,7 @@ public class PopupController {
 		mav.setViewName("/admin/admin");
 		return mav;
 	}
+	//팝업 등록 동작
 	@RequestMapping(value="/setPopup",method = RequestMethod.POST)
 	public ModelAndView setPopupDo(@ModelAttribute PopupVO pvo , @RequestPart MultipartFile files) {
 		
@@ -85,6 +89,77 @@ public class PopupController {
 		pvo.setImg(img);
 		int result=popupService.setPopup(pvo);
 		
+		mav.setViewName("redirect:/popup");
+		return mav;
+	}
+	//팝업삭제(ajax)
+	@RequestMapping("/setPopupDeleteAjax")
+	@ResponseBody
+	public Map<String,Object> setPopupDeleteAjax(@RequestParam int id){
+		int result = this.setPopupDelete(id);
+		Map<String,Object> map = new HashMap<>();
+		String msg="팝업 삭제에 실패하였습니다\n.관리자에게 문의해 주세요.";
+		boolean status=false;
+		if(result>0) {
+			msg="팝업이 삭제되었습니다.";
+			status=true;
+		}
+		map.put("status", status);
+		map.put("msg", msg);
+		return map;
+	}
+	//팝업 선택삭제(ajax)
+	@RequestMapping("/deleteSelPopup")
+	@ResponseBody
+	public Map<String,Object> deleteSelPopup(@RequestParam(value = "uid[]") List<Integer> idList){
+		int result = 0;
+		for(int id : idList) {
+			result += this.setPopupDelete(id);
+		}
+		Map<String,Object> map = new HashMap<>();
+		String msg="팝업 삭제에 실패하였습니다\n.관리자에게 문의해 주세요.";
+		boolean status=false;
+		if(result>0) {
+			msg="팝업이 삭제되었습니다.";
+			status=true;
+		}
+		map.put("status", status);
+		map.put("msg", msg);
+		return map;
+		
+	}
+	//팝업 삭제 공통(실제 실행부분)
+	public int setPopupDelete(@RequestParam int id) {
+		PopupVO pvo = popupService.getPopupDetail(id);
+		if(pvo.getImg()!=null&&pvo.getImg().equals("")) {
+			FileControl fc = new FileControl();
+			fc.fileDelete("", pvo.getImg(), null);
+		}
+		return popupService.deletePopup(id);
+	}
+	//팝업 수정 화면
+	@RequestMapping(value = "/getPopupModify",method = RequestMethod.GET)
+	public ModelAndView getPopupModify(@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
+		PopupVO pvo =  popupService.getPopupDetail(id);
+		mav.addObject("status", DbStatus.popupStatus);
+		mav.addObject("pvo", pvo);
+		mav.addObject("template", "popup");
+		mav.addObject("mypage", "modify");
+		mav.setViewName("/admin/admin");
+		return mav;
+	}
+	//팝업 수정 동작
+	@RequestMapping(value = "/getPopupModify",method = RequestMethod.POST)
+	public ModelAndView getPopupModifyDo(@ModelAttribute PopupVO pvo,@RequestPart MultipartFile files) {
+		ModelAndView mav = new ModelAndView();
+		if(!files.getOriginalFilename().equals("")) {
+			FileControl fc = new FileControl();
+			fc.fileDelete("", pvo.getImg(), null);
+			Map<String,Object> fileMap = fc.fileUpload(files, "img", null);
+			pvo.setImg(fileMap.get("uploadDIR").toString()+fileMap.get("fileName").toString());
+		}
+		int result = popupService.getPopupModify(pvo);
 		mav.setViewName("redirect:/popup");
 		return mav;
 	}

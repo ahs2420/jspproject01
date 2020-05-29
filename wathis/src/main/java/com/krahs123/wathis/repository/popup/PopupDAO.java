@@ -11,4 +11,10 @@ public interface PopupDAO {
 	public List<PopupVO> getPopupList(String searchOpt,String words,int pageStart,int pagePer);
 	//팝업 갯수
 	public int getPopupCount(String searchOpt,String words);
+	//팝업 상세
+	public PopupVO getPopupDetail(int id);
+	//팝업 삭제
+	public int deletePopup(int id);
+	//팝업 수정
+	public int getPopupModify(PopupVO pvo);
 }

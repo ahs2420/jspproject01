@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
+<link rel="stylesheet" href="/css/article/article-common.css">
 <link rel="stylesheet" href="/css/board/${template}.css">
 <script src="/js/board/${template}.js"></script>
 

@@ -182,13 +182,13 @@ public class AtricleController {
 			//파일 있을때 파일 삭제
 			FileControl fileAdd = new FileControl();
 			Map<String,Object> fileMap = fileAdd.fileDelete(avo.getFileUrl(), avo.getFileName(),null);//파일 삭제
-			if(!(boolean)fileMap.get("status")) {
-				//파일 삭제에 실패하면 바로 에러띄움
-				msg+="(err File)";
-				map.put("msg", msg);
-				map.put("status", status);
-				return map;
-			}
+//			if(!(boolean)fileMap.get("status")) {
+//				//파일 삭제에 실패하면 바로 에러띄움
+//				msg+="(err File)";
+//				map.put("msg", msg);
+//				map.put("status", status);
+//				return map;
+//			}
 		}
 		int result = articleService.deleteArticle(boardCode, id);
 		if(result>0) {
@@ -274,7 +274,9 @@ public class AtricleController {
 		mav.addObject("menuList", menuList);
 		mav.addObject("bvo",bvo);
 		mav.addObject("avo",avo);
-		mav.setViewName(DIR+"/modifyArticle");
+		mav.addObject("template", "getArticleModify.jsp");
+		mav.addObject("mypage", "write");
+		mav.setViewName(DIR+"getArticle");
 		return mav;
 	}
 	//게시물 수정(동작)
@@ -290,7 +292,7 @@ public class AtricleController {
 		if(!files.getOriginalFilename().equals("")) {
 			//파일 수정 할때
 			FileControl fileAdd = new FileControl();
-			if(!avo.getFileName().equals("")) {
+			if(!avo.getFileName().equals("")&&avo.getFileName()!=null) {
 				//원본 파일이 있을때 삭제
 				fileAdd.fileDelete(avo.getFileUrl(), avo.getFileName(),null);
 			}

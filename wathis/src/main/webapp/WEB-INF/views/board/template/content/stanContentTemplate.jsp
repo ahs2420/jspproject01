@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/WEB-INF/views/include/head.jspf"%>
 
 	<main>
 		<section>
@@ -29,36 +28,43 @@
 						${avo.content}
 					</div>
 				</div>
-				<div class="notice-content-box-flex">
-					<div class="heart-box flex-box flex-j-end w-100p">
-						<div>
-							<button class="notice-content-sns-btn sns-share-btn"
-								data-url="https://www.krahs123.co.kr/product.html"
-								data-type="naver">
-								<i class=" xi-naver"></i>
-							</button>
-						</div>
-						<div class="notice-content-sns-flex">
-							<a href="#">
-								<div>
-									<button class="notice-content-sns-btn sns-share-btn"
-										data-url="https://www.krahs123.co.kr/product.html"
-										data-type="facebook">
-										<i class="fab fa-facebook-f"></i>
-									</button>
-								</div>
-							</a> 
-							<a href="#">
-								<div>
-									<button class="notice-content-sns-btn sns-share-btn"
-										data-url="https://www.krahs123.co.kr/product.html"
-										data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
-										<i class="fab fa-twitter"></i>
-									</button>
-								</div>
-							</a>
+				<div class="flex-box flex-j-space">
+					<div class="txt-right mt30"> 
+							<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mr5" onclick="location.href='/article/modifyArticle?boardCode=${bvo.boardCode}&id=${avo.id}'" >수정하기</button>
+							<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold " onclick="location.href='/article/deleteItem?boardCode=${bvo.boardCode}&id=${avo.id}'" >삭제하기</button>
+					</div>
+					<div class="notice-content-box-flex ">
+						<div class="heart-box flex-box flex-j-end w-100p mt10">
+							<div>
+								<button class="notice-content-sns-btn sns-share-btn"
+									data-url="https://www.krahs123.co.kr/product.html"
+									data-type="naver">
+									<i class=" xi-naver"></i>
+								</button>
+							</div>
+							<div class="notice-content-sns-flex">
+								<a href="#">
+									<div>
+										<button class="notice-content-sns-btn sns-share-btn"
+											data-url="https://www.krahs123.co.kr/product.html"
+											data-type="facebook">
+											<i class="fab fa-facebook-f"></i>
+										</button>
+									</div>
+								</a> 
+								<a href="#">
+									<div>
+										<button class="notice-content-sns-btn sns-share-btn"
+											data-url="https://www.krahs123.co.kr/product.html"
+											data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
+											<i class="fab fa-twitter"></i>
+										</button>
+									</div>
+								</a>
+							</div>
 						</div>
 					</div>
+					
 				</div>
 		</section><section class="p0"><div class="notice-content-gray">
 					<div class="notice-content-container">

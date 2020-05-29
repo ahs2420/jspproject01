@@ -1,7 +1,6 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="/WEB-INF/views/include/head.jspf"%>
 
 	<!-- main내용삽입 -->
 	<main>
@@ -49,6 +48,9 @@
 						</div>
 					</c:forEach>
 				</div>
+				<div class="txt-right"> 
+					<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " onclick="location.href='/article/setArticle?boardCode=${bvo.boardCode}'" >글쓰기</button>
+				</div>
 			</div>
 			<div class="product-table-container " >
 				<div class="product-table-page">
@@ -95,3 +97,14 @@
 		</div>
 		</section>
 	</main>
+<script>
+	$(document).ready(function(){
+    makeCalendar();
+    $("#startDate","#endDate").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+    $("#addSchedulerButton").click(function(){
+        addScheduler();
+    });
+});
+</script>

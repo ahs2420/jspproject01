@@ -30,4 +30,22 @@ public class PopupServiceImpl implements PopupService{
 		// TODO Auto-generated method stub
 		return popupdao.getPopupCount(searchOpt, words);
 	}
+
+	@Override
+	public PopupVO getPopupDetail(int id) {
+		// TODO Auto-generated method stub
+		return popupdao.getPopupDetail(id);
+	}
+
+	@Override
+	public int deletePopup(int id) {
+		// TODO Auto-generated method stub
+		return popupdao.deletePopup(id);
+	}
+
+	@Override
+	public int getPopupModify(PopupVO pvo) {
+		// TODO Auto-generated method stub
+		return popupdao.getPopupModify(pvo);
+	}
 }

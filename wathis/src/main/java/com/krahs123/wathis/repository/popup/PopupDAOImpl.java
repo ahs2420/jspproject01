@@ -38,4 +38,19 @@ public class PopupDAOImpl implements PopupDAO{
 		map.put("words", words);
 		return sql.selectOne(NAMESPACE+".getPopupCount",map);
 	}
+	@Override
+	public PopupVO getPopupDetail(int id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(NAMESPACE+".getPopupDetail",id);
+	}
+	@Override
+	public int deletePopup(int id) {
+		// TODO Auto-generated method stub
+		return sql.delete(NAMESPACE+".deletePopup",id);
+	}
+	@Override
+	public int getPopupModify(PopupVO pvo) {
+		// TODO Auto-generated method stub
+		return sql.update(NAMESPACE+".getPopupModify",pvo);
+	}
 }
