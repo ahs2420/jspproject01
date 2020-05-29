@@ -32,10 +32,6 @@ public class LoginController {
 	MemberService memberService;
 	final String DIR ="/login/";
 	//
-	@RequestMapping("/login-page")
-	public String viewLoginpage() {
-		return DIR +"login-page";
-	}
 	@RequestMapping("/login-page2")
 	public ModelAndView viewLoginpage2() {
 		ModelAndView mav = new ModelAndView();

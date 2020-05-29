@@ -318,11 +318,6 @@ input[name=tab]:checked+label::after {
 
 }
 
-.flex-box {
-    display: flex;
-    /* background-color: slategray; */
-}
-
 /* 이용 약관 화면 */
 .modal {
     display: none;

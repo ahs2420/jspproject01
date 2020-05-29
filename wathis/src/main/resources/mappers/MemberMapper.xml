@@ -21,7 +21,7 @@
 	
 	<select id="getlogin" resultType="membervo">
 		SELECT 
-				id, uid, uname,ugroup,uimg
+				id, uid, uname , ugroup, uimg
 		FROM tb_member
 				
 		WHERE uid = #{uid} AND upassword = #{upassword}
@@ -49,19 +49,19 @@
 	</insert>
 	<update id="updateItem">
 		UPADTE tb_member SET
-			id=#{id},
-			uid=#{uid},
-			upassword=#{upassword},
-			sns_type=#{sns_type},
-			sns_id=#{sns_id},
-			uname=#{uname},
-			utel=#{utel},
-			uemail=#{uemail},
-			ugroup=#{ugroup},
-			uimg=#{uimg},
-			status=#{status},
-			reg_date=#{reg_date}
-		WHERE id=#{id}
+			id 			= #{id},
+			uid 		= #{uid},
+			upassword 	= #{upassword},
+			sns_type 	= #{sns_type},
+			sns_id 		= #{sns_id},
+			uname 		= #{uname},
+			utel 		= #{utel},
+			uemail 		= #{uemail},
+			ugroup 		= #{ugroup},
+			uimg 		= #{uimg},
+			status 		= #{status},
+			reg_date 	= #{reg_date}
+		WHERE id 		= #{id}
 	</update>
 	<delete id="deleteItem">
 		DELETE FORM tb_member

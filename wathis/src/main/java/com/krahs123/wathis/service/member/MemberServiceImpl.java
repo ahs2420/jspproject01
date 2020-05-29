@@ -21,7 +21,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberVO getlogin(String uid, String upassword, HttpSession session) {
-		MemberVO result = memberdao.getlogin(uid,upassword);
+		MemberVO result = memberdao.getlogin( uid, upassword);
 		
 		if( result != null) {
 			session.setAttribute("id", result.getId());

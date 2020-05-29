@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="../hongcss/login/login-page.css">
 <%@include file="../hong-include/head.jspf"%>
 
 
 <link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../hongcss/login/login-page.css">
+<link rel="stylesheet" href="../hongcss/mypage/common.css">
+<link rel="stylesheet" href="/css/animation.css">
 
 <!-- fontawesome 코드 -->
 <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css"> -->
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
-<link rel="stylesheet" href="/css/animation.css">
 <script src="../hongjs/login/login-page.js"></script>
 <script src="/js/common.js"></script>
 <style>
@@ -27,7 +28,7 @@
 </head>
 
 <body>
-<!-- 지우기  -->
+
 	<header class=" no-hero">
 		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
 	</header>
