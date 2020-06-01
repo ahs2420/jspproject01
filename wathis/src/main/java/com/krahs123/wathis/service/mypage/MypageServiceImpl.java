@@ -18,4 +18,12 @@ public class MypageServiceImpl  implements MypageService{
 		return mypageDao.setItem(auvo);
 	}
 
+
+	@Override
+	public AuditVO getList(int id) {
+	return mypageDao.getList(id);
+		
+		
+	}
+
 }

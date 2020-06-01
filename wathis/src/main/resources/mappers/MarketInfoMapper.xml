@@ -35,19 +35,19 @@
 	<insert id="setMaker">
 		INSERT INTO tb_maker_info SET
 			
-			marker_name=#{marker_name},
-			img_dir=#{img_dir},
-			marker_img=#{marker_img},
-			marker_email=#{marker_email},
-			marker_phone=#{marker_phone},
-			marker_kakao_id=#{marker_kakao_id},
-			marker_kakao_url=#{marker_kakao_url},
-			marker_home_page_url=#{marker_home_page_url},
-			marker_facebook_url=#{marker_facebook_url},
-			marker_twiter_url=#{marker_twiter_url},
-			marker_instagram_url=#{marker_instagram_url},
-			business_type=#{business_type},
-			bankbook_img=#{bankbook_img}
+			marker_name 	= #{marker_name},
+			img_dir 		= #{img_dir},
+			marker_img 		= #{marker_img},
+			marker_email	= #{marker_email},
+			marker_phone 	= #{marker_phone},
+			marker_kakao_id = #{marker_kakao_id},
+			marker_kakao_url		= #{marker_kakao_url},
+			marker_home_page_url	= #{marker_home_page_url},
+			marker_facebook_url 	= #{marker_facebook_url},
+			marker_twiter_url 		= #{marker_twiter_url},
+			marker_instagram_url 	= #{marker_instagram_url},
+			business_type 			= #{business_type},
+			bankbook_img 			= #{bankbook_img}
 	
 	
 	</insert>

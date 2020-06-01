@@ -35,7 +35,7 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-one">
-                        <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
                 <!-- 메이커부분 부분 -->
@@ -45,7 +45,7 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-two">
-                    <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
 				<!-- 스토리 부분 -->
@@ -55,7 +55,7 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-three">
-                     <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
                 <!-- 리워드설계 부분 -->
@@ -65,7 +65,7 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-four">
-                       <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
                 <!-- 위험 요건 및 정책  부분 -->
@@ -75,7 +75,7 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-five">
-                    <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
            

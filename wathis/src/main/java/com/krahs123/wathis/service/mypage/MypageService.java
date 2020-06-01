@@ -6,4 +6,5 @@ public interface MypageService {
 	
 	public int setItem(AuditVO auvo);
 
+	public AuditVO getList(int id);
 }

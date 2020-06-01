@@ -20,6 +20,13 @@ public class MypageDAOImpl implements MypageDAO {
 		return sql.insert(NAMESPACE + ".setItem", auvo);
 	}
 
+//	리스트 수정 페이지
+	@Override
+	public AuditVO getList(int id) {
+	return sql.selectOne(NAMESPACE +".getList", id);
+		
+	}
+
 	
 
 }

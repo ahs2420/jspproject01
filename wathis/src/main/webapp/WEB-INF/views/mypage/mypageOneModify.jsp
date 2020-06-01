@@ -16,8 +16,8 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
-        <input type="hidden" name="member_id" value="${sessionScope.id }" />
+    <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+        <input type="hidden" name="member_id" value="${sessionScope.id}" />
         <div class="ba-project">
 
             <!-- 				정보 및 요건 중간선 -->

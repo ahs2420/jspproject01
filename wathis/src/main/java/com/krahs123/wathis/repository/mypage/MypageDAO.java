@@ -7,4 +7,6 @@ public interface MypageDAO {
 	
 //	마이페이지 insert
 	public int setItem(AuditVO auvo);
+	
+	public AuditVO getList(int id);
 }

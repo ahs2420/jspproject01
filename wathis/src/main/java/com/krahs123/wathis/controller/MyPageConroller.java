@@ -41,11 +41,27 @@ public class MyPageConroller {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "prepare");
+
 		
 		mav.setViewName(DIR+"mypage");
 		return mav;
 	}
 
+	
+// 마이페이지 리스트 수정 및 보여지는 페이지
+	@RequestMapping("/mypageModify")
+	public ModelAndView getListModify(@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
+		AuditVO auvo = mypageService.getList(id);
+		
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "modify");
+		
+		mav.setViewName(DIR+"mypage");
+		return mav;
+	}
+
+	
 	//	기본 요건 부분
 	@RequestMapping("/mypage-one")
 	public ModelAndView viewMypageOne(){
@@ -108,6 +124,13 @@ public class MyPageConroller {
 	}
 
 	
+//		
+	
+	
+	
+	
+	
+	
 	
 	
 	@RequestMapping("/mypage-two")
@@ -117,7 +140,7 @@ public class MyPageConroller {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
-		mav.addObject("mypage", "");
+//		mav.addObject("mypage", "");
 		mav.setViewName(DIR+"mypage");
 		
 		return mav;

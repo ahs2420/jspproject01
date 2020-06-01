@@ -31,7 +31,8 @@
 	
 	</select>
 	<select id="getList" resultType="auditvo">
-	
+		SELECT * FROM tb_audit WHERE id = #{id}
+		
 	</select>
 	<select id="getOne" resultType="auditvo">
 	

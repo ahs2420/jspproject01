@@ -158,6 +158,10 @@
             <%@ include file = "mypageList.jsp" %>
         </c:if>
         
+        <c:if test="${template eq 'Reward' && mypage eq 'modify'}">
+            <%@ include file = "mypageListModify.jsp" %>
+        </c:if>
+        
         <!-- 기본 요건 가는 부분 -->
         <c:if test="${template eq 'Reward' && mypage eq 'information'}">
             <%@ include file = "mypageOne.jsp" %>

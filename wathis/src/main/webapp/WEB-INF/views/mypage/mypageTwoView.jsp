@@ -11,7 +11,7 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    <form action="/page/mypageTwo" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
         <input type="hidden" name="member_id" value="${sessionScope.id }" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->
@@ -320,7 +320,7 @@
                                         type="text" id="projectprice" placeholder="공통 대표자 이메일 입력"> <span
                                         class="add-btn ">
                                         <button
-                                            class="hei1 fon-bor1 text-padding3 box-back4 cu-poin fon-wei1">추가</button>
+                                            class="hei1 fon-bor1 text-padding3 box-back4 fon-co9 cu-poin fon-wei1">추가</button>
                                     </span>
                                 </div>
                             </div>
