@@ -211,22 +211,10 @@
                                 <input type="file" id="file1">
                             </div> -->
                         <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
-                            <option value="0">주요 카테고리별 작성 예시</option>
-                            <option value="1">의류</option>
-                            <option value="2">구두/신발</option>
-                            <option value="3">가방</option>
-                            <option value="4">패션잡화(모자/벨트.액세서리)</option>
-                            <option value="5">침구류/커튼</option>
-                            <option value="6">가구(침대/소파/싱크대/DTY제품)</option>
-                            <option value="7">주방용품</option>
-                            <option value="8">화장품</option>
-                            <option value="9">귀금속/보석/시계류</option>
-                            <option value="10">식품(농・축・수산물)</option>
-                            <option value="11">건강 기능 식품</option>
-                            <option value="12">가공식품</option>
-                            <option value="13">영유아 용품</option>
-                            <option value="14">서적</option>
-                            <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option>
+                            <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)" delims="|" var="item" varStatus="vs">
+                            	<option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">selected</c:if> >${item}</option>
+                            	
+                            </c:forTokens>
                         </select>
                         <textarea id="editor1" name="content Policy_Agreement" class="ckeditor"></textarea>
                         <script>
@@ -335,7 +323,7 @@
         </div>
         <!-- 8번 -->
         <div class="end-radio">
-            <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1">
+            <input class="end-box" name="policy_agreement" type="checkbox" id="end-radio" value="1">
 
             <label for="end-radio">
                 <span class="fon-siz1 fon-co3 text-padding2">

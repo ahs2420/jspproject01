@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mappers.MarketInfoMapper">
-	<select id="getAll" resultType="marketinfovo">
+<mapper namespace="mappers.MarkerInfoMapper">
+	<select id="getAll" resultType="markerinfovo">
 		SELECT 
 			id,
 			audit_id,
@@ -26,15 +26,17 @@
 	<select id="getCount" resultType="int">
 	
 	</select>
-	<select id="getList" resultType="marketinfovo">
+	<select id="getList" resultType="markerinfovo">
 		
 	
 	</select>
-	<select id="getOne" resultType="marketinfovo">
+	<select id="getOne" resultType="markerinfovo">
 	
 	</select>
 	<insert id="setMaker">
+	
 		INSERT INTO tb_maker_info SET
+			audit_id 	= #{audit_id},
 			marker_name 	= #{marker_name},
 			img_dir 		= #{img_dir},
 			marker_img 		= #{marker_img},

@@ -1,6 +1,6 @@
 package com.krahs123.wathis.model;
 
-public class MaketInfoVO {
+public class MakerInfoVO {
 //메이커 정보
 //	+----------------------+------------------+------+-----+-------------------+-------------------+
 //	| Field                | Type             | Null | Key | Default           | Extra             |

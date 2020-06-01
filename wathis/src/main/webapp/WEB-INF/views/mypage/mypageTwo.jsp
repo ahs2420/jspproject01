@@ -11,8 +11,9 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageListModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+    <form action="/page/mypageTwo" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
         <input type="hidden" name="member_id" value="${sessionScope.id }" />
+        <input type="hidden" name="audit_id" value="${audit_id }" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->
         <div class="basic-box">
@@ -70,7 +71,7 @@
                         </label><br>
                         <div class="file-box mar-top3">
                             <label for="file1"><i class="fas fa-camera fon-co9"></i>
-                                등록하기</label> <input type="file" id="file1" name="img_dir">
+                                등록하기</label> <input type="file" id="file1" name="img_didi">
                         </div>
                         <p class="fon-siz4 fon-col mar-top5">3MB이하의 JPEG, PNG파일, 사이즈:
                             300X300 픽셀 이상</p>
@@ -179,10 +180,12 @@
                         <div class="mar-bo2 wid4 ">
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1 marker_home_page_url">
                                 <h4 class="di-in1">홈페이지</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
-                            </label> <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
-                                id="projectprice" placeholder="홈페이지 URL 입력">
-                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="홈페이지 URL 입력">
+                            </label> 
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice" placeholder="홈페이지 URL 입력"
+                             name="marker_home_pageTwo_url[]">
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice" placeholder="홈페이지 URL 입력"
+                             name="marker_home_pageTwo_url[]"
+                             >
 
                         </div>
                         <div class="ba-guide6">
@@ -264,7 +267,7 @@
                             </label><br>
                             <div class="file-box mar-top4">
                                 <label for="file1"><i class="fas fa-file-upload fon-co9"></i>
-                                    업로드</label> <input type="file" id="file1" name="bankbook_img">
+                                    업로드</label> <input type="file" id="file1" name="bank_img">
                             </div>
                             <p class="fon-siz3 fon-col mar-top5">펀딩 성공 시 펀딩 금액을 수령할 법인
                                 명의의 계좌 사본을 첨부하세요.</p>

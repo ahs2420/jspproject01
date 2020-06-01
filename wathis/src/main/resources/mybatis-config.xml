@@ -23,7 +23,7 @@
 		<typeAlias type="com.krahs123.wathis.model.BoardVO" alias="boardvo"/>
 		<typeAlias type="com.krahs123.wathis.model.CategoryVO" alias="categoryvo"/>
 		<typeAlias type="com.krahs123.wathis.model.CommentVO" alias="commentvo"/>
-		<typeAlias type="com.krahs123.wathis.model.MaketInfoVO" alias="marketinfovo"/>
+		<typeAlias type="com.krahs123.wathis.model.MakerInfoVO" alias="markerinfovo"/>
 		<typeAlias type="com.krahs123.wathis.model.MemberVO" alias="membervo"/>
 		<typeAlias type="com.krahs123.wathis.model.MemberAddrVO" alias="memberaddrvo"/>
 		<typeAlias type="com.krahs123.wathis.model.MenuVO" alias="menuvo"/>

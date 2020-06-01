@@ -21,18 +21,22 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.krahs123.wathis.model.AuditVO;
-import com.krahs123.wathis.model.MaketInfoVO;
+import com.krahs123.wathis.model.CategoryVO;
+import com.krahs123.wathis.model.MakerInfoVO;
+import com.krahs123.wathis.service.category.CategoryService;
 import com.krahs123.wathis.service.mypage.MypageService;
-import com.krahs123.wathis.service.mypage.MypageTwoService;
+import com.krahs123.wathis.service.product.MakerInfoService;
 
 @Controller
 @RequestMapping("/page")
 public class MyPageConroller {
 	
 	@Autowired MypageService mypageService;
+
 	
-	@Autowired MypageTwoService mpTwoService;
+	@Autowired MakerInfoService makerSer;
 	
+	@Autowired CategoryService cateSer;
 	
 	final String DIR ="/mypage/";
 	
@@ -47,12 +51,12 @@ public class MyPageConroller {
 		return mav;
 	}
 
-	
+
 // 마이페이지 리스트 수정 및 보여지는 페이지
 	@RequestMapping("/mypageListModify")
 	public ModelAndView getListModify() {
 		ModelAndView mav = new ModelAndView();
-//		AuditVO auvo = mypageService.getList(id);
+
 		
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
@@ -63,7 +67,7 @@ public class MyPageConroller {
 	
 
 	
-	//	기본 요건 부분
+	//	기본 요건 부분 보여지는 부분
 	@RequestMapping("/mypage-one")
 	public ModelAndView viewMypageOne(){
 		
@@ -76,12 +80,14 @@ public class MyPageConroller {
 	}
 
 	// 기본요건부분 수정 부분
-	@RequestMapping("/getList")
+	@RequestMapping("/mypageOneModify")
 	public ModelAndView getList(@RequestParam int id ){
+		AuditVO auvo = mypageService.getList(id);
 		
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "modify");
+			mav.addObject("oneModi", auvo);
 			
 			mav.setViewName(DIR+"mypage");
 			return mav;
@@ -96,8 +102,9 @@ public class MyPageConroller {
 			
 		}else {
 			//파일 저장할 주소
-			DefaultResourceLoader drl = new DefaultResourceLoader();
-			Resource resource = drl.getResource("classpath:/static");//파일경로 설정을 할때 이렇게 설정 해야지 다른 컴퓨터 작업 할때 경로가 안 바뀐다. 저절로 찾아 간다.
+			DefaultResourceLoader drl = new DefaultResourceLoader();		
+			Resource resource=drl.getResource("file:src/main/resources/static");//파일 경로가 안보이는 곳으로 가서 임시로 변경..
+
 			String rootPath = resource.getFile().getAbsolutePath();
 			String Required_documents_url ="/hongimages/mypageOneImg/";
 			
@@ -138,21 +145,122 @@ public class MyPageConroller {
 
 	
 	@RequestMapping("/mypage-two")
-	public ModelAndView viewMypageTwo(@ModelAttribute MaketInfoVO mfvo) {
-		int mkvo = mpTwoService.setMaker(mfvo);
+	public ModelAndView viewMypageTwo(@RequestParam int audit_id) {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
-		mav.setViewName(DIR+"mypageOne");
+		mav.addObject("audit_id", audit_id);
+			
+		
+		mav.setViewName(DIR+"mypage");
 		
 		return mav;
+	}
+	
+	@RequestMapping("/mypageTwo")
+	@ResponseBody
+	public String setMaker(@ModelAttribute MakerInfoVO mkvo , @RequestPart MultipartFile img_didi,@RequestPart MultipartFile bank_img,
+			@RequestParam(value ="marker_home_pageTwo_url[]") List<String> homepage) throws IllegalStateException, IOException {
+
+		StringBuilder sb = new StringBuilder();
+		StringBuilder st = new StringBuilder();
+		
+		DefaultResourceLoader drl = new DefaultResourceLoader();
+		Resource resource=drl.getResource("file:src/main/resources/static");//파일 경로가 안보이는 곳으로 가서 임시로 변경..
+		String rootPath = resource.getFile().getAbsolutePath();
+		String Required_documents_url ="/hongimages/mypageOneImg/";
+		
+		for( int i = 0; i < homepage.size(); i++ ) {
+			st.append(homepage.get(i)+"|");
+			
+		}
+		mkvo.setMarker_home_page_url(st.toString());
+		
+		if( !img_didi.isEmpty() ) {
+
+			//파일 저장할 주소
+		
+			
+			String Required_documents_orgName = img_didi.getOriginalFilename();
+			String RequiredDocumentsName = FilenameUtils.getExtension(Required_documents_orgName).toLowerCase();
+	
+			File destinationFile  = null;
+			String destinationFileName;
+			
+			do{
+				destinationFileName = RandomStringUtils.randomAlphanumeric(32)+ "."+ RequiredDocumentsName;
+				destinationFile = new File(rootPath+Required_documents_url + destinationFileName);
+			
+			
+			}while(destinationFile.exists());
+				
+			destinationFile.getParentFile().mkdirs();
+			img_didi.transferTo(destinationFile);
+			
+			mkvo.setMarker_img(Required_documents_url +destinationFileName );
+			
+		}else {
+			sb.append("<scrip>");
+			sb.append("alert(\"사진을넣어주세요.\");");
+			sb.append("window.history.back();");
+			sb.append("</scrip>");
+			
+			return sb.toString();
+		}
+		
+		if( !bank_img.isEmpty() ) {
+			
+	//파일 저장할 주소
+		
+			
+			String Required_documents_orgName = bank_img.getOriginalFilename();
+			String RequiredDocumentsName = FilenameUtils.getExtension(Required_documents_orgName).toLowerCase();
+	
+			File destinationFile  = null;
+			String destinationFileName;
+			
+			do{
+				destinationFileName = RandomStringUtils.randomAlphanumeric(32)+ "."+ RequiredDocumentsName;
+				destinationFile = new File(rootPath+Required_documents_url + destinationFileName);
+			
+			
+			}while(destinationFile.exists());
+				
+			destinationFile.getParentFile().mkdirs();
+			bank_img.transferTo(destinationFile);
+			
+			mkvo.setBankbook_img(Required_documents_url +destinationFileName );
+		}else {
+			sb.append("<scrip>");
+			sb.append("alert(\"사진을넣어주세요.\");");
+			sb.append("window.history.back();");
+			sb.append("</scrip>");
+
+			
+			return sb.toString();
+			
+		}
+		
+		int result = makerSer.setMaker(mkvo);
+
+		sb.append("<scrip>");
+		sb.append("alert(\"등록 되었습니다.\");");
+		sb.append("location.replace('/page/mypageListModify');");
+		sb.append("</scrip>");
+
+		
+		return sb.toString();
+		
 	}
 
 	@RequestMapping("/mypage-three")
 	public ModelAndView viewMypageThree(){
 			ModelAndView mav = new ModelAndView();
+			List<CategoryVO> cate = cateSer.getCateList();
+			
 			mav.addObject("template", "Reward");
+			mav.addObject("cate", cate);
 			mav.addObject("mypage", "story");
 			
 			mav.setViewName(DIR+"mypage");

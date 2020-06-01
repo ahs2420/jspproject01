@@ -17,7 +17,8 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
-        <input type="hidden" name="id" value="${paone.id}" />
+        <input type="hidden" name="id" value="${oneModi.id}" />
+        <input type="hidden" name="id" value="${oneModi.id}" />
         <div class="ba-project">
 
             <!-- 				정보 및 요건 중간선 -->
@@ -64,14 +65,14 @@
                             유통 중인가요? <span class="fon-co5"> *</span></label>
                         </p>
                         <div class="radio-box mar-bo5 mar-top4">
-                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no" value="0"> <label
+                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no" value="0" <c:if test="${oneModi.circulation_chk eq '0' }">checked</c:if>> <label
                                 for="ra-q1-no">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
                                     곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
                             </label>
                         </div>
                         <div class="radio-box mar-bo3 mar-top4">
-                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q2-yes" value="1">
+                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q2-yes" value="1" <c:if test="${oneModi.circulation_chk eq '1' }">checked</c:if>>
                             <label for="ra-q2-yes">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">
                                     예. 다른 곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
@@ -124,12 +125,14 @@
                                 가능량을 포함한 앞으로의 생상 계획을 작성해주세요. <br> 2) 공연,영화, 전시 등 무형 서비스인
                                 경우, 장소 대관, 촬영 일정 등의 현재 준비 상태 및 앞으로의 계획을 작성해 주세요.
                             </p>
+                            <c:forEach var="oneModi" items="${AuitVO}">
                             <div class="text-area">
                                 <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
-                                    placeholder="내용을 입력하세요." class="Preparations_plan"></textarea>
+                                    placeholder="내용을 입력하세요." class="Preparations_plan">${oneModi.preparations_plan}</textarea>
                                 <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
                             </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -175,7 +178,7 @@
                                 <textarea name="relay_plan" id=" " cols="30" rows="3" maxlength="500"
                                     class="relay_plan noresize"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
-                                    placeholder="내용을 입력하세요."></textarea>
+                                    placeholder="내용을 입력하세요.">${oneModi.relay_plan}</textarea>
                                 <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[ 0 자 작성 / 최대 500자]</p>
                             </div>
                         </div>
@@ -211,24 +214,27 @@
                                 <input type="file" id="file1">
                             </div> -->
                         <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
-                            <option value="0">주요 카테고리별 작성 예시</option>
-                            <option value="1">의류</option>
-                            <option value="2">구두/신발</option>
-                            <option value="3">가방</option>
-                            <option value="4">패션잡화(모자/벨트.액세서리)</option>
-                            <option value="5">침구류/커튼</option>
-                            <option value="6">가구(침대/소파/싱크대/DTY제품)</option>
-                            <option value="7">주방용품</option>
-                            <option value="8">화장품</option>
-                            <option value="9">귀금속/보석/시계류</option>
-                            <option value="10">식품(농・축・수산물)</option>
-                            <option value="11">건강 기능 식품</option>
-                            <option value="12">가공식품</option>
-                            <option value="13">영유아 용품</option>
-                            <option value="14">서적</option>
-                            <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option>
+                            <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)" delims="|" var="item" varStatus="vs">
+                            	<option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">selected</c:if> >${item}</option>
+                            	
+                            </c:forTokens>
+<!--                             <option value="1">의류</option> -->
+<!--                             <option value="2">구두/신발</option> -->
+<!--                             <option value="3">가방</option> -->
+<!--                             <option value="4">패션잡화(모자/벨트.액세서리)</option> -->
+<!--                             <option value="5">침구류/커튼</option> -->
+<!--                             <option value="6">가구(침대/소파/싱크대/DTY제품)</option> -->
+<!--                             <option value="7">주방용품</option> -->
+<!--                             <option value="8">화장품</option> -->
+<!--                             <option value="9">귀금속/보석/시계류</option> -->
+<!--                             <option value="10">식품(농・축・수산물)</option> -->
+<!--                             <option value="11">건강 기능 식품</option> -->
+<!--                             <option value="12">가공식품</option> -->
+<!--                             <option value="13">영유아 용품</option> -->
+<!--                             <option value="14">서적</option> -->
+<!--                             <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option> -->
                         </select>
-                        <textarea id="editor1" name="content Policy_Agreement" class="ckeditor"></textarea>
+                        <textarea id="editor1" name="content Policy_Agreement" class="ckeditor">${oneModi.reword_info}</textarea>
                         <script>
                             CKEDITOR.replace('editor1', {
                                 customConfig: '/plugin/ckeditor/config.js',
@@ -335,7 +341,7 @@
         </div>
         <!-- 8번 -->
         <div class="end-radio">
-            <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1">
+            <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1" disabled <c:if test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
 
             <label for="end-radio">
                 <span class="fon-siz1 fon-co3 text-padding2">

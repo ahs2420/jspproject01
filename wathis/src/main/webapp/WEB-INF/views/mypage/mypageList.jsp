@@ -35,7 +35,7 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-one">
-                        <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
                 <!-- 메이커부분 부분 -->

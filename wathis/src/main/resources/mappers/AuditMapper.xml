@@ -40,6 +40,8 @@
 	
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
+		
+			member_id = #{member_id},
 			circulation_chk 		= #{circulation_chk},
 			circulation_content 	= #{circulation_content},
 			preparations_plan 		= #{preparations_plan},

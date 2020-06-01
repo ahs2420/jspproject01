@@ -10,6 +10,10 @@
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
 
+<link rel="stylesheet" href="/css/datepicker/daterangepicker.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+<script src="/js/datepicker/jquery.daterangepicker.min.js"></script>
+
 <!-- CK -->
 <script src="/plugin/ckeditor/ckeditor.js"></script>
 
@@ -199,22 +203,10 @@
 						<select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="" id="project-ka">
 
 							<option value="">카테고리선택</option>
-							<option value="">테크.가전</option>
-							<option value="">패션,잡화</option>
-							<option value="">뷰티</option>
-							<option value="">푸드</option>
-							<option value="">홈리빙</option>
-							<option value="">디자인소품</option>
-							<option value="">여행.레저</option>
-							<option value="">스포츠,모빌리티</option>
-							<option value="">반려동물</option>
-							<option value="">모임</option>
-							<option value="">공연,컬쳐</option>
-							<option value="">소셜,캠페인</option>
-							<option value="">교육,키즈</option>
-							<option value="">게임,취미</option>
-							<option value="">출판</option>
-							<option value="">기부,후원</option>
+							<c:forEach items="${cate}" var="cate">
+							<option value="${cate.id}">${cate.title}</option>
+							
+							</c:forEach>
 						</select>
 					</div>
 					<div class="ba-guide4">

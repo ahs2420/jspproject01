@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.krahs123.wathis.model.MaketInfoVO;
+import com.krahs123.wathis.model.MakerInfoVO;
 
 @Repository
 public class MypageTwoDAOImpl implements MypageTwoDAO{
@@ -15,7 +15,7 @@ public class MypageTwoDAOImpl implements MypageTwoDAO{
 	final static String NAMESPACE = "mappers.MarketInfoMapper";
 
 	@Override
-	public int setMaker(MaketInfoVO mfvo) {
+	public int setMaker(MakerInfoVO mfvo) {
 		
 		return sql.insert(NAMESPACE + ".setMaker" ,mfvo);
 	}
