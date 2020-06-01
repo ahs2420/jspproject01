@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="메인페이지">
-    <meta name="keywords" content="클라우드펀딩,ㄴㄴㄴ">
+    <meta name="keywords" content="${headConfig.siteKey.content}">
 
-    <link rel="shortcut icon" href="/images/common/favicon.png" type="image/x-icon">
-    <meta name="og:title" content="와디스-메인"> 
-    <meta name="og:description" content="클라우드펀딩">
+    <link rel="shortcut icon" href="${headConfig.favicon.content}" type="image/x-icon">
+    <meta name="og:title" content="${headConfig.siteName.content}"> 
+    <meta name="og:description" content="${headConfig.siteDesc.content}">
     <meta property="og:url" content="./index.html" />
     <meta property="og:type" content="website" />
-    <meta name="og:image" content="/images/common/favicon.png">
+    <meta name="og:image" content="${headConfig.favicon.content}">
 
-    <meta name="twitter:title" content="와디스-메인"> 
-    <meta name="twitter:description" content="클라우드펀딩">
-    <meta name="twitter:image" content="/images/common/favicon.png">
+    <meta name="twitter:title" content="${headConfig.siteName.content}"> 
+    <meta name="twitter:description" content="${headConfig.siteDesc.content}">
+    <meta name="twitter:image" content="${headConfig.favicon.content}">
     <meta name="twitter:card" content="photo " />
 
-    <title>와디스 메인</title>
+    <title>${headConfig.siteName.content}</title>
     <link rel="stylesheet" href="/css/owl/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl/owl.theme.default.css">
     <link rel="stylesheet" href="/css/reset.css">

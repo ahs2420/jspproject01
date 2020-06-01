@@ -17,5 +17,7 @@ public interface PopupService {
 	public int deletePopup(int id);
 	//팝업 수정
 	public int getPopupModify(PopupVO pvo);
+	//팝업 표시
+	public List<PopupVO> getDisplayList(String display);
 
 }

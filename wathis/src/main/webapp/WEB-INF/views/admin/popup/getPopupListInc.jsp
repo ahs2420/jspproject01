@@ -102,12 +102,12 @@
 	             </span>
          	</c:forEach>
              <!--마지막 페이지가 전체 페이지수 보다 작을 때만 출력-->
-         	<c:if test="${paging.endPage < paging.pageNum}">
+         	<c:if test="${paging.endPage < paging.pageCnt}">
 	             <span class="">
 	                 <a href="/popup?template=popup&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.endPage+1 }" class="page-number board-page-number">></a>
 	             </span>
 	             <span class="">
-	                 <a href="/popup?template=popup&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.pageNum}" class="page-number board-page-number">>></a>
+	                 <a href="/popup?template=popup&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.pageCnt}" class="page-number board-page-number">>></a>
 	             </span>
              </c:if>
          </div>

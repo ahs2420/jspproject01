@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.Member">
+	<sql id="getInclude">
+		WHERE
+		<choose>
+			<when test="searchOpt == 'all'">
+				uname like CONCAT('%',#{words},'%') or uid like CONCAT('%',#{words},'%') or uemail like CONCAT('%',#{words},'%') 
+			</when>
+			<otherwise>
+				${searchOpt} like CONCAT('%',#{words},'%')
+			</otherwise>
+		</choose>
+	</sql>
 	<select id="getAll" resultType="membervo">
 		SELECT 
 			id,
@@ -26,11 +37,45 @@
 				
 		WHERE uid = #{uid} AND upassword = #{upassword}
 	</select>
-	<select id="getCount" resultType="int">
+	<select id="getMemberCount" resultType="int">
+		SELECT 
+			count(id)
+		FROM tb_member
+		<include refid="getInclude"></include>
+	</select>
+	<select id="getMemberList" resultType="membervo">
+		SELECT 
+			id,
+			uid,
+			uname,
+			utel,
+			uemail,
+			ugroup,
+			uimg,
+			status,
+			reg_date
+		FROM tb_member
+		<include refid="getInclude"></include>
+		ORDER BY id DESC
+		Limit ${pageStart},${pagePer}
 	
 	</select>
-	<select id="getList" resultType="membervo">
-	
+	<select id="getMemberDetail" resultType="membervo">
+		SELECT 
+			id,
+			uid,
+			upassword,
+			sns_type,
+			sns_id,
+			uname,
+			utel,
+			uemail,
+			ugroup,
+			uimg,
+			status,
+			reg_date
+		FROM tb_member
+		WHERE id =#{id}
 	</select>
 	<select id="getOne" resultType="membervo">
 		SELECT 
@@ -47,24 +92,23 @@
 			uname = #{uname},
 			uemail = #{uemail}
 	</insert>
-	<update id="updateItem">
-		UPADTE tb_member SET
-			id 			= #{id},
-			uid 		= #{uid},
-			upassword 	= #{upassword},
-			sns_type 	= #{sns_type},
-			sns_id 		= #{sns_id},
+	<update id="updateMember">
+		UPDATE tb_member SET
 			uname 		= #{uname},
 			utel 		= #{utel},
 			uemail 		= #{uemail},
 			ugroup 		= #{ugroup},
 			uimg 		= #{uimg},
-			status 		= #{status},
-			reg_date 	= #{reg_date}
+			status 		= #{status}
 		WHERE id 		= #{id}
 	</update>
-	<delete id="deleteItem">
-		DELETE FORM tb_member
+	<update id="updateAuthMember">
+		UPDATE tb_member SET
+			ugroup 		= #{ugroup}
+		WHERE id 		= #{id}
+	</update>
+	<delete id="deleteMember">
+		DELETE FROM tb_member
 		WHERE id=#{id}
 	</delete>
 </mapper>

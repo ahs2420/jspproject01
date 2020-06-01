@@ -53,4 +53,9 @@ public class PopupDAOImpl implements PopupDAO{
 		// TODO Auto-generated method stub
 		return sql.update(NAMESPACE+".getPopupModify",pvo);
 	}
+	@Override
+	public List<PopupVO> getDisplayList(String display) {
+		// TODO Auto-generated method stub
+		return sql.selectList(NAMESPACE+".getDisplayList",display);
+	}
 }

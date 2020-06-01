@@ -14,22 +14,22 @@
         <!--팝업 이미지-->
         <div class="hero">
             <div class="owl-carousel owl-hero owl-theme">
-                <c:forEach begin="1" end="3" var="i">
+                <c:forEach items="${popupList}" var="popvo">
                     <!--팝업 아이템-->
                     <div class="item">
                         <!--팝업 이동 주소-->
-                        <a href="/product/product">
+                        <a href="${popvo.url}">
                             <div class="bg-hero-cover">
                                 <!--팝업 이미지-->
-                                <div class="bg-img bg-main" style="background-image: url(/images/main/main_${i}.jpg);">
+                                <div class="bg-img bg-main" style="background-image: url(${popvo.img});">
                                 </div>
                                 <div class="container bg-txt">
                                     <div class="hero-text-box">
                                         <div class="small-title"></div>
                                         <!--팝업 타이틀-->
-                                        <h1 class="title mb20">잘 먹고 잘 쉬기<br>만원 혜택 받고 시작해요</h1>
+                                        <h1 class="title mb20">${popvo.title}</h1>
                                         <!--팝업 분류-->
-                                        <div class="sub-title">IT</div>
+                                        <div class="sub-title">${popvo.subtitle}</div>
                                     </div>
                                 </div>
                             </div>
@@ -43,11 +43,6 @@
                 <div class="owl_hero_dots owl-dots"></div>
                 <div class="owl_hero_nav owl-dots"></div>
             </div>
-        </div>
-        <!--슬라이더 버튼-->
-        <div class="owl_hero_cotainer container flex-box flex-j-space flex-a-flexend">
-            <div class="owl_hero_dots owl-dots"></div>
-            <div class="owl_hero_nav owl-dots"></div>
         </div>
     </div>
 </header>

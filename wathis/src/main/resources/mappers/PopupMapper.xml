@@ -37,8 +37,18 @@
 		<include refid="getInclude"></include>
 	
 	</select>
-	<select id="getList" resultType="popupvo">
-	
+	<select id="getDisplayList" resultType="popupvo">
+		SELECT 
+			title,
+			subtitle,
+			img,
+			url
+		FROM tb_popup
+		WHERE
+			display =#{display} AND
+			NOW() BETWEEN start_date AND end_date
+			AND status = 1
+		ORDER BY id DESC
 	</select>
 	<select id="getPopupDetail" resultType="popupvo">
 		

@@ -20,21 +20,21 @@
 		<%@ include file="/WEB-INF/views/include/nav.jspf"%>
     <div class="hero">
         <div class="owl-carousel owl-hero owl-theme">
-            <c:forEach begin="1" end="3" var="i">
+			<c:forEach items="${popupList}" var="popvo">
                 <!--팝업 아이템-->
                 <div class="item">
                     <!--팝업 이동 주소-->
-                    <a href="/product/product">
+                    <a href="${popvo.url}">
                         <div class="bg-hero-cover">
                             <!--팝업 이미지-->
-                            <div class="bg-img bg-main" style="background-image: url(/xkfqkfimages/${i}.jpg);"></div>
+                            <div class="bg-img bg-main" style="background-image: url(${popvo.img});"></div>
                             <div class="container bg-txt">
                                 <div class="hero-text-box">
                                     <div class="small-title"></div>
                                     <!--팝업 타이틀-->
-                                    <h1 class="title mb10">놓치면 끝<br>마감 임박 모음</h1>
+                                    <h1 class="title mb10">${popvo.title}</h1>
                                     <!--팝업 분류-->
-                                    <div class="sub-title">IT</div>
+                                    <div class="sub-title">${popvo.subtitle}</div>
                                 </div>
                             </div>
                         </div>

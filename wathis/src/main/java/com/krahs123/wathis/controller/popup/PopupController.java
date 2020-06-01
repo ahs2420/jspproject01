@@ -128,6 +128,14 @@ public class PopupController {
 		return map;
 		
 	}
+	//팝업삭제
+	@RequestMapping("/setPopupDelete")
+	public ModelAndView setPopupDeleteDO(@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
+		int result = this.setPopupDelete(id);
+		mav.setViewName("redirect:/popup");
+		return mav;
+	}
 	//팝업 삭제 공통(실제 실행부분)
 	public int setPopupDelete(@RequestParam int id) {
 		PopupVO pvo = popupService.getPopupDetail(id);
@@ -161,6 +169,18 @@ public class PopupController {
 		}
 		int result = popupService.getPopupModify(pvo);
 		mav.setViewName("redirect:/popup");
+		return mav;
+	}
+	//팝업 상세
+	@RequestMapping( "/getPopup")
+	public ModelAndView getPopupView(@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
+		PopupVO pvo =  popupService.getPopupDetail(id);
+		mav.addObject("status", DbStatus.popupStatus);
+		mav.addObject("pvo", pvo);
+		mav.addObject("template", "popup");
+		mav.addObject("mypage", "view");
+		mav.setViewName("/admin/admin");
 		return mav;
 	}
 }

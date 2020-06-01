@@ -24,6 +24,7 @@ import com.krahs123.wathis.model.BoardVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.service.article.ArticleService;
 import com.krahs123.wathis.service.menu.MenuService;
+import com.krahs123.wathis.service.siteConfig.SiteConfigService;
 import com.krahs123.wathis.util.FileControl;
 
 
@@ -36,6 +37,8 @@ public class AtricleController {
 	ArticleService articleService;
 	@Autowired
 	MenuService menuService;
+	@Autowired
+	SiteConfigService siteService;
 	//리스트
 	@RequestMapping("")
 	public ModelAndView viewArticleList(
@@ -66,6 +69,10 @@ public class AtricleController {
 		List<ArticleVO> avoList = articleService.getArticleList(boardCode,searchOpt,words,pageStart,pagePer);
 
 		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
 		mav.addObject("template", bvo.getBoardListTemplate());
 		mav.addObject("mypage", "list");
@@ -85,6 +92,10 @@ public class AtricleController {
 		ModelAndView mav = new ModelAndView();
 		BoardVO bvo = articleService.getBoardConfig(boardCode);
 		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
 		mav.addObject("bvo", bvo);
 		mav.addObject("template", "setArticle.jsp");
@@ -99,7 +110,7 @@ public class AtricleController {
 		StringBuilder sb = new StringBuilder();
 		FileControl fileAdd = new FileControl();
 		Map<String,Object> fileResult = fileAdd.fileUpload(files, "img",null);
-		String msg="게시물이 등록 되었습니다."+fileResult.get("msg");
+		String msg="게시물이 등록 되었습니다.";
 		String url="/article?boardCode="+avo.getBoardCode();
 		if(!files.isEmpty()) {
 			if((boolean)fileResult.get("status")) {
@@ -159,6 +170,10 @@ public class AtricleController {
 		ArticleVO resultVO = articleService.getArticleDetail(boardCode,id); 
 		ArticleVO nextVO = articleService.getArticleNext(boardCode, id); 
 		ArticleVO prevVO = articleService.getArticlePrev(boardCode, id);
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
 		mav.addObject("template", bvo.getBoardContentTemplate());
 		mav.addObject("mypage", "content");
 		mav.addObject("bvo", bvo); 
@@ -271,6 +286,10 @@ public class AtricleController {
 		BoardVO bvo = articleService.getBoardConfig(boardCode);
 		ArticleVO avo = articleService.getArticleDetail(boardCode, id);
 		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
 		mav.addObject("bvo",bvo);
 		mav.addObject("avo",avo);

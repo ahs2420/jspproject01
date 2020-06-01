@@ -1,41 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.SiteConfigMapper">
-	<select id="getAll" resultType="siteconfigvo">
+	<select id="getSiteConfigList" resultType="siteconfigvo">
 		SELECT 
-			id,      
+			id,   
+			group_id,   
 			title,   
 			content, 
 			reg_date
 		FROM tb_site_config
+		ORDER BY group_id,id DESC
+	</select>
+	<select id="getSiteConfigGroupList" resultType="String">
+		SELECT    
+			DISTINCT(group_id)
+		FROM tb_site_config
 		ORDER BY id DESC
 	</select>
-	<select id="getCount" resultType="int">
-	
+	<select id="getSiteConfigTitleChk" resultType="int">
+		SELECT   count(id)
+		FROM tb_site_config
+		WHERE group_id=#{group_id} and title=#{title}
 	</select>
-	<select id="getList" resultType="siteconfigvo">
-	
+	<select id="getSiteConfigGroup" resultType="map">
+		SELECT    
+			title,   
+			content
+		FROM tb_site_config
+		WHERE
+			group_id=#{group_id}
+		ORDER BY id DESC
 	</select>
-	<select id="getOne" resultType="siteconfigvo">
-	
+	<select id="getSiteConfigDetail" resultType="siteconfigvo">
+		SELECT 
+			id,   
+			group_id,   
+			title,   
+			content, 
+			reg_date
+		FROM tb_site_config
+		WHERE
+			id=#{id}
 	</select>
-	<insert id="setItem">
+	<insert id="setSiteConfig">
 		INSERT INTO tb_site_config
 		SET
-			id = #{id},
+			group_id=#{group_id},
 			title  = #{title},  
-			content = #{content}, 
-			reg_date = #{reg_date}
+			content = #{content} 
 	</insert>
-	<update id="updateItem">
-		UPADTE tb_site_config SET
+	<update id="updateSiteConfig">
+		UPDATE tb_site_config SET
+			group_id=#{group_id},
 			title  = #{title},
-			content = #{content}, 
-			reg_date = #{reg_date},
+			content = #{content}
 		WHERE id = #{id}
 	</update>
-	<delete id="deleteItem">
-		DELETE FORM tb_site_config
+	<delete id="deleteSiteConfig">
+		DELETE FROM tb_site_config
 		WHERE id = #{id}
 	</delete>
 </mapper>

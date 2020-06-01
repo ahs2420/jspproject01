@@ -17,23 +17,23 @@
         <div class="footer-box"> 
             <div class="container flex-box flex-j-space flex-a-center flex-wrap">
                 <div class="footer-item pt30 pb30">
-                    <p>와디스 대표 고객센터</p>
+                    <p>${headConfig.siteName.content} 대표 고객센터</p>
                     <div>
-                        <a href="tel:010-1234-1234">010-1234-1234</a>
+                        <a href="tel:${footConfig.tel.content}">${footConfig.tel.content}</a>
                         <span class="gray ml5">
-                        | 카카오 채널@와디스
+                        | ${footConfig.kakao.content}
                         </span>
                         <span class="gray ml5">
-                        | <a href="mailto:admin@krahs123.co.kr">admin@krahs123.co.kr</a>
+                        | <a href="mailto:${footConfig.email.content}">${footConfig.email.content}</a>
                         </span>
                         <span class="gray ml5">
-                        | 멤버십 고객센터 <a href="tel:010-4567-1234">010-4567-1234</a>
+                        | 멤버십 고객센터 <a href="tel:${footConfig.ars.content}">${footConfig.ars.content}</a>
                         </span>
                     </div>
                 </div>
                 <div class="footer-item pt30 pb30">
-                    <p class="gray">와디스 플랫폼(주) | 대표이사 OOO | 사업자등록번호 000-00-00000 | OO시 OO구 OO로 123 (OO동) OOOO센터 O동 O층 OO호</p>
-                    <p>ⓒWATHIS Platform Co., Ltd</p>
+                    <p class="gray">${footConfig.company.content} | ${footConfig.ceo.content} | 사업자등록번호 ${footConfig.companyNum.content} | ${footConfig.address.content}</p>
+                    <p>${footConfig.copy.content}</p>
                 </div>
             </div>
         </div>

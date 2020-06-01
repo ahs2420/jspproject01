@@ -48,4 +48,10 @@ public class PopupServiceImpl implements PopupService{
 		// TODO Auto-generated method stub
 		return popupdao.getPopupModify(pvo);
 	}
+
+	@Override
+	public List<PopupVO> getDisplayList(String display) {
+		// TODO Auto-generated method stub
+		return popupdao.getDisplayList(display);
+	}
 }

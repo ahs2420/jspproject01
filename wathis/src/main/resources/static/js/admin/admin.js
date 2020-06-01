@@ -51,7 +51,7 @@ function authUpdate(item){
     if(ajaxResult.status=="success"){
         alert(ajaxResult.data.msg);
         if(ajaxResult.data.status){
-          //  window.location.reload();
+           window.location.reload();
         }
     }else{
         alert("시스템 오류입니다. 확인하세요.(err01)");

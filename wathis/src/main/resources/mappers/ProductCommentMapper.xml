@@ -38,7 +38,7 @@
 				reg_date=#{reg_date}
 	</insert>
 	<update id="updateItem">
-		UPADTE tb_product_comment SET
+		UPDATE tb_product_comment SET
 			member_id=#{member_id},   
 			product_id=#{product_id},  
 			parent_id=#{parent_id},  
@@ -50,7 +50,7 @@
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-		DELETE FORM tb_product_comment
+		DELETE FROM tb_product_comment
 		WHERE id=#{id}
 	</delete>
 </mapper>

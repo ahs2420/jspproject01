@@ -98,7 +98,7 @@
                                 <i class="fas fa-syringe gray-80"></i>
                             </div>
                             <div class="icon-title">
-                                <a href="/siteInfo" class="gray-80">Site Managememt Page</a>
+                                <a href="/siteConfig" class="gray-80">Site Managememt Page</a>
                             </div>
                             <div class="icon-arrow ralign">
                                 <i class="fas fa-angle-right gray-80"></i>
@@ -259,6 +259,15 @@
 
                             </div>
                             <!--if에 따라 바뀌는 부분-->
+                            <c:if test="${template eq 'users' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/users/getUserListInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'users' &&  mypage eq 'view' }">
+                            	<%@ include file="/WEB-INF/views/admin/users/getUserViewInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'users' &&  mypage eq 'modify' }">
+                            	<%@ include file="/WEB-INF/views/admin/users/getUserModifyInc.jsp" %>
+                            </c:if>
                             
                             <c:if test="${template eq 'board' && mypage eq 'list' }">
                             	<%@ include file="/WEB-INF/views/admin/board/getBoardListInc.jsp" %>
@@ -290,6 +299,15 @@
                             </c:if>
                             <c:if test="${template eq 'popup' && mypage eq 'modify' }">
                             	<%@ include file="/WEB-INF/views/admin/popup/getPopupModifyInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'popup' && mypage eq 'view' }">
+                            	<%@ include file="/WEB-INF/views/admin/popup/getPopupViewInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'siteConfig' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/siteConfig/getSiteConfigListInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'siteConfig' && mypage eq 'modify' }">
+                            	<%@ include file="/WEB-INF/views/admin/siteConfig/getSiteConfigModifyInc.jsp" %>
                             </c:if>
                             <!--//if에 따라 바뀌는 부분-->
                         </div>

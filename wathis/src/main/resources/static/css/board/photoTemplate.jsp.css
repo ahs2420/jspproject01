@@ -26,8 +26,6 @@ ul li {
     color: #777
 }
 
-
-
 .product-table-list-l-green {
 	color: #00b2b2;
 }
@@ -97,13 +95,18 @@ ul li {
 
 .product-table-items {
     margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+}
+
+.product-table-item:nth-child(4n+2),
+.product-table-item:nth-child(4n+3),
+.product-table-item:nth-child(4n) {
+    margin-left: calc(4% / 3);
 }
 
 .product-table-item {
     width: 24%;
+    float: left;
+    margin-left: 0;
 }
 
 .product-table-img-box {
@@ -119,6 +122,7 @@ ul li {
     width: 100%;
     height: 100%;
     border-radius: 5px;
+	object-fit: cover;
 }
 
 .product-table-text-box {
@@ -359,6 +363,11 @@ span.product-table-list-l-blue.product-table-list-l-space::before {
     vertical-align: middle;
     content: "";
 }
+.product-table-items::after {
+    content: '';
+    display: block;
+    clear: both;
+}
 .product-table-title {
         width: 95px;
         vertical-align: top;
@@ -370,26 +379,39 @@ span.product-table-list-l-blue.product-table-list-l-space::before {
 }
 
 @media (max-width: 1080px) {
-.product-table-item {
-    width: 24%;
-    }
-
- .product-table-list {
+.product-table-list {
     font-size: 25px;
     margin-bottom: 40px;
      }
 }
 @media (max-width: 1024px) {
-    .product-table-item {
+.product-table-item {
         width: 32%;
     }
+
+.product-table-item:nth-child(4n+2),
+.product-table-item:nth-child(4n+3),
+.product-table-item:nth-child(4n) {
+    margin-left: 0%;
+	}
+.product-table-item:nth-child(3n+2),
+.product-table-item:nth-child(3n) {
+    margin-left: 2%;
+	}
 }
 @media (max-width: 768px) {
-	.product-table-list-bar {
+.product-table-list-bar {
 		width: 200px;
 		margin-left: 15px;
 	}
-	
+
+.product-table-item:nth-child(3n+2),
+.product-table-item:nth-child(3n) {
+    margin-left: 0%;
+	}
+	.product-table-item:nth-child(2n) {
+    margin-left: 2%;
+	}
     body {
         font-size: 0.875em;
     }
@@ -407,9 +429,11 @@ span.product-table-list-l-blue.product-table-list-l-space::before {
 }
 
 @media (max-width: 480px) {
-   
-    .product-table-item {
-        width: 100%;
-        }
+.product-table-item {
+    width: 100%;
+    }
     
+	.product-table-item:nth-child(2n) {
+    margin-left: 0%;
+	}
 }

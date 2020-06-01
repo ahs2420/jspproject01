@@ -1,5 +1,7 @@
 package com.krahs123.wathis.service.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,41 @@ public class MemberServiceImpl implements MemberService{
 	public void getlogOut(HttpSession session) {
 		// TODO Auto-generated method stub
 		session.invalidate();
+	}
+
+	@Override
+	public List<MemberVO> getMemberList(String searchOpt, String words, int pageStart, int pagePer) {
+		// TODO Auto-generated method stub
+		return memberdao.getMemberList(searchOpt, words, pageStart, pagePer);
+	}
+
+	@Override
+	public int getMemberCount(String searchOpt, String words) {
+		// TODO Auto-generated method stub
+		return memberdao.getMemberCount(searchOpt, words);
+	}
+
+	@Override
+	public MemberVO getMemberDetail(int id) {
+		// TODO Auto-generated method stub
+		return memberdao.getMemberDetail(id);
+	}
+
+	@Override
+	public int updateMember(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return memberdao.updateMember(mvo);
+	}
+
+	@Override
+	public int updateAuthMember(int id, int ugroup) {
+		// TODO Auto-generated method stub
+		return memberdao.updateAuthMember(id, ugroup);
+	}
+
+	@Override
+	public int deleteMember(int id) {
+		// TODO Auto-generated method stub
+		return memberdao.deleteMember(id);
 	}
 }

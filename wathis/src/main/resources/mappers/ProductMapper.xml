@@ -63,7 +63,7 @@
 			reg_date = #{reg_date}
 	</insert>
 	<update id="updateItem">
-		UPADTE tb_product SET
+		UPDATE tb_product SET
 			member_id = #{member_id},
 			category_id = #{category_id},
 			audit_id = #{audit_id},
@@ -87,7 +87,7 @@
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
-		DELETE FORM tb_product
+		DELETE FROM tb_product
 		WHERE id = #{id}
 	</delete>
 </mapper>

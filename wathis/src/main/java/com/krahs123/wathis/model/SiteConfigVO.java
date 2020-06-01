@@ -6,15 +6,24 @@ public class SiteConfigVO {
 //	| Field    | Type             | Null | Key | Default           | Extra             |
 //	+----------+------------------+------+-----+-------------------+-------------------+
 //	| id       | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
+//	| group_id | varchar(10)      | NO   |     | NULL              |                   |
 //	| title    | varchar(10)      | YES  |     | NULL              |                   |
 //	| content  | varchar(100)     | YES  |     | NULL              |                   |
 //	| reg_date | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
 //	+----------+------------------+------+-----+-------------------+-------------------+
 
 	private int id;
+	private String group_id;
 	private String title;
 	private String content;
 	private String reg_date;
+	
+	public String getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(String group_id) {
+		this.group_id = group_id;
+	}
 	public int getId() {
 		return id;
 	}
