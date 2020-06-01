@@ -342,7 +342,7 @@
                     (필수) 펀딩안내 탭에 노출되는 위험요인 및 정책을 모두 확인하였습니다.
                 </span></label>
         </div>
-
+<!-- 확인하세요확인하세요확인하세요확인하세요확인하세요 -->
         <div class="btn-save">
             <button class="btn-end" type="submit">저장하기</button>
         </div>
