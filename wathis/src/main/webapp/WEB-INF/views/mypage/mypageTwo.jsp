@@ -11,7 +11,7 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    <form action="/page/mypageListModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
         <input type="hidden" name="member_id" value="${sessionScope.id }" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->

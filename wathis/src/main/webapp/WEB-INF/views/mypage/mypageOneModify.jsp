@@ -17,7 +17,7 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
-        <input type="hidden" name="member_id" value="${sessionScope.id}" />
+        <input type="hidden" name="id" value="${paone.id}" />
         <div class="ba-project">
 
             <!-- 				정보 및 요건 중간선 -->
@@ -344,7 +344,7 @@
         </div>
 
         <div class="btn-save">
-            <button class="btn-end" type="submit">저장하기</button>
+            <button class="btn-end" type="submit">수정완료</button>
         </div>
     </form>
 </div>

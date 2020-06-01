@@ -172,6 +172,11 @@
             <%@ include file = "mypageTwo.jsp" %>
         </c:if>
         
+          <!-- 메이커정보 수정 부분 -->
+        <c:if test="${template eq 'Reward' && mypage eq 'twoMofy'}">
+            <%@ include file = "mypageTwoModify.jsp" %>
+        </c:if>
+        
         <!-- 스토리 작성 가는 부분 -->
         <c:if test="${template eq 'Reward' && mypage eq 'story'}">
             <%@ include file = "mypageThree.jsp" %>

@@ -31,7 +31,7 @@ public class MyPageConroller {
 	
 	@Autowired MypageService mypageService;
 	
-	@Autowired MypageTwoService mpTwoDao;
+	@Autowired MypageTwoService mpTwoService;
 	
 	
 	final String DIR ="/mypage/";
@@ -49,10 +49,10 @@ public class MyPageConroller {
 
 	
 // 마이페이지 리스트 수정 및 보여지는 페이지
-	@RequestMapping("/mypageModify")
-	public ModelAndView getListModify(@RequestParam int id) {
+	@RequestMapping("/mypageListModify")
+	public ModelAndView getListModify() {
 		ModelAndView mav = new ModelAndView();
-		AuditVO auvo = mypageService.getList(id);
+//		AuditVO auvo = mypageService.getList(id);
 		
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
@@ -60,6 +60,7 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"mypage");
 		return mav;
 	}
+	
 
 	
 	//	기본 요건 부분
@@ -74,10 +75,21 @@ public class MyPageConroller {
 		return mav;
 	}
 
+	// 기본요건부분 수정 부분
+	@RequestMapping("/getList")
+	public ModelAndView getList(@RequestParam int id ){
+		
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("template", "Reward");
+			mav.addObject("mypage", "modify");
+			
+			mav.setViewName(DIR+"mypage");
+			return mav;
+	}
 	// 기본 요건 파일 작업하는 부분
 	@RequestMapping("/mypageOne")
 	@ResponseBody
-	public String setItem(@ModelAttribute AuditVO auvo, @RequestPart MultipartFile files) throws IllegalStateException, IOException{
+	public ModelAndView setItem(@ModelAttribute AuditVO auvo, @RequestPart MultipartFile files) throws IllegalStateException, IOException{
 		
 		if( files.isEmpty() ) {
 			mypageService.setItem(auvo); //파일이 있는지 확인
@@ -119,29 +131,20 @@ public class MyPageConroller {
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "information");
 		
-		mav.setViewName(DIR+"mypage");
-		return "";
+		mav.setViewName("redirect:/page/mypageListModify");
+		return mav;
 	}
+	
 
-	
-//		
-	
-	
-	
-	
-	
-	
-	
 	
 	@RequestMapping("/mypage-two")
 	public ModelAndView viewMypageTwo(@ModelAttribute MaketInfoVO mfvo) {
-				
+		int mkvo = mpTwoService.setMaker(mfvo);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
-//		mav.addObject("mypage", "");
-		mav.setViewName(DIR+"mypage");
+		mav.setViewName(DIR+"mypageOne");
 		
 		return mav;
 	}

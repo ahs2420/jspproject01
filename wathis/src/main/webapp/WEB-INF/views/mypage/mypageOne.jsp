@@ -16,7 +16,7 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="updatef">
         <input type="hidden" name="member_id" value="${sessionScope.id }" />
         <div class="ba-project">
 
@@ -31,8 +31,8 @@
                         요건</span>
                 </div>
 
-
-                <div class="flex-basic1 ">
+       
+                <div class="flex-basic1 ">  
                     <div class="basic-box-one wid4">
                         <h1 class="di-la2 mar-bo6">기본 요건</h1>
                         <br />

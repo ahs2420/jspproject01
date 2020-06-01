@@ -37,6 +37,7 @@
 	<select id="getOne" resultType="auditvo">
 	
 	</select>
+	
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
 			circulation_chk 		= #{circulation_chk},
