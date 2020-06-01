@@ -7,18 +7,19 @@
 }
 
 .item {
-        width: 100%;
-        height: 80vh;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .bg-hero-cover,.item{
 	height:60vh;
 }
+
 body{
-		color: #333;
+	color: #333;
 }
 
 a {
