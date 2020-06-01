@@ -66,7 +66,9 @@
 						</div>
 					</c:forEach>
 				</div>
+				
 			</div>
+			
 			<div class="product-table-container " >
 				<div class="product-table-page">
 					<a href="#" class="product-table-double-arrow-btn"><img
@@ -97,8 +99,8 @@
 						</div>
 					</div>
 				</form>
-		</section>
-		</div>
+			</div>
+			
 		</section>
 	</main>
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
