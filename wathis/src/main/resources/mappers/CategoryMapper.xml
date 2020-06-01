@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mappers.Category">
-	<select id="getAll" resultType="categoryvo">
+<mapper namespace="mappers.CategoryMapper">
+	<select id="getCateList" resultType="categoryvo">
 		SELECT 
 			id,
 			parent_id,
 			dept,
+			cate_img,
 			title,
 			reg_date
 		FROM
@@ -18,28 +19,28 @@
 	<select id="getList" resultType="categoryvo">
 	
 	</select>
-	<select id="getOne" resultType="categoryvo">
-	
+	<select id="getCateChk" resultType="int">
+		SELECT 
+			count(id)
+		FROM
+			tb_category
+		WHERE title=#{title}
+		
 	</select>
-	<insert id="setItem">
-
+	<insert id="setCate">
 		INSERT INTO tb_category SET
-			id=#{id},
-			parent_id=#{parent_id},
-			dept=#{dept},
-			title=#{title},
-			reg_date=#{reg_date}
+			cate_img=#{cate_img},
+			title=#{title}
 	</insert>
-	<update id="updateItem">
+	<update id="updateCate">
 		UPDATE SET tb_category
-			id=#{id},
 			parent_id=#{parent_id},
 			dept=#{dept},
 			title=#{title},
-			reg_date=#{reg_date}
+			cate_img=#{cate_img}
 		WHERE id=#{id}
 	</update>
-	<delete id="deleteItem">
+	<delete id="deleteCate">
 		DELETE FROM tb_category
 		WHERE id=#{id}
 	</delete>

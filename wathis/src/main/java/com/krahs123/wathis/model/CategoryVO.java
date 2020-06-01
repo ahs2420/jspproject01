@@ -9,13 +9,22 @@ public class CategoryVO {
 //	| parent_id | int(10) unsigned | NO   | MUL | 0                 |                   |
 //	| dept      | int(11)          | NO   |     | 1                 |                   |
 //	| title     | varchar(30)      | NO   |     | NULL              |                   |
+//	| cate_img  | varchar(100)     | NO   |     | NULL              |                   |
 //	| reg_date  | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
 //	+-----------+------------------+------+-----+-------------------+-------------------+
 	private int id;
 	private int parent_id;
 	private int dept;
 	private String title;
+	private String cate_img;
 	private String reg_date;
+	
+	public String getCate_img() {
+		return cate_img;
+	}
+	public void setCate_img(String cate_img) {
+		this.cate_img = cate_img;
+	}
 	public int getId() {
 		return id;
 	}

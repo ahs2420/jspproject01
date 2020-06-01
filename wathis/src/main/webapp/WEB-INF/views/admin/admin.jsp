@@ -309,6 +309,13 @@
                             <c:if test="${template eq 'siteConfig' && mypage eq 'modify' }">
                             	<%@ include file="/WEB-INF/views/admin/siteConfig/getSiteConfigModifyInc.jsp" %>
                             </c:if>
+                            <c:if test="${template eq 'product' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/product/getProductListInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'cate' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/cate/getCateListInc.jsp" %>
+                            </c:if>
+                            
                             <!--//if에 따라 바뀌는 부분-->
                         </div>
                     </div>

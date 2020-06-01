@@ -102,7 +102,7 @@ public class MemberController {
 		if(mvo.getUtel()!=null) {
 			mvo.setUtel(aes.encrypt(mvo.getUtel()));
 		}
-		if(userImage!=null&&!userImage.getOriginalFilename().equals("")) {
+		if(!userImage.isEmpty()) {
 			FileControl fc = new FileControl();
 			if(mvo.getUimg()!=null&&!mvo.getUimg().equals("")) {
 				fc.fileDelete("", mvo.getUimg(), null);
@@ -183,6 +183,18 @@ public class MemberController {
 		}
 		return memberService.deleteMember(id);
 	}
-	
+	//회원 엑셀 다운로드
+	@RequestMapping("/getUserListCsv")
+	public ModelAndView getUserListCsv(@RequestParam String searchOpt,@RequestParam String words) {
+		ModelAndView mav = new ModelAndView();
+		int count = memberService.getMemberCount(searchOpt, words);
+		List<MemberVO> mvoList = memberService.getMemberList(searchOpt, words, 0, count);
+		mav.setViewName("/admin/users/getUserListCsv");
+		mav.addObject("ugroup",DbStatus.ugroup);
+		mav.addObject("ustatus",DbStatus.ustatus);
+		mav.addObject("count",count);
+		mav.addObject("mvoList",mvoList);
+		return mav;
+	}
 	
 }

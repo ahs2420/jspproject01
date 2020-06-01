@@ -70,6 +70,9 @@
                                 <option value="${vs.index}" <c:if test="${mvo.ugroup eq vs.index}">selected</c:if> >${ugroup}</option>
                             </c:forEach>
                         </select>
+                        <c:if test="${mvo.ugroup eq '1'}">
+                            <input type="hidden" name="ugroup" value="${mvo.ugroup}" readonly>
+                        </c:if>
                     </td>
                     <td class="bg-color-5 w-15 f6 align">사용자 상태</td>
                     <td class="w-35 padding-lr-5">

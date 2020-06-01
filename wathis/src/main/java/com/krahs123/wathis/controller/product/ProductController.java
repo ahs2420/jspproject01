@@ -1,4 +1,4 @@
-package com.krahs123.wathis.controller;
+package com.krahs123.wathis.controller.product;
 
 import java.util.List;
 import java.util.Map;
@@ -83,5 +83,16 @@ public class ProductController {
 	public String viewProductAjax() {
 		return BASEDIR+"product-ajax";
 	}
+	
+	//관리자 리스트
+	@RequestMapping("")
+	public ModelAndView viewProductAdminList() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "product");
+		mav.addObject("mypage", "list");
+		mav.setViewName("/admin/admin");
+		return mav;
+	}
+	
 	
 }
