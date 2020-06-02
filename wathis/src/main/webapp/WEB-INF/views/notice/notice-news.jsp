@@ -48,7 +48,7 @@
 				</div>
 			<div class="product-table-container product-table-mt">
 				<div class="product-table-items">
-					<c:forEach begin="1" end="12">
+					<%-- <c:forEach begin="1" end="12">
 						<div class="product-table-item">
 							<a href="#">
 								<div class="product-table-img-box">
@@ -64,26 +64,41 @@
 								</div>
 							</a>
 						</div>
-					</c:forEach>
+					</c:forEach> --%>
+					
+					<!-- 검색 x -->
+<%--             <c:if test = "${boardCount == 0}">--%>
+ 	            <div class="txt-center mb30">
+	            	<div class="txt-center mb20">
+						<img class="hero-text-box m-0a"src="/xkfqkfimages/99.png" alt="">
+					</div>
+					<span class="title " > 
+	            		등록된 글이 없습니다.
+	            	</span>
+	            </div>
+	        	
+<%--		 </c:if> --%>
 				</div>
-				
 			</div>
-			
 			<div class="product-table-container " >
 				<div class="product-table-page">
-					<a href="#" class="product-table-double-arrow-btn"><img
-						src="/xkfqkfimages/d-l.svg" alt=""></a> <a href="#"
-						class="product-table-arrow-btn"><img
-						src="/xkfqkfimages/l.svg" alt=""></a> <a href="#"
-						class="product-table-page-btn on">1</a> <a href="#"
-						class="product-table-page-btn">2</a> <a href="#"
-						class="product-table-page-btn">3</a> <a href="#"
-						class="product-table-page-btn">4</a> <a href="#"
-						class="product-table-page-btn">5</a> <a href="#"
-						class="product-table-arrow-btn"><img
-						src="/xkfqkfimages/r.svg" alt=""></a> <a href="#"
-						class="product-table-double-arrow-btn"><img
-						src="/xkfqkfimages/d-r.svg" alt=""></a>
+					<a href="#" class="product-table-double-arrow-btn">
+						<img src="/xkfqkfimages/d-l.svg" alt="">
+					</a> 
+					<a href="#"	class="product-table-arrow-btn">
+						<img src="/xkfqkfimages/l.svg" alt="">
+					</a> 
+					<a href="#"	class="product-table-page-btn on">1</a> 
+					<a href="#"	class="product-table-page-btn">2</a> 
+					<a href="#"	class="product-table-page-btn">3</a> 
+					<a href="#" class="product-table-page-btn">4</a> 
+					<a href="#"	class="product-table-page-btn">5</a> 
+					<a href="#"	class="product-table-arrow-btn">
+						<img src="/xkfqkfimages/r.svg" alt="">
+					</a> 
+					<a href="#"	class="product-table-double-arrow-btn">
+						<img src="/xkfqkfimages/d-r.svg" alt="">
+					</a>
 				</div>
 				<form action="" method="post" name="" enctype="multipart/form-data">
 					<div class="product-table-title-btn">
@@ -100,7 +115,6 @@
 					</div>
 				</form>
 			</div>
-			
 		</section>
 	</main>
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>

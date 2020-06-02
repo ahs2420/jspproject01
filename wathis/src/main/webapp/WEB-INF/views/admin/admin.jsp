@@ -316,6 +316,10 @@
                             	<%@ include file="/WEB-INF/views/admin/cate/getCateListInc.jsp" %>
                             </c:if>
                             
+                            <c:if test="${template eq 'scheduler' && mypage eq 'view' }">
+                        			<%@ include file = "../scheduler/getScehedulerInc.jsp" %>
+                    		</c:if>
+                            
                             <!--//if에 따라 바뀌는 부분-->
                         </div>
                     </div>
