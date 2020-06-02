@@ -2,27 +2,28 @@ package com.krahs123.wathis.model;
 
 public class AuditVO {
 // 심사 테이블
-//	+----------------------------+------------------+------+-----+-------------------+-------------------+
-//	| Field                      | Type             | Null | Key | Default           | Extra             |
-//	+----------------------------+------------------+------+-----+-------------------+-------------------+
-//	| id                         | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
-//	| member_id                  | int(10) unsigned | NO   |     | 0                 |                   |
-//	| category_id                | int(10) unsigned | NO   |     | 0                 |                   |
-//	| circulation_chk            | tinyint(1)       | NO   |     | NULL              |                   |
-//	| circulation_content        | text             | YES  |     | NULL              |                   |        ;
-//	| preparations_plan          | text             | NO   |     | NULL              |                   |
-//	| relay_plan                 | text             | NO   |     | NULL              |                   |
-//	| reword_type                | int(2)           | YES  |     | NULL              |                   |
-//	| reword_info                | text             | YES  |     | NULL              |                   |
-//	| required_documents_orgName | varchar(50)      | YES  |     | NULL              |                   |
-//	| required_documents_Name    | varchar(50)      | YES  |     | NULL              |                   |
-//	| required_documents_url     | varchar(50)      | YES  |     | NULL              |                   |
-//	| fees_chk                   | tinyint(1)       | NO   |     | NULL              |                   |
-//	| policy_agreement           | varchar(100)     | NO   |     | NULL              |                   |
-//	| status                     | int(1)           | YES  |     | 1                 |                   |
-//	| reg_date                   | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-//	+----------------------------+------------------+------+-----+-------------------+-------------------+
+//	+----------------------+--------------+------+-----+-------------------+-------------------+
+//	| Field                | Type         | Null | Key | Default           | Extra             |
+//	+----------------------+--------------+------+-----+-------------------+-------------------+
+//	| id                   | int          | NO   | PRI | NULL              | auto_increment    |
+//	| audit_id             | int unsigned | NO   |     | NULL              |                   |
+//	| marker_name          | varchar(50)  | NO   |     | NULL              |                   |
+//	| img_dir              | varchar(100) | YES  |     | NULL              |                   |
+//	| marker_img           | varchar(100) | NO   |     | NULL              |                   |
+//	| marker_email         | varchar(100) | NO   |     | NULL              |                   |
+//	| marker_phone         | varchar(50)  | NO   |     | NULL              |                   |
+//	| marker_kakao_id      | varchar(100) | YES  |     | NULL              |                   |
+//	| marker_kakao_url     | varchar(100) | YES  |     | NULL              |                   |
+//	| marker_home_page_url | varchar(100) | YES  |     | NULL              |                   |
+//	| marker_facebook_url  | varchar(100) | YES  |     | NULL              |                   |
+//	| marker_twiter_url    | varchar(100) | YES  |     | NULL              |                   |
+//	| marker_instagram_url | varchar(100) | YES  |     | NULL              |                   |
+//	| business_type        | varchar(5)   | NO   |     | NULL              |                   |
+//	| bankbook_img         | varchar(100) | NO   |     | NULL              |                   |
+//	| reg_date             | datetime     | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+//	+----------------------+--------------+------+-----+-------------------+-------------------+
 	private int id;
+	private int audit_id;
 	private int member_id;
 	private int category_id;
 	private int circulation_chk;
@@ -38,11 +39,18 @@ public class AuditVO {
 	private String policy_agreement;
 	private int status;
 	private String reg_date;
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getAudit_id() {
+		return audit_id;
+	}
+	public void setAudit_id(int audit_id) {
+		this.audit_id = audit_id;
 	}
 	public int getMember_id() {
 		return member_id;
@@ -134,6 +142,9 @@ public class AuditVO {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
+	
+	
+	
 	
 	
 }

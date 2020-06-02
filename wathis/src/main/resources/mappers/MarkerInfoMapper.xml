@@ -36,7 +36,8 @@
 	<insert id="setMaker">
 	
 		INSERT INTO tb_maker_info SET
-	
+		
+		
 			marker_name 	= #{marker_name},
 			img_dir 		= #{img_dir},
 			marker_img 		= #{marker_img},
@@ -55,8 +56,6 @@
 	</insert>
 	<update id="updateItem">
 		UPDATE SET tb_maker_info
-			id=#{id},
-			audit_id=#{audit_id},
 			marker_name=#{marker_name},
 			img_dir=#{img_dir},
 			marker_img=#{marker_img},

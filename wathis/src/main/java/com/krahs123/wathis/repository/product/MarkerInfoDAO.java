@@ -10,5 +10,5 @@ public interface MarkerInfoDAO {
 	
 	
 	//최근 id
-	public int getMakerID(int audit_id);
+//	public int getMakerID(int audit_id);
 }

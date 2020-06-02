@@ -108,7 +108,7 @@ public class MyPageConroller {
 				mav.addObject("template", "Reward");
 				mav.addObject("mypage", "oneModi");
 				
-				mav.setViewName(DIR+"mypageOneModify");
+				mav.setViewName("redirect:/page/mypageListModify");
 				return mav;
 		}
 	// 기본 요건 파일 작업하는 부분
@@ -168,13 +168,14 @@ public class MyPageConroller {
 	@RequestMapping("/mypage-two")
 	public ModelAndView viewMypageTwo(@ModelAttribute AuditVO auvo) {
 
-		int id = auditService.getAuditLastID(auvo.getMember_id()); 
+		int memberId= auditService.getAuditLastID(auvo.getMember_id()); 
+		int auditId= auditService.getAuditLastID(auvo.getAudit_id()); 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
-		mav.addObject("mypage", "maker");
+		mav.addObject("memberId", memberId);
+		mav.addObject("auditId", auditId);
 		
-			
 		
 		mav.setViewName(DIR+"mypage");
 		
@@ -224,10 +225,10 @@ public class MyPageConroller {
 			mkvo.setMarker_img(Required_documents_url +destinationFileName );
 			
 		}else {
-			sb.append("<scrip>");
+			sb.append("<script>");
 			sb.append("alert(\"사진을넣어주세요.\");");
 			sb.append("window.history.back();");
-			sb.append("</scrip>");
+			sb.append("</script>");
 			
 			return sb.toString();
 		}
@@ -255,10 +256,10 @@ public class MyPageConroller {
 			
 			mkvo.setBankbook_img(Required_documents_url +destinationFileName );
 		}else {
-			sb.append("<scrip>");
+			sb.append("<script>");
 			sb.append("alert(\"사진을넣어주세요.\");");
 			sb.append("window.history.back();");
-			sb.append("</scrip>");
+			sb.append("</script>");
 
 			
 			return sb.toString();
@@ -267,10 +268,10 @@ public class MyPageConroller {
 		
 		int result = makerSer.setMaker(mkvo);
 
-		sb.append("<scrip>");
+		sb.append("<script>");
 		sb.append("alert(\"등록 되었습니다.\");");
-		sb.append("location.replace('/page/mypageListModify');");
-		sb.append("</scrip>");
+		sb.append("location.replace('/page/mypageListModify?id="+mkvo.getAudit_id()+"');");
+		sb.append("</script>");
 
 		
 		return sb.toString();
@@ -278,21 +279,21 @@ public class MyPageConroller {
 	}
 	
 	
-	//메이커 수정 부분
-	@RequestMapping("/mypage-two")
-	public ModelAndView viewMypageTwo(@RequestParam int audit_id) {
-
-		int auditId = makerSer.getMakerID(audit_id);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("template", "Reward");
-		mav.addObject("mypage", "maker");
-		mav.addObject("auditId", auditId);
-			
-		
-		mav.setViewName(DIR+"mypage");
-		
-		return mav;
-	}
+	//메이커 수정  보이는 부분
+//	@RequestMapping("/mypage-two")
+//	public ModelAndView viewMypageTwo() {
+//
+////		int auditId = makerSer.getMakerID(audit_id);
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("template", "Reward");
+//		mav.addObject("mypage", "maker");
+////		mav.addObject("auditId", auditId);
+//			
+//		
+//		mav.setViewName(DIR+"mypage");
+//		
+//		return mav;
+//	}
 	
 	
 

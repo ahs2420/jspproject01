@@ -19,9 +19,9 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    <form action="/page/mypageOneModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
     	
-        <input type="text" name="id" value="${oneModi.id}" />
+        <input type="hidden" name="id" value="${oneModi.id}" />
        
         <div class="ba-project">
 
@@ -343,9 +343,9 @@
                     펀딩안내 미리보기</button>
             </div>
         </div>
-        <!-- 8번 -->
+        <!-- 8번 disabled 사용하면 체크하고 나서 체크 안됨-->
         <div class="end-radio">
-            <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1" disabled <c:if test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
+            <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1"  <c:if test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
 
             <label for="end-radio">
                 <span class="fon-siz1 fon-co3 text-padding2">

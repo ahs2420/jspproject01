@@ -12,8 +12,9 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageTwo" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
-        <input type="hidden" name="member_id" value="${sessionScope.id }" />
-        <input type="hidden" name="audit_id" value="${audit_id }" />
+        
+        <input type="hidden" name="member_id" value="${auditId}" />
+        <input type="hidden" name="audit_id" value="${auditId}" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->
         <div class="basic-box">
@@ -238,11 +239,11 @@
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1">사업자
                                 구분<span class="fon-co5"> *</span>
                             </label> 
-                            <select class="wid1 hei1 fon-bor1" name="business_type">
-                                <option selected class="business_type">사업자 구분 선택</option>
-                                <option>개인</option>
-                                <option>개인 사업자</option>
-                                <option>법인사업자</option>
+                            <select class="wid1 hei1 fon-bor1" name="business_type" id="business_type">
+          						<option selected class="" value="0">사업자 구분 선택</option>
+                                <option value="1">개인</option>
+                                <option value="2">개인 사업자</option>
+                                <option value="3">법인사업자</option>
                             </select>
                         </div>
 
@@ -266,8 +267,8 @@
                                 사본 <span class="fon-co5"> *</span>
                             </label><br>
                             <div class="file-box mar-top4">
-                                <label for="file1"><i class="fas fa-file-upload fon-co9"></i>
-                                    업로드</label> <input type="file" id="file1" name="bank_img">
+                                <label for="file2"><i class="fas fa-file-upload fon-co9"></i>
+                                    업로드</label> <input type="file" id="file2" name="bank_img">
                             </div>
                             <p class="fon-siz3 fon-col mar-top5">펀딩 성공 시 펀딩 금액을 수령할 법인
                                 명의의 계좌 사본을 첨부하세요.</p>
@@ -286,59 +287,59 @@
                     </div>
 
                     <!--  대표자 3번 -->
-                    <div class="flex-basic2 ">
-                        <div class="mar-bo2 wid4 ">
-                            <label for="projectprice" class="di-la1 mar-top1 fon-wei1">대표자명<span class="fon-co5">
-                                    *</span></label>
-                            <p class="fon-siz3 fon-col fon-wei mar-bo5">사업자등록증에 등록된 대표자의
-                                이름과 일치해야 합니다.</p>
-                            <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
-                                placeholder="대표자명 입력">
+<!--                     <div class="flex-basic2 "> -->
+<!--                         <div class="mar-bo2 wid4 "> -->
+<!--                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1">대표자명<span class="fon-co5"> -->
+<!--                                     *</span></label> -->
+<!--                             <p class="fon-siz3 fon-col fon-wei mar-bo5">사업자등록증에 등록된 대표자의 -->
+<!--                                 이름과 일치해야 합니다.</p> -->
+<!--                             <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice" -->
+<!--                                 placeholder="대표자명 입력"> -->
 
-                        </div>
-                    </div>
+<!--                         </div> -->
+<!--                     </div> -->
                     <!--  대표자 4번 -->
-                    <div class="flex-basic2 ">
-                        <div class="mar-bo2 wid4 ">
-                            <label for="projectprice" class="di-la1 mar-top1 fon-wei1">대표자
-                                이메일<span class="fon-co5"> *</span>
-                            </label>
-                            <p class="fon-siz3 fon-col fon-wei mar-bo5">대표자의 이메일로 전자 약정서가
-                                발송되며, 대표자가 직접 체결해야합니다. (모바일/PC 모두 가능)</p>
-                            <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
-                                placeholder="대표자 이메일 입력">
+<!--                     <div class="flex-basic2 "> -->
+<!--                         <div class="mar-bo2 wid4 "> -->
+<!--                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1">대표자 -->
+<!--                                 이메일<span class="fon-co5"> *</span> -->
+<!--                             </label> -->
+<!--                             <p class="fon-siz3 fon-col fon-wei mar-bo5">대표자의 이메일로 전자 약정서가 -->
+<!--                                 발송되며, 대표자가 직접 체결해야합니다. (모바일/PC 모두 가능)</p> -->
+<!--                             <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice" -->
+<!--                                 placeholder="대표자 이메일 입력"> -->
 
-                        </div>
-                    </div>
+<!--                         </div> -->
+<!--                     </div> -->
                     <!--  대표자 5번 -->
-                    <div class="mar-bo2">
-                        <div class="flex-basic2 ba-pro-day">
-                            <div class="mar-bo2 wid4 ">
-                                <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class="">
-                                        <h4 class="di-in1">공동 대표자</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
-                                    </span></label>
-                                <div class="flex-end">
-                                    <input class="wid6 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
-                                        placeholder="공통 대표자 입력"> <input class="wid10 hei1 fon-bor1 text-padding1"
-                                        type="text" id="projectprice" placeholder="공통 대표자 이메일 입력"> <span
-                                        class="add-btn ">
-                                        <button
-                                            class="hei1 fon-bor1 text-padding3 box-back4 cu-poin fon-wei1">추가</button>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="ba-guide5">
-                                <div class=" text-padding3 box-li1 box-back1">
-                                    <h4 class="mar-bo5 fon-siz4 fon-co7">대표자가 2인 이상인가요?</h4>
-                                    <p class="fon-siz4 mar-bo3 fon-co7">각자 대표인 경우, 대표자 1인의
-                                        서명만으로도 효력을 가지므로 공동 대표자를 기입하지 않으셔도 됩니다.</p>
-                                    <p class="fon-siz4 mar-bo3 fon-co7">공동 대표인 경우, 대표자를 모두
-                                        기입해주셔야 합니다. 상단의 대표자에 기입한 이메일 주소로 약정서가 먼저 발송되어 체결이 완료된 이후 공동
-                                        대표자에 약정서가 발송됩니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                     <div class="mar-bo2"> -->
+<!--                         <div class="flex-basic2 ba-pro-day"> -->
+<!--                             <div class="mar-bo2 wid4 "> -->
+<!--                                 <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class=""> -->
+<!--                                         <h4 class="di-in1">공동 대표자</h4> <span class="fon-co10 fon-siz2">(선택사항)</span> -->
+<!--                                     </span></label> -->
+<!--                                 <div class="flex-end"> -->
+<!--                                     <input class="wid6 hei1 fon-bor1 text-padding1" type="text" id="projectprice" -->
+<!--                                         placeholder="공통 대표자 입력"> <input class="wid10 hei1 fon-bor1 text-padding1" -->
+<!--                                         type="text" id="projectprice" placeholder="공통 대표자 이메일 입력"> <span -->
+<!--                                         class="add-btn "> -->
+<!--                                         <button -->
+<!--                                             class="hei1 fon-bor1 text-padding3 box-back4 cu-poin fon-wei1">추가</button> -->
+<!--                                     </span> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="ba-guide5"> -->
+<!--                                 <div class=" text-padding3 box-li1 box-back1"> -->
+<!--                                     <h4 class="mar-bo5 fon-siz4 fon-co7">대표자가 2인 이상인가요?</h4> -->
+<!--                                     <p class="fon-siz4 mar-bo3 fon-co7">각자 대표인 경우, 대표자 1인의 -->
+<!--                                         서명만으로도 효력을 가지므로 공동 대표자를 기입하지 않으셔도 됩니다.</p> -->
+<!--                                     <p class="fon-siz4 mar-bo3 fon-co7">공동 대표인 경우, 대표자를 모두 -->
+<!--                                         기입해주셔야 합니다. 상단의 대표자에 기입한 이메일 주소로 약정서가 먼저 발송되어 체결이 완료된 이후 공동 -->
+<!--                                         대표자에 약정서가 발송됩니다.</p> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
                     <!--  대표자 6번 -->
                     <div class="btn-save">
                         <button class="btn-end" type="submit">저장하기</button>

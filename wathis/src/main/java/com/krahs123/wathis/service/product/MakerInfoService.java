@@ -6,5 +6,5 @@ public interface MakerInfoService {
 
 	public int setMaker(MakerInfoVO mfvo);
 	
-	public int getMakerID(int audit_id);
+//	public int getMakerID(int audit_id);
 }
