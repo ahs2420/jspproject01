@@ -37,6 +37,9 @@
 	<select id="getOne" resultType="auditvo">
 	
 	</select>
+	<select id="getAuditLastID" resultType="int">
+		SELECT id FROM tb_audit WHERE member_id=#{member_id} order by id desc LIMIT 1
+	</select>
 	
 	<insert id="setItem">
 		INSERT INTO tb_audit SET

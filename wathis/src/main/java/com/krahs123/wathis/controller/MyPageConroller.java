@@ -56,12 +56,13 @@ public class MyPageConroller {
 
 // 마이페이지 리스트 수정 및 보여지는 페이지
 	@RequestMapping("/mypageListModify")
-	public ModelAndView getListModify() {
+	public ModelAndView getListModify(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
 
 		
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
+		mav.addObject("id", id);
 		
 		mav.setViewName(DIR+"mypage");
 		return mav;
@@ -83,6 +84,7 @@ public class MyPageConroller {
 	
 	// 기본요건 보여주는 부분
 	@RequestMapping("/mypageOneView")
+	@ResponseBody
 	public ModelAndView getmypageOneView(@RequestParam int id){
 		AuditVO auditvo = auditService.getList(id);
 		
@@ -96,19 +98,19 @@ public class MyPageConroller {
 	}
 	
 	
-	// 기본요건부분 수정 부분
-	//	@RequestMapping("/mypageOneModify")
-//		public ModelAndView getList(@ModelAttribute AuditVO auvo ){
-//			
-//		int result = auditService.updateItem(auvo);
-//			
-//				ModelAndView mav = new ModelAndView();
-//				mav.addObject("template", "Reward");
-//				mav.addObject("mypage", "oneModi");
-//				
-//				mav.setViewName(DIR+"mypageOneModify");
-//				return mav;
-//		}
+//	 기본요건부분 수정 부분
+		@RequestMapping("/mypageOneModify")
+		public ModelAndView getList(@ModelAttribute AuditVO auvo ){
+			
+		int result = auditService.updateItem(auvo);
+			
+				ModelAndView mav = new ModelAndView();
+				mav.addObject("template", "Reward");
+				mav.addObject("mypage", "oneModi");
+				
+				mav.setViewName(DIR+"mypageOneModify");
+				return mav;
+		}
 	// 기본 요건 파일 작업하는 부분
 	@RequestMapping("/mypageOne")
 	@ResponseBody
@@ -152,22 +154,26 @@ public class MyPageConroller {
 		}
 		
 		ModelAndView mav = new ModelAndView();
+		int id = auditService.getAuditLastID(auvo.getMember_id());
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "information");
+		mav.addObject("id", id);
 		
 		mav.setViewName("redirect:/page/mypageListModify");
 		return mav;
 	}
 	
 
-	
+	//메이커 보여지ㅏ는 부분
 	@RequestMapping("/mypage-two")
-	public ModelAndView viewMypageTwo(@RequestParam int audit_id) {
+	public ModelAndView viewMypageTwo(@ModelAttribute AuditVO auvo) {
 
+		int id = auditService.getAuditLastID(auvo.getMember_id()); 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
-		mav.addObject("audit_id", audit_id);
+		mav.addObject("mypage", "maker");
+		
 			
 		
 		mav.setViewName(DIR+"mypage");
@@ -270,6 +276,25 @@ public class MyPageConroller {
 		return sb.toString();
 		
 	}
+	
+	
+	//메이커 수정 부분
+	@RequestMapping("/mypage-two")
+	public ModelAndView viewMypageTwo(@RequestParam int audit_id) {
+
+		int auditId = makerSer.getMakerID(audit_id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "maker");
+		mav.addObject("auditId", auditId);
+			
+		
+		mav.setViewName(DIR+"mypage");
+		
+		return mav;
+	}
+	
+	
 
 	@RequestMapping("/mypage-three")
 	public ModelAndView viewMypageThree(){

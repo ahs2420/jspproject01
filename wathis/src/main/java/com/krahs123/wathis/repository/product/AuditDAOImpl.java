@@ -11,6 +11,7 @@ import com.krahs123.wathis.model.AuditVO;
 @Repository
 public class AuditDAOImpl implements AuditDAO{
 
+
 	@Autowired SqlSession sql;
 	
 	final String NAMESPACE ="mappers.AuditMapper";
@@ -24,7 +25,7 @@ public class AuditDAOImpl implements AuditDAO{
 	@Override
 	public AuditVO getList(int id) {
 	
-		return sql.selectOne(NAMESPACE + ".getList");
+		return sql.selectOne(NAMESPACE + ".getList",id);
 	}	
 
 	
@@ -34,6 +35,12 @@ public class AuditDAOImpl implements AuditDAO{
 	public int updateItem(AuditVO auvo) {
 		
 		return sql.update(NAMESPACE + ".updateItem", auvo);
+	}
+
+	@Override
+	public int getAuditLastID(int member_id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(NAMESPACE+".getAuditLastID",member_id);
 	}
 
 

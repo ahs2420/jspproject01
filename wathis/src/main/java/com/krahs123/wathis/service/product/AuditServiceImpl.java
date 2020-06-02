@@ -33,6 +33,12 @@ public class AuditServiceImpl implements AuditService{
 		return auditDao.updateItem(auvo);
 	}
 
+	@Override
+	public int getAuditLastID(int member_id) {
+		// TODO Auto-generated method stub
+		return auditDao.getAuditLastID(member_id);
+	}
+
 
 
 }

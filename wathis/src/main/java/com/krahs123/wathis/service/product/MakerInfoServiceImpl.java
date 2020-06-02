@@ -16,5 +16,11 @@ public class MakerInfoServiceImpl implements MakerInfoService{
 		
 		return markerinfodao.setMaker(mfvo);
 	}
+
+	@Override
+	public int getMakerID(int audit_id) {
+		// TODO Auto-generated method stub
+		return markerinfodao.getMakerID(audit_id);
+	}
 	
 }

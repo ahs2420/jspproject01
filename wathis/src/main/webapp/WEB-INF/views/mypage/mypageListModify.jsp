@@ -34,7 +34,7 @@
                         <h2>기본요건 및 정보</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypageOneView">
+                    <a href="/page/mypageOneView?id=${id}">
                         <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
@@ -44,7 +44,7 @@
                         <h2>메이커 정보</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-two">
+                    <a href="/page/mypage-two?audit_id=${id}">
                         <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
@@ -54,7 +54,7 @@
                         <h2>스토리 작성</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-three">
+                    <a href="/page/mypage-three?audit_id=${id}">
                         <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
@@ -64,7 +64,7 @@
                         <h2>리워드 설계</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-four">
+                    <a href="/page/mypage-four?audit_id=${id}">
                         <button class="ready-btn">수정하기</button>
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                         <h2>위험요인 및 정책</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-five">
+                    <a href="/page/mypage-five?audit_id=${id}">
                         <button class="ready-btn">수정하기</button>
                     </a>
                 </div>

@@ -15,4 +15,6 @@ public interface AuditDAO {
 	
 // 기본 요건 update	
 	public int updateItem(AuditVO auvo);
+// 최근 id 
+	public int getAuditLastID(int member_id);
 }

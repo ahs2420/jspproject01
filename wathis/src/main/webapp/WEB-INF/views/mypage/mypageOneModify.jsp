@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+<%-- <%@taglib prefix="fn" nri="http://java.sun.com/jsp/jstl/functions" %> --%>
+<% pageContext.setAttribute("replaveChar", "\n"); %>
+
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypageOne.css">
 <!-- fontawesome 코드 -->
@@ -17,8 +20,8 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    	
         <input type="text" name="id" value="${oneModi.id}" />
-        <input type="text" name="member_id" value="${oneModi.member_id}" />
        
         <div class="ba-project">
 
@@ -87,7 +90,7 @@
                                     <textarea name="circulation_content" id="" cols="30" rows="3" maxlength="500"
                                         style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 65%;"
                                         placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다.">${oneModi.circulation_content}</textarea>
-                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1">500자 남음</p>
+                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" >500자 남음</p>
                                 </div>
 
                             </div>
@@ -216,7 +219,8 @@
                         <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
                             <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)" delims="|" var="item" varStatus="vs">
                             	<option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">selected</c:if> >${item}</option>
-                            	
+                            		
+<%--                             		${fn:replace (  paramVO.content, replaceChar, "<br/>")} --%>
                             </c:forTokens>
 <!--                             <option value="1">의류</option> -->
 <!--                             <option value="2">구두/신발</option> -->
@@ -234,7 +238,7 @@
 <!--                             <option value="14">서적</option> -->
 <!--                             <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option> -->
                         </select>
-                        <textarea id="editor1" name="content Policy_Agreement" class="ckeditor">${oneModi.reword_info}</textarea>
+                        <textarea id="editor1" name="reword_info" class="ckeditor">${oneModi.reword_info }</textarea>
                         <script>
                             CKEDITOR.replace('editor1', {
                                 customConfig: '/plugin/ckeditor/config.js',
@@ -244,7 +248,7 @@
                             });
                         </script>
                         <!-- inline 타입으로 생성 -->
-                        <textarea id="editor2" name="content Policy_Agreement" class="ckeditor"></textarea>
+                        <textarea id="editor2" name="reword_info" class="ckeditor">${oneModi.reword_info }</textarea>
                         <script>
                             CKEDITOR.inline('editor2', {
                                 customConfig: '/plugin/ckeditor/config.js',

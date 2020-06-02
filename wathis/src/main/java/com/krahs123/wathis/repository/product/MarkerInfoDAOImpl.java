@@ -11,12 +11,19 @@ public class MarkerInfoDAOImpl implements MarkerInfoDAO{
 	
 	final String NAMESPACE = "mappers.MarkerInfoMapper";
 	
-	@Autowired
-	SqlSession sql;
+	@Autowired	SqlSession sql;
 	
 	@Override
 	public int setMaker(MakerInfoVO mfvo) {
 		return sql.insert(NAMESPACE+ ".setMaker", mfvo);
 	}
-	
+
+	@Override
+	public int getMakerID(int audit_id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(NAMESPACE + ".getMakerID",audit_id);
+	}
+
+
+
 }
