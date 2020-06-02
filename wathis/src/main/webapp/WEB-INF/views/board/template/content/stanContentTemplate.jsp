@@ -29,9 +29,12 @@
 					</div>
 				</div>
 				<div class="flex-box flex-j-space">
-					<div class="txt-right mt30"> 
+				
+					<div class="txt-right mt30">
+						<c:if test="${sessionScope.id eq avo.member_id}">
 							<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mr5" onclick="location.href='/article/modifyArticle?boardCode=${bvo.boardCode}&id=${avo.id}'" >수정하기</button>
-							<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold " onclick="location.href='/article/deleteItem?boardCode=${bvo.boardCode}&id=${avo.id}'" >삭제하기</button>
+							<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold " onclick="(confirm('해당 게시글을 삭제하시겠습니까?'))?location.href='/article/deleteItem?boardCode=${bvo.boardCode}&id=${avo.id}':false" >삭제하기</button>
+						</c:if>
 					</div>
 					<div class="notice-content-box-flex ">
 						<div class="heart-box flex-box flex-j-end w-100p mt10">

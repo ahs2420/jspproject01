@@ -1,7 +1,7 @@
 
 //선택삭제
 $(function(){
-    $("#selectDelete-btn").click(function(){
+    $("#selectArticleDelete-btn").click(function(){
         if(confirm("삭제하신 정보는 복구 불가능합니다.\n선택하신 "+$(this).data("name")+" 삭제하시겠습니까?")){
             var target = $(this).data("target");
             var dataCode = $(this).data("code");

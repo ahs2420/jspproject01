@@ -279,7 +279,7 @@ public class MyPageConroller {
 	
 	
 	//메이커 수정 부분
-	@RequestMapping("/mypage-two")
+	@RequestMapping("/mypage-two2")
 	public ModelAndView viewMypageTwo(@RequestParam int audit_id) {
 
 		int auditId = makerSer.getMakerID(audit_id);

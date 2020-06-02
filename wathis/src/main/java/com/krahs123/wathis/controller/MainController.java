@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.krahs123.wathis.model.ArticleVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.PopupVO;
 import com.krahs123.wathis.model.SiteConfigVO;
+import com.krahs123.wathis.service.article.ArticleService;
 import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.service.popup.PopupService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
@@ -25,6 +27,8 @@ public class MainController {
 	PopupService popupService;
 	@Autowired
 	SiteConfigService siteService;
+	@Autowired
+	ArticleService articleService;
 	final String BASEDIR="/main/";
 	//메인페이지
 	@RequestMapping("")
@@ -35,8 +39,14 @@ public class MainController {
 		List<PopupVO> popupList =popupService .getDisplayList("main");
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		
+		List<ArticleVO> noticeList = articleService.getArticleMainList("notice", 3);
+		List<ArticleVO> newsList = articleService.getArticleMainList("news", 3);
+		
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
+		mav.addObject("noticeList", noticeList);
+		mav.addObject("newsList", newsList);
 		mav.setViewName(BASEDIR+"main");
 		mav.addObject("menuList", menuList);
 		mav.addObject("popupList", popupList);

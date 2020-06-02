@@ -41,4 +41,8 @@ public class HtmlSpecialChar {
 		//따옴표가 그대로 들어가지 못하게 수정(html special char로 변경)
 		return str;
 	}
+	public static String removeTag(String html) throws Exception {
+		String regex1 = "\\<.*?\\>";
+		return html.replaceAll(regex1, "");
+	}
 }

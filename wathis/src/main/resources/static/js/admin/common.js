@@ -142,6 +142,26 @@ $.fn.chkCke=function(){
 
 }
 
+//폼데이터 확인
+$(function(){
+    $("form.chkFormCke").submit(function(){
+        var $chkItem = $(this).find(".chkitem");
+        var bReturn=true;
+        $chkItem.each(function(){
+            if($(this).hasClass("ckeItem")){
+                bReturn=$(this).chkCke();
+            }else{
+                bReturn=$(this).itemChk();
+            }
+            if(!bReturn){
+                return false;
+            }
+        });
+        //return false;
+        return bReturn;
+    });
+});
+
 //이미지 확장자 체크
 /*
 obj -> file태그 

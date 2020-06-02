@@ -30,8 +30,8 @@
                 <input type="hidden" name="mypage" value="list" />
                  <select name="searchOpt" class="sel-120">
                      <option value="all" <c:if test="${searchOpt eq 'all' }">selected</c:if>>전체</option>
-                     <option value="userID" <c:if test="${searchOpt eq 'userID' }">selected</c:if>>아이디</option>
-                     <option value="userName" <c:if test="${searchOpt eq 'userName' }">selected</c:if>>이름</option>
+                     <option value="uid" <c:if test="${searchOpt eq 'uid' }">selected</c:if>>아이디</option>
+                     <option value="uname" <c:if test="${searchOpt eq 'uname' }">selected</c:if>>이름</option>
                  </select>
                  <input type="text" name="words" id="words" class="input-150" value="${words }" />
                  <button type="submit" id="search-btn" class="btn-50 bold bo-blue">검색</button>

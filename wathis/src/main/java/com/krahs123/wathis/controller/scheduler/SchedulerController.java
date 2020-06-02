@@ -9,45 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.krahs123.wathis.model.JSONResult;
-import com.krahs123.wathis.model.ScheduleVO;
+import com.krahs123.wathis.model.SchedulerVO;
 import com.krahs123.wathis.service.scheduler.SchedulerService;
-
+import com.krahs123.wathis.util.JSONResult;
 
 
 @Controller
+@RequestMapping("/scheduler")
 public class SchedulerController {
-	
 	@Autowired
-	SchedulerService sService;
+	SchedulerService schedulerService;
 	
-	@RequestMapping("/scheduler")
-	public ModelAndView scheduler(){
-		
-		ModelAndView mav= new ModelAndView();
+	@RequestMapping("")
+	public ModelAndView viewScheduler() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/admin/admin");
 		mav.addObject("template", "scheduler");
-		mav.addObject("mypage", "view");
-		mav.setViewName("admin/admin");
+		mav.addObject("mypage", "list");
 		return mav;
 	}
-	@RequestMapping("/scheduler/setScheduler")
+	@RequestMapping("/setScheduler")
 	@ResponseBody
-		public JSONResult setScheduler(@ModelAttribute ScheduleVO svo) {//public출력 메소드(입력)
+	public JSONResult setSchedulerDO(@ModelAttribute SchedulerVO svo) {
 		
-		int result = 0;
-		if( svo != null) {
-			sService.setScheduler(svo);
-			result = 1;
-		}
-		
+		int result = schedulerService.setSchduler(svo);
 		return JSONResult.success(result);
 	}
-	@RequestMapping("/scheduler/getScheduler")
+	@RequestMapping("/getScheduler")
 	@ResponseBody
-		public JSONResult getScheduler(@ModelAttribute ScheduleVO svo) {
-			List<ScheduleVO> list = sService.getScheduler();
+	public JSONResult getSchedulerAjax(@ModelAttribute SchedulerVO svo) {
+		List<SchedulerVO> svoList = schedulerService.getSchduler(svo);
 		
-			return JSONResult.success(list);
+		return JSONResult.success(svoList);
 	}
-
 }

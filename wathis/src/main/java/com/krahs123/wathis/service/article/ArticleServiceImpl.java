@@ -93,5 +93,11 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleDao.getArticleNext(boardCode, id);
 	}
 
+	@Override
+	public List<ArticleVO> getArticleMainList(String boardCode, int count) {
+		// TODO Auto-generated method stub
+		return articleDao.getArticleMainList(boardCode, count);
+	}
+
 
 }

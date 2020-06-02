@@ -124,4 +124,13 @@ public class ArticleDAOImpl implements ArticleDAO {
 		map.put("id", id);
 		return sql.selectOne(NAMESPACE+".getArticleNext",map);
 	}
+
+	@Override
+	public List<ArticleVO> getArticleMainList(String boardCode, int count) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashMap<>();
+		map.put("boardCode", boardCode);
+		map.put("count", count);
+		return sql.selectList(NAMESPACE+".getArticleMainList",map);
+	}
 }

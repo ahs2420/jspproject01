@@ -55,19 +55,32 @@
                             </div>
                         </div>
                         <!--//게시판관리 Board Managememt Page-->
-                        <!--쇼핑몰관리 ShopMall Managememt Page-->
+                        <!--상품관리 ShopMall Managememt Page-->
                         <div class="nav-wrap margin-t30">
                             <div class="icon">
                                 <i class="fas fa-shopping-cart gray-80"></i>
                             </div>
                             <div class="icon-title">
-                                <a href="/product" class="gray-80">ShopMall Managememt Page</a>
+                                <a href="/product" class="gray-80">Product Managememt Page</a>
                             </div>
                             <div class="icon-arrow ralign">
                                 <i class="fas fa-angle-right gray-80"></i>
                             </div>
                         </div>
-                        <!--//쇼핑몰관리 ShopMall Managememt Page-->
+                        <!--//상품관리 ShopMall Managememt Page-->
+                        <!--상품 심사 ShopMall Managememt Page-->
+                        <div class="nav-wrap margin-t30">
+                            <div class="icon">
+                                <i class="fas fa-clipboard-check gray-80"></i>
+                            </div>
+                            <div class="icon-title">
+                                <a href="/audit" class="gray-80">Audit Managememt Page</a>
+                            </div>
+                            <div class="icon-arrow ralign">
+                                <i class="fas fa-angle-right gray-80"></i>
+                            </div>
+                        </div>
+                        <!--//상품 심사 ShopMall Managememt Page-->
                         <!--스케줄관리 Scheduler Managememt Page-->
                         <div class="nav-wrap margin-t30">
                             <div class="icon">
@@ -108,7 +121,7 @@
                         <!--메뉴 관리 Menu Managememt Page-->
                         <div class="nav-wrap margin-t30">
                             <div class="icon">
-                                <i class="fas fa-syringe gray-80"></i>
+                                <i class="fas fa-bars gray-80"></i>
                             </div>
                             <div class="icon-title">
                                 <a href="/menu" class="gray-80">Menu Managememt Page</a>
@@ -121,7 +134,7 @@
                         <!--팝업 관리 Popup Managememt Page-->
                         <div class="nav-wrap margin-t30">
                             <div class="icon">
-                                <i class="fas fa-syringe gray-80"></i>
+                                <i class="fas fa-ad gray-80"></i>
                             </div>
                             <div class="icon-title">
                                 <a href="/popup" class="gray-80">Popup Managememt Page</a>
@@ -131,6 +144,19 @@
                             </div>
                         </div>
                         <!--//팝업 관리 Popup Managememt Page-->
+                        <!--메일 관리 Mail Managememt Page-->
+                        <div class="nav-wrap margin-t30">
+                            <div class="icon">
+                                <i class="fas fa-envelope gray-80"></i>
+                            </div>
+                            <div class="icon-title">
+                                <a href="/mail" class="gray-80">Mail Managememt Page</a>
+                            </div>
+                            <div class="icon-arrow ralign">
+                                <i class="fas fa-angle-right gray-80"></i>
+                            </div>
+                        </div>
+                        <!--//메일 관리 Mail Managememt Page-->
                     </div>
                 </nav>
                 <!--우측-->
@@ -315,11 +341,22 @@
                             <c:if test="${template eq 'cate' && mypage eq 'list' }">
                             	<%@ include file="/WEB-INF/views/admin/cate/getCateListInc.jsp" %>
                             </c:if>
-                            
-                            <c:if test="${template eq 'scheduler' && mypage eq 'view' }">
-                        			<%@ include file = "../scheduler/getScehedulerInc.jsp" %>
-                    		</c:if>
-                            
+                            <c:if test="${template eq 'mail' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/mail/getMailListInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'mail' && mypage eq 'insert' }">
+                            	<%@ include file="/WEB-INF/views/admin/mail/getMailInsertInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'mail' && mypage eq 'view' }">
+                            	<%@ include file="/WEB-INF/views/admin/mail/getMailViewInc.jsp" %>
+                            </c:if>
+                            <c:if test="${template eq 'scheduler' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/scheduler/getSchedulerList.jsp" %>
+                            </c:if>
+                            <c:if  test="${template eq 'article' && mypage eq 'list' }">
+                            	<%@ include file="/WEB-INF/views/admin/article/getArticleList.jsp" %>
+
+                            </c:if>
                             <!--//if에 따라 바뀌는 부분-->
                         </div>
                     </div>
