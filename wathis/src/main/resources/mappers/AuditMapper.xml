@@ -40,7 +40,27 @@
 	<select id="getAuditLastID" resultType="int">
 		SELECT id FROM tb_audit WHERE member_id=#{member_id} order by id desc LIMIT 1
 	</select>
-	
+	<select id="getAuditMyList" resultType="map">
+		SELECT 
+			a.id,
+			a.status,
+			m.marker_name,
+			p.title,
+			p.status as pStatus,
+			p.img_upload_dir,
+			p.main_img,
+			c.title as category_name
+		FROM 
+		tb_audit as a 
+			LEFT OUTER JOIN tb_maker_info  as m 
+				ON a.id=m.audit_id  
+			LEFT OUTER JOIN tb_product as p 
+				ON a.id = p.audit_id  
+			LEFT OUTER JOIN tb_category as c
+				ON p.category_id = c.id
+		WHERE a.member_id = #{member_id}
+		ORDER BY a.id desc
+	</select>
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
 			
@@ -70,7 +90,9 @@
 			required_documents_Name = #{required_documents_Name},
 			required_documents_url = #{required_documents_url},
 			fees_chk = #{fees_chk},
+			policy_agreement = #{policy_agreement},
 			status = #{status}
+			
 		WHERE id=#{id}
 		
 	</update>

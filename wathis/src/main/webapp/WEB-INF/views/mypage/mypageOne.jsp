@@ -216,7 +216,7 @@
                             	
                             </c:forTokens>
                         </select>
-                        <textarea id="editor1" name="content Policy_Agreement" class="ckeditor"></textarea>
+                        <textarea id="editor1" name="reword_info" class="ckeditor"></textarea>
                         <script>
                             CKEDITOR.replace('editor1', {
                                 customConfig: '/plugin/ckeditor/config.js',

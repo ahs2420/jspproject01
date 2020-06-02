@@ -247,16 +247,6 @@
                                 filebrowserImageUploadUrl: '/cke/imageUpload'
                             });
                         </script>
-                        <!-- inline 타입으로 생성 -->
-                        <textarea id="editor2" name="reword_info" class="ckeditor">${oneModi.reword_info }</textarea>
-                        <script>
-                            CKEDITOR.inline('editor2', {
-                                customConfig: '/plugin/ckeditor/config.js',
-                                width: '100%',
-                                height: '500',
-                                filebrowserImageUploadUrl: '/cke/imageUpload'
-                            });
-                        </script>
                     </div>
                 </div>
                 <div class="ba-guide3">

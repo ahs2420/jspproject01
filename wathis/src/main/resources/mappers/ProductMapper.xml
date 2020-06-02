@@ -3,27 +3,23 @@
 <mapper namespace="mappers.ProductMapper">
 	<select id="getAll" resultType="productvo">
 		SELECT 
-			id,            
-			member_id,     
-			category_id,   
-			audit_id,      
-			status,        
-			title,         
-			sub_title,     
-			video_chk,     
-			img_upload_dir,
-			img,           
-			content,       
-			price,         
-			start_date,    
-			end_date,      
-			maker_name,    
-			maker_tel,     
-			maker_homepage,
-			maker_sns_type,
-			maker_sns_url, 
-			keyword,       
-			reg_date    
+		id,
+		member_id,
+		category_id,
+		audit_id,
+		status,
+		title,
+		sub_title,
+		video_chk,
+		img_upload_dir,
+		main_img,
+		img,
+		content,
+		price,
+		start_date,
+		end_date,
+		keyword,
+		reg_date
 		FROM tb_product
 		ORDER BY id DESC
 
@@ -37,54 +33,47 @@
 	<select id="getOne" resultType="productvo">
 	
 	</select>
-	<insert id="setItem">
-		INSERT INTO tb_product
-			SET
-			id = #{id},
-			member_id = #{member_id},
-			category_id = #{category_id},
-			audit_id = #{audit_id},
-			status = #{status},
-			title = #{title},
-			sub_title = #{sub_title},
-			video_chk = #{video_chk},
-			img_upload_dir = #{img_upload_dir},
-			img = #{img},
-			content = #{content},
-			price = #{price},
-			start_date = #{start_date},
-			end_date = #{end_date},
-			maker_name = #{maker_name},
-			maker_tel = #{maker_tel},
-			maker_homepag = #{maker_homepag},
-			maker_sns_typ = #{maker_sns_typ},
-			maker_sns_url = #{maker_sns_url},
-			keyword = #{keyword},
-			reg_date = #{reg_date}
+	<select id="getProductId" resultType="int">
+		SELECT 
+		id
+		FROM tb_product
+		WHERE audit_id=#{audit_id}
+		
+	</select>
+	<insert id="setProduct">
+		insert into tb_product SET
+		member_id=#{member_id},
+		category_id=#{category_id},
+		audit_id=#{audit_id},
+		status=#{status},
+		title=#{title},
+		sub_title=#{sub_title},
+		video_chk=#{video_chk},
+		img_upload_dir=#{img_upload_dir},
+		main_img=#{main_img},
+		img=#{img},
+		content=#{content},
+		price=#{price},
+		start_date=#{start_date},
+		end_date=#{end_date},
+		keyword=#{keyword}
 	</insert>
 	<update id="updateItem">
-		UPDATE tb_product SET
-			member_id = #{member_id},
-			category_id = #{category_id},
-			audit_id = #{audit_id},
-			status = #{status},
-			title = #{title},
-			sub_title = #{sub_title},
-			video_chk = #{video_chk},
-			img_upload_dir = #{img_upload_dir},
-			img = #{img},
-			content = #{content},
-			price = #{price},
-			start_date = #{start_date},
-			end_date = #{end_date},
-			maker_name = #{maker_name},
-			maker_tel = #{maker_tel},
-			maker_homepag = #{maker_homepag},
-			maker_sns_typ = #{maker_sns_typ},
-			maker_sns_url = #{maker_sns_url},
-			keyword = #{keyword},
-			reg_date = #{reg_date}
-		WHERE id=#{id}
+		update tb_product SET
+			category_id=#{category_id},
+			title=#{title},
+			sub_title=#{sub_title},
+			video_chk=#{video_chk},
+			img_upload_dir=#{img_upload_dir},
+			main_img=#{main_img},
+			img=#{img},
+			content=#{content},
+			price=#{price},
+			start_date=#{start_date},
+			end_date=#{end_date},
+			keyword=#{keyword}
+			where 
+			id=#{id}
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_product

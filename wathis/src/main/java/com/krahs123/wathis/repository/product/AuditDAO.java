@@ -1,6 +1,7 @@
 package com.krahs123.wathis.repository.product;
 
 import java.util.List;
+import java.util.Map;
 
 import com.krahs123.wathis.model.AuditVO;
 
@@ -17,4 +18,6 @@ public interface AuditDAO {
 	public int updateItem(AuditVO auvo);
 // 최근 id 
 	public int getAuditLastID(int member_id);
+	// 내 프로젝트 리스트
+	public List<Map<String,Object>> getAuditMyList(String member_id);
 }

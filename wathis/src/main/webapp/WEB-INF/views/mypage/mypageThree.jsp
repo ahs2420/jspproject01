@@ -10,6 +10,7 @@
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
 
+
 <link rel="stylesheet" href="/css/datepicker/daterangepicker.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
 <script src="/js/datepicker/jquery.daterangepicker.min.js"></script>
@@ -54,6 +55,10 @@
             </div>
 
             <!-- 1번 -->
+          <form action="/page/mypageThree" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+        
+        <input type="hidden" name="member_id" value="${sessionScope.id}" />
+        <input type="hidden" name="audit_id" value="${audit_id}" />
             <div class="ba-project">
                 <div class="flex-basic2 ba-pro-img">
                     <div class="mar-bo2 wid1">
@@ -64,10 +69,10 @@
                                 <p class="fon-col fon-siz3  mar-bo4">프로젝트 페이지 상단에 노출될 영상 또는 사진을 올려주세요.</p>
                             </div>
                             <div class="one-radio-box1">
-                                <input class="ra-size" type="radio" name="ra1" id="projectimg1">
+                                <input class="ra-size" type="radio" name="video_chk" value="1" id="projectimg1">
                                 <label for="projectimg1" class="di-la1 mar-top1 fon-wei1 fon-siz2"> 소개 영상</label>
                                 <div class="one-text-box1 text-padding4">
-                                    <input class="hei1 fon-bor1 text-padding1" type="text" id="projectimg"
+                                    <input class="hei1 fon-bor1 text-padding1" name="video_chkTwo" type="text" id="projectimg"
                                         placeholder="영상 URL 입력">
                                     <button class="hei1 box-back4 ra-btn fon-wei1 wid8 fon-co11 fon-siz2 box-ra1"
                                         type="button" id="">등록</button>
@@ -77,13 +82,13 @@
                                 </div>
                             </div>
                             <div class="one-radio-box2">
-                                <input class="ra-size" type="radio" name="ra1" checked id="projectimg2">
+                                <input class="ra-size" type="radio" name="video_chk" value="0" checked id="projectimg2">
                                 <label for="projectimg2" class="di-la1 mar-top1 fon-wei1 fon-siz2"> 소개 사진</label>
 
                                 <div class="one-text-box2 text-padding4">
                                     <div class="file-box">
                                         <label for="file1"><i class="fas fa-camera fon-co11"></i> 등록하기</label>
-                                        <input type="file" id="file1">
+                                        <input type="file" name="file" multiple id="file1">
                                     </div>
                                     <p class="fon-siz3 fon-col ">2MB 이하의 JPEG, JPG, GIF, PNG 파일</p>
                                     <p class="fon-siz3 fon-col">사이즈 : 최소 630X400 픽셀 이상</p>
@@ -115,7 +120,7 @@
 						<div class="name-left">
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
 								제목 <span class="fon-co5"> *</span>
-							</label> <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectname"
+							</label> <input class="wid1 hei1 fon-bor1 text-padding1" name="title" type="text" id="projectname"
 								placeholder="제목 입력">
 							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">40자 남음</p>
 						</div>
@@ -143,7 +148,7 @@
 							원으로 설정하세요.</p>
 						<div class="flex-box">
 							<div class="money-box wid1">
-								<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
+								<input class="wid1 hei1 fon-bor1 text-padding1" name="price" type="text" id="projectprice"
 									placeholder="목표 금액 입력">
 							</div>
 							<div class="paybox hei1 box-back13 wid8  fon-co11 text-padding2">
@@ -172,8 +177,8 @@
 						</label> <br>
 						<!-- <input class="" type="file" id="projectimg"> -->
 						<div class="file-box">
-							<label for="file1" class="fon-co9">등록하기</label>
-							<input type="file" id="file1">
+							<label for="file2" class="fon-co9">등록하기</label>
+							<input type="file" name="main_file" id="file2">
 						</div>
 
 						<p class="fon-siz4 fon-co7 fon-wei1 mar-top1">3MB 이하의 JPEG,PNG
@@ -200,7 +205,7 @@
 							선택<span class="fon-co5"> *</span>
 						</label>
 						<!-- <input class="" type="text" id="projectname" placeholder="카테고리 선택"> -->
-						<select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="" id="project-ka">
+						<select class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="category_id" id="project-ka">
 
 							<option value="">카테고리선택</option>
 							<c:forEach items="${cate}" var="cate">
@@ -231,9 +236,9 @@
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">엔터를 누르면 태그가 등록
 							됩니다.(최대 10개까지 입력가능)</p>
 
-						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectname"
+						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" name="keyword" id="projectname"
 							placeholder="태그 입력">
-						<div class="tag fon-co4 fon-siz3 fon-wei1 mar-bo4">0/10개의 태그
+						<div class="tag fon-co4 fon-siz3 fon-wei1 mar-bo4">#으로 구분해서 넣어주세요.
 						</div>
 					</div>
 
@@ -261,7 +266,7 @@
                             </div>
                             <div class="text-area">
 
-                                <textarea name="" id="" cols="30" rows="3" maxlength="100"
+                                <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
                                     placeholder="내용을 입력하세요."></textarea>
                                 <p class="fon-siz4 fon-col mar-bo6 fon-wei1">100자 남음</p>
@@ -281,51 +286,52 @@
                     </div>
                 </div>
                 <!-- 3번,4번  각종 가이드 부분에서 달력으로 수정-->
-
-                <div class="flex-basic2 ba-pro-day ">
-					<div class="wid4 mar-top3">
-						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 시작일<span class="fon-co5"> *</span>
-						</label>
-						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
-							시작을 선택하세요.</p>
-						<input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="project-day"
-							placeholder="예? 20200401">
-					</div>
-
-					<div class="ba-guide5">
-						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
-								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
-							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
-								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
-							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
+				<div id="two-datePicker">
+	                <div class="flex-basic2 ba-pro-day ">
+						<div class="wid4 mar-top3">
+							<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 시작일<span class="fon-co5"> *</span>
+							</label>
+							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
+								시작을 선택하세요.</p>
+							<input class="wid1 hei1 fon-bor1 text-padding1" name="start_date" type="text" id="start_date" readonly="readonly" required="required"
+								placeholder="예? 2020-04-01">
 						</div>
-					</div>
-
-				</div>
-
-				
-				<!-- 4번-->
-				<div class="flex-basic2 ba-pro-adult mar-bo3">
-					<div class="wid4 mar-top3">
-						<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 종료일<span class="fon-co5"> *</span>
-						</label>
-						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">
-							리워드를 설계하기 위해 프로젝트 종료일을 선택하세요.</p>
-						<input class="wid1 hei1 fon-bor1 text-padding1 mar-bo7" type="text" id="project-day"
-							placeholder="예? 20200401">
-					</div>
-
-					<div class="ba-guide6">
-						<div class=" text-padding3 box-li1 box-back1">
-							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
-								오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
-							<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
-								가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
-							<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
+	
+						<div class="ba-guide5">
+							<div class=" text-padding3 box-li1 box-back1">
+								<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
+									오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
+								<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
+									가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
+								<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
+							</div>
 						</div>
+	
 					</div>
-
+	
+					
+					<!-- 4번-->
+					<div class="flex-basic2 ba-pro-adult mar-bo3">
+						<div class="wid4 mar-top3">
+							<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 종료일<span class="fon-co5"> *</span>
+							</label>
+							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">
+								리워드를 설계하기 위해 프로젝트 종료일을 선택하세요.</p>
+							<input class="wid1 hei1 fon-bor1 text-padding1 mar-bo7" name="end_date" type="text" id="end_date" readonly="readonly"
+								placeholder="예? 20200401">
+						</div>
+	
+						<div class="ba-guide6">
+							<div class=" text-padding3 box-li1 box-back1">
+								<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
+									오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
+								<p class="fon-siz4 mar-bo5 fon-co7">· 요건 및 콘텐츠 확인이 완료된 후 오픈이
+									가능하며, 종료일을 기준으로 3개월 내에 리워드 발송이 완료되어야 합니다.</p>
+								<p class="fon-siz4 fon-co7">· 프로젝트 평균 진행 기간은 평균 30일입니다.</p>
+							</div>
+						</div>
+	
+					</div>
 				</div>
                 <!-- 5번 -->
 
@@ -372,9 +378,11 @@
 
             <!-- 6번 -->
             <div class="btn-save">
-                <button class="btn-end" type="button">저장하기</button>
+                <button class="btn-end" type="submit">저장하기</button>
             </div>
+        </form>
         </div>
+        
 
 
     </div><!-- 중간 container 박스 -->
@@ -384,5 +392,29 @@
 </main>
 <footer></footer>
 </body>
+
+ <script>
+     $(function(){
+         var date = new Date()
+         var today = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+        $('#two-datePicker').dateRangePicker(
+        {
+            startDate: today,
+            separator : ' to ',
+            getValue: function()
+            {
+                if ($('#start_date').val() && $('#end_date').val() )
+                    return $('#start_date').val() + ' to ' + $('#end_date').val();
+                else
+                    return '';
+            },
+            setValue: function(s,s1,s2)
+            {
+                $('#start_date').val(s1);
+                $('#end_date').val(s2);
+            }
+        });
+     });
+ </script>
 
 <%@include file="../hong-include/foot.jspf"%>

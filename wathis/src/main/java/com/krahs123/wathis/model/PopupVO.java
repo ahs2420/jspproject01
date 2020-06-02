@@ -1,5 +1,7 @@
 package com.krahs123.wathis.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class PopupVO {
 //팝업
 //	+------------+------------------+------+-----+-------------------+-------------------+

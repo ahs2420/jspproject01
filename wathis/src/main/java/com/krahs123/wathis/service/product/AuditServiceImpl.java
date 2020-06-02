@@ -1,6 +1,7 @@
 package com.krahs123.wathis.service.product;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,12 @@ public class AuditServiceImpl implements AuditService{
 	public int getAuditLastID(int member_id) {
 		// TODO Auto-generated method stub
 		return auditDao.getAuditLastID(member_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> getAuditMyList(String member_id) {
+		// TODO Auto-generated method stub
+		return auditDao.getAuditMyList(member_id);
 	}
 
 

@@ -30,9 +30,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 730px;
-    height: 1000px;
+    height: 80vh;
+    overflow-y: auto;
     background: #fff;
-    padding:80px 100px;
+    padding:40px 50px;
 }
 .edit-box{
   
@@ -76,8 +77,8 @@ input[type="radio"]{
 /* 리워드편집 아이콘 */
 .icon-X{
     position: absolute;
-    top: -70px;
-    right: -35px;
+    top: 10px;
+    right: 10px;
 
 
 }

@@ -1,6 +1,7 @@
 package com.krahs123.wathis.repository.product;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,13 @@ public class AuditDAOImpl implements AuditDAO{
 		// TODO Auto-generated method stub
 		return sql.selectOne(NAMESPACE+".getAuditLastID",member_id);
 	}
+
+	@Override
+	public List<Map<String, Object>> getAuditMyList(String member_id) {
+		// TODO Auto-generated method stub
+		return sql.selectList(NAMESPACE+".getAuditMyList", member_id);
+	}
+
 
 
 	

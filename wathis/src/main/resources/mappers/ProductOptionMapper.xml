@@ -4,13 +4,13 @@
 	<select id="getAll" resultType="productoptionvo">
 		SELECT 
 			id,            
-			member_id,     
 			product_id,    
 			title,         
 			description,   
 			market_price,  
 			price,         
-			stock,         
+			stock,      
+			delevery_chk,   
 			delevery_price,
 			option_type,   
 			option_kind,   
@@ -28,37 +28,34 @@
 	<select id="getOne" resultType="productoptionvo">
 	
 	</select>
-	<insert id="setItem">
+	<insert id="setProOption">
 		INSERT INTO tb_product_option
-		SET
-			id = #{id},    
-			member_id = #{member_id},     
+		SET       
 			product_id = #{product_id},    
 			title = #{title},         
 			description = #{description},   
 			market_price = #{market_price},  
 			price  = #{price },        
-			stock = #{stock },         
+			stock = #{stock },     
+			delevery_chk=#{delevery_chk},    
 			delevery_price = #{delevery_price},
 			option_type  = #{option_type},  
 			option_kind  = #{option_kind},  
-			delivery_date = #{delivery_date},
-			reg_date = #{reg_date}
+			delivery_date = #{delivery_date}
 	</insert>
 	<update id="updateItem">
-		UPDATE tb_product_option SET
-			member_id = #{member_id},     
+		UPDATE tb_product_option SET   
 			product_id = #{product_id},    
 			title = #{title},         
 			description = #{description},   
 			market_price = #{market_price},  
 			price  = #{price },        
-			stock = #{stock },         
+			stock = #{stock },   
+			delevery_chk=#{delevery_chk},        
 			delevery_price = #{delevery_price},
 			option_type  = #{option_type},  
 			option_kind  = #{option_kind},  
-			delivery_date = #{delivery_date},
-			reg_date = #{reg_date}
+			delivery_date = #{delivery_date}
 		WHERE id = #{id}
 	</update>
 	<delete id="deleteItem">

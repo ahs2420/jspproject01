@@ -6,13 +6,13 @@ public class ProductOptionVO {
 //	| Field          | Type             | Null | Key | Default | Extra          |
 //	+----------------+------------------+------+-----+---------+----------------+
 //	| id             | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-//	| member_id      | int(10) unsigned | NO   |     | 0       |                |
 //	| product_id     | int(10) unsigned | NO   |     | 0       |                |
 //	| title          | varchar(100)     | NO   |     | NULL    |                |
 //	| description    | varchar(100)     | NO   |     | NULL    |                |
 //	| market_price   | int(10) unsigned | NO   |     | NULL    |                |
 //	| price          | int(10) unsigned | NO   |     | NULL    |                |
 //	| stock          | int(10) unsigned | NO   |     | NULL    |                |
+//	| delevery_chk   | char(1)          | NO   |     | NULL    |                   |
 //	| delevery_price | int(10) unsigned | NO   |     | NULL    |                |
 //	| option_type    | char(1)          | NO   |     | NULL    |                |
 //	| option_kind    | varchar(200)     | YES  |     | NULL    |                |
@@ -20,17 +20,23 @@ public class ProductOptionVO {
 //	| reg_date       | datetime         | NO   |     | NULL    |                |
 //	+----------------+------------------+------+-----+---------+----------------+
 	private int id;
+	private int product_id;
+	private String title;
+	private String description;
+	private int market_price;
+	private int price;
+	private int stock;
+	private int delevery_price;
+	private String option_type;
+	private String option_kind;
+	private String delivery_date;
+	private String reg_date;
+	private String delevery_chk;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public int getProduct_id() {
 		return product_id;
@@ -98,16 +104,10 @@ public class ProductOptionVO {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
-	private int member_id;
-	private int product_id;
-	private String title;
-	private String description;
-	private int market_price;
-	private int price;
-	private int stock;
-	private int delevery_price;
-	private String option_type;
-	private String option_kind;
-	private String delivery_date;
-	private String reg_date;
+	public String getDelevery_chk() {
+		return delevery_chk;
+	}
+	public void setDelevery_chk(String delevery_chk) {
+		this.delevery_chk = delevery_chk;
+	}
 }
