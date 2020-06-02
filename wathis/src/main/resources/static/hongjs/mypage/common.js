@@ -10,13 +10,12 @@ $(function () {
 
 });
 
+// $(function () {
+//     $("#my-modal").click(function () {
+//         $(".my-modal").addClass("active");
+//     });
 
-$(function () {
-    $("#my-modal").click(function () {
-        $(".my-modal").addClass("active");
-    });
-
-});
+// });
 
 
 // 스토리 작성 Q1번 
