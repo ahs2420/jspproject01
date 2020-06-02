@@ -36,6 +36,7 @@
 	<insert id="setMaker">
 	
 		INSERT INTO tb_maker_info SET
+		
 			audit_id 	= #{audit_id},
 			marker_name 	= #{marker_name},
 			img_dir 		= #{img_dir},

@@ -34,7 +34,7 @@
                         <h2>기본요건 및 정보</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypageOneModify">
+                    <a href="/page/mypageOneView">
                         <button class="ready-btn">수정하기</button>
                     </a>
                 </div>

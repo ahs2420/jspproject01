@@ -157,7 +157,7 @@
         <c:if test="${template eq 'Reward' && mypage eq 'prepare'}">
             <%@ include file = "mypageList.jsp" %>
         </c:if>
-        
+        <!-- 펀딩 준비 수정 부분 -->
         <c:if test="${template eq 'Reward' && mypage eq 'modify'}">
             <%@ include file = "mypageListModify.jsp" %>
         </c:if>
@@ -167,7 +167,7 @@
             <%@ include file = "mypageOne.jsp" %>
         </c:if>
         
-         <!-- 기본 요건 수정 부분 -->
+        <!-- 기본 요건 수정 부분 -->
         <c:if test="${template eq 'Reward' && mypage eq 'oneModi'}">
             <%@ include file = "mypageOneModify.jsp" %>
         </c:if>

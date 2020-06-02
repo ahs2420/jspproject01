@@ -40,7 +40,7 @@
 	
 	<insert id="setItem">
 		INSERT INTO tb_audit SET
-		
+			
 			member_id = #{member_id},
 			circulation_chk 		= #{circulation_chk},
 			circulation_content 	= #{circulation_content},
@@ -56,24 +56,22 @@
 			
 	</insert>
 	<update id="updateItem">
-		UPDATE SET tb_audit
-			id=#{id},
-			member_id=#{member_id},
-			category_id=#{category_id},
-			circulation_chk=#{circulation_chk},
-			circulation_content=#{circulation_content},
-			preparations_plan=#{preparations_plan},
-			relay_plan=#{relay_plan},
-			reword_type=#{reword_type},
-			reword_info=#{reword_info},
-			required_documents_orgName=#{required_documents_orgName},
-			required_documents_Name=#{required_documents_Name},
-			required_documents_url=#{required_documents_url},
-			fees_chk=#{fees_chk},
-			policy_agreement=#{policy_agreement},
-			status=#{status},
-			reg_date=#{reg_date}
+		UPDATE tb_audit SET 
+			circulation_chk = #{circulation_chk},
+			circulation_content = #{circulation_content},
+			preparations_plan = #{preparations_plan},
+			relay_plan = #{relay_plan},
+			reword_type = #{reword_type},
+			reword_info = #{reword_info},
+			required_documents_orgName = #{required_documents_orgName},
+			required_documents_Name = #{required_documents_Name},
+			required_documents_url = #{required_documents_url},
+			fees_chk = #{fees_chk},
+			policy_agreement = #{policy_agreement},
+			status = #{status}
+			
 		WHERE id=#{id}
+		
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_audit

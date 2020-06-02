@@ -13,6 +13,7 @@
 <div class="box2-funReady">
     <form action="/page/mypageTwo" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
         <input type="hidden" name="member_id" value="${sessionScope.id }" />
+        <input type="hidden" name="audit_id" value="${audit_id }" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->
         <div class="basic-box">

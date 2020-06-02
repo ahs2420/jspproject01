@@ -24,15 +24,17 @@ import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MakerInfoVO;
 import com.krahs123.wathis.service.category.CategoryService;
-import com.krahs123.wathis.service.mypage.MypageService;
+
+import com.krahs123.wathis.service.product.AuditService;
 import com.krahs123.wathis.service.product.MakerInfoService;
 
 @Controller
 @RequestMapping("/page")
 public class MyPageConroller {
 	
-	@Autowired MypageService mypageService;
-
+//	@Autowired MypageService mypageService;
+	
+	@Autowired AuditService auditService;
 	
 	@Autowired MakerInfoService makerSer;
 	
@@ -78,27 +80,42 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"mypage");
 		return mav;
 	}
-
-	// 기본요건부분 수정 부분
-	@RequestMapping("/mypageOneModify")
-	public ModelAndView getList(@RequestParam int id ){
-		AuditVO auvo = mypageService.getList(id);
+	
+	// 기본요건 보여주는 부분
+	@RequestMapping("/mypageOneView")
+	public ModelAndView getmypageOneView(@RequestParam int id){
+		AuditVO auditvo = auditService.getList(id);
 		
-			ModelAndView mav = new ModelAndView();
-			mav.addObject("template", "Reward");
-			mav.addObject("mypage", "modify");
-			mav.addObject("oneModi", auvo);
-			
-			mav.setViewName(DIR+"mypage");
-			return mav;
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "oneModi");
+		mav.addObject("oneModi", auditvo);
+		
+		mav.setViewName(DIR+"mypage");
+		return mav;
 	}
+	
+	
+	// 기본요건부분 수정 부분
+	//	@RequestMapping("/mypageOneModify")
+//		public ModelAndView getList(@ModelAttribute AuditVO auvo ){
+//			
+//		int result = auditService.updateItem(auvo);
+//			
+//				ModelAndView mav = new ModelAndView();
+//				mav.addObject("template", "Reward");
+//				mav.addObject("mypage", "oneModi");
+//				
+//				mav.setViewName(DIR+"mypageOneModify");
+//				return mav;
+//		}
 	// 기본 요건 파일 작업하는 부분
 	@RequestMapping("/mypageOne")
 	@ResponseBody
 	public ModelAndView setItem(@ModelAttribute AuditVO auvo, @RequestPart MultipartFile files) throws IllegalStateException, IOException{
 		
 		if( files.isEmpty() ) {
-			mypageService.setItem(auvo); //파일이 있는지 확인
+			auditService.setItem(auvo); //파일이 있는지 확인
 			
 		}else {
 			//파일 저장할 주소
@@ -130,7 +147,7 @@ public class MyPageConroller {
 				
 				
 				
-			mypageService.setItem(auvo);
+			auditService.setItem(auvo);
 			
 		}
 		

@@ -17,8 +17,9 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageOne" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
-        <input type="hidden" name="id" value="${oneModi.id}" />
-        <input type="hidden" name="id" value="${oneModi.id}" />
+        <input type="text" name="id" value="${oneModi.id}" />
+        <input type="text" name="member_id" value="${oneModi.member_id}" />
+       
         <div class="ba-project">
 
             <!-- 				정보 및 요건 중간선 -->
@@ -85,7 +86,7 @@
                                 <div class="text-area">
                                     <textarea name="circulation_content" id="" cols="30" rows="3" maxlength="500"
                                         style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 65%;"
-                                        placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다."></textarea>
+                                        placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다.">${oneModi.circulation_content}</textarea>
                                     <p class="fon-siz4 fon-col mar-bo6 fon-wei1">500자 남음</p>
                                 </div>
 
@@ -125,14 +126,13 @@
                                 가능량을 포함한 앞으로의 생상 계획을 작성해주세요. <br> 2) 공연,영화, 전시 등 무형 서비스인
                                 경우, 장소 대관, 촬영 일정 등의 현재 준비 상태 및 앞으로의 계획을 작성해 주세요.
                             </p>
-                            <c:forEach var="oneModi" items="${AuitVO}">
                             <div class="text-area">
                                 <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
                                     placeholder="내용을 입력하세요." class="Preparations_plan">${oneModi.preparations_plan}</textarea>
                                 <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
                             </div>
-                            </c:forEach>
+
                         </div>
                     </div>
                 </div>
