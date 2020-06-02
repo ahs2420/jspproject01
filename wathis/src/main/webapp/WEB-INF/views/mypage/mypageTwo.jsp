@@ -91,7 +91,7 @@
                 </div>
 
                 <!-- 4번 -->
-                <div class="mar-bo2">
+                <!-- <div class="mar-bo2">
                     <div class="flex-basic2 ba-pro-price">
                         <div class="ba-pro-price wid4 ">
                             <label for="text-box2" class="di-la1 mar-top1 fon-wei1">
@@ -115,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- 5번 -->
                 <div class="mar-bo2 ">
                     <div class="flex-basic2 ba-pro-img ">

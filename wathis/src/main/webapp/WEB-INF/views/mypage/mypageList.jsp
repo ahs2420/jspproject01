@@ -17,9 +17,9 @@
                 <div class="ready-wrap">
                     <div class="ready-state-left">
                         <div class="ready-project">프로젝트 준비 상태</div>
-                        <div class="ready-right">
+                        <!-- <div class="ready-right">
                             <a href="#" id="my-modal">지금 나의 단계는?</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="ready-pro-text">
                         <span>펀딩 준비 작성 중</span>
@@ -28,7 +28,39 @@
                         </div>
                     </div>
                 </div>
-                	<!-- 기본요건 부분 -->
+                <!--작성하기 부분 -->
+                <!--작성 부분 -->
+                <div class="fun-ready">
+                    <div class="readybox-basic">
+                        <div class="my-text">
+                            <h2>펀딩 준비 작성</h2>
+                          <!-- <p>펀딩 진행을 위해 프로젝트 내용을 작성하는 펀딩 준비 작성 단계 입니다.</p> -->
+                        </div>
+                    </div>
+                    <div class="readybox-basic">
+                        <div class="my-text">
+                            <h2>요건 확인</h2>
+                            <!-- <p>펀딩 진행을 위한 기본 요건을 충족하는지, 누락된 사항은 없는 지 등을 확인 하는 단계입니다.</p> -->
+                        </div>
+                    </div>
+                    <div class="readybox-basic">
+                        <div class="my-text">
+                            <h2>콘텐츠 확인</h2>
+                            <!-- <p>펀딩 컨텐츠에 대한 검토 및 약점을 체결하는 단계입니다.</p> -->
+                        </div>
+                    </div>
+                    <div class="readybox-basic">
+                        <div class="my-text">
+                            <h2>펀딩 오픈</h2>
+                            <!-- <p>
+                                프로젝트가 최종 승인되어, 펀딩 오픈 대기 중 상태이거나 펀딩 진행 중인 단계입니다.
+                                오픈 예정을 신청한 경우네는 오픈 예정 진행 후 펀딩 오픈 됩니다.
+                            </p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 기본요건 부분 -->
                 <div class="fun-ready">
                     <div class="readybox-basic">
                         <h2>기본요건 및 정보</h2>
@@ -39,23 +71,23 @@
                     </a>
                 </div>
                 <!-- 메이커부분 부분 -->
-				<div class="fun-ready">
+                <div class="fun-ready">
                     <div class="readybox-basic">
                         <h2>메이커 정보</h2>
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-two">
-                    <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
-				<!-- 스토리 부분 -->
+                <!-- 스토리 부분 -->
                 <div class="fun-ready">
                     <div class="readybox-basic">
                         <h2>스토리 작성</h2>
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-three">
-                     <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
                 <!-- 리워드설계 부분 -->
@@ -65,20 +97,11 @@
                         <span>작성 중</span>
                     </div>
                     <a href="/page/mypage-four">
-                       <button class="ready-btn">작성하기</button>
+                        <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
-                <!-- 위험 요건 및 정책  부분 -->
-                <div class="fun-ready">
-                    <div class="readybox-basic">
-                        <h2>위험요인 및 정책</h2>
-                        <span>작성 중</span>
-                    </div>
-                    <a href="/page/mypage-five">
-                    <button class="ready-btn">작성하기</button>
-                    </a>
-                </div>
-           
+                <!-- 위험 요건 및 정책  부분 삭제 예-->
+
                 <div class="readybox-basic-end">
                     <button class="ready-btn">제출하기</button>
                 </div>
@@ -87,13 +110,22 @@
             </div>
             <div class="adver-boxwrap">
                 <div class="adver-box1">
-                    <img src="/hongimages/images/san.jpg" alt="">
-                    <div class="box1-center">
-                        <span class="readver">리워드펀딩을 준비하는 메이커님을 위한</span><br>
-                        <a href="#">필수 가이드-></a>
-                        <div class="box-black"></div>
+                    <!-- <img src="/hongimages/images/san.jpg" alt=""> -->
+                    <ul>
+                        <li class="box-back6 cu-poin text-padding11">
+                            <span class="fon-co12 fon-siz1 text-ali2">리워드를 준비하는 메이커님을 위한</span>
+                        <div class="fon-wei1 fon-co12 fon-siz11 text-ali2">
+                            필수 가이드 
+                            <i class="fas fa-arrow-alt-right fon-siz12 mar-left2 ver-ali1 mar-left5" ></i>
+                        </div>
 
-                    </div>
+                        </li>
+                        <li class=""><img src="/hongimages/images/whdiz1.jpg" alt=""></li>
+                        <li class=""><img src="/hongimages/images/whdiz2.jpg" alt=""></li>
+                        <li class=""><img src="/hongimages/images/whdiz3.jpg" alt=""></li>
+                        <li class=""><img src="/hongimages/images/whdiz4.jpg" alt=""></li>
+                        
+                    </ul> 
                 </div>
 
             </div>
@@ -111,42 +143,9 @@
             <div class="my-modal-text my-modal-img">
                 <h2>펀딩 준비 프로세스</h2>
             </div>
-
-            <div class="my-modal-content">
-                <ul class="my-be">
-                    <li style="position: relative">
-                        <div class="my-text">
-                            <h2>펀딩 준비 작성</h2>
-                            <p>펀딩 진행을 위해 프로젝트 내용을 작성하는 펀딩 준비 작성 단계 입니다.</p>
-                        </div>
-
-                    </li>
-
-                    <li style="position: relative">
-                        <div class="my-text">
-                            <h2>요건 확인</h2>
-                            <p>펀딩 진행을 위한 기본 요건을 충족하는지, 누락된 사항은 없는 지 등을 확인 하는 단계입니다.</p>
-                        </div>
-                    </li>
-
-                    <li style="position: relative">
-                        <div class="my-text">
-                            <h2>콘텐츠 확인</h2>
-                            <p>펀딩 컨텐츠에 대한 검토 및 약점을 체결하는 단계입니다.</p>
-                        </div>
-                    </li>
-
-                    <li style="position: relative">
-                        <div class="my-text">
-                            <h2>펀딩 오픈</h2>
-                            <p>
-					                                프로젝트가 최종 승인되어, 펀딩 오픈 대기 중 상태이거나 펀딩 진행 중인 단계입니다.
-					                                오픈 예정을 신청한 경우네는 오픈 예정 진행 후 펀딩 오픈 됩니다.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            
+            <!-- 단계 삭제 부분 -->
+          
         </div>
     </div>
 </div>

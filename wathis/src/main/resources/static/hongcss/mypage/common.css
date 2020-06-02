@@ -398,6 +398,10 @@ textarea{
 
 .ver-ali1{vertical-align: middle;}
 
+.text-ali1{text-align: center;}
+.text-ali2{text-align: left;}
+.text-ali3{text-align: right;}
+
 
 /* 블럭 부분 */
 
@@ -476,8 +480,8 @@ textarea{
 .fon-siz8 { font-size: 12px;}
 .fon-siz9 { font-size: 35px;}
 .fon-siz10 { font-size: inherit;}
-.fon-siz11 { font-size: inherit;}
-.fon-siz12 { font-size: inherit;}
+.fon-siz11 { font-size: 20px;}
+.fon-siz12 { font-size: 33px;}
 .fon-siz13 { font-size: inherit;}
 
 .text-padding1{padding: 0 26px 0 10px ;}
@@ -490,6 +494,7 @@ textarea{
 .text-padding8{ padding: 40px}
 .text-padding9{ padding: 50px 60px}
 .text-padding10{ padding:0 16px}
+.text-padding11{ padding:20px}
 
 .mar-top1 { margin-top: 30px;}
 .mar-top2 { margin-top: 20px;}
@@ -512,6 +517,7 @@ textarea{
 .mar-left2 { margin-left: 40px;}
 .mar-left3 { margin-left: 15px;}
 .mar-left4 { margin-left: 10px;}
+.mar-left5 { margin-left: 115px;}
 
 .wid1 { width: 100%;}
 .wid2 { width: 95%;}
