@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.MailMapper">
+	<sql id="getInclude">
+		WHERE
+		<choose>
+			<when test="searchOpt == 'all'">
+				mailto like CONCAT('%',#{words},'%') or title like CONCAT('%',#{words},'%') or content like CONCAT('%',#{words},'%')
+			</when>
+			<otherwise>
+				${searchOpt} like CONCAT('%',#{words},'%')
+			</otherwise>
+		</choose>
+	</sql>
+	<select id="getMailList" resultType="mailvo">
+		SELECT 
+			id,
+			mailto,
+			title,
+			content,
+			reg_date
+ 		FROM tb_mail
+		<include refid="getInclude"></include>
+		ORDER BY id DESC
+		Limit ${pageStart},${pagePer}
+	</select>
+	<select id="getMailCount" resultType="int">
+		SELECT 
+			count(id)
+ 		FROM tb_mail
+		<include refid="getInclude"></include>
+	</select>
+	<select id="getMailDetail" resultType="mailvo">
+		SELECT 
+			id,
+			mailto,
+			title,
+			content,
+			reg_date
+ 		FROM tb_mail
+ 		WHERE id=#{id}
+	</select>
+	<insert id="setMail">
+		INSERT INTO tb_mail SET
+			id=#{id},
+			mailto=#{mailto},
+			title=#{title},
+			content=#{content}
+		
+	</insert>
+	<delete id="deleteMail">
+		DELETE FROM tb_mail
+		WHERE id=#{id}
+	</delete>
+</mapper>

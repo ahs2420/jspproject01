@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.PopupVO;
+import com.krahs123.wathis.service.category.CategoryService;
 import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.service.popup.PopupService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
@@ -23,6 +25,8 @@ public class ProductController {
 	PopupService popupService;
 	@Autowired
 	SiteConfigService siteService;
+	@Autowired
+	CategoryService cateService;
 	final String BASEDIR="/product/";
 	//상품 페이지
 	@RequestMapping("/product")
@@ -69,6 +73,7 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView();
 		List<MenuVO> menuList = menuService.getMenuList();
 		List<PopupVO> popupList =popupService .getDisplayList("product");
+		List<CategoryVO> cateList = cateService.getCateList();
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
 		mav.setViewName(BASEDIR+"product-list");
@@ -76,6 +81,7 @@ public class ProductController {
 		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
 		mav.addObject("popupList", popupList);
+		mav.addObject("cateList", cateList);
 		return mav;
 	}
 	//상품리스트 ajax 페이지

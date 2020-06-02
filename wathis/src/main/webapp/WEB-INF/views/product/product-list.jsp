@@ -56,87 +56,23 @@
 			<div class="reward-container">
 				<div class="owl-carousel owl-theme owl-category owl-carousel2">
 					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
+						<a href="/product/product-list">
+							<div class="reward-it-img">
+								<img src="/xkfqkfimages/1.jpg" alt="">
+							</div>
+							<div class="reward-it-text">전체보기</div>
+						</a>
 					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
+					<c:forEach items="${cateList}" var="cate">
+						<div class="reward-it">
+							<a href="/product/product-list?category_id=${cate.id}">
+								<div class="reward-it-img">
+									<img src="${cate.cate_img}" alt="">
+								</div>
+								<div class="reward-it-text">${cate.title}</div>
+							</a>
 						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
-
-					<div class="reward-it">
-						<div class="reward-it-img">
-							<img src="/xkfqkfimages/1.jpg" alt="">
-						</div>
-						<div class="reward-it-text">전체보기</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="reward-container">

@@ -280,21 +280,21 @@ public class MyPageConroller {
 	
 	
 	//메이커 수정  보이는 부분
-//	@RequestMapping("/mypage-two")
-//	public ModelAndView viewMypageTwo() {
-//
-////		int auditId = makerSer.getMakerID(audit_id);
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("template", "Reward");
-//		mav.addObject("mypage", "maker");
-////		mav.addObject("auditId", auditId);
-//			
-//		
-//		mav.setViewName(DIR+"mypage");
-//		
-//		return mav;
-//	}
-	
+	@RequestMapping("/mypage-two")
+	public ModelAndView viewMypageTwo() {
+
+//		int auditId = makerSer.getMakerID(audit_id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "maker");
+//		mav.addObject("auditId", auditId);
+			
+		
+		mav.setViewName(DIR+"mypage");
+		
+		return mav;
+	}
+
 	
 
 	@RequestMapping("/mypage-three")

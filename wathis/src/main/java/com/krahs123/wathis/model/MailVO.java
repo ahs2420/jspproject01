@@ -2,24 +2,38 @@ package com.krahs123.wathis.model;
 
 public class MailVO {
 	 
-	private String username; //네이버 아이디 
-	private String password; //네이버 비밀번호
-	
-	private String recipient; //받는 사람의 메일주소를 입력해주세요. 
-	private String subject; //메일 제목 입력해주세요. 
-	private String content; //메일 내용 입력해주세요. 
-	
-	public String getRecipient() {
-		return recipient;
+//	+----------+------------------+------+-----+-------------------+-------------------+
+//	| Field    | Type             | Null | Key | Default           | Extra             |
+//	+----------+------------------+------+-----+-------------------+-------------------+
+//	| id       | int(10) unsigned | NO   | PRI | NULL              | auto_increment    |
+//	| mailto   | varchar(50)      | NO   |     | NULL              |                   |
+//	| title    | varchar(100)     | NO   |     | NULL              |                   |
+//	| content  | text             | NO   |     | NULL              |                   |
+//	| reg_date | datetime         | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+//	+----------+------------------+------+-----+-------------------+-------------------+
+
+	private String id;
+	private String mailto;
+	private String title;
+	private String content;
+	private String reg_date;
+	public String getId() {
+		return id;
 	}
-	public void setRecipient(String recipient) {
-		this.recipient = recipient;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getSubject() {
-		return subject;
+	public String getMailto() {
+		return mailto;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setMailto(String mailto) {
+		this.mailto = mailto;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContent() {
 		return content;
@@ -27,17 +41,11 @@ public class MailVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getUsername() {
-		return username;
+	public String getReg_date() {
+		return reg_date;
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 
 }

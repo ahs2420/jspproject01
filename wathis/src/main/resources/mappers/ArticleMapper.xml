@@ -75,6 +75,16 @@
 		boardContentTemplate
 		FROM tb_board WHERE boardCode=#{boardCode}
 	</select>
+	<select id="getArticleMainList" resultType="articlevo">
+		SELECT 
+			id,
+			subject,
+			content,
+			fileUrl,
+			fileName
+		FROM tb_article_${boardCode}
+		LIMIT #{count}
+	</select>
 	
 	<select id="getArticleDetail" resultType="articlevo">
 		SELECT 

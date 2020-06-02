@@ -1,7 +1,7 @@
 
 package com.krahs123.wathis.model;
 
-public class ScheduleVO {
+public class SchedulerVO {
 	
 	private String startDate;
 	private String endDate;

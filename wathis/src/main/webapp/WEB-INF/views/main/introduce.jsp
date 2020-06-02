@@ -143,17 +143,17 @@
                 <div class="flex-box flex-j-space flex-a-center flex-wrap ">
                     <div class="col-lg-5 col-sm-12" id="fadeInLeft">
                         <h1 class="title mb10"><span class="main-color">L</span>ocation</h1>
-                        <p class="mb20">와디스로 오시는길</p>
+                        <p class="mb20">${headConfig.siteName.content}로 오시는길</p>
                         <p class="gray mb10">주소</p>
-                        <p class="mb20">OO시 OO구 OO로 123 (OO동) OOOO센터 O동 O층 OO호</p>
+                        <p class="mb20">${footConfig.address.content}</p>
                         <div class="flex-box flex-wrap">
                             <div class="col-lg-6 col-sm-12">
                                 <p class="gray mb10">Phone:</p>
-                                <p class="mb20"><a href="tel:010-1234-1234">010-1234-1234</a></p>
+                                <p class="mb20"><a href="tel:${footConfig.tel.content}">${footConfig.tel.content}</a></p>
                             </div>
                             <div class="col-lg-6 col-sm-12">
                                 <p class="gray mb10">Email:</p>
-                                <p class="mb20"><a href="mailto:admin@krahs123.co.kr">admin@krahs123.co.kr</a></p>
+                                <p class="mb20"><a href="mailto:${footConfig.email.content}">${footConfig.email.content}</a></p>
                             </div>
                         </div>
                         <p class="gray mb10">Website:</p>

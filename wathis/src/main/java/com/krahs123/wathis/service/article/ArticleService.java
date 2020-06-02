@@ -23,5 +23,7 @@ public interface ArticleService {
 	public ArticleVO getArticlePrev(String boardCode,int id);
 	//게시글 이후글
 	public ArticleVO getArticleNext(String boardCode,int id);
+	//메인 리스트
+	public List<ArticleVO> getArticleMainList(String boardCode,int count);
 	
 }

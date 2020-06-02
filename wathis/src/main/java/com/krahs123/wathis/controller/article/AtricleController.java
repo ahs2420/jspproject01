@@ -343,4 +343,46 @@ public class AtricleController {
 		sb.append("</script>");
 		return sb.toString();
 	}
+
+	//리스트
+	@RequestMapping("/admin")
+	public ModelAndView viewAdminArticleList(
+			@RequestParam String boardCode,
+			@RequestParam(defaultValue = "subject") String searchOpt,
+			@RequestParam(defaultValue =  "") String words,
+			@RequestParam(defaultValue = "1") int page
+			) {
+		
+		ModelAndView mav = new ModelAndView();
+		BoardVO bvo = articleService.getBoardConfig(boardCode);
+		int resultCnt = articleService.getArticleCount(boardCode,searchOpt,words);
+		//페이징 처리
+		Map<String, Object> pageMap = new HashMap<>();//ModelAndView로 넘길 페이지 관련된 것들
+		int pagePer = 10;//페이지당 게시물수
+		int pageStart =(page-1)*pagePer;//페이시 시작 인덱스
+		int pageCnt = (int)Math.ceil((double)resultCnt/pagePer);//전체 페이지의 수
+		int disPaging = 5;//페이징할 갯수
+		int endPage = (int)Math.ceil((double)page/disPaging)*disPaging;
+		int startPage = endPage - disPaging +1;
+		endPage =(endPage<pageCnt)?endPage:pageCnt;
+		pageMap.put("page", page);
+		pageMap.put("startPage", startPage);
+		pageMap.put("endPage", endPage);
+		pageMap.put("pageCnt", pageCnt);
+		pageMap.put("pagePer", pagePer);
+		
+		List<ArticleVO> avoList = articleService.getArticleList(boardCode,searchOpt,words,pageStart,pagePer);
+
+		mav.addObject("bvo", bvo);
+		mav.addObject("avoList",avoList);
+		mav.addObject("count",resultCnt);
+		mav.addObject("searchOpt",searchOpt);
+		mav.addObject("words",words);
+		mav.addObject("pageStart",pageStart);
+		mav.addObject("paging",pageMap);
+		mav.addObject("template", "article");
+		mav.addObject("mypage", "list");
+		mav.setViewName("/admin/admin");
+		return mav;
+	}
 }

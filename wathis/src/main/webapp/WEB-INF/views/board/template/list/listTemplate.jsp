@@ -40,10 +40,21 @@
 						</div>
 					</a> 
 				</c:forEach>
-				
-				<div class="txt-right"> 
-					<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " onclick="location.href='/article/setArticle?boardCode=${bvo.boardCode}'" >글쓰기</button>
-				</div>
+				<c:if test="${count eq '0'}">
+					<div class="txt-center mb30 mt50">
+		            	<div class="txt-center mb20">
+							<img class="hero-text-box m-0a" src="/xkfqkfimages/99.png" alt="">
+						</div>
+						<span class="title "> 
+		            		등록된 글이 없습니다.
+		            	</span>
+		            </div>
+				</c:if>
+				<c:if test="${sessionScope.id > 0}">
+					<div class="txt-right"> 
+						<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " onclick="location.href='/article/setArticle?boardCode=${bvo.boardCode}'" >글쓰기</button>
+					</div>
+				</c:if>
 				<div class="notice-list-page">
 					<!--시작 페이지가 1보다 클때 생성-->
 					<c:if test="${paging.startPage>1 }">
@@ -71,6 +82,7 @@
 					 </c:if>
 				 </div>
 				<form action="/article" method="post" name="" enctype="multipart/form-data">
+					<input type="hidden" name="boardCode" value="${bvo.boardCode}" />
 					<div class="notice-list-title-btn">
 						<div class="notice-list-select-box">
 							<select name="searchOpt" id="title" class="notice-list-title h-100p">

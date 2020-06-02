@@ -55,7 +55,7 @@
 	                 </td>
 	                 <td>${bvo.id }</td>
 	                 <td><a href="/board/getBoard?id=${bvo.id }">${bvo.boardCode }</a></td>
-	                 <td><a href="/article?boardCode=${bvo.boardCode }" target="_blank">${bvo.boardName }</a></td>
+	                 <td><a href="/article/admin?boardCode=${bvo.boardCode }" target="_blank">${bvo.boardName }</a></td>
 	                 <td>
                         <span class="valign padding-a-10 f6 sel-100" style="background-color: ${bvo.boardColor}">${bvo.boardColor }</span>
                     </td>

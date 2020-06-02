@@ -47,10 +47,22 @@
 							</a>
 						</div>
 					</c:forEach>
+					<c:if test="${count eq '0'}">
+						<div class="txt-center mb30 mt50">
+			            	<div class="txt-center mb20">
+								<img class="hero-text-box m-0a" src="/xkfqkfimages/99.png" alt="">
+							</div>
+							<span class="title "> 
+			            		등록된 글이 없습니다.
+			            	</span>
+			            </div>
+					</c:if>
 				</div>
-				<div class="txt-right"> 
-					<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " onclick="location.href='/article/setArticle?boardCode=${bvo.boardCode}'" >글쓰기</button>
-				</div>
+				<c:if test="${sessionScope.id > 0}">
+					<div class="txt-right"> 
+						<button class="notice-list-btn-border pl10 pr10 pt5 pb5 bold mt20 mb20 " onclick="location.href='/article/setArticle?boardCode=${bvo.boardCode}'" >글쓰기</button>
+					</div>
+				</c:if>
 			</div>
 			<div class="product-table-container " >
 				<div class="product-table-page">
@@ -79,16 +91,17 @@
 							</a>
 					 </c:if>
 				 </div>
-				<form action="" method="post" name="" enctype="multipart/form-data">
+				<form action="/article" method="post" name="" enctype="multipart/form-data">
+					<input type="hidden" name="boardCode" value="${bvo.boardCode}" />
 					<div class="product-table-title-btn">
-						<select name="title" id="title" class="product-table-title">
-							<option value="">제목+내용</option>
-							<option value="">제목</option>
-							<option value="">내용</option>
+						<select name="searchOpt" id="title" class="product-table-title">
+							<option value="all" <c:if test="${searchOpt eq 'all' }">selected</c:if>>제목+내용</option>
+							<option value="subject" <c:if test="${searchOpt eq 'subject' }">selected</c:if>>제목</option>
+							<option value="content" <c:if test="${searchOpt eq 'content' }">selected</c:if>>내용</option>
 						</select>
 						<div class="product-table-btn-search">
-							<input type="text"class="news-search-input"
-							data-error="검색어를 입력" name="search-input" placeholder="검색">
+							<input type="text" class="news-search-input"
+							data-error="검색어를 입력" name="words" placeholder="검색" value="${words }">
 							<button type="submit">검색</button>
 						</div>
 					</div>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
+<jsp:useBean id="htmlEncode" class="com.krahs123.wathis.util.HtmlSpecialChar"></jsp:useBean>
 <!-- 추가 css,js -->
 <link rel="stylesheet" href="/css/main.css">
 <script src="/js/main.js"></script>
@@ -161,25 +162,21 @@
                     <div class="news-items flex-box flex-wrap flex-j-space">
                         <!--뉴스 아이템1-->
                         <div class="news-item">
-                            <a href="/sbg0212/ex3.html">
+                            <a href="/article/detail?boardCode=notice&id=${noticeList[0].id}">
                                 <div class="main-color mb5 bold">[NOTICE]</div>
-                                <h3 class="sub-title bold text-max-line line2 mb10">Lorem, ipsum.</h3>
+                                <h3 class="sub-title bold text-max-line line1 mb10">${noticeList[0].subject}</h3>
                                 <div class="small-title content text-max-line line3">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora facere
-                                    reprehenderit qui ut saepe quibusdam tempore vel aut sed molestias eius sapiente
-                                    quisquam deleniti autem, cum provident ea totam iusto?
+                                    ${htmlEncode.removeTag(noticeList[0].content)}
                                 </div>
                             </a>
                         </div>
                         <!--뉴스 아이템2-->
                         <div class="news-item">
-                            <a href="/sbg0212/ex3.html">
+                            <a href="/article/detail?boardCode=notice&id=${noticeList[1].id}">
                                 <div class="main-color mb5 bold">[NOTICE]</div>
-                                <h3 class="sub-title bold text-max-line line2 mb10">Lorem, ipsum.</h3>
+                                <h3 class="sub-title bold text-max-line line1 mb10">${noticeList[1].subject}</h3>
                                 <div class="small-title content text-max-line line3">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora facere
-                                    reprehenderit qui ut saepe quibusdam tempore vel aut sed molestias eius sapiente
-                                    quisquam deleniti autem, cum provident ea totam iusto?
+                                    ${htmlEncode.removeTag(noticeList[1].content)}
                                 </div>
                             </a>
                         </div>
@@ -187,64 +184,76 @@
                     <!--뉴스 아이템3(이미지)-->
                     <div class="news-items">
                         <div class="news-item news-item-only">
-                            <a class="flex-box flex-j-space flex-wrap h-100p" href="#">
+                            <a class="flex-box flex-j-space flex-wrap h-100p" href="/article/detail?boardCode=notice&id=${noticeList[2].id}">
                                 <div class="col-lg-12">
                                     <div class="main-color mb5 bold">[NOTICE]</div>
-                                    <h3 class="sub-title bold text-max-line line2 mb10">Lorem, ipsum.</h3>
+                                    <h3 class="sub-title bold text-max-line line1 mb10">${noticeList[2].subject}</h3>
                                     <div class="small-title content text-max-line line3">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora facere
-                                        reprehenderit qui ut saepe quibusdam tempore vel aut sed molestias eius sapiente
-                                        quisquam deleniti autem, cum provident ea totam iusto?
+                                        ${htmlEncode.removeTag(noticeList[2].content)}
                                     </div>
                                 </div>
-                                <div class="bg-img col-lg-12 news-img"
-                                    style="background-image:url(/images/main/main-news1.jpg)">
-                                </div>
+                                
+                                <c:choose>
+                                    <c:when test="${noticeList[2].fileName eq '' ||noticeList[2].fileName == null }">
+                                        <div class="bg-img col-lg-12 news-img"
+                                            style="background-image:url(/images/common/no-img.png)">
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="bg-img col-lg-12 news-img"
+                                            style="background-image:url(${noticeList[2].fileUrl}/${noticeList[2].fileName})">
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                             </a>
                         </div>
                     </div>
                     <!--뉴스 아이템4-->
                     <div class="news-items flex-box flex-j-space flex-wrap">
                         <div class="news-item col-lg-6 col-sm-12">
-                            <a href="/sbg0212/ex3.html">
-                                <div class="main-color mb5 bold">[NOTICE]</div>
-                                <h3 class="sub-title bold text-max-line line2 mb10">Lorem, ipsum.</h3>
+                            <a href="/article/detail?boardCode=news&id=${newsList[0].id}">
+                                <div class="main-color mb5 bold">[NEWS]</div>
+                                <h3 class="sub-title bold text-max-line line1 mb10">${newsList[0].subject}</h3>
                                 <div class="small-title content text-max-line line3">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora facere
-                                    reprehenderit qui ut saepe quibusdam tempore vel aut sed molestias eius sapiente
-                                    quisquam deleniti autem, cum provident ea totam iusto?
+                                    ${htmlEncode.removeTag(newsList[0].content)}
                                 </div>
                             </a>
                         </div>
                         <!--뉴스 아이템5-->
                         <div class="news-item col-lg-6 col-sm-12">
-                            <a href="/sbg0212/ex3.html">
-                                <div class="main-color mb5 bold">[NOTICE]</div>
-                                <h3 class="sub-title bold text-max-line line2 mb10">Lorem, ipsum.</h3>
+                            <a href="/article/detail?boardCode=news&id=${newsList[1].id}">
+                                <div class="main-color mb5 bold">[NEWS]</div>
+                                <h3 class="sub-title bold text-max-line line1 mb10">${newsList[1].subject}</h3>
                                 <div class="small-title content text-max-line line3">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora facere
-                                    reprehenderit qui ut saepe quibusdam tempore vel aut sed molestias eius sapiente
-                                    quisquam deleniti autem, cum provident ea totam iusto?
+                                    ${htmlEncode.removeTag(newsList[1].content)}
                                 </div>
                             </a>
                         </div>
                         <!--뉴스 아이템6(이미지)-->
                         <div class="news-item col-lg-12">
-                            <a href="/sbg0212/ex3.html">
+                            <a href="/article/detail?boardCode=news&id=${newsList[2].id}">
                                 <div class="flex-box flex-wrap flex-j-space">
                                     <div class="w-49p col-sm-12">
-                                        <div class="main-color mb5 bold">[NOTICE]</div>
-                                        <h3 class="sub-title bold text-max-line line2 mb10">Lorem, ipsum.</h3>
+                                        <div class="main-color mb5 bold">[NEWS]</div>
+                                        <h3 class="sub-title bold text-max-line line1 mb10">${newsList[2].subject}</h3>
                                         <div class="small-title content text-max-line line3">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora facere
-                                            reprehenderit qui ut saepe quibusdam tempore vel aut sed molestias eius
-                                            sapiente quisquam deleniti autem, cum provident ea totam iusto?
+                                            ${htmlEncode.removeTag(newsList[2].content)}
                                         </div>
                                     </div>
                                     <div class="w-49p col-sm-12">
-                                        <div class="bg-img news-img"
-                                            style="background-image:url(/images/main/main-news2.jpg)">
-                                        </div>
+                                
+                                        <c:choose>
+                                            <c:when test="${newsList[2].fileName eq '' ||newsList[2].fileName == null }">
+                                                <div class="bg-img col-lg-12 news-img"
+                                                    style="background-image:url(/images/common/no-img.png)">
+                                                </div>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <div class="bg-img col-lg-12 news-img"
+                                                    style="background-image:url(${newsList[2].fileUrl}/${newsList[2].fileName})">
+                                                </div>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </div>
                             </a>
@@ -259,17 +268,17 @@
                 <div class="flex-box flex-j-space flex-a-center flex-wrap ">
                     <div class="col-lg-5 col-sm-12" id="fadeInLeft">
                         <h1 class="title mb10"><span class="main-color">L</span>ocation</h1>
-                        <p class="mb20">와디스로 오시는길</p>
+                        <p class="mb20">${headConfig.siteName.content}로 오시는길</p>
                         <p class="gray mb10">주소</p>
-                        <p class="mb20">OO시 OO구 OO로 123 (OO동) OOOO센터 O동 O층 OO호</p>
+                        <p class="mb20">${footConfig.address.content}</p>
                         <div class="flex-box flex-wrap">
                             <div class="col-lg-6 col-sm-12">
                                 <p class="gray mb10">Phone:</p>
-                                <p class="mb20"><a href="tel:010-1234-1234">010-1234-1234</a></p>
+                                <p class="mb20"><a href="tel:${footConfig.tel.content}">${footConfig.tel.content}</a></p>
                             </div>
                             <div class="col-lg-6 col-sm-12">
                                 <p class="gray mb10">Email:</p>
-                                <p class="mb20"><a href="mailto:admin@krahs123.co.kr">admin@krahs123.co.kr</a></p>
+                                <p class="mb20"><a href="mailto:${footConfig.email.content}">${footConfig.email.content}</a></p>
                             </div>
                         </div>
                         <p class="gray mb10">Website:</p>

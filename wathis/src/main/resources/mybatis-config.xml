@@ -35,8 +35,8 @@
 		<typeAlias type="com.krahs123.wathis.model.ProductNoticeVO" alias="productnoticevo"/>
 		<typeAlias type="com.krahs123.wathis.model.ProductOptionVO" alias="productoptionvo"/>
 		<typeAlias type="com.krahs123.wathis.model.SiteConfigVO" alias="siteconfigvo"/>
-		
-		<typeAlias type="com.krahs123.wathis.model.ScheduleVO" alias="schedulevo"/>
+		<typeAlias type="com.krahs123.wathis.model.MailVO" alias="mailvo"/>
+		<typeAlias type="com.krahs123.wathis.model.SchedulerVO" alias="schedulervo"/>
 		
 	</typeAliases>
 </configuration>

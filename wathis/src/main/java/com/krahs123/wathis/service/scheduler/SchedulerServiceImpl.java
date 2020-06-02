@@ -5,25 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.krahs123.wathis.model.ScheduleVO;
-import com.krahs123.wathis.repository.scheduler.SchedulerDao;
+import com.krahs123.wathis.model.SchedulerVO;
+import com.krahs123.wathis.repository.scheduler.SchedulerDAO;
+
 
 
 
 @Service
 public class SchedulerServiceImpl implements SchedulerService{
 
+
 	@Autowired
-	SchedulerDao sDao;
-	
+	SchedulerDAO scheduleDAO;
 	@Override
-	public void setScheduler(ScheduleVO svo) {
-		sDao.setScheduler(svo);
+	public int setSchduler(SchedulerVO svo) {
+		// TODO Auto-generated method stub
+		return scheduleDAO.setSchduler(svo);
 	}
 
 	@Override
-	public List<ScheduleVO> getScheduler() {
-		return sDao.getScheduler();
+	public List<SchedulerVO> getSchduler(SchedulerVO svo) {
+		// TODO Auto-generated method stub
+		return scheduleDAO.getSchduler(svo);
 	}
 
 }
