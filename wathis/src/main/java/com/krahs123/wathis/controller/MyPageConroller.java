@@ -69,16 +69,18 @@ public class MyPageConroller {
 		return mav;
 	}
 
-
+//여기다가 받아 준다.
 // 마이페이지 리스트 수정 및 보여지는 페이지
 	@RequestMapping("/mypageListModify")
 	public ModelAndView getListModify(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
 		int maker_id = makerSer.getMakerID(id);
+		int product_id = proSer.getProductId(id);
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
 		mav.addObject("id", id);
 		mav.addObject("maker_id", maker_id);
+		mav.addObject("product_id", product_id);
 		
 		mav.setViewName(DIR+"mypage");
 		return mav;
@@ -347,12 +349,15 @@ public class MyPageConroller {
 	//스토리 작성 보여지는 부분
 	@RequestMapping("/mypage-three")
 	public ModelAndView viewMypageThree(@RequestParam int audit_id){
-			ModelAndView mav = new ModelAndView();
+			
+		 	
 			List<CategoryVO> cate = cateSer.getCateList();
 			
+			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("cate", cate);
 			mav.addObject("mypage", "story");
+			
 
 			mav.addObject("audit_id", audit_id);
 			mav.setViewName(DIR+"mypage");
@@ -414,21 +419,66 @@ public class MyPageConroller {
 	
 	//스토리 작성 보여지는 부분
 		@RequestMapping("/mypageThreeView")
-		public ModelAndView MypageThreeView(@RequestParam int id){
+		public ModelAndView MypageThreeView(@RequestParam int id ){
 
-			ProductVO productvo = proSer.getProList(id);
+			ProductVO productvo = proSer.getProductDetail(id);
+			List<CategoryVO> cate = cateSer.getCateList();
 			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "threeModi");
-			mav.addObject("productvo", productvo);
-//			mav.addObject("audit_id", makervo.getAudit_id());
-//			mav.addObject("makerType", DbStatus.makerType);
+			mav.addObject("cate", cate);
+			mav.addObject("productvo",productvo);
+			mav.addObject("audit_id",productvo.getAudit_id());
+			mav.addObject("productStatus", DbStatus.productStatus);
 			
 			mav.setViewName(DIR+"mypage");
 			return mav;
 		}
-	
+		
+		//메이커 수정  보이는 부분
+		@RequestMapping("/mypageThreeModify")
+		public ModelAndView MypagethreeView(@ModelAttribute ProductVO provo, 
+				@RequestPart List<MultipartFile> file,
+				@RequestPart MultipartFile main_file, 
+				@RequestParam String video_chkTwo) {
+
+			StringBuilder st = new StringBuilder();
+			FileControl fc = new FileControl();
+			StringBuilder sb = new StringBuilder();
+			if(!main_file.isEmpty()) {
+				Map<String,Object> fileMap=fc.fileUpload(main_file, "", null);
+				provo.setImg_upload_dir(fileMap.get("uploadDIR").toString());;
+				provo.setMain_img(fileMap.get("fileName").toString());
+			}
+			if(provo.getVideo_chk()==1) {
+				provo.setImg(video_chkTwo);
+			}else {
+				if( file.size() > 0 ) {
+					StringBuilder img_file=new StringBuilder();
+					for( MultipartFile threefile:file) {
+						if(!threefile.isEmpty()) {
+							Map<String,Object> fileMap=fc.fileUpload(threefile, "", null);
+							img_file.append(fileMap.get("fileName")+"|");
+						}
+					}
+					provo.setImg(img_file.toString());
+				}
+			}
+			int result = proSer.updateIPro(provo);
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("template", "Reward");
+			mav.addObject("mypage", "information");
+			mav.addObject("id", provo.getAudit_id());
+				
+			
+			mav.setViewName("redirect:/page/mypageListModify");
+			
+			return mav;
+		}
+
+		
 	
 	
 	

@@ -55,10 +55,11 @@
             </div>
 
             <!-- 1번 -->
-          <form action="/page/mypageThree" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+          <form action="/page/mypageThreeView" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
         
         <input type="hidden" name="member_id" value="${sessionScope.id}" />
         <input type="hidden" name="audit_id" value="${audit_id}" />
+        
             <div class="ba-project">
                 <div class="flex-basic2 ba-pro-img">
                     <div class="mar-bo2 wid1">
@@ -121,7 +122,7 @@
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
 								제목 <span class="fon-co5"> *</span>
 							</label> <input class="wid1 hei1 fon-bor1 text-padding1" name="title" type="text" id="projectname"
-								placeholder="제목 입력">
+								placeholder="제목 입력" value="${productvo.title}">
 							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">40자 남음</p>
 						</div>
 					</div>
@@ -149,7 +150,7 @@
 						<div class="flex-box">
 							<div class="money-box wid1">
 								<input class="wid1 hei1 fon-bor1 text-padding1" name="price" type="text" id="projectprice"
-									placeholder="목표 금액 입력">
+									placeholder="목표 금액 입력" value="${productvo.price}">
 							</div>
 							<div class="paybox hei1 box-back13 wid8  fon-co11 text-padding2">
 								<h4 class="mar-left3">원</h4>
@@ -268,7 +269,7 @@
 
                                 <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
-                                    placeholder="내용을 입력하세요."></textarea>
+                                    placeholder="내용을 입력하세요." value="${productvo.sub_title}" ></textarea>
                                 <p class="fon-siz4 fon-col mar-bo6 fon-wei1">100자 남음</p>
 
                             </div>
@@ -294,7 +295,7 @@
 							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">리워드를 설계하기 위해 프로젝트
 								시작을 선택하세요.</p>
 							<input class="wid1 hei1 fon-bor1 text-padding1" name="start_date" type="text" id="start_date" readonly="readonly" required="required"
-								placeholder="예? 2020-04-01">
+								placeholder="예? 2020-04-01" value="${productvo.start_date}" >
 						</div>
 	
 						<div class="ba-guide5">
@@ -318,7 +319,7 @@
 							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">
 								리워드를 설계하기 위해 프로젝트 종료일을 선택하세요.</p>
 							<input class="wid1 hei1 fon-bor1 text-padding1 mar-bo7" name="end_date" type="text" id="end_date" readonly="readonly"
-								placeholder="예? 20200401">
+								placeholder="예? 20200401" value="${productvo.end_date}" >
 						</div>
 	
 						<div class="ba-guide6">

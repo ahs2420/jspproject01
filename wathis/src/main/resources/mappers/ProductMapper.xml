@@ -28,7 +28,7 @@
 	
 	</select>
 	<select id="getProList" resultType="productvo">
-		SELECT * FROM WHERE id = #{id} order by id desc LIMIT 1
+		SELECT * FROM tb_product WHERE id = #{id} order by id desc LIMIT 1
 	
 	</select>
 	<select id="getOne" resultType="productvo">

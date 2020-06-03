@@ -24,15 +24,15 @@ public class ProductServiceImpl implements ProductService{
 	}
 	//작성후에 보여지는 부분
 	@Override
-	public ProductVO getProList(int id) {
+	public ProductVO getProList( int category_id) {
 		// TODO Auto-generated method stub
-		return productDAO.getProList(id);
+		return productDAO.getProList(category_id);
 	}
 	//수정 부분
 	@Override
-	public int updateItem(ProductVO provo) {
+	public int updateIPro(ProductVO provo) {
 		// TODO Auto-generated method stub
-		return productDAO.updateItem(provo);
+		return productDAO.updateIPro(provo);
 	}
 	@Override
 	public ProductVO getProductDetail(int id) {

@@ -30,26 +30,38 @@
                 </div>
                 <!--작성하기 부분 -->
                 <!--작성 부분 -->
-                <div class="fun-ready">
+                <div class="flex-box1 text-padding12">
                     <div class="readybox-basic">
+                        <div class="fon-wei3 fon-siz14">
+
+                        </div>
                         <div class="my-text">
                             <h2>펀딩 준비 작성</h2>
                           <!-- <p>펀딩 진행을 위해 프로젝트 내용을 작성하는 펀딩 준비 작성 단계 입니다.</p> -->
                         </div>
                     </div>
                     <div class="readybox-basic">
+                        <div class="fon-wei3 fon-siz14">
+
+                        </div>
                         <div class="my-text">
                             <h2>요건 확인</h2>
                             <!-- <p>펀딩 진행을 위한 기본 요건을 충족하는지, 누락된 사항은 없는 지 등을 확인 하는 단계입니다.</p> -->
                         </div>
                     </div>
                     <div class="readybox-basic">
+                        <div class="fon-wei3 fon-siz14">
+
+                        </div>
                         <div class="my-text">
                             <h2>콘텐츠 확인</h2>
                             <!-- <p>펀딩 컨텐츠에 대한 검토 및 약점을 체결하는 단계입니다.</p> -->
                         </div>
                     </div>
                     <div class="readybox-basic">
+                        <div class="fon-wei3 fon-siz14">
+                            <i class="fal fa-badge-check"></i>
+                        </div>
                         <div class="my-text">
                             <h2>펀딩 오픈</h2>
                             <!-- <p>

@@ -483,6 +483,7 @@ textarea{
 .fon-siz11 { font-size: 20px;}
 .fon-siz12 { font-size: 33px;}
 .fon-siz13 { font-size: inherit;}
+.fon-siz14 { font-size: 40px;}
 
 .text-padding1{padding: 0 26px 0 10px ;}
 .text-padding2{padding:10px ;}
@@ -495,6 +496,7 @@ textarea{
 .text-padding9{ padding: 50px 60px}
 .text-padding10{ padding:0 16px}
 .text-padding11{ padding:20px}
+.text-padding12{ padding:0 50px}
 
 .mar-top1 { margin-top: 30px;}
 .mar-top2 { margin-top: 20px;}

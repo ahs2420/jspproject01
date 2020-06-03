@@ -20,9 +20,9 @@ public class ProductDAOImpl implements ProductDAO{
 	
 	//작성후에 보는 부분
 	@Override
-	public ProductVO getProList(int id) {
+	public ProductVO getProList(int category_id) {
 	
-		return sql.selectOne(namespace + ".getProList", id);
+		return sql.selectOne(namespace + ".getProList", category_id);
 	}
 	// 이름 검색
 	@Override
@@ -32,7 +32,7 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	//수정 부분
 	@Override
-	public int updateItem(ProductVO provo) {
+	public int updateIPro(ProductVO provo) {
 	
 		return sql.update(namespace + ".updateItem", provo);
 	}
