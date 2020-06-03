@@ -18,12 +18,25 @@ public class MarkerInfoDAOImpl implements MarkerInfoDAO{
 		return sql.insert(NAMESPACE+ ".setMaker", mfvo);
 	}
 
-//	@Override
-//	public int getMakerID(int audit_id) {
-//		// TODO Auto-generated method stub
-//		return sql.selectOne(NAMESPACE + ".getMakerID",audit_id);
-//	}
-//
+	@Override
+	public MakerInfoVO getMarkerList(int id) {
+	
+		return sql.selectOne(NAMESPACE + ".getMarkerList", id);
+	}
+
+	@Override
+	public int updateMaker(MakerInfoVO mfvo) {
+
+		return sql.update(NAMESPACE+".updateMaker", mfvo);
+	}
+
+	@Override
+	public int getMakerID(int audit_id) {
+
+		return sql.selectOne(NAMESPACE + ".getMakerID",audit_id);
+	}
+
+
 
 
 }

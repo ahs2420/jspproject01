@@ -58,7 +58,7 @@
                     <!-- <a class="pl10 hover-main" href="#">회원가입</a> -->
                 </div>
                 <div class="alerm-cover pl20">
-                    <a class="btn-stan btn-alerm laptop-dis-none" href="/page/mypage">펀딩오픈 신청하기</a>
+                    <a class="btn-stan btn-alerm laptop-dis-none" href="/page/mypage?member_id=${sessionScope.id}">펀딩오픈 신청하기</a>
                 </div>
             </div>
             <div class="dis-mobile flex-box top-menu-m-side">

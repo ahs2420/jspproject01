@@ -27,7 +27,7 @@
 	
 	</select>
 	<select id="getMarkerList" resultType="markerinfovo">
-		SELECT * FROM tb_maker_info
+		SELECT * FROM tb_maker_info WHERE id = #{id} order by id desc LIMIT 1
 	
 	</select>
 	<select id="getMakerID" resultType="int">
@@ -54,7 +54,7 @@
 	
 	
 	</insert>
-	<update id="updateItem">
+	<update id="updateMaker">
 		UPDATE SET tb_maker_info
 			marker_name=#{marker_name},
 			img_dir=#{img_dir},

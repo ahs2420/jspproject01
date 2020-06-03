@@ -12,8 +12,8 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageTwo" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
-        <input type="hidden" name="member_id" value="${member_id }" />
-        <input type="hidden" name="audit_id" value="${audit_id }" />
+<%--         <input type="hidden" name="member_id" value="${member_id }" /> --%>
+        <input type="hidden" name="audit_id" value="${audit_id}" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->
         <div class="basic-box">
@@ -59,7 +59,8 @@
                         <p class="fon-siz3 fon-col fon-wei mar-bo6">법인사업자는 법인등기부상 법인명
                             / 개인 사업자는 주민등록상 성명 또는 상호 / 개인은 주민등록상 성명을 입력하세요.</p>
                         <input class="wid1 hei1 fon-bor1 text-padding1 text-coun" type="text" id="text-box1"
-                            name="marker_name" placeholder="메이커명 입력">
+                            name="marker_name" value="${makervo.marker_name}" placeholder="메이커명 입력">
+
                         <p class="fon-siz3 fon-col " id="counter">[ 0 / 최대 30자 ]</p>
                     </div>
                 </div>
@@ -89,32 +90,7 @@
                     </div>
                 </div>
 
-                <!-- 4번 -->
-                <div class="mar-bo2">
-                    <div class="flex-basic2 ba-pro-price">
-                        <div class="ba-pro-price wid4 ">
-                            <label for="text-box2" class="di-la1 mar-top1 fon-wei1">
-
-                                <h4 class="di-in1">함께하는 멤버</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
-
-                            </label>
-                            <p class="fon-siz3 fon-col fon-wei mar-bo5">와디즈 회원으로 가입된 이메일
-                                계정만 등록 가능합니다.</p>
-                            <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="text-box2"
-                                placeholder="멤버 이메일 입력">
-
-                        </div>
-                        <div class="ba-guide2">
-                            <div class=" text-padding3 box-li1 box-back1">
-                                <h4 class="mar-bo5 fon-siz4 fon-co7">
-                                    <p class="">팀원을 소개해주세요.</p>
-                                </h4>
-                                <p class="fon-siz4 mar-bo3 fon-co7">프로젝트를 함께 하는 팀원의 와디즈 계정을
-                                    등록해주시면, 메이커 정보에서 함께 확인할 수 있습니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- 4번  함께하는 멤버 삭제함-->
                 <!-- 5번 -->
                 <div class="mar-bo2 ">
                     <div class="flex-basic2 ba-pro-img ">
@@ -123,7 +99,7 @@
                                 <span class="">문의 이메일 <span class="fon-co5"> * </span>
                                 </span>
                             </label> <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
-                                id="projectprice" placeholder="이메일 입력" name="marker_email">
+                                id="projectprice" placeholder="이메일 입력" name="marker_email">${twoModi.marker_email}
 
                         </div>
                         <div class="ba-guide3">
@@ -141,7 +117,7 @@
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class="">문의 전화번호<span
                                         class="fon-co5"> * </span></label> <input
                                 class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="전화번호 입력" name=" marker_phone">
+                                placeholder="전화번호 입력" name="marker_phone">${twoModi.marker_phone}
 
                         </div>
                         <div class="ba-guide4">
@@ -158,10 +134,12 @@
                         <div class="mar-bo2 wid4 ">
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1">
                                 <h4 class="di-in1">카카오톡 채널</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
-                            </label> <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
-                                id="projectprice" placeholder="검색용 아이디 입력" name=" marker_kakao_id">
+                            </label>
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="홈페이지 URL 입력" name=" marker_kakao_url">
+                                placeholder="검색용 아이디 입력" name="marker_kakao_id">${twoModi.marker_kakao_id}
+
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
+                                placeholder="홈페이지 URL 입력" name="marker_kakao_url">${twoModi.marker_kakao_ur}
 
                         </div>
                         <div class="ba-guide5">
@@ -180,10 +158,13 @@
                         <div class="mar-bo2 wid4 ">
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1 marker_home_page_url">
                                 <h4 class="di-in1">홈페이지</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
-                            </label> <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
-                                id="projectprice" placeholder="홈페이지 URL 입력">
+                            </label>
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="홈페이지 URL 입력">
+                                placeholder="홈페이지 URL 입력" name="">
+<%--                                 ${twoModify.} --%>
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
+                                placeholder="홈페이지 URL 입력" name="">
+<%--                                 ${twoModify.} --%>
 
                         </div>
                         <div class="ba-guide6">
@@ -203,13 +184,16 @@
 
                                 <h4 class="di-in1">SNS</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
                                 </span>
-                            </label> 
-                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" name="marker_facebook_url"
-                                id="projectprice" placeholder="https://www.facebook.com/" >
-                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" name="marker_twiter_url" id="projectprice"
-                                placeholder="https://www.twitter.com/">
-                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" name="marker_instagram_url" id="projectprice"
-                                placeholder="https://www.instagram.com/">
+                            </label>
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                name="marker_facebook_url" id="projectprice"
+                                placeholder="https://www.facebook.com/">${twoModi.marker_facebook_ur}
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                name="marker_twiter_url" id="projectprice"
+                                placeholder="https://www.twitter.com/">${twoModi.marker_twiter_url}
+                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
+                                name="marker_instagram_url" id="projectprice"
+                                placeholder="https://www.instagram.com/">${twoModi.marker_instagram_url}
 
                         </div>
                         <div class="ba-guide7">
@@ -235,12 +219,12 @@
                         <div class="mar-bo2 wid4 ">
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1">사업자
                                 구분<span class="fon-co5"> *</span>
-                            </label> 
+                            </label>
                             <select class="wid1 hei1 fon-bor1" name="business_type">
                                 <option selected class="business_type">사업자 구분 선택</option>
-                                <option>개인</option>
-                                <option>개인 사업자</option>
-                                <option>법인사업자</option>
+                                <option value="">개인</option>
+                                <option value="">개인 사업자</option>
+                                <option value="">법인사업자</option>
                             </select>
                         </div>
 
@@ -265,7 +249,8 @@
                             </label><br>
                             <div class="file-box mar-top4">
                                 <label for="file1"><i class="fas fa-file-upload fon-co9"></i>
-                                    업로드</label> <input type="file" id="file1" name="bankbook_img">
+                                    업로드</label>
+                                <input type="file" id="file1" name="bankbook_img">
                             </div>
                             <p class="fon-siz3 fon-col mar-top5">펀딩 성공 시 펀딩 금액을 수령할 법인
                                 명의의 계좌 사본을 첨부하세요.</p>
@@ -284,59 +269,11 @@
                     </div>
 
                     <!--  대표자 3번 -->
-                    <div class="flex-basic2 ">
-                        <div class="mar-bo2 wid4 ">
-                            <label for="projectprice" class="di-la1 mar-top1 fon-wei1">대표자명<span class="fon-co5">
-                                    *</span></label>
-                            <p class="fon-siz3 fon-col fon-wei mar-bo5">사업자등록증에 등록된 대표자의
-                                이름과 일치해야 합니다.</p>
-                            <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
-                                placeholder="대표자명 입력">
-
-                        </div>
-                    </div>
+                
                     <!--  대표자 4번 -->
-                    <div class="flex-basic2 ">
-                        <div class="mar-bo2 wid4 ">
-                            <label for="projectprice" class="di-la1 mar-top1 fon-wei1">대표자
-                                이메일<span class="fon-co5"> *</span>
-                            </label>
-                            <p class="fon-siz3 fon-col fon-wei mar-bo5">대표자의 이메일로 전자 약정서가
-                                발송되며, 대표자가 직접 체결해야합니다. (모바일/PC 모두 가능)</p>
-                            <input class="wid1 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
-                                placeholder="대표자 이메일 입력">
-
-                        </div>
-                    </div>
+             
                     <!--  대표자 5번 -->
-                    <div class="mar-bo2">
-                        <div class="flex-basic2 ba-pro-day">
-                            <div class="mar-bo2 wid4 ">
-                                <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class="">
-                                        <h4 class="di-in1">공동 대표자</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
-                                    </span></label>
-                                <div class="flex-end">
-                                    <input class="wid6 hei1 fon-bor1 text-padding1" type="text" id="projectprice"
-                                        placeholder="공통 대표자 입력"> <input class="wid10 hei1 fon-bor1 text-padding1"
-                                        type="text" id="projectprice" placeholder="공통 대표자 이메일 입력"> <span
-                                        class="add-btn ">
-                                        <button
-                                            class="hei1 fon-bor1 text-padding3 box-back4 fon-co9 cu-poin fon-wei1">추가</button>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="ba-guide5">
-                                <div class=" text-padding3 box-li1 box-back1">
-                                    <h4 class="mar-bo5 fon-siz4 fon-co7">대표자가 2인 이상인가요?</h4>
-                                    <p class="fon-siz4 mar-bo3 fon-co7">각자 대표인 경우, 대표자 1인의
-                                        서명만으로도 효력을 가지므로 공동 대표자를 기입하지 않으셔도 됩니다.</p>
-                                    <p class="fon-siz4 mar-bo3 fon-co7">공동 대표인 경우, 대표자를 모두
-                                        기입해주셔야 합니다. 상단의 대표자에 기입한 이메일 주소로 약정서가 먼저 발송되어 체결이 완료된 이후 공동
-                                        대표자에 약정서가 발송됩니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              
                     <!--  대표자 6번 -->
                     <div class="btn-save">
                         <button class="btn-end" type="submit">저장하기</button>

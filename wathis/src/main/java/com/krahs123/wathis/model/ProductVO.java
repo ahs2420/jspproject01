@@ -42,6 +42,7 @@ public class ProductVO {
 		private String end_date;
 		private String keyword;
 		private String reg_date;
+	
 		public int getId() {
 			return id;
 		}

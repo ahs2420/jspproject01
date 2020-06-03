@@ -76,7 +76,7 @@
                         <h2>메이커 정보</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-two">
+                    <a href="/page/mypage-two?id=${sessionScope.id}&audit_id=${auditID}">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
@@ -86,7 +86,7 @@
                         <h2>스토리 작성</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-three">
+                    <a href="/page/mypage-three?id=${sessionScope.id}&audit_id=${auditID}">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
@@ -96,7 +96,7 @@
                         <h2>리워드 설계</h2>
                         <span>작성 중</span>
                     </div>
-                    <a href="/page/mypage-four">
+                    <a href="/page/mypage-four?id=${sessionScope.id}&audit_id=${auditID}">
                         <button class="ready-btn">작성하기</button>
                     </a>
                 </div>
@@ -120,10 +120,10 @@
                         </div>
 
                         </li>
-                        <li class=""><img src="/hongimages/images/whdiz1.jpg" alt=""></li>
-                        <li class=""><img src="/hongimages/images/whdiz2.jpg" alt=""></li>
-                        <li class=""><img src="/hongimages/images/whdiz3.jpg" alt=""></li>
-                        <li class=""><img src="/hongimages/images/whdiz4.jpg" alt=""></li>
+                        <li class="cu-poin"><img src="/hongimages/images/whdiz1.jpg" alt=""></li>
+                        <li class="cu-poin"><img src="/hongimages/images/whdiz2.jpg" alt=""></li>
+                        <li class="cu-poin"><img src="/hongimages/images/whdiz3.jpg" alt=""></li>
+                        <li class="cu-poin"><img src="/hongimages/images/whdiz4.jpg" alt=""></li>
                         
                     </ul> 
                 </div>

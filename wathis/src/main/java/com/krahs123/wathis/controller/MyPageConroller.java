@@ -54,10 +54,14 @@ public class MyPageConroller {
 	final String DIR ="/mypage/";
 	
 	@RequestMapping("/mypage")
-	public ModelAndView viewMypageList(){
+	public ModelAndView viewMypageList(@RequestParam int member_id){
+		
+		 int auditID = auditService.getAuditLastID(member_id); 
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "prepare");
+		mav.addObject("auditID", auditID);
 
 		
 		mav.setViewName(DIR+"mypage");
@@ -92,7 +96,7 @@ public class MyPageConroller {
 		return mav;
 	}
 	
-	// 기본요건 보여주는 부분
+	// 기본요건 작성후에 보여주는 부분
 	@RequestMapping("/mypageOneView")
 	@ResponseBody
 	public ModelAndView getmypageOneView(@RequestParam int id){
@@ -175,9 +179,10 @@ public class MyPageConroller {
 	}
 	
 
-	//메이커 보여지ㅏ는 부분
+	//메이커 보여지는 부분
 	@RequestMapping("/mypage-two")
 	public ModelAndView viewMypageTwo(@RequestParam int audit_id) {
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "maker");
@@ -285,22 +290,38 @@ public class MyPageConroller {
 		
 	}
 	
-	
-	//메이커 수정  보이는 부분
-	@RequestMapping("/mypage-two2")
-	public ModelAndView viewMypageTwo() {
-
-//		int auditId = makerSer.getMakerID(audit_id);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("template", "Reward");
-		mav.addObject("mypage", "maker");
-//		mav.addObject("auditId", auditId);
+	// 메이커 작성후에 보여주는 부분
+		@RequestMapping("/mypageTwoView")
+		@ResponseBody
+		public ModelAndView getmypageTwoView(@RequestParam int id){
+			MakerInfoVO makervo = makerSer.getMarkerList(id);
 			
-		
-		mav.setViewName(DIR+"mypage");
-		
-		return mav;
-	}
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("template", "Reward");
+			mav.addObject("mypage", "twoModi");
+			mav.addObject("makervo", makervo);
+			
+			
+			mav.setViewName(DIR+"mypage");
+			return mav;
+		}
+	
+//	//메이커 수정  보이는 부분
+//	@RequestMapping("/mypageTwoModify")
+//	public ModelAndView MypageTwoView(@RequestParam int audit_id) {
+//
+//		int auditId = makerSer.getMakerID(audit_id);
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("template", "Reward");
+//		mav.addObject("mypage", "twoModi");
+//		mav.addObject("auditId", auditId);
+//			
+//		
+//		mav.setViewName(DIR+"mypage");
+//		
+//		return mav;
+//	}
 
 	
 
