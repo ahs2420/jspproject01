@@ -5,14 +5,15 @@
 <div class="main-board br-3 bg-color-8 margin-t20 padding-a-20">
     <div class="title-wrap">
         <span class="font-16 bold">
-            프로젝트 심사
+            '${pvo.title}' 프로젝트 심사
         </span>
     </div>
     <div class="search-wrap margin-t10">
         <span class="font-16 bold">
         </span>
         <span class="">
-                <button type="button" id="" class="btn-80 bold bo-gray" onclick="javascript:location.href='/audit'">목록</button>
+            <button type="button" id="" class="btn-80 bold bo-blue" onclick="javascript:window.open('/product/product?id=${pvo.id}')">미리보기</button>
+            <button type="button" id="" class="btn-80 bold bo-gray" onclick="javascript:location.href='/audit'">목록</button>
         </span>
     </div>
     <div id="board-list" class="board-list margin-t10">
@@ -20,17 +21,95 @@
             <input type="hidden" name="id" value="${avo.id}">
             <input type="hidden" name="member_id" value="${mvo.id}">
             <input type="hidden" name="mailTo" value="${mvo.uemail}">
-            <input type="hidden" name="org_status" value="${mvo.uemail}">
+            <input type="hidden" name="org_status" value="${avo.status}">
+            <input type="hidden" name="proName" value="${pvo.title}">
+            <div class="font-16 margin-b10">
+                <h1>
+                   메이커 정보
+                </h1>
+            </div>
            <table>
             <tr>
                 <td class="tbl-line" colspan="4"></td>
             </tr>
             <tr class="tr-45">
                 <td class="bg-color-10 w-15 f6 align">메이커 이름</td>
-                <td class="w-85 padding-lr-5" colspan="3">
+                <td class="w-35 padding-lr-5">
                     ${mavo.marker_name}
                 </td>
+                <td class="bg-color-10 w-15 f6 align">메이커 이메일</td>
+                <td class="w-35 padding-lr-5">
+                    ${mavo.marker_email}
+                </td>
             </tr>
+            <tr>
+                <td class="tbl-line" colspan="4"></td>
+            </tr>
+            <tr class="tr-45">
+                <td class="bg-color-10 w-15 f6 align">메이커 썸네일</td>
+                <td class="w-35 padding-lr-5">
+                    <c:set var="ext" value="${fn:split(mavo.marker_img,'.')}" />
+                    <a href="${mavo.marker_img}" target="_blank"  download="${mavo.marker_name}_썸네일.${ext[1]}">
+                        <img class="preview-img" src="${mavo.marker_img}">
+                    </a>
+                </td>
+                <td class="bg-color-10 w-15 f6 align">메이커 전화번호</td>
+                <td class="w-35 padding-lr-5">
+                    ${mavo.marker_phone}
+                </td>
+            </tr>
+            <tr>
+                <td class="tbl-line" colspan="4"></td>
+            </tr>
+            <tr class="tr-45">
+                <td class="bg-color-10 w-15 f6 align">메이커 카카오 ID/카카오 URL</td>
+                <td class="w-35  padding-a-10">
+                    <p>id: ${mavo.marker_kakao_id}</p>
+                    <p>URL : <a href="${mavo.marker_kakao_url}" target="_blank">${mavo.marker_kakao_url}</a></p>
+                </td>
+                <td class="bg-color-10 w-15 f6 align">메이커 홈페이지 주소</td>
+                <td class="w-35  padding-a-10">
+                    <c:forTokens items="${mavo.marker_home_page_url}" delims="|" var="url">
+                       <p><a href="${url}" target="_blank">${url}</a></p> 
+                    </c:forTokens>
+                </td>
+            </tr>
+            <tr>
+                <td class="tbl-line" colspan="4"></td>
+            </tr>
+            <tr class="tr-45">
+                <td class="bg-color-10 w-15 f6 align">SNS URL</td>
+                <td class="w-35  padding-a-10">
+                    <p>facebook: <a href="${mavo.marker_facebook_url}" target="_blank">${mavo.marker_facebook_url}</a></p>
+                    <p>twiter: <a href="${mavo.marker_twiter_url}" target="_blank">${mavo.marker_twiter_url}</a></p>
+                    <p>instagram: <a href="${mavo.marker_instagram_url}" target="_blank">${mavo.marker_instagram_url}</a></p>
+                </td>
+                <td class="bg-color-10 w-15 f6 align">메이커 사업 형태</td>
+                <td class="w-35 padding-lr-5">
+                    ${makerType[mavo.business_type]}
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="tbl-line" colspan="4"></td>
+            </tr>
+            <tr class="tr-45">
+                <td class="bg-color-10 w-15 f6 align">통장사본</td>
+                <td class="w-85  padding-a-10" colspan="3">
+                    <c:set var="ext" value="${fn:split(mavo.bankbook_img,'.')}" />
+                    <a href="${mavo.bankbook_img}" download="${mavo.marker_name}_통장사본.${ext[1]}" target="_blank">${mavo.marker_name}_통장사본</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="tbl-line" colspan="4"></td>
+            </tr>
+           </table>
+           <div class="font-16 margin-b10 margin-t30">
+               <h1>
+                심사정보 
+               </h1>
+           </div>
+            <table>
             <tr>
                 <td class="tbl-line" colspan="4"></td>
             </tr>
@@ -110,8 +189,8 @@
             </tr>
             <tr class="tr-45">
                 <td class="bg-color-10 w-15 f6 align">심사 상태</td>
-                <td class="w-85 padding-a-10" colspan="3">
-                    <select name="status" class="sel-200">
+                <td class="w-85 padding-a-10" colspan="3" >
+                    <select name="status" class="sel-200" <c:if test="${avo.status eq '3'}">disabled</c:if>>
                         <c:forEach items="${auditStatus}" var="item" varStatus="vs">
                             <option value="${vs.index}" <c:if test="${avo.status eq vs.index}">selected</c:if>>${item}</option>
                         </c:forEach>
@@ -127,8 +206,10 @@
                    <button type="button" onclick="javascript:location.href='/audit';" class="btn-50 bold bo-blue">목록</button>
                </div>
                <div class="btn-left float-r">
-                   <button type="submit" class="btn-80 bold bo-blue">심사 수정</button>
-                   <button type="reset" onclick="javascript:location.href='/audit';"  class= "btn-50 bold bo-pink">취소</button>
+                    <c:if test="${avo.status ne '3'}">
+                        <button type="submit" class="btn-80 bold bo-blue">심사 수정</button>
+                        <button type="reset" onclick="javascript:location.href='/audit';"  class= "btn-50 bold bo-pink">취소</button>
+                    </c:if>
                </div>
                <div class="clearfix"></div>
            </div>

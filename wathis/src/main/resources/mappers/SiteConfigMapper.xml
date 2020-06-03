@@ -22,6 +22,11 @@
 		FROM tb_site_config
 		WHERE group_id=#{group_id} and title=#{title}
 	</select>
+	<select id="getSiteConfigContent" resultType="string">
+		SELECT   content
+		FROM tb_site_config
+		WHERE group_id=#{group_id} and title=#{title}
+	</select>
 	<select id="getSiteConfigGroup" resultType="map">
 		SELECT    
 			title,   

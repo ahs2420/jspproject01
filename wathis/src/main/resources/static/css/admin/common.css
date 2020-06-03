@@ -671,3 +671,6 @@ hr {
 input[type=file]{
     border: 0;
 }
+.preview-img {
+    max-width: 200px;
+}

@@ -59,5 +59,13 @@ public class SiteConfigDAOImpl implements SiteConfigDAO{
 		return sql.selectOne(namespace+".getSiteConfigTitleChk",map);
 		
 	}
+	@Override
+	public String getSiteConfigContent(String group_id, String title) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashMap<>();
+		map.put("group_id", group_id);
+		map.put("title", title);
+		return sql.selectOne(namespace+".getSiteConfigContent",map);
+	}
 
 }

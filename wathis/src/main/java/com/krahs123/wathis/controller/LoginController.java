@@ -131,6 +131,7 @@ public class LoginController {
 	@RequestMapping("/findID")
 	@ResponseBody
 	public String findIDDO(@RequestParam String uname,@RequestParam String uemail,HttpServletRequest request) {
+		String siteName = siteService.getSiteConfigContent("head", "siteName");
 		StringBuilder sb = new StringBuilder();
 		String uid = memberService.getMemberFindID(uname, uemail);
 		String msg = "아이디를 찾을 수 없습니다.";
@@ -139,8 +140,8 @@ public class LoginController {
 			msg = "아이디를 가입하신 메일로 전송 했습니다.";
 			MailVO mvo = new MailVO();
 			mvo.setMailto(uemail);
-			mvo.setTitle("와디스 - 아이디 찾기 서비스입니다.");
-			mvo.setContent("고객님의 아이디는 '"+uid+"'입니다.<br><a href='http://localhost:8888/login/login-page2'>와디스 바로가기</a>");
+			mvo.setTitle(siteName+" - 아이디 찾기 서비스입니다.");
+			mvo.setContent("고객님의 아이디는 '"+uid+"'입니다.<br><a href='http://localhost:8888/login/login-page2'>"+siteName+" 바로가기</a>");
 			MailSend mailSend = new MailSend();
 			try {
 				mailSend.mailSender(request, mvo);
@@ -161,6 +162,7 @@ public class LoginController {
 	@RequestMapping("/findPWD")
 	@ResponseBody
 	public String findPWDDO(@RequestParam String uid,@RequestParam String uemail,HttpServletRequest request) {
+		String siteName = siteService.getSiteConfigContent("head", "siteName");
 		StringBuilder sb = new StringBuilder();
 		int id = memberService.getMemberFindPWD(uid, uemail);
 		String msg = "가입 정보를 찾을 수 없습니다.";
@@ -171,8 +173,8 @@ public class LoginController {
 			memberService.updatePwdMember(id, ShaEncrypt.sha256(modPWD));
 			MailVO mvo = new MailVO();
 			mvo.setMailto(uemail);
-			mvo.setTitle("와디스 - 비밀번호 찾기 서비스입니다.");
-			mvo.setContent("고객님의 비밀번호는 '"+modPWD+"'입니다.<br><a href='http://localhost:8888/login/login-page2'>와디스 바로가기</a>");
+			mvo.setTitle(siteName+" - 비밀번호 찾기 서비스입니다.");
+			mvo.setContent("고객님의 비밀번호는 '"+modPWD+"'입니다.<br><a href='http://localhost:8888/login/login-page2'>"+siteName+" 바로가기</a>");
 			MailSend mailSend = new MailSend();
 			try {
 				mailSend.mailSender(request, mvo);

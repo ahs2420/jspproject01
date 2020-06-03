@@ -61,4 +61,10 @@ public class SiteConfigServiceImpl implements SiteConfigService{
 		// TODO Auto-generated method stub
 		return siteConfigDAO.getSiteConfigTitleChk(group_id, title);
 	}
+
+	@Override
+	public String getSiteConfigContent(String group_id, String title) {
+		// TODO Auto-generated method stub
+		return siteConfigDAO.getSiteConfigContent(group_id, title);
+	}
 }

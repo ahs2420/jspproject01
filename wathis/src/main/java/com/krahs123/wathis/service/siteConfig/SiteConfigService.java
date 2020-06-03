@@ -22,5 +22,7 @@ public interface SiteConfigService {
 	public List<String> getSiteConfigGroupList();
 	//설정 코드 중복 확인
 	public int getSiteConfigTitleChk(String group_id,String title);
+	//사이트 설정 가져 오기
+	public String getSiteConfigContent(String group_id,String title);
 
 }
