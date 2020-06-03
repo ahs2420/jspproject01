@@ -70,4 +70,35 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		return sql.delete(namespace+".deleteMember",id);
 	}
+	@Override
+	public String getMemberFindID(String uname, String uemail) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("uname", uname);
+		map.put("uemail", uemail);
+		return sql.selectOne(namespace+".getMemberFindID",map);
+	}
+	@Override
+	public int getMemberFindPWD(String uid, String uemail) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("uid", uid);
+		map.put("uemail", uemail);
+		int result=-1;
+		try {
+			result=sql.selectOne(namespace+".getMemberFindPWD",map);
+		}catch (Exception e) {
+		}
+		
+		
+		return result;
+	}
+	@Override
+	public int updatePwdMember(int id, String upassword) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("id", id);
+		map.put("upassword", upassword);
+		return sql.insert(namespace+".updatePwdMember",map);
+	}
 }

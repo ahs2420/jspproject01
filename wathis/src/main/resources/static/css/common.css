@@ -278,13 +278,14 @@ nav{
 .bold{font-weight: 700;}
 .bg-white{ background-color: #ffffff;}
 .bg-gray{ background-color: #f5f7fa;}
-.bg-red{ background-color: #d63447;}
-.bg-green{ background-color: #1eb2a6;}
-.bg-yellow{ background-color: #ffd31d;}
+.bg-red,.bg-status-0{ background-color: #d63447;}
+.bg-green,.bg-status-3{ background-color: #1eb2a6;}
+.bg-yellow,.bg-status-2{ background-color: #ffd31d;}
 .bg-main-color{ background-color: var(--var-main-color);}
 .bg-main-alpha-color{ background-color: var(--var-main-color-alpah);}
 .bg-main-white-color{ background-color: var(--var-main-white-color);}
 .bg-red-alpah{background-color: rgba(255, 89, 89, 0.1);}
+.bg-black-alpah,.bg-status-1{background-color: rgba(0, 0, 0, 0.5);}
 .bg-gray-dark{background-color: #ececec;}
 .align-center{
     text-align: center;

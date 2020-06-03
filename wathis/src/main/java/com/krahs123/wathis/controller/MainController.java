@@ -84,7 +84,7 @@ public class MainController {
 	public ModelAndView viewTermAjax(@RequestParam(defaultValue = "register") String item) {
 		ModelAndView mav = new ModelAndView();
 		List<MenuVO> menuList = menuService.getMenuList();
-		mav.setViewName(BASEDIR+"item");
+		mav.setViewName(BASEDIR+item);
 		mav.addObject("menuList", menuList);
 		return mav;
 	}

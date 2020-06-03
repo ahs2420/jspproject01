@@ -80,7 +80,7 @@
 										<!-- <button type="button" id="" class="in-button">sign in</button> -->
 									</div>
 									<div class="foot-lnk">
-										<a href="#forgot" class="for">비밀번호를 잊으셨나요?</a>
+										<a href="/login/findAccount" class="for">아이디/비밀번호 찾기</a>
 										<!-- <a href="#forgot" class="for">Forgot Password?</a> -->
 									</div>
 									<div class="site-box">

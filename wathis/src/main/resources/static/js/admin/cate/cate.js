@@ -24,20 +24,20 @@ $(function(){
 //대분류 삭제
 $(function(){
     $(document).on("click",".majorDelete",function(){
-        if(confirm("선택하신 대분류를 삭제하시겠습니까?")){
+        if(confirm("선택하신 카테고리를 삭제하시겠습니까?")){
             var data ={
-                "majorCode":$(this).data("code")
+                "id":$(this).data("code")
             };
             var option={
-                "url":"/cate/setMajorDelete",
+                "url":"/cate/setCateDelete",
                 "data":data
             }
             var ajaxResult = ajaxStan(option);
             if(ajaxResult.status&&ajaxResult.data.msg){
                 majorCateList();
+                alert(ajaxResult.data.msg);
                 return true;
             }
-            console.log(ajaxResult.data.msg);
         }
         return false;
     });
@@ -60,7 +60,7 @@ function majorCateList(){
         for(var cvo of ajaxResult.data.cvoList){
             item +='\
                 <span class="cateTag">\
-                    '+cvo.title+'('+cvo.cate_img+')\
+                    '+cvo.title+'\
                     <a href="#" class="close majorDelete" data-code="'+cvo.id+'" >\
                         <i class="fas fa-times-circle"></i>\
                     </a>\

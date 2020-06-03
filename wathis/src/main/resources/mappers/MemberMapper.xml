@@ -77,6 +77,12 @@
 		FROM tb_member
 		WHERE id =#{id}
 	</select>
+	<select id="getMemberFindID" resultType="String">
+		SELECT uid FROM tb_member WHERE uname=#{uname} AND uemail=#{uemail}
+	</select>
+	<select id="getMemberFindPWD" resultType="int">
+		SELECT id FROM tb_member WHERE uid=#{uid} AND uemail=#{uemail}
+	</select>
 	<select id="getOne" resultType="membervo">
 		SELECT 
 			id, uid, uname
@@ -105,6 +111,11 @@
 	<update id="updateAuthMember">
 		UPDATE tb_member SET
 			ugroup 		= #{ugroup}
+		WHERE id 		= #{id}
+	</update>
+	<update id="updatePwdMember">
+		UPDATE tb_member SET
+			upassword 		= #{upassword}
 		WHERE id 		= #{id}
 	</update>
 	<delete id="deleteMember">

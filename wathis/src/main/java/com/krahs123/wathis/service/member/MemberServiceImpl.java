@@ -78,4 +78,22 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return memberdao.deleteMember(id);
 	}
+
+	@Override
+	public String getMemberFindID(String uname, String uemail) {
+		// TODO Auto-generated method stub
+		return memberdao.getMemberFindID(uname, uemail);
+	}
+
+	@Override
+	public int getMemberFindPWD(String uid, String uemail) {
+		// TODO Auto-generated method stub
+		return memberdao.getMemberFindPWD(uid, uemail);
+	}
+
+	@Override
+	public int updatePwdMember(int id, String upassword) {
+		// TODO Auto-generated method stub
+		return memberdao.updatePwdMember(id, upassword);
+	}
 }

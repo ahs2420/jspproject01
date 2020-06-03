@@ -69,7 +69,7 @@
             </tr>
             <tr class="tr-45">
                 <td class="w-85 padding-lr-5">
-                    <div class="majorCateArea">
+                    <div class="majorCateArea margin-t20">
                     </div>
                 </td>
             </tr>

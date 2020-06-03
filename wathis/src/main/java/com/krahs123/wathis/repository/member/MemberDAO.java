@@ -22,4 +22,10 @@ public interface MemberDAO {
 	public int updateAuthMember(int id,int ugroup);
 	//회원삭제
 	public int deleteMember(int id);
+	//아이디 찾기
+	public String getMemberFindID(String uname,String uemail);
+	//비밀번호 찾기
+	public int getMemberFindPWD(String uid,String uemail);
+	//비밀번호 수정
+	public int updatePwdMember(int id,String upassword);
 }

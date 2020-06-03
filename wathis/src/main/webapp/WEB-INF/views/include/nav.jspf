@@ -58,7 +58,7 @@
                     <!-- <a class="pl10 hover-main" href="#">회원가입</a> -->
                 </div>
                 <div class="alerm-cover pl20">
-                    <a class="btn-stan btn-alerm laptop-dis-none" href="/page/mypage?member_id=${sessionScope.id}">펀딩오픈 신청하기</a>
+                    <a class="btn-stan btn-alerm laptop-dis-none" href="/page/mypage">펀딩오픈 신청하기</a>
                 </div>
             </div>
             <div class="dis-mobile flex-box top-menu-m-side">
@@ -131,7 +131,7 @@
                 <div class="mypage-link">
                     <ul>
                         <li><a class="flex-box w-100p flex-j-space align-center" href="/page/userMypage?template=fundingList"><span><i class="fas fa-gift"></i> 펀딩한프로젝트</span><i class="fas fa-chevron-right"></i></a></li>
-                        <li><a class="flex-box w-100p flex-j-space align-center" href="/page/userMypage?template=makeList"><span><i class="fas fa-marker"></i> 제작한 프로젝트</span><i class="fas fa-chevron-right"></i></a></li>
+                        <li><a class="flex-box w-100p flex-j-space align-center" href="/page/makeProject"><span><i class="fas fa-marker"></i> 제작한 프로젝트</span><i class="fas fa-chevron-right"></i></a></li>
                         <li><a class="flex-box w-100p flex-j-space align-center" href="/page/userMypage?template=setting"><span><i class="fas fa-tools"></i> 설정</span><i class="fas fa-chevron-right"></i></a></li>
                         <c:if test="${sessionScope.ugroup eq '1'}">
                             <li><a class="flex-box w-100p flex-j-space align-center" href="/admin"><span><i class="fas fa-cog"></i> 관리자페이지</span><i class="fas fa-chevron-right"></i></a></li>

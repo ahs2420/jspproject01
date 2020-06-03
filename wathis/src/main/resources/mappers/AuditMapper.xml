@@ -4,6 +4,17 @@
 
 	
 	
+	<sql id="getInclude">
+		WHERE
+		<choose>
+			<when test="searchOpt == 'all'">
+				m.marker_name like CONCAT('%',#{words},'%') or p.title like CONCAT('%',#{words},'%')
+			</when>
+			<otherwise>
+				${searchOpt} like CONCAT('%',#{words},'%')
+			</otherwise>
+		</choose>
+	</sql>
 	
 	<select id="getAll" resultType="auditvo">
 		SELECT 
@@ -39,6 +50,49 @@
 	</select>
 	<select id="getAuditLastID" resultType="int">
 		SELECT id FROM tb_audit WHERE member_id=#{member_id} order by id desc LIMIT 1
+	</select>
+	<select id="getAuditAdminList" resultType="map">
+		SELECT 
+			a.id,
+			a.status,
+			m.marker_name,
+			p.title,
+			p.status as pStatus,
+			p.img_upload_dir,
+			p.main_img,
+			c.title as category_name
+		FROM 
+		tb_audit as a 
+			JOIN tb_maker_info  as m 
+				ON a.id=m.audit_id  
+			JOIN tb_product as p 
+				ON a.id = p.audit_id  
+			JOIN tb_category as c
+				ON p.category_id = c.id
+		<include refid="getInclude"></include>
+		ORDER BY a.id desc
+		Limit ${pageStart},${pagePer}
+	</select>
+	<select id="getAuditDetail" resultType="auditvo">
+		SELECT 
+			id,
+			member_id,
+			circulation_chk,
+			circulation_content,
+			preparations_plan,
+			relay_plan,
+			reword_type,
+			reword_info,
+			required_documents_orgName,
+			required_documents_Name,
+			required_documents_url,
+			fees_chk,
+			policy_agreement,
+			status,
+			reg_date
+		FROM 
+		tb_audit 
+		WHERE id = #{id}
 	</select>
 	<select id="getAuditMyList" resultType="map">
 		SELECT 

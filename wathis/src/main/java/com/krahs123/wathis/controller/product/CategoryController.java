@@ -66,4 +66,19 @@ public class CategoryController {
 		map.put("status", true);
 		return map;
 	}
+	@RequestMapping("/setCateDelete")
+	@ResponseBody
+	public Map<String,Object> setCateDelete(@RequestParam int id){
+		Map<String,Object> map = new HashMap<>();
+		int result = cateService.deleteCate(id);
+		String msg="카테고리 삭제에 실패하였습니다\n.관리자에게 문의해 주세요.";
+		boolean status=false;
+		if(result>0) {
+			msg="카테고리가 삭제되었습니다.";
+			status=true;
+		}
+		map.put("msg", msg);
+		map.put("status", status);
+		return map;
+	}
 }

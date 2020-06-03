@@ -1,16 +1,18 @@
-package com.krahs123.wathis.controller.admin;
+package com.krahs123.wathis.controller.product;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/audit")
+public class AuditController {
 	@RequestMapping("")
-	public ModelAndView viewAdminMain() {
+	public ModelAndView auditListView() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/users?template=users&mypage=list");
+		mav.addObject("template", "audit");
+		mav.addObject("mypage", "list");
+		mav.setViewName("/admin/admin");
 		return mav;
 	}
 }
