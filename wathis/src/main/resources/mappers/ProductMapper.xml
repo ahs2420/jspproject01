@@ -40,12 +40,12 @@
 		WHERE audit_id=#{audit_id}
 		
 	</select>
+	
 	<insert id="setProduct">
 		insert into tb_product SET
 		member_id=#{member_id},
 		category_id=#{category_id},
 		audit_id=#{audit_id},
-		status=#{status},
 		title=#{title},
 		sub_title=#{sub_title},
 		video_chk=#{video_chk},
@@ -58,6 +58,7 @@
 		end_date=#{end_date},
 		keyword=#{keyword}
 	</insert>
+	
 	<update id="updateItem">
 		update tb_product SET
 			category_id=#{category_id},
@@ -75,6 +76,7 @@
 			where 
 			id=#{id}
 	</update>
+	
 	<delete id="deleteItem">
 		DELETE FROM tb_product
 		WHERE id = #{id}

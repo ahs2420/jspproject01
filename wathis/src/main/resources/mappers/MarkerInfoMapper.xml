@@ -6,7 +6,6 @@
 			id,
 			audit_id,
 			marker_name,
-			img_dir,
 			marker_img,
 			marker_email,
 			marker_phone,
@@ -23,9 +22,6 @@
 			tb_maker_info
 		ORDER BY id DESC
 	</select>
-	<select id="getCount" resultType="int">
-	
-	</select>
 	<select id="getMarkerList" resultType="markerinfovo">
 		SELECT * FROM tb_maker_info WHERE id = #{id} order by id desc LIMIT 1
 	
@@ -39,7 +35,6 @@
 		
 			audit_id=#{audit_id},
 			marker_name 	= #{marker_name},
-			img_dir 		= #{img_dir},
 			marker_img 		= #{marker_img},
 			marker_email	= #{marker_email},
 			marker_phone	= #{marker_phone},
@@ -54,11 +49,16 @@
 	
 	
 	</insert>
+<!-- 	<if test="img_dir != null">  img_dir= #{img_dir}, </if> 이렇게 사용해서 수정시에 사진이 있으면 그대로 쓰고 바꿀려면 바꿀수 있음 -->
 	<update id="updateMaker">
-		UPDATE SET tb_maker_info
+		UPDATE tb_maker_info SET 
+		    <if test="marker_img != null">
+		        marker_img=#{marker_img},
+		    </if>
+		    <if test="bankbook_img != null">
+		        bankbook_img=#{bankbook_img},
+		    </if>
 			marker_name=#{marker_name},
-			img_dir=#{img_dir},
-			marker_img=#{marker_img},
 			marker_email=#{marker_email},
 			marker_phone=#{marker_phone},
 			marker_kakao_id=#{marker_kakao_id},
@@ -67,9 +67,7 @@
 			marker_facebook_url=#{marker_facebook_url},
 			marker_twiter_url=#{marker_twiter_url},
 			marker_instagram_url=#{marker_instagram_url},
-			business_type=#{business_type},
-			bankbook_img=#{bankbook_img},
-			reg_date=#{reg_date}
+			business_type=#{business_type}
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">

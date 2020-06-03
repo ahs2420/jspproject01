@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
@@ -11,8 +13,10 @@
 
 
 <div class="box2-funReady">
-    <form action="/page/mypageTwo" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
+    <form action="/page/mypageTwoModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
 <%--         <input type="hidden" name="member_id" value="${member_id }" /> --%>
+<%--         <input type="hidden" name="id" value="${id}" /> --%>
+        <input type="hidden" name="id" value="${makervo.id}" />
         <input type="hidden" name="audit_id" value="${audit_id}" />
         <!-- 기본 정보 박스 -->
         <!-- <div class="flex-basic-adver"> -->
@@ -57,11 +61,11 @@
                         <label for="text-box1" class="di-la1 mar-top1 fon-wei1">메이커명<span class="fon-co5">
                                 *</span></label>
                         <p class="fon-siz3 fon-col fon-wei mar-bo6">법인사업자는 법인등기부상 법인명
-                            / 개인 사업자는 주민등록상 성명 또는 상호 / 개인은 주민등록상 성명을 입력하세요.</p>
+                            /개인 사업자는 주민등록상 성명 또는 상호 /개인은 주민등록상 성명을 입력하세요.</p>
                         <input class="wid1 hei1 fon-bor1 text-padding1 text-coun" type="text" id="text-box1"
                             name="marker_name" value="${makervo.marker_name}" placeholder="메이커명 입력">
 
-                        <p class="fon-siz3 fon-col " id="counter">[ 0 / 최대 30자 ]</p>
+                        <p class="fon-siz3 fon-col " id="counter">[ ${fn:length(makervo.marker_name)} / 최대 30자 ]</p>
                     </div>
                 </div>
                 <!-- 3번 -->
@@ -72,10 +76,11 @@
                         </label><br>
                         <div class="file-box mar-top3">
                             <label for="file1"><i class="fas fa-camera fon-co9"></i>
-                                등록하기</label> <input type="file" id="file1" name="img_dir">
+                                등록하기</label> <input type="file" id="file1" name="file1">
                         </div>
                         <p class="fon-siz4 fon-col mar-top5">3MB이하의 JPEG, PNG파일, 사이즈:
                             300X300 픽셀 이상</p>
+							<img src = "${makervo.marker_img }">
 
                     </div>
                     <div class="ba-guide1 ba-pro-name">
@@ -85,7 +90,6 @@
                             </h4>
                             <p class="fon-siz4 mar-bo3 fon-co7">업체 로고나 메이커님의 사진을 등록해주시면,
                                 메이커 정보에서 확인할 수 있습니다.</p>
-
                         </div>
                     </div>
                 </div>
@@ -99,7 +103,7 @@
                                 <span class="">문의 이메일 <span class="fon-co5"> * </span>
                                 </span>
                             </label> <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
-                                id="projectprice" placeholder="이메일 입력" name="marker_email">${twoModi.marker_email}
+                                id="projectprice" placeholder="이메일 입력" value="${makervo.marker_email}" name="marker_email">
 
                         </div>
                         <div class="ba-guide3">
@@ -115,9 +119,10 @@
                     <div class="flex-basic2 ba-pro-ka">
                         <div class="wid4 ">
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1"><span class="">문의 전화번호<span
-                                        class="fon-co5"> * </span></label> <input
+                                        class="fon-co5"> * </span></label> 
+                                        <input
                                 class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="전화번호 입력" name="marker_phone">${twoModi.marker_phone}
+                                placeholder="전화번호 입력" value="${makervo.marker_phone}" name="marker_phone">
 
                         </div>
                         <div class="ba-guide4">
@@ -136,10 +141,10 @@
                                 <h4 class="di-in1">카카오톡 채널</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
                             </label>
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="검색용 아이디 입력" name="marker_kakao_id">${twoModi.marker_kakao_id}
+                                placeholder="검색용 아이디 입력"  value="${makervo.marker_kakao_id}" name="marker_kakao_id">
 
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="홈페이지 URL 입력" name="marker_kakao_url">${twoModi.marker_kakao_ur}
+                                placeholder="홈페이지 URL 입력" value="${makervo.marker_kakao_url}" name="marker_kakao_url">
 
                         </div>
                         <div class="ba-guide5">
@@ -159,13 +164,11 @@
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1 marker_home_page_url">
                                 <h4 class="di-in1">홈페이지</h4> <span class="fon-co10 fon-siz2">(선택사항)</span>
                             </label>
-                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="홈페이지 URL 입력" name="">
-<%--                                 ${twoModify.} --%>
-                            <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
-                                placeholder="홈페이지 URL 입력" name="">
-<%--                                 ${twoModify.} --%>
-
+                            <c:set var="url" value="${fn:split(makervo.marker_home_page_url,'|')}" />
+                            <c:forEach begin="0" end="1" varStatus="vs">
+		                         <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text" id="projectprice"
+		                                placeholder="홈페이지 URL 입력" name="marker_home_pageTwo_url[]" value="${url[vs.index]}">
+                            </c:forEach>
                         </div>
                         <div class="ba-guide6">
                             <div class=" text-padding3 box-li1 box-back1">
@@ -187,13 +190,13 @@
                             </label>
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
                                 name="marker_facebook_url" id="projectprice"
-                                placeholder="https://www.facebook.com/">${twoModi.marker_facebook_ur}
+                                placeholder="https://www.facebook.com/" value="${makervo.marker_facebook_url}">
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
                                 name="marker_twiter_url" id="projectprice"
-                                placeholder="https://www.twitter.com/">${twoModi.marker_twiter_url}
+                                placeholder="https://www.twitter.com/"  value="${makervo.marker_twiter_url}">
                             <input class="wid1 hei1 fon-bor1 text-padding1 mar-top5" type="text"
                                 name="marker_instagram_url" id="projectprice"
-                                placeholder="https://www.instagram.com/">${twoModi.marker_instagram_url}
+                                placeholder="https://www.instagram.com/" value="${makervo.marker_instagram_url}">
 
                         </div>
                         <div class="ba-guide7">
@@ -220,12 +223,18 @@
                             <label for="projectprice" class="di-la1 mar-top1 fon-wei1">사업자
                                 구분<span class="fon-co5"> *</span>
                             </label>
-                            <select class="wid1 hei1 fon-bor1" name="business_type">
+                        <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="business_type">
+                            <c:forEach items="${makerType }" var="item" varStatus="vs">
+                            	<option value="${vs.index}" <c:if test="${makervo.business_type eq vs.index }">selected</c:if> >${item}</option>
+                            </c:forEach>
+                        </select>
+                            <!-- <select class="wid1 hei1 fon-bor1" name="business_type">
                                 <option selected class="business_type">사업자 구분 선택</option>
                                 <option value="">개인</option>
                                 <option value="">개인 사업자</option>
                                 <option value="">법인사업자</option>
-                            </select>
+                            </select> -->
+                            
                         </div>
 
                         <div class="ba-guide1 ba-pro-name">
@@ -248,14 +257,15 @@
                                 사본 <span class="fon-co5"> *</span>
                             </label><br>
                             <div class="file-box mar-top4">
-                                <label for="file1"><i class="fas fa-file-upload fon-co9"></i>
+                                <label for="file2"><i class="fas fa-file-upload fon-co9"></i>
                                     업로드</label>
-                                <input type="file" id="file1" name="bankbook_img">
+                                <input type="file" id="file2" name="file2">
                             </div>
                             <p class="fon-siz3 fon-col mar-top5">펀딩 성공 시 펀딩 금액을 수령할 법인
                                 명의의 계좌 사본을 첨부하세요.</p>
                             <p class="fon-siz3 fon-col mar-top5">jpg, jpeg, png, pdf /
                                 10MB 이하 파일 1개만 업로드 가능합니다.</p>
+							<img src = "${makervo.bankbook_img }">
 
                         </div>
                         <div class="ba-guide2">
@@ -276,7 +286,7 @@
               
                     <!--  대표자 6번 -->
                     <div class="btn-save">
-                        <button class="btn-end" type="submit">저장하기</button>
+                        <button class="btn-end" type="submit">수정완료</button>
                     </div>
                 </div>
             </div>

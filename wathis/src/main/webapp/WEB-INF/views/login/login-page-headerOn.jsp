@@ -225,5 +225,6 @@
 		</div>
 	</main>
 	
+<%@ include file="/WEB-INF/views/include/loginChk/noLoginChk.jsp"%>
 <%@ include file="/WEB-INF/views/include/foot.jspf"%>
 <%@include file="../hong-include/foot.jspf"%>

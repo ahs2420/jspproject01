@@ -32,8 +32,13 @@ public class MarkerInfoDAOImpl implements MarkerInfoDAO{
 
 	@Override
 	public int getMakerID(int audit_id) {
-
-		return sql.selectOne(NAMESPACE + ".getMakerID",audit_id);
+		int result = -1;
+		try {
+			result = sql.selectOne(NAMESPACE + ".getMakerID",audit_id);
+		} catch (Exception e) {
+			result = -1;
+		}
+		return result;
 	}
 
 

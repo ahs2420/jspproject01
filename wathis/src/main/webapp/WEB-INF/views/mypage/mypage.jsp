@@ -212,4 +212,5 @@
 
 
 </script>
+<%@ include file="/WEB-INF/views/include/loginChk/loginChk.jsp"%>
 <%@include file="../hong-include/foot.jspf"%>

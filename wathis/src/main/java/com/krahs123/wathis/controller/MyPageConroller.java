@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpSession;
@@ -54,9 +55,9 @@ public class MyPageConroller {
 	final String DIR ="/mypage/";
 	
 	@RequestMapping("/mypage")
-	public ModelAndView viewMypageList(@RequestParam int member_id){
-		
-		 int auditID = auditService.getAuditLastID(member_id); 
+	public ModelAndView viewMypageList(HttpSession session){
+		int member_id = (int)session.getValue("id");
+		int auditID = auditService.getAuditLastID(member_id); 
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
@@ -73,10 +74,11 @@ public class MyPageConroller {
 	@RequestMapping("/mypageListModify")
 	public ModelAndView getListModify(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
-		
+		int maker_id = makerSer.getMakerID(id);
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
 		mav.addObject("id", id);
+		mav.addObject("maker_id", maker_id);
 		
 		mav.setViewName(DIR+"mypage");
 		return mav;
@@ -295,33 +297,51 @@ public class MyPageConroller {
 		@ResponseBody
 		public ModelAndView getmypageTwoView(@RequestParam int id){
 			MakerInfoVO makervo = makerSer.getMarkerList(id);
-			
-			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "twoModi");
 			mav.addObject("makervo", makervo);
-			
+			mav.addObject("audit_id", makervo.getAudit_id());
+			mav.addObject("makerType", DbStatus.makerType);
 			
 			mav.setViewName(DIR+"mypage");
 			return mav;
 		}
 	
-//	//메이커 수정  보이는 부분
-//	@RequestMapping("/mypageTwoModify")
-//	public ModelAndView MypageTwoView(@RequestParam int audit_id) {
-//
-//		int auditId = makerSer.getMakerID(audit_id);
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("template", "Reward");
-//		mav.addObject("mypage", "twoModi");
-//		mav.addObject("auditId", auditId);
-//			
-//		
-//		mav.setViewName(DIR+"mypage");
-//		
-//		return mav;
-//	}
+	//메이커 수정  보이는 부분
+	@RequestMapping("/mypageTwoModify")
+	public ModelAndView MypageTwoView(@ModelAttribute MakerInfoVO maVo, @RequestPart MultipartFile file1, @RequestPart MultipartFile file2,@RequestParam(value ="marker_home_pageTwo_url[]") List<String> homepage) {
+
+		StringBuilder st = new StringBuilder();
+		if( !file1.isEmpty()) {
+			FileControl fc = new FileControl();
+			Map<String,Object> imgMap = fc.fileUpload(file1, "img", null);
+			maVo.setMarker_img(imgMap.get("uploadDIR").toString()+imgMap.get("fileName").toString());
+		}
+		
+		if( !file2.isEmpty()) {
+			FileControl fc = new FileControl();
+			Map<String,Object> imgMap = fc.fileUpload(file2, "img", null);
+			maVo.setBankbook_img(imgMap.get("uploadDIR").toString()+imgMap.get("fileName").toString());
+		}
+
+		for( int i = 0; i < homepage.size(); i++ ) {
+			st.append(homepage.get(i)+"|");
+			
+		}
+		maVo.setMarker_home_page_url(st.toString());
+		int result = makerSer.updateMaker(maVo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "information");
+		mav.addObject("id", maVo.getAudit_id());
+			
+		
+		mav.setViewName("redirect:/page/mypageListModify");
+		
+		return mav;
+	}
 
 	
 

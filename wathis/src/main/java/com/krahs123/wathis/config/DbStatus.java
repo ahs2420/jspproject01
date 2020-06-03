@@ -21,5 +21,7 @@ public class DbStatus {
 	//심사 상태 0:반려 1:작성중 2:심사중 3:승인
 	final public static String[] popupStatus = {"숨김","표시"};
 	//팝업 상태 0: 숨김처리 1: 표시
+	final public static String[] makerType = {"개인","개인 사업자","법인사업자"};
+	//메이커 사업자 구분 0: 개인 1: 개인 사업자 2: 법인사업자
 	
 }
