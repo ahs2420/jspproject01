@@ -21,6 +21,11 @@ public class ProductDAOImpl implements ProductDAO{
 		// TODO Auto-generated method stub
 		return sql.selectOne(namespace+".getProductId",audit_id);
 	}
+	@Override
+	public int updateItem(ProductVO provo) {
+	
+		return sql.update(namespace + ".updateItem", provo);
+	}
 
 	
 	

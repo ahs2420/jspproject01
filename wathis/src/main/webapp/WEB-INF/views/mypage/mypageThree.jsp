@@ -55,7 +55,7 @@
             </div>
 
             <!-- 1번 -->
-          <form action="/page/mypageThree" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+          ㄴ<form action="/page/mypageThree" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
         
         <input type="hidden" name="member_id" value="${sessionScope.id}" />
         <input type="hidden" name="audit_id" value="${audit_id}" />

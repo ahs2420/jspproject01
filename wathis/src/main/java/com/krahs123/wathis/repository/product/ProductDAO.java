@@ -9,4 +9,13 @@ public interface ProductDAO {
 	//상품 아이디 구하기
 	public int getProductId(int audit_id);
 	
+	//업데이트 부분	
+	public int updateItem(ProductVO provo);
+	 
+
+	
+	
+	
+	//상품 수정하기
+	
 }

@@ -28,6 +28,7 @@
 	
 	</select>
 	<select id="getList" resultType="productvo">
+		SELECT * FROM WHERE id = #{id} order by id desc LIMIT 1
 	
 	</select>
 	<select id="getOne" resultType="productvo">
@@ -59,7 +60,7 @@
 		keyword=#{keyword}
 	</insert>
 	
-	<update id="updateItem">
+	<update id="updateIPro">
 		update tb_product SET
 			category_id=#{category_id},
 			title=#{title},
