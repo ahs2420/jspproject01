@@ -344,7 +344,7 @@ public class MyPageConroller {
 	}
 
 	
-
+	//스토리 작성 보여지는 부분
 	@RequestMapping("/mypage-three")
 	public ModelAndView viewMypageThree(@RequestParam int audit_id){
 			ModelAndView mav = new ModelAndView();
@@ -361,7 +361,7 @@ public class MyPageConroller {
 		}
 	
 
-	
+	//파일 업로드 부분
 	@RequestMapping("/mypageThree")
 	@ResponseBody
 	public String getpageThree(@ModelAttribute ProductVO provo, 
@@ -411,6 +411,24 @@ public class MyPageConroller {
 		return sb.toString();
 		
 	}
+	
+	//스토리 작성 보여지는 부분
+		@RequestMapping("/mypageThreeView")
+		public ModelAndView MypageThreeView(@RequestParam int id){
+
+			ProductVO productvo = proSer.getProList(id);
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("template", "Reward");
+			mav.addObject("mypage", "threeModi");
+			mav.addObject("productvo", productvo);
+//			mav.addObject("audit_id", makervo.getAudit_id());
+//			mav.addObject("makerType", DbStatus.makerType);
+			
+			mav.setViewName(DIR+"mypage");
+			return mav;
+		}
+	
 	
 	
 	

@@ -27,7 +27,7 @@
 	<select id="getCount" resultType="int">
 	
 	</select>
-	<select id="getList" resultType="productvo">
+	<select id="getProList" resultType="productvo">
 		SELECT * FROM WHERE id = #{id} order by id desc LIMIT 1
 	
 	</select>
