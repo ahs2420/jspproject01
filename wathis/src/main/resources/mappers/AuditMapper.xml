@@ -38,7 +38,19 @@
 			tb_audit
 		ORDER BY id DESC
 	</select>
-	<select id="getCount" resultType="int">
+	<select id="getAuditAdminCount" resultType="int">
+		SELECT 
+			count(a.id)
+		FROM 
+		tb_audit as a 
+			JOIN tb_maker_info  as m 
+				ON a.id=m.audit_id  
+			JOIN tb_product as p 
+				ON a.id = p.audit_id  
+			JOIN tb_category as c
+				ON p.category_id = c.id
+		<include refid="getInclude"></include>
+		ORDER BY a.id desc
 	
 	</select>
 	<select id="getList" resultType="auditvo">
@@ -60,6 +72,9 @@
 			p.status as pStatus,
 			p.img_upload_dir,
 			p.main_img,
+			p.start_date,
+			p.end_date,
+			a.reg_date,
 			c.title as category_name
 		FROM 
 		tb_audit as a 
@@ -144,11 +159,13 @@
 			required_documents_Name = #{required_documents_Name},
 			required_documents_url = #{required_documents_url},
 			fees_chk = #{fees_chk},
-			policy_agreement = #{policy_agreement},
-			status = #{status}
-			
+			policy_agreement = #{policy_agreement}
 		WHERE id=#{id}
-		
+	</update>
+	<update id="updateAuditStatus">
+		UPDATE tb_audit SET 
+			status = #{status}
+		WHERE id=#{id}
 	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_audit

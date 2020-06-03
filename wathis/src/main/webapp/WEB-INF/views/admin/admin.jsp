@@ -359,6 +359,9 @@
                             <c:if  test="${template eq 'audit' && mypage eq 'list' }">
                             	<%@ include file="/WEB-INF/views/admin/audit/getAuditList.jsp" %>
                             </c:if>
+                            <c:if  test="${template eq 'audit' && mypage eq 'modify' }">
+                            	<%@ include file="/WEB-INF/views/admin/audit/getAuditModify.jsp" %>
+                            </c:if>
                             <!--//if에 따라 바뀌는 부분-->
                         </div>
                     </div>

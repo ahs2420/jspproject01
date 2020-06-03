@@ -28,6 +28,42 @@
 	<select id="getOne" resultType="productoptionvo">
 	
 	</select>
+	<select id="getOptionDetail" resultType="productoptionvo">
+		SELECT 
+			id,            
+			product_id,    
+			title,         
+			description,   
+			market_price,  
+			price,         
+			stock,      
+			delevery_chk,   
+			delevery_price,
+			option_type,   
+			option_kind,   
+			delivery_date, 
+			reg_date
+		FROM tb_product_option
+		WHERE id = #{id}
+	</select>
+	<select id="getOptionProductList" resultType="productoptionvo">
+		SELECT 
+			id,            
+			product_id,    
+			title,         
+			description,   
+			market_price,  
+			price,         
+			stock,      
+			delevery_chk,   
+			delevery_price,
+			option_type,   
+			option_kind,   
+			delivery_date, 
+			reg_date
+		FROM tb_product_option
+		WHERE product_id = #{product_id}
+	</select>
 	<insert id="setProOption">
 		INSERT INTO tb_product_option
 		SET       

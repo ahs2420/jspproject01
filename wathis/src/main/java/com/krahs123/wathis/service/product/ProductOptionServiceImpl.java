@@ -1,5 +1,7 @@
 package com.krahs123.wathis.service.product;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,18 @@ public class ProductOptionServiceImpl implements ProductOptionService{
 	public int setProOption(ProductOptionVO otpvo) {
 		// TODO Auto-generated method stub
 		return productOptionDAO.setProOption(otpvo);
+	}
+
+	@Override
+	public ProductOptionVO getOptionDetail(int id) {
+		// TODO Auto-generated method stub
+		return productOptionDAO.getOptionDetail(id);
+	}
+
+	@Override
+	public List<ProductOptionVO> getOptionProductList(int product_id) {
+		// TODO Auto-generated method stub
+		return productOptionDAO.getOptionProductList(product_id);
 	}
 	
 }

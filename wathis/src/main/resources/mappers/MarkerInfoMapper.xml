@@ -29,6 +29,42 @@
 	<select id="getMakerID" resultType="int">
 		SELECT id FROM tb_maker_info WHERE audit_id=#{audit_id} order by id desc LIMIT 1
 	</select>
+	<select id="getMakerDetailAudit" resultType="markerinfovo">
+		SELECT 
+			id,
+			marker_name,
+			marker_img,
+			marker_email,
+			marker_phone,
+			marker_kakao_id,
+			marker_kakao_url,
+			marker_home_page_url,
+			marker_facebook_url,
+			marker_twiter_url,
+			marker_instagram_url,
+			business_type,
+			bankbook_img
+		FROM tb_maker_info WHERE audit_id=#{audit_id}
+	</select>
+	<select id="getMakerDetail" resultType="markerinfovo">
+		SELECT 
+			id,
+			audit_id,
+			marker_name,
+			marker_img,
+			marker_email,
+			marker_phone,
+			marker_kakao_id,
+			marker_kakao_url,
+			marker_home_page_url,
+			marker_facebook_url,
+			marker_twiter_url,
+			marker_instagram_url,
+			business_type,
+			bankbook_img,
+			reg_date
+		FROM tb_maker_info WHERE id=#{id}
+	</select>
 	<insert id="setMaker">
 	
 		INSERT INTO tb_maker_info SET

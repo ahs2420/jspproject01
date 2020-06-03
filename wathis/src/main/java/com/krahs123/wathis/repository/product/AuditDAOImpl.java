@@ -68,6 +68,24 @@ public class AuditDAOImpl implements AuditDAO{
 		return sql.selectOne(NAMESPACE+".getAuditDetail",id);
 	}
 
+	@Override
+	public int getAuditAdminCount(String searchOpt, String words) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashedMap();
+		map.put("searchOpt", searchOpt);
+		map.put("words", words);
+		return sql.selectOne(NAMESPACE+".getAuditAdminCount",map);
+	}
+
+	@Override
+	public int updateAuditStatus(int id, int status) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashedMap();
+		map.put("id", id);
+		map.put("status", status);
+		return sql.update(NAMESPACE+".updateAuditStatus",map);
+	}
+
 
 
 	

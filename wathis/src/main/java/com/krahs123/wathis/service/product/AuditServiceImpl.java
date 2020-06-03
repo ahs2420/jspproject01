@@ -46,6 +46,30 @@ public class AuditServiceImpl implements AuditService{
 		return auditDao.getAuditMyList(member_id);
 	}
 
+	@Override
+	public List<Map<String, Object>> getAuditAdminList(String searchOpt, String words, int pageStart, int pagePer) {
+		// TODO Auto-generated method stub
+		return auditDao.getAuditAdminList(searchOpt, words, pageStart, pagePer);
+	}
+
+	@Override
+	public AuditVO getAuditDetail(int id) {
+		// TODO Auto-generated method stub
+		return auditDao.getAuditDetail(id);
+	}
+
+	@Override
+	public int getAuditAdminCount(String searchOpt, String words) {
+		// TODO Auto-generated method stub
+		return auditDao.getAuditAdminCount(searchOpt, words);
+	}
+
+	@Override
+	public int updateAuditStatus(int id, int status) {
+		// TODO Auto-generated method stub
+		return auditDao.updateAuditStatus(id, status);
+	}
+
 
 
 }

@@ -34,6 +34,16 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productDAO.updateItem(provo);
 	}
+	@Override
+	public ProductVO getProductDetail(int id) {
+		// TODO Auto-generated method stub
+		return productDAO.getProductDetail(id);
+	}
+	@Override
+	public ProductVO getProductDetailAudit(int audit_id) {
+		// TODO Auto-generated method stub
+		return productDAO.getProductDetailAudit(audit_id);
+	}
 	
 	
 }

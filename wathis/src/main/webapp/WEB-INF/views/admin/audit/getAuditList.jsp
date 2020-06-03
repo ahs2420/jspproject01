@@ -16,16 +16,14 @@
                     검색된 프로젝트은 
                 </c:otherwise>
             </c:choose>
-             <span class="orange">${boardCount }</span> 개 입니다.<br />
+             <span class="orange">${count }</span> 개 입니다.<br />
          </span>
      </div>
      <div class="search-wrap margin-t10">
          <span class="font-16 bold">
-             <button type="button" id="selectDelete-btn" data-target=".checkDel" data-url="/board/deleteSelBoard" data-name="프로젝트를" class="btn-70 bold bo-pink">선택삭제</button>
-             <button type="button" id="" class="btn-80 bold bo-gray" onclick="javascript:location.href='/board/setBoard'">프로젝트 생성</button>
          </span>
          <span class="">
-             <form action="/board" method="GET">
+             <form action="/audit" method="GET">
                 <select name="searchOpt" class="sel-120">
                     <option value="all" <c:if test="${searchOpt eq 'all' }">selected</c:if>>전체</option>
                     <option value="p.title" <c:if test="${searchOpt eq 'p.title' }">selected</c:if>>프로젝트 이름</option>
@@ -33,7 +31,7 @@
                 </select>
                  <input type="text" name="words" id="words" class="input-150" value="${words }" />
                  <button type="submit" id="search-btn" class="btn-50 bold bo-blue">검색</button>
-                 <button type="button" id="" class="btn-80 bold bo-gray" onclick="javascript:location.href='/board'">전체보기</button>
+                 <button type="button" id="" class="btn-80 bold bo-gray" onclick="javascript:location.href='/audit'">전체보기</button>
              </form>
          </span>
      </div>
@@ -42,29 +40,28 @@
              <tr class="tr-50 f6 align bg-color-10">
                  <td class="td-5"><input type="checkbox" class="checkAll" id="checkAll" data-target=".checkDel" /></td>
                  <td class="td-5">NO</td>
+                 <td class="td-10">상태</td>
                  <td class="td-15">프로젝트 이름</td>
                  <td class="td-15">메이커 이름</td>
                  <td class="td-15">펀딩 시작일/마감일</td>
                  <td class="td-15">프로젝트 생성일</td>
-                 <td class="td-10">상태</td>
                  <td class="td-20">비고</td>
              </tr>
-             <c:forEach items="${boardList }" var="bvo">
+             <c:forEach items="${avoList }" var="avo">
 	             <tr class="tr-50 align">
 	                 <td>
-	                     <input type="checkbox" class="checkDel" value="${bvo.boardCode }" />
+	                     <input type="checkbox" class="checkDel" value="${avo.id }" />
 	                 </td>
-	                 <td>${bvo.id }</td>
-	                 <td><a href="/board/getBoard?id=${bvo.id }">${bvo.boardCode }</a></td>
-	                 <td><a href="/article/admin?boardCode=${bvo.boardCode }" target="_blank">${bvo.boardName }</a></td>
+	                 <td>${avo.id }</td>
+	                 <td>${auditStatus[avo.status] }</td>
+	                 <td>${avo.title  }</td>
+	                 <td>${avo.marker_name  }</td>
 	                 <td>
-                        <span class="valign padding-a-10 f6 sel-100" style="background-color: ${bvo.boardColor}">${bvo.boardColor }</span>
+                        ${avo.start_date } / ${avo.end_date }
                     </td>
-	                 <td>${bvo.reg_date }</td>
+	                 <td>${avo.reg_date }</td>
 	                 <td>
-	                     <button type="button" onclick="javascript:location.href='/board/getBoardModify?id=${bvo.id}'"  class="btn-50 bold bo-blue">수정</button>
-	                     <button type="button" onclick="deleteItem(this)" data-url="/board/setBoardDeleteAjax" data-id="${bvo.boardCode }" data-error="프로젝트을"  class="btn-50 bold bo-pink">삭제</button>
-	
+	                     <button type="button" onclick="javascript:location.href='/audit/getAuditModify?id=${avo.id}'"  class="btn-50 bold bo-blue">심사하기</button>
 	                 </td>
 	             </tr>
 	             <tr>
@@ -87,26 +84,26 @@
             <!--시작 페이지가 1보다 클때 생성-->
             <c:if test="${paging.startPage>1 }">
 	            <span class="">
-	                <a href="/board?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=1" class="page-number board-page-number"><<</a>
+	                <a href="/audit?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=1" class="page-number board-page-number"><<</a>
 	            </span>
 	            <span class="">
-	                <a href="/board?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.startPage-1}" 
+	                <a href="/audit?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.startPage-1}" 
 	                class="page-number board-page-number"><</a>
 	            </span>
             </c:if>
             <!--페이지 출력-->
          	<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="pageCnt">
 	             <span class="">
-                     <a href="/board?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${pageCnt}" class="page-number board-page-number <c:if test="${pageCnt==paging.page}">on</c:if> ">${pageCnt}</a>
+                     <a href="/audit?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${pageCnt}" class="page-number board-page-number <c:if test="${pageCnt==paging.page}">on</c:if> ">${pageCnt}</a>
 	             </span>
          	</c:forEach>
              <!--마지막 페이지가 전체 페이지수 보다 작을 때만 출력-->
          	<c:if test="${paging.endPage < paging.pageNum}">
 	             <span class="">
-	                 <a href="/board?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.endPage+1 }" class="page-number board-page-number">></a>
+	                 <a href="/audit?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.endPage+1 }" class="page-number board-page-number">></a>
 	             </span>
 	             <span class="">
-	                 <a href="/board?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.pageNum}" class="page-number board-page-number">>></a>
+	                 <a href="/audit?template=board&mypage=list&searchOpt=${searchOpt }&words=${words }&page=${paging.pageNum}" class="page-number board-page-number">>></a>
 	             </span>
              </c:if>
          </div>

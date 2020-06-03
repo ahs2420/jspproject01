@@ -1,5 +1,8 @@
 package com.krahs123.wathis.service.product;
 
+import java.util.List;
+
+import com.krahs123.wathis.model.ProductOptionVO;
 import com.krahs123.wathis.model.ProductVO;
 
 public interface ProductService {
@@ -16,6 +19,10 @@ public interface ProductService {
 	
 	//업데이트 부분	
 	public int updateItem(ProductVO provo);
+	//상품 상세
+	public ProductVO getProductDetail(int id);
+	//상품 상세- 심사번호로
+	public ProductVO getProductDetailAudit(int audit_id);
 
 	
 }

@@ -13,7 +13,10 @@ public interface MakerInfoService {
 	public int updateMaker(MakerInfoVO mfvo);
 
 	public int getMakerID(int audit_id);
-	
-	
+
+	//메이커 상세 정보
+	public MakerInfoVO getMakerDetail(int id);
+	//메이커 상세 정보- 심사 번호로
+	public MakerInfoVO getMakerDetailAudit(int audit_id);
 
 }

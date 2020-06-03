@@ -15,5 +15,9 @@ public interface ProductDAO {
 	
 	//업데이트 부분	
 	public int updateItem(ProductVO provo);
+	//상품 상세
+	public ProductVO getProductDetail(int id);
+	//상품 상세- 심사번호로
+	public ProductVO getProductDetailAudit(int audit_id);
 	
 }

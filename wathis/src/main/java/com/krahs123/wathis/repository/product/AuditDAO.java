@@ -18,6 +18,10 @@ public interface AuditDAO {
 	public List<Map<String,Object>> getAuditMyList(String member_id);
 	// 관리자 프로젝트 리스트
 	public List<Map<String,Object>> getAuditAdminList(String searchOpt,String words,int pageStart,int pagePer);
-	// 관리자 프로젝트 리스트
+	// 관리자 프로젝트 상세
 	public AuditVO getAuditDetail(int id);
+	//관리자 프로젝스 갯수
+	public int getAuditAdminCount(String searchOpt,String words);
+	//심사 동작
+	public int updateAuditStatus(int id, int status);
 }
