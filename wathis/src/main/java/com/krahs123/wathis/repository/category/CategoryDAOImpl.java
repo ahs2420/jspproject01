@@ -38,4 +38,9 @@ public class CategoryDAOImpl implements CategoryDAO{
 		// TODO Auto-generated method stub
 		return sql.delete(namespace+".deleteCate",id);
 	}
+	@Override
+	public String getCateTitle(int id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(namespace+".getCateTitle",id);
+	}
 }

@@ -1,5 +1,6 @@
 package com.krahs123.wathis.controller.product;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -11,13 +12,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.BoardVO;
 import com.krahs123.wathis.model.CategoryVO;
+import com.krahs123.wathis.model.MakerInfoVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.PopupVO;
+import com.krahs123.wathis.model.ProductCommentVO;
+import com.krahs123.wathis.model.ProductNoticeVO;
+import com.krahs123.wathis.model.ProductVO;
 import com.krahs123.wathis.service.category.CategoryService;
 import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.service.popup.PopupService;
+import com.krahs123.wathis.service.product.AuditService;
+import com.krahs123.wathis.service.product.MakerInfoService;
+import com.krahs123.wathis.service.product.ProductCommentService;
+import com.krahs123.wathis.service.product.ProductNoticeService;
 import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
 
@@ -34,18 +44,52 @@ public class ProductController {
 	CategoryService cateService;
 	@Autowired
 	ProductService proService;
+	@Autowired
+	ProductCommentService proComService;
+	@Autowired
+	ProductNoticeService proNotService;
+	@Autowired
+	AuditService auditService;
+	@Autowired
+	MakerInfoService makerService;
+	
 	final String BASEDIR="/product/";
 	//상품 페이지
 	@RequestMapping("/product")
-	public ModelAndView viewProduct() {
+	public ModelAndView viewProduct(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
 		List<MenuVO> menuList = menuService.getMenuList();
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+
+		int proComCnt = proComService.getProCommentCount(id);
+		int proNotCnt = proNotService.getProNoticeCount(id);
+		
+		ProductVO pvo = proService.getProductDetail(id);
+		AuditVO avo = auditService.getAuditDetail(pvo.getAudit_id());
+		MakerInfoVO mvo = makerService.getMakerDetailAudit(pvo.getAudit_id());
+		String cate = cateService.getCateTitle(pvo.getCategory_id());
+		List<ProductCommentVO> proComList = proComService.getProCommentList(id);
+		List<ProductNoticeVO> proNotList = proNotService.getProNoticeList(id);
+		
+		Date now = new Date();
+		String[] end_day = pvo.getEnd_date().split("-");
+		Date end_date = new Date(Integer.parseInt(end_day[0])-1900,Integer.parseInt(end_day[1])-1,Integer.parseInt(end_day[2]));
+		int dDay = (int)Math.ceil( (end_date.getTime() - now.getTime())/(double)(1000*60*60*24) );
+		
 		mav.setViewName(BASEDIR+"product");
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
+		mav.addObject("pvo", pvo);
+		mav.addObject("avo", avo);
+		mav.addObject("cate", cate);
+		mav.addObject("proComCnt", proComCnt);
+		mav.addObject("proNotCnt", proNotCnt);
+		mav.addObject("proComList", proComList);
+		mav.addObject("proNotList", proNotList);
+		mav.addObject("dDay", dDay);
+		mav.addObject("mvo", mvo);
 		return mav;
 	}
 	//상품 옵션 선택 페이지
@@ -120,6 +164,7 @@ public class ProductController {
 		}else {
 			msg ="검색된 결과가 없습니다.";
 			status =true;
+			map.put("nextPage", page+1);
 			map.put("resultCnt", 0);
 			
 		}

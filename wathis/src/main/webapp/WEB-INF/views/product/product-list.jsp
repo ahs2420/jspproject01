@@ -55,7 +55,7 @@
 		<section class="reward-section">
 			<div class="reward-container">
 				<div class="owl-carousel owl-theme owl-category owl-carousel2">
-					<div class="reward-it">
+					<div class="reward-it <c:if test="${category_id eq '' || category_id == null}">on</c:if>">
 						<a href="/product/product-list">
 							<div class="reward-it-img">
 								<img src="/xkfqkfimages/1.jpg" alt="">
@@ -64,7 +64,7 @@
 						</a>
 					</div>
 					<c:forEach items="${cateList}" var="cate">
-						<div class="reward-it">
+						<div class="reward-it <c:if test="${category_id eq cate.id}">on</c:if>">
 							<a href="/product/product-list?category_id=${cate.id}">
 								<div class="reward-it-img">
 									<img src="${cate.cate_img}" alt="">
@@ -81,7 +81,7 @@
 					<div class="reward-btn">
 						<div class="reward-btn-search">
 							<form action="/product/product-list" method="get" id="searchForm">
-								<input type="hidden" name="category_id" value="" />
+								<input type="hidden" name="category_id" value="${category_id}" />
 								<input type="text"  name="words" value="${words}" class="reward-search <c:if test="${words ne ''&&words != null}">on</c:if>" placeholder="검색">
 								<button type="button" class="reward-search-btn">
 									<i class="fas fa-search"></i>

@@ -16,7 +16,12 @@
 	<select id="getCount" resultType="int">
 	
 	</select>
-	<select id="getList" resultType="categoryvo">
+	<select id="getCateTitle" resultType="string">
+		SELECT 
+			title
+		FROM
+			tb_category
+		Where id=#{id}
 	
 	</select>
 	<select id="getCateChk" resultType="int">

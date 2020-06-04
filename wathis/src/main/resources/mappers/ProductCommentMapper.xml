@@ -15,41 +15,49 @@
 		FROM tb_product_comment
 		ORDER BY id DESC
 	</select>
-	<select id="getCount" resultType="int">
+	<select id="getProCommentCount" resultType="int">
+		SELECT 
+			count(id) 
+		FROM tb_product_comment
+		WHERE product_id=#{product_id}
+		ORDER BY id DESC
 	
 	</select>
-	<select id="getList" resultType="productcommentvo">
-	
+	<select id="getProCommentList" resultType="productcommentvo">
+		SELECT 
+			id,           
+			member_id,    
+			product_id,   
+			parent_id,    
+			member_imgae, 
+			member_status,
+			member_userid,
+			comment,      
+			reg_date 
+		FROM tb_product_comment
+		WHERE product_id=#{product_id}
+		ORDER BY id DESC
 	</select>
 	<select id="getOne" resultType="productcommentvo">
 	
 	</select>
-	<insert id="setItem">
+	<insert id="setProComment">
 		INSERT INTO tb_product_comment
-			SET
-				id=#{id},          
+			SET    
 				member_id=#{member_id}, 
 				product_id=#{product_id}, 
 				parent_id=#{parent_id},   
 				member_imgae=#{member_imgae},
 				member_status=#{member_status},
 				member_userid=#{member_userid},
-				comment=#{comment},    
-				reg_date=#{reg_date}
+				comment=#{comment}
 	</insert>
-	<update id="updateItem">
+	<update id="updateProComment">
 		UPDATE tb_product_comment SET
-			member_id=#{member_id},   
-			product_id=#{product_id},  
-			parent_id=#{parent_id},  
-			member_imgae=#{member_imgae},
-			member_status=#{member_status},
-			member_userid=#{member_userid},
-			comment=#{comment},     
-			reg_date=#{reg_date}
+			comment=#{comment}
 		WHERE id=#{id}
 	</update>
-	<delete id="deleteItem">
+	<delete id="deleteProComment">
 		DELETE FROM tb_product_comment
 		WHERE id=#{id}
 	</delete>

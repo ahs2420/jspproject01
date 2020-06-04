@@ -119,11 +119,15 @@
     position: relative;
     top: -7px;
 }
+.product-reward-info-table tr td:nth-child(2),
+.product-reward-info-table tr th:nth-child(2){
+    display: none;
+}
 .product-reward-info-table td,.product-reward-info-table th{
-    padding: 10px 0;
+    padding: 10px 5px;
 }
 .product-reward-info-table th{
-    width: 300px;
+    min-width: 200px;
     text-align: left;
 }
 .product-reward-info-table tr{
@@ -212,6 +216,19 @@
 .product-add-img.owl-theme .owl-nav [class*='owl-']:hover{
     background-color: transparent;
     transition: .3s;
+}
+.pro_img_box{
+    padding-top: 60%;
+    position: relative;
+}
+.pro_img_box img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: cover;
 }
 @media (max-width:1400px){
     

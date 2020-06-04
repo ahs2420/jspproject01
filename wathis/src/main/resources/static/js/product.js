@@ -52,3 +52,88 @@ $(function(){
         }
     });
 });
+
+$(function(){
+    $(document).on("click",".btn-comment-add",function(){
+        var $form = $($(this).data("target"));
+        var data = $form.serialize();
+        var option={
+            "url":$(this).data("url"),
+            "data": data
+        };
+        var ajaxResult = ajaxStan(option);
+        if(ajaxResult.status){
+            alert(ajaxResult.data.msg);
+            ajaxCommentList();
+            $form.find("[name=comment]").val("");
+        }else{
+            alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
+
+        }
+    });
+    $(document).on("click",".btn-comment-delete",function(){
+       if(confirm("댓글을 삭제하시겠습니까?")){
+            var data = {"id":$(this).data("id")};
+            var option={
+                "url":"/proComment/deleteComment",
+                "data": data
+            };
+            var ajaxResult = ajaxStan(option);
+            if(ajaxResult.status){
+                alert(ajaxResult.data.msg);
+                ajaxCommentList();
+            }else{
+                alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
+
+            }
+       }
+    });
+    
+    ajaxCommentList();
+});
+
+function ajaxCommentList(){
+    var id = $("main").data("id");
+    var member_id = $("main").data("member_id");
+    var $target = $(".comment-item-wrap");
+    var data = {
+        "product_id":id
+    };
+    var option={
+        "url":"/proComment/getComment",
+        "data": data
+    };
+    var ajaxResult = ajaxStan(option);
+    var html ="";
+    if(ajaxResult.status){
+        $("#proComBtn").attr("data-items",ajaxResult.data.count);
+        if(ajaxResult.data.count>0){
+            for(var pvo of ajaxResult.data.pvoList){
+                pvo.member_imgae = (pvo.member_imgae !=null&&pvo.member_imgae !="")?pvo.member_imgae:"/images/icon/file-upload-icon.png";
+                var deleteBtn = (member_id==pvo.member_id)?'<div class="flex-box flex-j-end mt10 btn-comment-delete" data-id="'+pvo.id+'"><button>삭제</button></div>':'';
+                html+='\
+                <div class="comment-item gray-round-box pt20 pb20 pl5p pr5p mb5">\
+                    <div class="comment-profile flex-box flex-a-center mb10">\
+                        <div class="img-box"> \
+                            <!--{작성자 프로필 아이콘}-->\
+                            <img class="icon-50 icon-round" src="'+pvo.member_imgae+'">\
+                        </div>\
+                        <div class="comment-profile-txt ml20">\
+                            <!--{작성자}-->\
+                            <p class="bold">'+pvo.member_userid +'</p>\
+                            <!--{작성자}|{작성일}-->\
+                            <p class="tiny-content"><span class="main-color">'+pvo.member_status  +'</span><span class="gray"> | '+pvo.reg_date   +'</span></p>\
+                        </div>\
+                    </div>\
+                    <div class="comment-content">\
+                        <!--댓글 내용-->\
+                        <p>'+pvo.comment    +'</p>\
+                    </div>\
+                    '+deleteBtn+'\
+                </div>\
+                ';
+            }
+        }
+        $target.html(html);
+    }
+}

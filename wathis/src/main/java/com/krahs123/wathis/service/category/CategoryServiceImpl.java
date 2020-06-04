@@ -42,4 +42,10 @@ public class CategoryServiceImpl implements CategoryService{
 		// TODO Auto-generated method stub
 		return categorydao.deleteCate(id);
 	}
+
+	@Override
+	public String getCateTitle(int id) {
+		// TODO Auto-generated method stub
+		return categorydao.getCateTitle(id);
+	}
 }

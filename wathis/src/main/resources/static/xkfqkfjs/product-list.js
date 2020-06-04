@@ -156,7 +156,7 @@ function ajaxPage(opt){
 						</div>\
 						<div class="reward-text-box">\
 							<h3 class="reward-box-title text-max-line line2 line-fix">'+pvo.title+'</h3>\
-							<p class="reward-sub-title">'+pvo.cate+' | '+pvo.marker_name+'</p>\
+							<p class="reward-sub-title text-max-line line1">'+pvo.cate+' | '+pvo.marker_name+'</p>\
 							<div class="progress-bar mb10">\
 								<!--상품 펀딩 진척도(최대100%)-->\
 								<span class="percent" style="width: 50%;"></span>\
@@ -180,6 +180,7 @@ function ajaxPage(opt){
 			}
 		}else{
 			pushItem=ajaxReturn.data.msg;
+			$(opt).hide();
 		}
 	}else{
 		alert("시스템 오류 입니다.")

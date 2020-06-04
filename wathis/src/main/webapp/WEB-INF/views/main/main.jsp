@@ -77,7 +77,7 @@
                                         <h3 class="title text-max-line line2 line-fix mb20">${pvo.title}
                                         </h3>
                                         <!--상품분류 | 메이커이름-->
-                                        <p class="catogory mb20 gray">${pvo.cate} | ${pvo.marker_name}</p>
+                                        <p class="catogory mb20 gray text-max-line line1">${pvo.cate} | ${pvo.marker_name}</p>
                                         <div class="progress-bar mb10">
                                             <!--상품 펀딩 진척도(최대100%)-->
                                             <span class="percent" style="width: 50%;"></span>
