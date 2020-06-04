@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 추가 css,js -->
     <link rel="stylesheet" href="/css/product.css">
     <script src="/js/product.js"></script>
@@ -15,12 +17,12 @@
                 <div class="item">
                     <div class="bg-hero-cover">
                         <!--{상품이미지}-->
-                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
+                        <div class="bg-img bg-main" style="background-image: url(${pvo.img_upload_dir}${pvo.main_img});"></div>
                         <div class="container bg-txt">
                             <!--{상품분류}-->
-                            <div class="small-title">홈리빙</div>
+                            <div class="small-title">${cate}</div>
                             <!--{상품제목}-->
-                            <h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
+                            <h1 class="title mb20">${pvo.title}</h1>
                             <!--{상품소제목}-->
                             <div class="sub-title"></div>
                         </div>
@@ -37,14 +39,14 @@
             <ul class="product-menu flex-box flex-j-center">
                 <li class="bold on"><a class="product-view-btn" href="#product-main" data-target=".product-items">스토리</a></li>
                 <li class="bold"><a class="product-view-btn" href="#product-info" data-target=".product-items">펀딩 안내</a></li>
-                <li class="bold"><a class="product-view-btn" href="#product-news" data-items="3" data-target=".product-items">새소식</a></li>
-                <li class="bold"><a class="product-view-btn" href="#product-community" data-items="3" data-target=".product-items">커뮤니티</a></li>
+                <li class="bold"><a class="product-view-btn" href="#product-news" data-items="${proNotCnt}" data-target=".product-items">새소식</a></li>
+                <li class="bold"><a class="product-view-btn" id="proComBtn" href="#product-community" data-items="${proComCnt}" data-target=".product-items">커뮤니티</a></li>
                 <!-- <li><a href="#">서포터</a></li> -->
             </ul>
         </div>
 </header>
 <!-- main내용삽입 -->
-<main>
+<main data-id="${pvo.id}" data-member_id=${sessionScope.id}>
         <section>
             <div class="container max1000 flex-box flex-j-space flex-wrap">
                 <!--스토리-->
@@ -52,22 +54,35 @@
                     <!--slide이미지-->
                     <div class="owl-carousel owl-theme product-add-img mb20">
                         <!--{상품 추가이미지}-->
-                        <c:forEach begin="1" end="3">
-                            <div class="item">
-                                <img src="/images/product/item_1.jpg">
-                            </div>
-                        </c:forEach>
+                        <c:choose>
+                            <c:when test="${pvo.video_chk eq '1'}">
+                                <div class="item">
+                                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/bft279tSEjw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forTokens items="${pvo.img}" delims="|" var="item">
+                                    <c:if test="${item ne ''}">
+                                        <div class="item pro_img_box">
+                                            <img src="${pvo.img_upload_dir}${item}">
+                                        </div>
+                                    </c:if>
+                                </c:forTokens>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                     <!--slide 끝-->
                     <!--sub title-->
                     <div class="small-title bold mb20">
                         <!--{상품 설명}-->
-                        누적 9.5억 펀딩 "진짜 로봇" 물걸레 로봇청소기, 스페셜 블랙 에디션으로 돌아왔습니다! 청소할 시간이 그렇게 많으면, 넌 놀기나 해! 똑똑한 진짜 로봇청소기 지금 시작합니다!
+                        ${pvo.sub_title}
                     </div>
                     <!--sub title끝-->
                     <div class="product-green-box mb20">
                         <div class="main-color mb20">
-                            <span class="bold">목표금액</span> 10,000,000원&nbsp;&nbsp;<span class="bold">펀딩기간</span> 2020.03.26~2020.04.20
+                            <span class="bold">목표금액</span> <fmt:formatNumber value="${pvo.price}" pattern="#,##0"></fmt:formatNumber>원&nbsp;&nbsp;
+                            <span class="bold">펀딩기간</span> ${pvo.start_date} ~ ${pvo.end_date}
                             <!-- <span class="bold">목표금액</span> {금액}원&nbsp;&nbsp;<span class="bold">펀딩기간</span> {시작일}~{마감일} -->
                         </div>
                         <p>100% 이상 모이면 펀딩이 성공되는 프로젝트</p>
@@ -78,7 +93,7 @@
                     </div>
                     <div class="product-story">
                         <!--{상품 상세설명(스토리)}-->
-                        <img src="/images/product/product-1.jpg" />
+                        ${pvo.content}
                     </div>
                 </article>
                 <!--스토리끝-->
@@ -97,56 +112,18 @@
                             <!-- 마감일 이후에는 펀딩에 대한 리워드 제작 및 배송이 시작되어, 취소와 더불어 배송지 및 리워드 옵션 변경은 {마감일}-1 이후로는 불가합니다.  -->
                         </p>
                     </div>
-                    <div class="border-bottom pb20 mb20">
+                    <div class="border-bottom pb50 mb50">
                         <p class="small-content bold mb10">리워드 정보 제공 고시</p>
                         <div>
                             <!--{상품 정보 제공고시}-->
                             <div class="mb10">
                                 <span class="tiny-title bold mr10">리워드 상세정보</span>
-                                <span class="tiny-title">소형전자(MP3,전자사전 등)</span>
+                                <span class="tiny-title">${avo.reword_type}소형전자(MP3,전자사전 등)</span>
                             </div>
-                            <table class="mobile-div tiny-content product-reward-info-table">
-                                <tr>
-                                    <th>품명 및 모델명</td>
-                                    <td>파워로버 모바일 점프스타터 PR-20NOVA</td>
-                                </tr>
-                                <tr>
-                                    <th>KC인증 필 유무</td>
-                                    <td>KC인증 필 (인증번호: XU102114-20001A)</td>
-                                </tr>
-                                <tr>
-                                    <th>정격전압, 소비전력</td>
-                                    <td>12V / 37.8Wh</td>
-                                </tr>
-                                <tr>
-                                    <th>동일모델의 출시년월</td>
-                                    <td>2020년 2월</td>
-                                </tr>
-                                <tr>
-                                    <th>제조자(수입자)</td>
-                                    <td>루나커머스</td>
-                                </tr>
-                                <tr>
-                                    <th>제조국</td>
-                                    <td>중국</td>
-                                </tr>
-                                <tr>
-                                    <th>크기,무게</td>
-                                    <td>140mm(L) X 75mm(W) X 20mm(H)</td>
-                                </tr>
-                                <tr>
-                                    <th>주요 사양</td>
-                                    <td>Li-Po 9000mAh / 37.8Wh</td>
-                                </tr>
-                                <tr>
-                                    <th>품질보증기준</td>
-                                    <td>관련법 및 소비자분쟁해결 기준에 따름</td>
-                                </tr>
-                                <tr>
-                                    <th>A/S 책임자와 전화번호</td>
-                                    <td>루나커머스 고객지원센터 (0507-1324-3166)</td>
-                                </tr>
-                            </table>
+                            <div class="mobile-div tiny-content product-reward-info-table">
+                                ${avo.reword_info}
+
+                            </div>
                         </div>
                     </div>
                     <div class="border-bottom pb20 mb20">
@@ -199,34 +176,34 @@
                 <article class="product-items product-news" id="product-news">
                     <div class="product-news">
                         <div class="product-news-items">
-                            <!--새소식 아이템-->
-                            <c:forEach begin="1" end="5" var="i">
+                            <c:forEach items="${proNotList}" var="proNot" varStatus="vs">
                                 <div class="product-news-item border-bottom">
-                                    <button class="w-100p" data-target=".product-news-content${i}" onclick="slideToggle(this)">
+                                    <button class="w-100p" data-target=".product-news-content${vs.index}" onclick="slideToggle(this)">
                                         <div class="flex-box flex-a-flexend flex-j-space pb20 pt20">
                                             <div>
                                                 <p class="mb10">
-                                                    <span class="main-color small-content v-align-middle">#${i}</span>
+                                                    <span class="main-color small-content v-align-middle">#${proNotCnt - vs.index}</span>
                                                     <!--{순서}-->
-                                                    <span class="label-main-color tiny-content v-align-middle">이벤트</span>
+                                                    <!-- <span class="label-main-color tiny-content v-align-middle">이벤트</span> -->
                                                     <!--{카테고리}-->
                                                 </p>
                                                 <p class="gray-dark">
-                                                    <span class="small-content">[이벤트] eufy 핸디형청소기 + 로봇청소기 동시 랭킹</span> 
+                                                    <span class="small-content">${proNot.title}</span> 
                                                     <!--{제목}-->
-                                                    <span class="tiny-content">| 2020.03.27</span>
+                                                    <span class="tiny-content">| ${proNot.reg_date}</span>
                                                     <!--{작성일}-->
                                                 </p>
                                             </div>
                                             <i class="large-content fas fa-chevron-down transition" aria-hidden="true"></i>
                                         </div>
                                     </button>
-                                    <div class="dis-none pt20 product-news-content${i} pb20 pt20 pl3p pr3p">
+                                    <div class="dis-none pt20 product-news-content${vs.index} pb20 pt20 pl3p pr3p bg-gray">
                                         <!--새소식 내용-->
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ipsum voluptates et, libero animi officia dolores, temporibus quod molestias repudiandae odio assumenda magni a quaerat optio laudantium iste quo itaque impedit quidem modi alias. Eligendi sunt obcaecati voluptatibus, hic voluptas quia ab architecto sed perferendis ullam nemo molestiae labore est doloremque. Nihil, ipsam recusandae, cupiditate quod accusamus labore itaque natus reiciendis consequatur aperiam eum eligendi iste expedita obcaecati? Reprehenderit consequatur ab iusto maxime sed quia quam animi fugiat in, aut veritatis ratione. Vero deserunt laborum velit veniam sed ab, unde accusantium totam et quos aut suscipit tempore autem pariatur voluptas.
+                                        ${proNot.content}
                                     </div>
                                 </div>
-                            </c:forEach> 
+                            </c:forEach>
+                            <!--새소식 아이템-->
                         </div>
                     </div>
                 </article>
@@ -237,7 +214,7 @@
                         <p class="title bold mb10 main-color">서포터님!</p>
                         <p>처음 <span class="bold">메이커의 열정과 가치에 공감</span>해주셨듯, 마지막까지 <span class="bold">메이커를 응원</span>해주세요.</p>
                     </div>
-                    <p class="mb5 tiny-content">와디즈에서 펀딩하는 방법이 궁금하다면?</p>
+                    <!-- <p class="mb5 tiny-content">와디즈에서 펀딩하는 방법이 궁금하다면?</p> -->
                     <p class="large-title bold">FAQ</p>
                     <div class="product-faq-items">
                         <div class="product-faq-item pt20 border-bottom">
@@ -323,21 +300,34 @@
                                 <p>부분 취소는 여러 개의 리워드를 결제 예약한 경우 불가능합니다. 전체 취소 후 재펀딩해주세요.</p>
                             </div>
                         </div>
-                        <div class="product-faq-item pt20 border-bottom">
+                        <div class="product-faq-item mt50 border-bottom">
                             <div class="mb20">
                                 <p class="sub-title bold">여러분의 한마디가 진행자에게 큰 힘이 됩니다</p>
                                 <p class="large-title bold main-color">댓글 작성시 유의사항</p>
                                 <p class="bar-indent tiny-content">프로젝트와 관계없는 글, 광고성, 욕설, 비방, 도배 등의 글은 내부 검토 후 삭제됩니다.</p>
                                 <p class="bar-indent tiny-content">리워드 관련 문의 및 배송문의는 프로젝트 진행자에게 문의하시면 정확한 답변을 받을 수 있습니다.</p>
                             </div>
-                            <form class="comment-form" name="comment" action="" method="POST" onsubmit="return false;">
-                                <textarea class="mb5"></textarea>
-                                <div class="btn-wrap mb20">
-                                    <button class="btn-stan btn-main" type="submit">
-                                        댓글달기
-                                    </button>
-                                </div>
-                            </form>
+                            <c:choose>
+                                <c:when test="${pvo.member_id == sessionScope.id}">
+                                    <c:set var="comStatus" value="진행자" />
+                                </c:when>
+                                <c:otherwise>
+                                    <c:set var="comStatus" value="서포터" />
+                                </c:otherwise>
+                            </c:choose>
+                            <c:if test="${sessionScope.id ne '' && sessionScope.id != null }">
+                                <form class="comment-form" name="commentFrom" id="commentFrom" action="" method="POST" onsubmit="return false;">
+                                    <input type="hidden" name="product_id" value="${pvo.id}" />
+                                    <input type="hidden" name="member_status" value="${comStatus}" />
+                                    <input type="hidden" name="member_id" value="${sessionScope.id}" />
+                                    <textarea name="comment" class="mb5 p10"></textarea>
+                                    <div class="btn-wrap mb20">
+                                        <button class="btn-stan btn-main btn-comment-add" data-target="#commentFrom" type="button" data-url="/proComment/setComment">
+                                            댓글달기
+                                        </button>
+                                    </div>
+                                </form>
+                            </c:if>
                         </div>
                         <div class="product-faq-item pt20 border-bottom">
                             <div class="comment-wrap">
@@ -368,10 +358,13 @@
                                                 <button data-target="#comment-100" class="comment-btn main-color toggle-target" >답글달기</button>
                                             </div>
                                             <form class="comment-form dis-none mt10" id="comment-100" name="comment" action="" method="POST" onsubmit="return false;">
-                                                <textarea class="mb5"></textarea>
+                                                <input type="hidden" name="product_id" value="${pvo.id}" />
+                                                <input type="hidden" name="member_status" value="${comStatus}" />
+                                                <input type="hidden" name="member_id" value="${sessionScope.id}" />
+                                                <textarea name="comment" class="mb5"></textarea>
                                                 <div class="btn-wrap mb20">
-                                                    <button class="btn-stan btn-main" type="submit">
-                                                        답글달기
+                                                    <button class="btn-stan btn-main btn-comment-add" data-target="#commentFrom" type="button" data-url="/proComment/setComment">
+                                                        댓글달기
                                                     </button>
                                                 </div>
                                             </form>
@@ -437,7 +430,7 @@
                             </button>
                         </div>
                         <div class="product-status-txt-container">
-                            <div class="title mb20">25일 남음</div>
+                            <div class="title mb20">${dDay}일 남음</div>
                             <div class="progress-bar mb20">
                                 <span class="percent" style="width: 50%;"></span>
                             </div>
@@ -468,22 +461,31 @@
                             <div class="product-maker-info">
                                 <div class="flex-box flex-j-space pt20 pb20 pr5p pl5p">
                                     <div class="round-img-box product-maker-img">
-                                        <img src="/images/product/maker-img.jpg" alt="메이커로고" />
+                                        <img src="${mvo.marker_img}" alt="메이커로고" />
                                     </div>
                                     <div class="product-maker-link">
-                                        <div class="small-content bold mb5">앤커코리아</div>
+                                        <div class="small-content bold mb5">${mvo.marker_name}</div>
                                         <div class="mb5 tiny-content">
-                                            <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
-                                            <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
+                                            <c:forTokens items="${mvo.marker_home_page_url}" delims="|" var="homeUrl">
+                                                <c:if test="${homeUrl ne '' && homeUrl != null}">
+                                                    <p><a href="${homeUrl}" targer="_blank">${homeUrl}</a></p>
+                                                </c:if>
+                                            </c:forTokens>
                                         </div>
                                         <div class="maker-sns-container flex-box">
-                                            <a href="#" class="bg-sns bg-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#" class="bg-sns bg-instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                                            <a href="#" class="bg-sns bg-twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-                                            <a href="#" class="bg-sns bg-blog" target="_blank">
+                                            <c:if test="${mvo.marker_facebook_url ne ''}">
+                                                <a href="${mvo.marker_facebook_url}" class="bg-sns bg-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                            </c:if>
+                                            <c:if test="${mvo.marker_instagram_url ne ''}">
+                                                <a href="${mvo.marker_instagram_url}" class="bg-sns bg-instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            </c:if>
+                                            <c:if test="${mvo.marker_twiter_url ne ''}">
+                                                <a href="${mvo.marker_twiter_url}" class="bg-sns bg-twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                                            </c:if>
+                                            <!-- <a href="#" class="bg-sns bg-blog" target="_blank">
                                                 <div class="bg-img"></div>
                                             </a>
-                                            <a href="#" class="bg-sns bg-external" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                            <a href="#" class="bg-sns bg-external" target="_blank"><i class="fas fa-external-link-alt"></i></a> -->
                                         </div>
                                     </div>
                                 </div>
