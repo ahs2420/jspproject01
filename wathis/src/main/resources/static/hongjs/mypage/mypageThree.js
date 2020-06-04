@@ -46,3 +46,4 @@ function imgPreview(opt) {
         reader.readAsDataURL(opt.files[0]);
      }
 }
+
