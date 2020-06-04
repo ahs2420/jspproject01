@@ -28,7 +28,13 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public int getProductId(int audit_id) {
 		// TODO Auto-generated method stub
-		return sql.selectOne(namespace+".getProductId",audit_id);
+		int result = -1;
+		try {
+			result = sql.selectOne(namespace+".getProductId",audit_id);
+		} catch (Exception e) {
+			result = -1;
+		}
+		return result;
 	}
 	//수정 부분
 	@Override

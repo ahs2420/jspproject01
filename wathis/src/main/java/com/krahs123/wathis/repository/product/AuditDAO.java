@@ -24,4 +24,6 @@ public interface AuditDAO {
 	public int getAuditAdminCount(String searchOpt,String words);
 	//심사 동작
 	public int updateAuditStatus(int id, int status);
+	//심사 제출
+	public int updateAuditSubmit(int id);
 }

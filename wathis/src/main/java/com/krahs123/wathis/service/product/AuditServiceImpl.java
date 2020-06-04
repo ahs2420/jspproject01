@@ -70,6 +70,13 @@ public class AuditServiceImpl implements AuditService{
 		return auditDao.updateAuditStatus(id, status);
 	}
 
+	@Override
+	public int updateAuditSubmit(int id) {
+		// TODO Auto-generated method stub
+		return auditDao.updateAuditSubmit(id);
+	}
+
+	
 
 
 }

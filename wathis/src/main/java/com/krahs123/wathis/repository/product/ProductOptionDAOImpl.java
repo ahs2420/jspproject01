@@ -28,6 +28,23 @@ public class ProductOptionDAOImpl implements ProductOptionDAO{
 		// TODO Auto-generated method stub
 		return sql.selectList(namespace+".getOptionProductList", product_id);
 	}
+	@Override
+	public int getProIdCount(int product_id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(namespace+".getProIdCount",product_id);
+	}
+	@Override
+	public int updateProOption(ProductOptionVO pvo) {
+		// TODO Auto-generated method stub
+		return sql.update(namespace+".updateProOption",pvo);
+	}
+	@Override
+	public int deleteProOption(int id) {
+		// TODO Auto-generated method stub
+		return sql.delete(namespace+".deleteProOption",id);
+	}
 
+	
+	
 	
 }

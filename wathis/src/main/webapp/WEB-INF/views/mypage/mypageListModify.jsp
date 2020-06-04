@@ -19,7 +19,7 @@
 
                     </div>
                     <div class="ready-pro-text">
-                        <span>펀딩 준비 작성 중</span>
+                        <span class="status-${audiVo.status}">${auditStatus[audiVo.status]}</span>
                         <div class="fun-text">
                             <p>필수 항목을 모두 작성 후 저장하기 버튼을 클릭해주세요. 작성중 > 작성 완료 상태로 변경되어야 최종 제출이 가능합니다.</p>
                         </div>
@@ -28,7 +28,7 @@
                 <!-- 지금 단계 부분 -->
                 <!--작성 부분 -->
                 <div class="flex-box1 flex-box-ba5 text-padding12 mar-bo7">
-                    <div class="readybox-basic">
+                    <div class="readybox-basic main-color-dark">
                         <div class="icon text-ali1 fon-siz14 ">
                             <i class="fal fa-users"></i>
                         </div>
@@ -37,7 +37,7 @@
                             <!-- <p>펀딩 진행을 위해 프로젝트 내용을 작성하는 펀딩 준비 작성 단계 입니다.</p> -->
                         </div>
                     </div>
-                    <div class="readybox-basic">
+                    <div class="readybox-basic <c:if test="${maker_id > 0}">main-color-dark</c:if>">
                         <div class="icon text-ali1 fon-siz14 ">
                             <i class="far fa-file-alt"></i>
                         </div>
@@ -47,7 +47,7 @@
                             <!-- <p>펀딩 진행을 위한 기본 요건을 충족하는지, 누락된 사항은 없는 지 등을 확인 하는 단계입니다.</p> -->
                         </div>
                     </div>
-                    <div class="readybox-basic">
+                    <div class="readybox-basic <c:if test="${product_id > 0}">main-color-dark</c:if>">
                         <div class="icon text-ali1 fon-siz14 ">
                             <i class="fal fa-comments-alt"></i>
                         </div>
@@ -57,7 +57,7 @@
                             <!-- <p>펀딩 컨텐츠에 대한 검토 및 약점을 체결하는 단계입니다.</p> -->
                         </div>
                     </div>
-                    <div class="readybox-basic">
+                    <div class="readybox-basic <c:if test="${optCount > 0}">main-color-dark</c:if>">
                         <div class="icon text-ali1 fon-siz14 ">
                             <i class="fal fa-badge-check"></i>
                         </div>
@@ -144,7 +144,7 @@
                         <h2>리워드 설계</h2>
                         <span>
                         <c:choose>
-	                    		<c:when test="${maker_id > 0}">
+	                    		<c:when test="${optCount > 0}">
 				                    	작성 완료
 	                    		</c:when>
 	                    		<c:otherwise>
@@ -154,13 +154,18 @@
                         </span>
                     </div>
                 		  <c:choose>
-                    		<c:when test="${maker_id > 0}">
-			                    <a href="/page/mypageFourView?id=${maker_id}">
+                    		<c:when test="${optCount > 0}">
+			                    <a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">
 			                    	<button class="ready-btn">수정하기</button>
 			                    </a>
                     		</c:when>
+                    		<c:when test="${product_id > 0}">
+			                    <a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">
+			                    	<button class="ready-btn">작성하기</button>
+			                    </a>
+                    		</c:when>
                     		<c:otherwise>
-			                    <a href="/page/mypage-four?audit_id=${id}">
+			                    <a href="#" onclick="alert('스토리를 먼저 작성해 주세요');">
 			                    	<button class="ready-btn">작성하기</button>
 			                    </a>
                     		</c:otherwise>
@@ -170,7 +175,27 @@
 
 
                 <div class="readybox-basic-end">
-                    <button class="ready-btn">제출하기</button>
+	                <c:choose>
+	                    <c:when test="${optCount > 0 && product_id > 0 && maker_id > 0}">
+	                    	<form method="post" action="/page/submitAudit" >
+	                    		<input type="hidden" name="id" value="${id}" />
+	                    		<button type="submit" class="ready-btn">제출하기</button>
+	                    	</form>
+	                    	
+	                    </c:when>
+                    	<c:otherwise>
+                    		<c:if test="${optCount<1}">
+                    			<c:set var="msg" value="리워드설계를 작성해 주세요"></c:set>
+                    		</c:if>
+                    		<c:if test="${product_id<1}">
+                    			<c:set var="msg" value="스토리를 작성해 주세요"></c:set>
+                    		</c:if>
+                    		<c:if test="${maker_id<1}">
+                    			<c:set var="msg" value="메이커 정보를 작성해 주세요"></c:set>
+                    		</c:if>
+	                    	<button type="button" onclick="alert('${msg}')" class="ready-btn">제출하기</button>
+                    	</c:otherwise>
+                    </c:choose>
                 </div>
 
                 <!-- <div class="fun-ready-bu">제출하기 버튼</div> -->

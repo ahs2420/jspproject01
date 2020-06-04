@@ -385,7 +385,6 @@ color: #60656a;
     
 }
 
-
 .ready-pro-text span::before {
     content: "";
     width: 9px;
@@ -393,8 +392,19 @@ color: #60656a;
     line-height:9px;
     display: inline-block;
     border-radius: 50px;
-    background-color: #f00;
     margin-right: 8px;
+}
+.ready-pro-text span.status-0::before {
+    background-color: #d63447;
+}
+.ready-pro-text span.status-1::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.ready-pro-text span.status-2::before {
+    background-color: #ffd31d;
+}
+.ready-pro-text span.status-3::before {
+    background-color: #1eb2a6;
 }
 
 

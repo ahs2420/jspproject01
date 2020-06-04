@@ -11,5 +11,11 @@ public interface ProductOptionService {
 	public ProductOptionVO getOptionDetail(int id);
 	//상품 옵션 리스트- 상품 아이디로 검색
 	public List<ProductOptionVO> getOptionProductList(int product_id);
+	//상품 옵션 갯수 - 상품 아이디로 검색
+	public int getProIdCount(int product_id);
+	//상품 수정
+	public int updateProOption(ProductOptionVO pvo);
+	//상품 옵션 삭제
+	public int deleteProOption(int id);
 
 }

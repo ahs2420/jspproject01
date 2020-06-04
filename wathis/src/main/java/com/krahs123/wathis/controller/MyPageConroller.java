@@ -35,6 +35,7 @@ import com.krahs123.wathis.service.category.CategoryService;
 
 import com.krahs123.wathis.service.product.AuditService;
 import com.krahs123.wathis.service.product.MakerInfoService;
+import com.krahs123.wathis.service.product.ProductOptionService;
 import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.util.FileControl;
 
@@ -49,8 +50,10 @@ public class MyPageConroller {
 	@Autowired MakerInfoService makerSer;
 	
 	@Autowired CategoryService cateSer;
-	
+
 	@Autowired ProductService proSer;
+	
+	@Autowired ProductOptionService proOptSer;
 	
 	final String DIR ="/mypage/";
 	
@@ -74,14 +77,18 @@ public class MyPageConroller {
 	@RequestMapping("/mypageListModify")
 	public ModelAndView getListModify(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
+		AuditVO audiVo = auditService.getAuditDetail(id);
 		int maker_id = makerSer.getMakerID(id);
 		int product_id = proSer.getProductId(id);
+		int optCount = proOptSer.getProIdCount(product_id);
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
 		mav.addObject("id", id);
 		mav.addObject("maker_id", maker_id);
 		mav.addObject("product_id", product_id);
-		
+		mav.addObject("optCount", optCount);
+		mav.addObject("audiVo", audiVo);
+		mav.addObject("auditStatus", DbStatus.auditStatus);
 		mav.setViewName(DIR+"mypage");
 		return mav;
 	}
@@ -484,13 +491,13 @@ public class MyPageConroller {
 	
 	
 	@RequestMapping("/mypage-four")
-		public ModelAndView viewMypageFour(@RequestParam int audit_id){
-			int product_id = proSer.getProductId(audit_id);
+		public ModelAndView viewMypageFour(@RequestParam int audit_id,@RequestParam int product_id){
 			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "design");
 			mav.addObject("product_id", product_id);
+			mav.addObject("audit_id", audit_id);
 			mav.addObject("optionType", DbStatus.optionType);
 			
 			mav.setViewName(DIR+"mypage");
@@ -510,7 +517,18 @@ public class MyPageConroller {
 		return mav;
 		
 	}
-	
+	@RequestMapping("/submitAudit")
+	public ModelAndView submitAudit(@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
+		auditService.updateAuditSubmit(id);
+		mav.addObject("template", "Reward");
+		mav.addObject("mypage", "information");
+		mav.addObject("id", id);
+		
+		mav.setViewName("redirect:/page/mypageListModify");
+		
+		return mav;
+	}
 	
 	//회원 마이페이지
 	@RequestMapping("/userMypage")

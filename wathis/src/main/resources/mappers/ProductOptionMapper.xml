@@ -28,6 +28,13 @@
 	<select id="getOne" resultType="productoptionvo">
 	
 	</select>
+	<select id="getProIdCount" resultType="int">
+		SELECT 
+			count(id)
+		FROM tb_product_option
+		WHERE product_id = #{product_id}
+	
+	</select>
 	<select id="getOptionDetail" resultType="productoptionvo">
 		SELECT 
 			id,            
@@ -79,9 +86,8 @@
 			option_kind  = #{option_kind},  
 			delivery_date = #{delivery_date}
 	</insert>
-	<update id="updateItem">
-		UPDATE tb_product_option SET   
-			product_id = #{product_id},    
+	<update id="updateProOption">
+		UPDATE tb_product_option SET       
 			title = #{title},         
 			description = #{description},   
 			market_price = #{market_price},  
@@ -94,7 +100,7 @@
 			delivery_date = #{delivery_date}
 		WHERE id = #{id}
 	</update>
-	<delete id="deleteItem">
+	<delete id="deleteProOption">
 		DELETE FROM tb_product_option
 		WHERE id = #{id}
 	</delete>

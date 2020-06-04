@@ -167,6 +167,11 @@
 			status = #{status}
 		WHERE id=#{id}
 	</update>
+	<update id="updateAuditSubmit">
+		UPDATE tb_audit SET 
+			status = 2
+		WHERE id=#{id}
+	</update>
 	<delete id="deleteItem">
 		DELETE FROM tb_audit
 		WHERE id=#{id}

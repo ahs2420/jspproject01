@@ -30,5 +30,26 @@ public class ProductOptionServiceImpl implements ProductOptionService{
 		// TODO Auto-generated method stub
 		return productOptionDAO.getOptionProductList(product_id);
 	}
+
+	@Override
+	public int getProIdCount(int product_id) {
+		// TODO Auto-generated method stub
+		return productOptionDAO.getProIdCount(product_id);
+	}
+
+	@Override
+	public int updateProOption(ProductOptionVO pvo) {
+		// TODO Auto-generated method stub
+		return productOptionDAO.updateProOption(pvo);
+	}
+
+	@Override
+	public int deleteProOption(int id) {
+		// TODO Auto-generated method stub
+		return productOptionDAO.deleteProOption(id);
+	}
+	
+	
+	
 	
 }

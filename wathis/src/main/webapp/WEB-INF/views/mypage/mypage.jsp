@@ -182,17 +182,7 @@
         <c:if test="${template eq 'Reward' && mypage eq 'design'}">
             <%@ include file = "mypageFour.jsp" %>
         </c:if>
-        
-           <!-- 리워드 설계 수정 부분 -->
-        <c:if test="${template eq 'Reward' && mypage eq 'fourModi'}">
-            <%@ include file = "mypageFourModify.jsp" %>
-        </c:if>
-        
-        
-        <!-- 위험 요인 및 정책 가는 부분 -->
-        <c:if test="${template eq 'Reward' && mypage eq 'riskFactors'}">
-            <%@ include file = "mypageFive.jsp" %>
-        </c:if>
+
               
     </div>
 

@@ -86,6 +86,13 @@ public class AuditDAOImpl implements AuditDAO{
 		return sql.update(NAMESPACE+".updateAuditStatus",map);
 	}
 
+	@Override
+	public int updateAuditSubmit(int id) {
+		// TODO Auto-generated method stub
+		return sql.update(NAMESPACE+".updateAuditSubmit",id);
+	}
+
+	
 
 
 	

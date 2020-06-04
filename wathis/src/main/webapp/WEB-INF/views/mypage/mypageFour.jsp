@@ -104,48 +104,12 @@
 
             <!-- 3번 -->
 
-            <div class="mar-bo2 text-padding2">
-                <div class="name-left bor-box1 fon-bor2 text-padding5 wid11 box-sh hei7">
-                    <!-- 마이페이지3 번 영수증 부분 -->
-                    <div class="flex-box text-padding2">
-                        <span class="fl-sp fon-wei4 ">5,000원</span>
-                        <span class="flex-box-ba5 box-back6 fon-co14 fon-siz3 tex-al2 fon-wei1"> 제한 수량 3개</span>
-                    </div>
-                    <div class="line-one"></div>
-
-
-                    <div class="receipt text-padding3 hei2">
-                        <div class="flex-box fl-sp">
-                            <span class="fl-sp fon-siz3 mar-bo4">킬리가방 얼리버드</span>
-                            <span class="fl-sp fon-siz3 mar-bo4 mar-left3">$ 100,000</span>
-                        </div>
-                        <div class="flex-box fl-sp fon-siz3 mar-bo7">
-                            <span class="fl-sp fon-siz3 mar-bo4"> 배송비</span>
-                            <span class="fl-sp fon-siz3 mar-bo4 mar-left3"> 해당 없음</span>
-                        </div>
-                        <div class="flex-box fl-sp fon-siz3 mar-bo4">
-                            <span class="fl-sp fon-siz3 mar-bo4 "> 리워드 발송 시작일</span>
-                            <span class="fl-sp fon-siz3 mar-bo4 mar-left3"> 2020년 중손 (11~20일)</span>
-                        </div>
-
-                        <span class="fon-siz3 fon-co5"> <i class="fas fa-exclamation-circle"></i> 리워드 발송
-                            시작일을
-                            다시 선택하세요.</span>
-                        <div class="flex-box mar-top2">
-                            <div class="update-box tex-al2 cu-poin">
-                                <span class="mobu fl-sp fon-siz3" data-ton=".update-reward"> 편집 </span>
-                            </div>
-                            <div class="update-box tex-al2 cu-poin mar-left4">
-                                <span class="fl-sp fon-siz3"> 삭제</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="mar-bo2 text-padding2" id="optionWrap">
             </div>
         </div>
 
         <div class="btn-save">
-            <button class="btn-end" type="button">저장하기</button>
+            <button class="btn-end" onclick="location.href='/page/mypageListModify?template=Reward&mypage=information&id=${audit_id}'" type="button">목록으로</button>
         </div>
     </div>
 </div>
@@ -164,135 +128,12 @@
             <div class="Reward-Edit-sub flex-basic2 mar-bo2">
                 <h2 class="wid14 tex-al2">리워드 편집</h2>
             </div>
-            <form action="" name="">
+            <form action="" name="" id="updateForm">
+                <input type="hidden" name="id" />
                 <div class="edit-box">
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 flex-box-ba1 box-li2  tex-al2">금액</h4>
-                        <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value="5,000">
-                    </div>
-                    <div class="edit-pay flex-box1 mar-bo7">
-                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">리워드명</h4>
-                        <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3"
-                            placeholder="타이틀 입력 ex)[얼리버드]기본리워드">
-                    </div>
-                    <div class="edit-pay flex-box1 mar-bo7">
-                        <h4 class="flex-box-ba1 box-li3  tex-al2 ">상세설명</h4>
-                        <textarea name="" id="" cols="30" rows="3" maxlength="100"
-                            style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 60%; padding: 16px;"
-                            placeholder="제공하는 리워드가 무엇인지 간략하게 입력해 주세요."></textarea>
-                    </div>
-                    <div class="edit-pay flex-box1 mar-bo7 ">
-                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">옵션조건</h4>
-                        <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
-                        <div class="option-box wid13">
-                            <select class="wid1 hei1 text-padding2 mar-bo7">
-                                <option value="">옵션 조건 유형을 입력하세요</option>
-                                <option value="">옵션없음</option>
-                                <option value="">선택 옵션(사이즈, 색상 등)</option>
-                                <option value="">직접입력 옵션(각인,메시지 등)</option>
-                            </select>
-
-                            <span class="di-in1 fon-siz3 fon-wei1">옵션설정</span>
-                            <textarea name="" id="" cols="30" rows="3" maxlength="100"
-                                style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 100%; padding: 16px;"
-                                placeholder="옵션 값을 입력하세요 옵션 값은 엔터로 구분 됩니다.ex) 블랙: 230mm , 화이트 : 240mm"></textarea>
-
-                            <span class="di-in1 mar-top4 fon-siz3 fon-wei1">옵션미리보기</span>
-                            <select class="wid1 hei1 text-padding2  mar-bo7">
-                                <option value="">옵션 선택 미리보기</option>
-                            </select>
-
-                        </div>
-                    </div>
-
-                    <div class="edit-pay flex-box1 mar-bo7">
-                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">배송 조건</h4>
-                        <div class="di-ra-box wid13">
-                            <!-- 배달 라디오 -->
-                            <div class="di-ra-box-do mar-bo5 mar-top4">
-                                <input class="doit ra-size ve-al2" name="q1" type="radio" id="do"> <label for="do">
-                                    <span class="fon-siz2 fon-co8 text-padding2">
-                                        배송이 필요한 리워드 입니다.
-                                    </span>
-                                </label>
-
-                                <div class="delivery-box">
-                                    <h4 class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">
-                                        배송료
-                                    </h4>
-                                    <input type="text" placeholder="0" class="text-padding10 hei1"> <span
-                                        class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">원</span>
-                                    <div class="text-area fon-siz4">(배송비가 없는 경우, 0원 입력)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="di-ra-box-donot mar-bo5 mar-top4">
-                                <input class="donot ra-size ve-al2" name="q1" type="radio" id="donot">
-                                <label for="donot">
-                                    <span class="fon-siz2 fon-co8 text-padding2">
-                                        배송이 필요하지 않은 리워드 입니다.
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="edit-pay flex-box1 mar-bo7">
-                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">제한 수량</h4>
-                        <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""
-                            placeholder="수량입력">
-                    </div>
-                    <div class="edit-pay flex-box1">
-                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">발송 시작일</h4>
-                        <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
-                        <div class="day-option flex-box1 wid13">
-                            <select class="wid14 hei1 text-padding2 mar-bo7">
-                                <option value="">연도 / 월</option>
-                                <option value="">2020/06/</option>
-                                <option value="">2020/05/</option>
-                                <option value="">2020/04/</option>
-                                <option value="">2020/03/</option>
-                                <option value="">2020/02/</option>
-                                <option value="">2020/01/</option>
-                            </select>
-                            <select class="wid14 hei1 text-padding2 mar-bo7">
-                                <option value="">시기</option>
-                            </select>
-
-                        </div>
-
-
-
-                    </div>
-                </div>
-                <div class="btn-all-box flex-box1">
-                    <div class="btn-up-box">
-                        <button class="btn-up moX" onclick="toggleOn('.update-reward')" data-ton=".update-reward" type="button">취소</button>
-                        <button class="btn-up" type="button">수정</button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-<div class="modal insert-reward">
-    <div class="text-box-mo">
-        <div class="Reward-Edit-box">
-        
-            <div class="icon-X ">
-                <button class="moX " onclick="toggleOn('.insert-reward')" data-ton=".insert-reward">
-                    <i class="fal fa-times fon-siz9"></i>
-                </button>
-            </div>
-            <div class="Reward-Edit-sub flex-basic2 mar-bo2">
-                <h2 class="wid14 tex-al2">리워드 등록</h2>
-            </div>
-            <form action="" name="" id="insertForm">
-            <input type="hidden" name="product_id" value="${product_id}">
-                <div class="edit-box">
-                    <div class="edit-pay flex-box1 mar-bo7">
-                        <h4 class="flex-box-ba1 flex-box-ba1 box-li2  tex-al2">금액</h4>
-                        <input type="text" name="price" id="" class="flex-box-ba2 hei1 text-padding3" value="5,000">
+                        <input type="text" name="price_format" id="" class="flex-box-ba2 hei1 text-padding3" value="5,000">
                     </div>
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 box-li2  tex-al2 ">리워드명</h4>
@@ -368,6 +209,122 @@
                         <h4 class="flex-box-ba1 box-li2  tex-al2 ">발송 시작일</h4>
                         <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
                         <div class="day-option flex-box1 wid13">
+                            <div class="day-option flex-box1 wid13">
+                                <input type="text" name="delivery_date" class="datePicker" readonly />
+                             </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="btn-all-box flex-box1">
+                    <div class="btn-up-box">
+                        <button class="btn-up moX" onclick="toggleOn('.update-reward')" data-ton=".update-reward" type="button">취소</button>
+                        <button class="btn-up" id="updateDO" data-target="#updateForm" data-ton=".update-reward" type="button">수정</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal insert-reward">
+    <div class="text-box-mo">
+        <div class="Reward-Edit-box">
+        
+            <div class="icon-X ">
+                <button class="moX " onclick="toggleOn('.insert-reward')" data-ton=".insert-reward">
+                    <i class="fal fa-times fon-siz9"></i>
+                </button>
+            </div>
+            <div class="Reward-Edit-sub flex-basic2 mar-bo2">
+                <h2 class="wid14 tex-al2">리워드 등록</h2>
+            </div>
+            <form action="" name="" id="insertForm">
+            <input type="hidden" name="product_id" value="${product_id}">
+                <div class="edit-box">
+                    <div class="edit-pay flex-box1 mar-bo7">
+                        <h4 class="flex-box-ba1 flex-box-ba1 box-li2  tex-al2">금액</h4>
+                        <input type="text" name="price_format" id="" class="flex-box-ba2 hei1 text-padding3" value="5,000">
+                    </div>
+                    <div class="edit-pay flex-box1 mar-bo7">
+                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">리워드명</h4>
+                        <input type="text" name="title" id="" class="flex-box-ba2 hei1 text-padding3"
+                            placeholder="타이틀 입력 ex)[얼리버드]기본리워드">
+                    </div>
+                    <div class="edit-pay flex-box1 mar-bo7">
+                        <h4 class="flex-box-ba1 box-li3  tex-al2 ">상세설명</h4>
+                        <textarea name="description" id="" cols="30" rows="3" maxlength="100"
+                            style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 60%; padding: 16px;"
+                            placeholder="제공하는 리워드가 무엇인지 간략하게 입력해 주세요."></textarea>
+                    </div>
+                    <div class="edit-pay flex-box1 mar-bo7 ">
+                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">옵션조건</h4>
+                        <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
+                        <div class="option-box wid13">
+                            <select name="option_type" class="wid1 hei1 text-padding2 mar-bo7">
+                            	<c:forEach items="${optionType}" var="optionType" varStatus="vs">
+                                	<option value="${vs.index}">${optionType}</option>
+                            	</c:forEach>
+                            </select>
+
+                            <span class="di-in1 fon-siz3 fon-wei1">옵션설정</span>
+                            <textarea name="option_kind" id="" cols="30" rows="3" maxlength="100"
+                                style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 100%; padding: 16px;"
+                                placeholder="옵션 값을 입력하세요 옵션 값은 엔터로 구분 됩니다.ex) 블랙: 230mm , 화이트 : 240mm"></textarea>
+
+                            <span class="di-in1 mar-top4 fon-siz3 fon-wei1">옵션미리보기</span>
+                            <select class="wid1 hei1 text-padding2  mar-bo7">
+                                <option value="">옵션 선택 미리보기</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="edit-pay flex-box1 mar-bo7">
+                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">배송 조건</h4>
+                        <div class="di-ra-box wid13">
+                            <!-- 배달 라디오 -->
+                            <div class="di-ra-box-do mar-bo5 mar-top4">
+                                <label for="do1">
+                                    <input class="doit ra-size ve-al2" name="delevery_chk" value="1" type="radio" id="do1"> 
+                                    <span class="fon-siz2 fon-co8 text-padding2">
+                                        배송이 필요한 리워드 입니다.
+                                    </span>
+                                </label>
+
+                                <div class="delivery-box">
+                                    <h4 class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">
+                                        배송료
+                                    </h4>
+                                    <input type="text" value="0" name="delevery_price" class="text-padding10 hei1"> <span
+                                        class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">원</span>
+                                    <div class="text-area fon-siz4">(배송비가 없는 경우, 0원 입력)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="di-ra-box-donot mar-bo5 mar-top4">
+                                <label for="donot2">
+                                <input class="donot ra-size ve-al2" name="delevery_chk" value="0" type="radio" id="donot2">
+                                
+                                    <span class="fon-siz2 fon-co8 text-padding2">
+                                        배송이 필요하지 않은 리워드 입니다.
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-pay flex-box1 mar-bo7">
+                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">제한 수량</h4>
+                        <input type="text" name="stock" id="" class="flex-box-ba2 hei1 text-padding3" value=""
+                            placeholder="수량입력">
+                    </div>
+                    <div class="edit-pay flex-box1">
+                        <h4 class="flex-box-ba1 box-li2  tex-al2 ">발송 시작일</h4>
+                        <!-- <input type="text" name="" id="" class="flex-box-ba2 hei1 text-padding3" value=""> -->
+                        <div class="day-option flex-box1 wid13">
                            <input type="text" name="delivery_date" class="datePicker" readonly />
                         </div>
 
@@ -378,7 +335,7 @@
                 <div class="btn-all-box flex-box1">
                     <div class="btn-up-box">
                         <button class="btn-up  moX" onclick="toggleOn('.insert-reward')" data-ton=".insert-reward" type="button">취소</button>
-                        <button class="btn-up" id="insertDo" data-target="#insertForm" type="button">수정</button>
+                        <button class="btn-up" id="insertDo" data-target="#insertForm"  data-ton=".insert-reward" type="button">등록</button>
                     </div>
                 </div>
             </form>
@@ -390,11 +347,6 @@
 </body>
 
 <script>
-    $(function () {
-        $(".mobu").click(function () {
-            $(this).toggleOn();
-        });
-    });
 
     function toggleOn(item) {
         var $ton = $(item);
@@ -417,12 +369,19 @@
         $("#donot").click(function () {
             $(".delivery-box").hide();
         });
+        $("#do1").click(function () {
+            $(".delivery-box").show();
+        });
+        $("#donot2").click(function () {
+            $(".delivery-box").hide();
+        });
 
     });
     $(document).ready(function(){
         $(".datePicker").datepicker({
             dateFormat : 'yy-mm-dd'
         });
+        getOptionList();
     });
     $(function(){
         $("#insertDo").click(function(){
@@ -434,15 +393,167 @@
                    };
             
         	var ajaxResult=ajaxStan(option);
+            var target=$(this).data("ton");
         	if(ajaxResult.status){
 				alert(ajaxResult.data.msg);
+                getOptionList();
+                $(target).removeClass("on");
+
             }else{
 				alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
 
             }
         });
-    });
+        $("#updateDO").click(function(){
+            var $form=$($(this).data("target"));
+            var data=$form.serialize();
+            var option={
+                    "data":data,
+                    "url":"/option/updateOption"
+                   };
+            
+        	var ajaxResult=ajaxStan(option);
+            var target=$(this).data("ton");
+        	if(ajaxResult.status){
+				alert(ajaxResult.data.msg);
+                getOptionList();
+                $(target).removeClass("on");
 
+            }else{
+				alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
+
+            }
+        });
+        $(document).on("click",".mobu",function(){
+            var target=$(this).data("ton");
+            var id = $(this).data("id");
+            $(target).toggleClass("on");
+            if(id>0){
+                getOptionDetail(id);
+            }
+        });
+        $(document).on("click",".optionDelete",function(){
+            if(confirm("해당 리워드를 삭제 하시겠습니까?")){
+                var data={
+                    "id":$(this).data("id")
+                };
+                var option={
+                        "data":data,
+                        "url":"/option/deleteOption"
+                    };
+                
+                var ajaxResult=ajaxStan(option);
+                if(ajaxResult.status){
+                    alert(ajaxResult.data.msg);
+                    getOptionList();
+                }else{
+                    alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
+                }
+            }else{
+                return false;
+            }
+        });
+        
+    });
+    function getOptionDetail(id){
+        var data={
+			"id":id
+        };
+        var option={
+                "data":data,
+                "url":"/option/getOptionDetail"
+        };
+    	var ajaxResult=ajaxStan(option);
+        var $form =$("#updateForm");
+        if(ajaxResult.status){
+            //alert(ajaxResult.data.msg);
+            var pvo =ajaxResult.data.pvo;
+            $form.find("[name=price_format]").val(pvo.price);
+            $form.find("[name=title]").val(pvo.title);
+            $form.find("[name=description]").val(pvo.description);
+            $form.find("[name=option_kind]").val(pvo.option_kind);
+            $form.find("[name=delevery_price]").val(pvo.delevery_price);
+            $form.find("[name=stock]").val(pvo.stock);
+            $form.find("[name=delivery_date]").val(pvo.delivery_date);
+            $form.find("[name=id]").val(pvo.id);
+            $form.find("[name=delevery_chk]").each(function(){
+                if($(this).val()==pvo.delevery_chk){
+                    $(this).attr("checked",true);
+                }else{
+                    $(this).attr("checked",false);
+                }
+            });
+            $form.find("[name=option_type] option").each(function(){
+                if($(this).val()==pvo.option_type){
+                    $(this).attr("selected",true);
+                }else{
+                    $(this).attr("selected",false);
+                }
+            });
+            if(pvo.delevery_chk==1){
+                $form.find(".delivery-box").css("display","block");
+            }else{
+                $form.find(".delivery-box").css("display","none");
+            }
+        }else{
+            alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
+        }
+
+    }
+	function getOptionList(){
+        var data={
+			"product_id":${product_id}
+                };
+        var option={
+                "data":data,
+                "url":"/option/getOptionList"
+        };
+    	var ajaxResult=ajaxStan(option);
+    	if(ajaxResult.status){
+			//alert(ajaxResult.data.msg);
+			var addItem="";
+            var delivery="";
+			for(var option of ajaxResult.data.optionList){
+                delivery=(option.delevery_chk==0)?"해당없음":option.delevery_price+"원";
+				addItem+='\
+				<div class="name-left bor-box1 fon-bor2 text-padding5 wid11 box-sh hei7">\
+	                <!-- 마이페이지3 번 영수증 부분 -->\
+	                <div class="flex-box text-padding2">\
+	                    <span class="fl-sp fon-wei4 ">'+option.price+'원</span>\
+	                    <span class="flex-box-ba5 box-back6 fon-co14 fon-siz3 tex-al2 fon-wei1"> 제한 수량 '+option.stock+'개</span>\
+	                </div>\
+	                <div class="line-one"></div>\
+	                <div class="receipt text-padding3 hei2">\
+	                    <div class="flex-box fl-sp">\
+	                        <span class="fl-sp fon-siz3 mar-bo4">리워드명</span>\
+	                        <span class="fl-sp fon-siz3 mar-bo4">'+option.title+'</span>\
+	                    </div>\
+	                    <div class="flex-box fl-sp fon-siz3 mar-bo7">\
+	                        <span class="fl-sp fon-siz3 mar-bo4"> 배송비</span>\
+	                        <span class="fl-sp fon-siz3 mar-bo4 mar-left3">'+delivery+'</span>\
+	                    </div>\
+	                    <div class="flex-box fl-sp fon-siz3 mar-bo4">\
+	                        <span class="fl-sp fon-siz3 mar-bo4 "> 리워드 발송 시작일</span>\
+	                        <span class="fl-sp fon-siz3 mar-bo4 mar-left3">'+option.delivery_date+' 예정</span>\
+	                    </div>\
+	                    <div class="flex-box mar-top2">\
+	                        <div class="update-box tex-al2 cu-poin">\
+	                            <span class="mobu fl-sp fon-siz3" data-id="'+option.id+'" data-ton=".update-reward"> 편집 </span>\
+	                        </div>\
+	                        <div class="update-box tex-al2 cu-poin mar-left4">\
+	                            <span class="fl-sp fon-siz3 optionDelete" data-id="'+option.id+'"> 삭제</span>\
+	                        </div>\
+	                    </div>\
+	                </div>\
+	            </div>\
+				';
+			}
+            $("#optionWrap").html(addItem);
+        }else{
+			//alert("시스템 오류입니다.\n관리자에게 문의해 주세요.");
+
+        }
+	}
     function ajaxStan(option){
         var returnData="";
         $.ajax({
