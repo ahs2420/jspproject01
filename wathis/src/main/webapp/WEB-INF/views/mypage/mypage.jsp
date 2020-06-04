@@ -40,7 +40,7 @@
 
         <div class="head-close">
             <button name="" id="" class="head-show">미리보기</button>
-            <button name="" id="" class="head-out">나가기</button>
+            <a href="http://localhost:8888/" name="" id="" class="head-out outmain">나가기</a>
         </div>
     </div>
 </div>

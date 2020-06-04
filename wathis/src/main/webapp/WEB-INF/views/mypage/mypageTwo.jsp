@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../hong-include/head.jspf"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
 <link rel="stylesheet" href="../hongcss/mypage/mypageTwo.css">
@@ -62,7 +64,7 @@
                             / 개인 사업자는 주민등록상 성명 또는 상호 / 개인은 주민등록상 성명을 입력하세요.</p>
                         <input class="wid1 hei1 fon-bor1 text-padding1 text-coun" type="text" id="text-box1"
                             name="marker_name" placeholder="메이커명 입력">
-                        <p class="fon-siz3 fon-col " id="counter">[ 0 / 최대 30자 ]</p>
+                        <p class="fon-siz3 fon-col " id="counter">[ [ ${fn:length(makervo.marker_name)} / 최대 30자 ]</p>
                     </div>
                 </div>
                 <!-- 3번 -->

@@ -341,7 +341,8 @@ textarea{
 .ba-guide1,.ba-guide2,
 .ba-guide3,.ba-guide4,
 .ba-guide5,.ba-guide6,
-.ba-guide7{
+.ba-guide7,.ba-guide8,
+.ba-guide9,.ba-guide10{
     width:20%;
     position: absolute;
     top: -20px;

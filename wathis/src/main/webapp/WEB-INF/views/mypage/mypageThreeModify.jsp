@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">

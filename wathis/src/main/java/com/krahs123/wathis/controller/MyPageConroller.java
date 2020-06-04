@@ -135,14 +135,16 @@ public class MyPageConroller {
 	
 //	 기본요건부분 수정 부분
 		@RequestMapping("/mypageOneModify")
-		public ModelAndView getList(@ModelAttribute AuditVO auvo ){
+		public ModelAndView getList(@ModelAttribute AuditVO auvo , @RequestParam String member_id){
 			
 			int result = auditService.updateItem(auvo);
 			
+			List<Map<String, Object>> auditVO = auditService.getAuditMyList(member_id);
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("id", auvo.getId());
 				mav.addObject("template", "Reward");
 				mav.addObject("mypage", "oneModi");
+				mav.addObject("auditVO", auditVO);
 				
 				mav.setViewName("redirect:/page/mypageListModify");
 				return mav;

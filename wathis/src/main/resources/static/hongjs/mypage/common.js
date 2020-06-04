@@ -55,6 +55,9 @@ $(function () {
         $(".ba-guide5").hide();
         $(".ba-guide6").hide();
         $(".ba-guide7").hide();
+        $(".ba-guide8").hide();
+        $(".ba-guide9").hide();
+        $(".ba-guide10").hide();
 
 
         // 1번
@@ -122,5 +125,36 @@ $(function () {
             $(".ba-guide7").hide();
 
         });
+    
+        $(".ba-pro-startday").mouseover(function () {
+            $(".ba-guide8").show();
+
+        });
+
+        $(".ba-pro-startday").mouseleave(function () {
+            $(".ba-guide8").hide();
+
+        });
+        
+        $(".ba-pro-eanday").mouseover(function () {
+            $(".ba-guide9").show();
+
+        });
+
+        $(".ba-pro-eanday").mouseleave(function () {
+            $(".ba-guide9").hide();
+
+        });
+        
+        $(".ba-pro-story").mouseover(function () {
+            $(".ba-guide10").show();
+
+        });
+
+        $(".ba-pro-story").mouseleave(function () {
+            $(".ba-guide10").hide();
+
+        });
+    
     });
 });

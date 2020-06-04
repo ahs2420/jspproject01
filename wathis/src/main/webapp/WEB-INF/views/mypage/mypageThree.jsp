@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
@@ -61,7 +62,7 @@
         <input type="hidden" name="member_id" value="${sessionScope.id}" />
         <input type="hidden" name="audit_id" value="${audit_id}" />
             <div class="ba-project">
-                <div class="flex-basic2 ba-pro-img">
+                <div class="flex-basic2 ba-pro-name">
                     <div class="mar-bo2 wid1">
                         <div class="box-container">
                             <div class="box-text-one">
@@ -103,7 +104,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ba-guide3">
+                    <!-- 가이드 박스 -->
+                    <div class="ba-guide1">
                         <div class=" text-padding3 box-li1 box-back1">
                             <h4 class="mar-bo5 fon-siz4 fon-co7">
                                 <a href="#" class="fon-co4 ">소개 영상·사진</a>
@@ -121,7 +123,7 @@
                 </div>
                 	<!-- 기본 정보 부분 -->
                 	<!-- 1번 -->
-				<div class="flex-basic2 ba-pro-name">
+				<div class="flex-basic2 ba-pro-price">
 					<div class="wid4">
 						<div class="name-left">
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
@@ -131,7 +133,7 @@
                                 <p class="fon-siz3 fon-col " id="counter">[ 0 / 최대 40자 ]</p>
 						</div>
 					</div>
-					<div class="ba-guide1">
+					<div class="ba-guide2">
 						<div class=" text-padding3 box-li1 box-back1">
 							<h3 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">프로젝트 제목은 핵심만
 								매력적으로!</h3>
@@ -146,7 +148,7 @@
 					</div>
 				</div>
 				<!-- 2번 -->
-				<div class="flex-basic2 ba-pro-price">
+				<div class="flex-basic2 ba-pro-img">
 					<div class="wid4 mar-top3">
 						<label for="projectprice" class="di-ia1 mar-bo6 fon-wei1">목표금액<span class="fon-co5">
 								*</span></label>
@@ -163,7 +165,7 @@
 						</div>
 					</div>
 
-					<div class="ba-guide2">
+					<div class="ba-guide3">
 						<div class=" text-padding3 box-li1 box-back1">
 							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1">목표금액은 너무
 								낮지도,너무 높지도 않게!</h4>
@@ -176,7 +178,7 @@
 				</div>
 
 				<!-- 3번 -->
-				<div class="flex-basic2 ba-pro-img ">
+				<div class="flex-basic2 ba-pro-ka">
 					<div class="wid4 mar-top3">
 						<label for="projectimg" class="di-ia1 mar-bo3 fon-wei1 ">대표
 							이미지<span class="fon-co5"> *</span>
@@ -191,7 +193,7 @@
 							파일</p>
 						<p class="fon-siz4 fon-co7 fon-wei1">텍스트 및 로고 삽입 금지</p>
 					</div>
-					<div class="ba-guide3">
+					<div class="ba-guide4">
 						<div class=" text-padding3 box-li1 box-back1">
 							<h4 class="mar-bo5 fon-siz4 fon-co7">
 								<a href="" class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">클릭할
@@ -205,7 +207,7 @@
 					</div>
 				</div>
                 <!-- 4번 -->
-				<div class="flex-basic2 ba-pro-ka ">
+				<div class="flex-basic2 ba-pro-day ">
 					<div class="wid4 mar-top3">
 						<label for="project-ka" class="di-ia1 mar-bo6 fon-wei1">카테고리
 							선택<span class="fon-co5"> *</span>
@@ -220,7 +222,7 @@
 							</c:forEach>
 						</select>
 					</div>
-					<div class="ba-guide4">
+					<div class="ba-guide5">
 						<div class=" text-padding3 box-li1 box-back1">
 							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">어떤 서포터를 만나고
 								싶으세요?</h4>
@@ -234,7 +236,7 @@
 
 				<!-- 5번  프로젝트 일정을 삭제 하였음-->
 				<!-- 5번-->
-				<div class="flex-basic2 ba-pro-seach">
+				<div class="flex-basic2 ba-pro-adult">
 					<div class=" mar-bo3  wid4">
 						<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">검색용
 							태그<span class="fon-co5"> *</span>
@@ -248,7 +250,7 @@
 						</div>
 					</div>
 
-					<div class="ba-guide7">
+					<div class="ba-guide6">
 						<div class=" text-padding3 box-li1 box-back1">
 							<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1">어떤 해시태그가 검색하기
 								좋을까요?</h4>
@@ -262,7 +264,7 @@
 					</div>
 				</div>   
                 <!-- 2번 -->
-                <div class="flex-basic1 ba-pro-price">
+                <div class="flex-basic1 ba-pro-seach">
                     <div class="mar-bo3 wid4">
                         <div class="name-left ">
                             <div class="box-text-one">
@@ -275,14 +277,14 @@
                                 <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%; padding: 20px"
                                     placeholder="내용을 입력하세요."></textarea>
-                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[ 0 자 작성 / 최대 500자]</p>
+                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[  ${fn:length(makervo.marker_name)} 자 작성 / 최대 500자]</p>
 
                             </div>
 
                         </div>
                     </div>
                     <!-- 가이드 박스 -->
-                    <div class="ba-guide2">
+                    <div class="ba-guide7">
                         <div class=" text-padding3 box-li1 box-back1">
                             <h4 class="mar-bo5 fon-siz4 fon-co7">
                                 이것만은 알아주었으면 좋겠어요!
@@ -293,7 +295,7 @@
                 </div>
                 <!-- 3번,4번  각종 가이드 부분에서 달력으로 수정-->
 				<div id="two-datePicker">
-	                <div class="flex-basic2 ba-pro-day ">
+	                <div class="flex-basic2 ba-pro-startday">
 						<div class="wid4 mar-top3">
 							<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 시작일<span class="fon-co5"> *</span>
 							</label>
@@ -303,7 +305,7 @@
 								placeholder="예? 2020-04-01">
 						</div>
 	
-						<div class="ba-guide5">
+						<div class="ba-guide8">
 							<div class=" text-padding3 box-li1 box-back1">
 								<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
 									오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
@@ -317,7 +319,7 @@
 	
 					
 					<!-- 4번-->
-					<div class="flex-basic2 ba-pro-adult mar-bo3">
+					<div class="flex-basic2 mar-bo3 ba-pro-eanday">
 						<div class="wid4 mar-top3">
 							<label for="project-day" class="di-ia1 mar-bo6 fon-wei1">프로젝트 종료일<span class="fon-co5"> *</span>
 							</label>
@@ -327,7 +329,7 @@
 								placeholder="예? 20200401">
 						</div>
 	
-						<div class="ba-guide6">
+						<div class="ba-guide9">
 							<div class=" text-padding3 box-li1 box-back1">
 								<h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1 ">
 									오픈일을 기준으로 최소 7일 ~ 최대 60일로 설정해 주세요.</h4>
@@ -341,7 +343,7 @@
 				</div>
                 <!-- 5번 -->
 
-                <div class="flex-basic2 ba-pro-name">
+                <div class="flex-basic2 ba-pro-story">
                     <div class="mar-bo2 wid4">
                         <div class="name-left">
                             <div class="box-text-one">
@@ -370,7 +372,7 @@
 
                         </div>
                     </div>
-                    <div class="ba-guide1">
+                    <div class="ba-guide10">
                         <div class=" text-padding3 box-li1 box-back1">
                             <h4 class="mar-bo5 fon-siz4 fon-co7">
                                 이것만은 알아주었으면 좋겠어요!

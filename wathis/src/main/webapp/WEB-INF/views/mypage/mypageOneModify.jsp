@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%-- <%@taglib prefix="fn" nri="http://java.sun.com/jsp/jstl/functions" %> --%>
 <% pageContext.setAttribute("replaveChar", "\n"); %>
@@ -90,7 +91,7 @@
                                 <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
                                     placeholder="내용을 입력하세요." class="Preparations_plan"></textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ ${fn:length(auditVO.Preparations_plan)}자 작성 / 최대 500자]</p>
                             </div>
 
                             </div>

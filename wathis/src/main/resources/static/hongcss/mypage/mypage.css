@@ -126,15 +126,15 @@ body {
 .head-out {
     width: 75px;
     height: 35px;
-    list-style: 35px;
+    /* list-style: 35px; */
     font-size: 15px;
     font-weight: 700;
     color: #6ac5b8;
 
-    border: 2px solid #6ac5b8;
-    border-radius: 50px;
-    border: none;
-    border-collapse: collapse;
+    /* border: 2px solid #6ac5b8; */
+    /* border-radius: 50px; */
+    /* border: none; */
+    /* border-collapse: collapse; */
 
     background-color: transparent;
 }
@@ -633,4 +633,8 @@ color: #60656a;
     padding-bottom: 20px;
 
 }
-/* 제이쿼리 문  */
+/* 나가기 css */
+.outmain{
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
