@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <jsp:useBean id="htmlEncode" class="com.krahs123.wathis.util.HtmlSpecialChar"></jsp:useBean>
 <!-- 추가 css,js -->
@@ -58,23 +59,25 @@
                 <h2 class="sub-title align-center mb20">
                     와디즈에서 새로운 프로젝트들을 만나보세요
                 </h2>
+                
+                <fmt:formatDate value="<%=new java.util.Date()%>" pattern="yyyy-MM-dd" var="now"/>
                 <div class="float-box-item">
-                    <c:forEach begin="1" end="8">
+                    <c:forEach items="${proList}" var="pvo">
                         <!--상품 아이템-->
                         <div class="item-box float-left item-lg-3 item-md-4 item-sm-6 item-xs-12 mb20">
                             <!--상품 주소-->
-                            <a href="/product/product">
+                            <a href="/product/product?id=${pvo.id}">
                                 <div class="border-box">
                                     <div class="img-box">
                                         <!--상품 메인 이미지-->
-                                        <img src="/images/product/item_1.jpg" alt="" />
+                                        <img src="${pvo.img_upload_dir}${pvo.main_img}" alt="" />
                                     </div>
                                     <div class="txt-box">
                                         <!--상품 제목-->
-                                        <h3 class="title text-max-line line2 mb20">공기청정기+스마트화분, 필터와 식물로 듀얼청정! 자동물공급 까지?
+                                        <h3 class="title text-max-line line2 line-fix mb20">${pvo.title}
                                         </h3>
                                         <!--상품분류 | 메이커이름-->
-                                        <p class="catogory mb20 gray">IT/가전 | 주식회사 너에게</p>
+                                        <p class="catogory mb20 gray">${pvo.cate} | ${pvo.marker_name}</p>
                                         <div class="progress-bar mb10">
                                             <!--상품 펀딩 진척도(최대100%)-->
                                             <span class="percent" style="width: 50%;"></span>
@@ -82,11 +85,26 @@
                                         <div class="flex-box flex-j-space">
                                             <p>
                                                 <!-- 펀딩금액  상품 펀딩 진척도-->
-                                                5,000만원<span class="ml5 gray">50%</span>
+                                                ${pvo.price}원<span class="ml5 gray">50%</span>
                                             </p>
                                             <p class="gray">
+                                                <fmt:parseDate value="${now}" var="strPlanDate" pattern="yyyy-MM-dd"/>
+                                                <fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}" integerOnly="true" var="strDate"></fmt:parseNumber>
+                                                <fmt:parseDate value="${pvo.end_date }" var="endPlanDate" pattern="yyyy-MM-dd"/>
+                                                <fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}" integerOnly="true" var="endDate"></fmt:parseNumber>
+                                                <c:set var="date" value="${endDate - strDate }" />
                                                 <!-- 남은 기간 -->
-                                                28일 남음
+                                                <c:choose>
+                                                    <c:when test="${date ==0}">
+                                                        당일 마감
+                                                    </c:when>
+                                                    <c:when test="${date > 0}">
+                                                        ${date }일 남음
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        마감된 상품 입니다.
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </p>
                                         </div>
                                     </div>

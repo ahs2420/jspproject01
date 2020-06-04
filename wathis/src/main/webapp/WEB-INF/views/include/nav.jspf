@@ -76,9 +76,9 @@
         </div>
         <div class="search-cover dis-pc">
             <div class="container">
-                <form action="" method="GET" name="nav-search">
+                <form action="/product/product-list" method="GET" name="nav-search">
                     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                    <input type="text" class="search-bar input-stan" placeholder="어떤 프로젝트를 찾고 계신가요?">
+                    <input type="text" name="words" class="search-bar input-stan" placeholder="어떤 프로젝트를 찾고 계신가요?">
                     <button type="button" class="search-btn close right" data-target="search-cover" onclick="activeRemove(this)"><i class="fas fa-times"></i></button>
                 </form>
             </div>
@@ -89,9 +89,9 @@
                 <li>
                     <div class="search-cover dis-pc">
                         <div class="container">
-                            <form action="" method="GET" name="nav-search">
+                            <form action="/product/product-list" method="GET" name="nav-search">
                                 <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                                <input type="text" class="search-bar input-stan" placeholder="어떤 프로젝트를 찾고 계신가요?">
+                                <input type="text" name="words" class="search-bar input-stan" placeholder="어떤 프로젝트를 찾고 계신가요?">
                             </form>
                         </div>
                     </div>

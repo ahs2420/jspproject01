@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.ProductMapper">
+	<sql id="getInclude">
+		WHERE
+		(p.title like CONCAT('%',#{words},'%') or p.keyword like CONCAT('%',#{words},'%'))
+		<if test="category_id != null">
+			<if test="category_id != ''">
+				AND p.category_id=#{category_id}
+			</if>
+		</if>
+		AND curdate() between p.start_date and p.end_date
+	</sql>
 	<select id="getAll" resultType="productvo">
 		SELECT 
 		id,
@@ -40,6 +50,30 @@
 		FROM tb_product
 		WHERE audit_id=#{audit_id}
 		
+	</select>
+	
+	<select id="getProductList" resultType="map">
+		SELECT 
+			p.id,
+			p.img_upload_dir,
+			p.main_img,
+			p.title,
+			p.title,
+			p.start_date,
+			p.end_date,
+			p.price,
+			c.title as cate,
+			m.marker_name
+		FROM tb_product as p JOIN tb_audit as a ON p.audit_id=a.id JOIN tb_maker_info as m ON a.id=m.audit_id JOIN tb_category as c ON p.category_id=c.id
+	    <include refid="getInclude"></include>
+		ORDER BY p.id desc
+		Limit #{pageStart},#{pagePer}
+	</select>
+	<select id="getProductCount" resultType="int">
+		SELECT 
+			count(p.id)
+		FROM tb_product as p JOIN tb_audit as a ON p.audit_id=a.id JOIN tb_maker_info as m ON a.id=m.audit_id JOIN tb_category as c ON p.category_id=c.id
+		<include refid="getInclude"></include>
 	</select>
 	<select id="getProductDetailAudit" resultType="productvo">
 		SELECT id,

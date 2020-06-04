@@ -30,13 +30,16 @@ import com.krahs123.wathis.config.DbStatus;
 import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MakerInfoVO;
+import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.ProductVO;
 import com.krahs123.wathis.service.category.CategoryService;
-
+import com.krahs123.wathis.service.menu.MenuService;
+import com.krahs123.wathis.service.popup.PopupService;
 import com.krahs123.wathis.service.product.AuditService;
 import com.krahs123.wathis.service.product.MakerInfoService;
 import com.krahs123.wathis.service.product.ProductOptionService;
 import com.krahs123.wathis.service.product.ProductService;
+import com.krahs123.wathis.service.siteConfig.SiteConfigService;
 import com.krahs123.wathis.util.FileControl;
 
 @Controller
@@ -54,6 +57,13 @@ public class MyPageConroller {
 	@Autowired ProductService proSer;
 	
 	@Autowired ProductOptionService proOptSer;
+
+	@Autowired
+	MenuService menuService;
+	@Autowired
+	PopupService popupService;
+	@Autowired
+	SiteConfigService siteService;
 	
 	final String DIR ="/mypage/";
 	
@@ -544,9 +554,17 @@ public class MyPageConroller {
 	//public List<Map<String,Object>> viewMakeProject(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		List<Map<String,Object>> myList = auditService.getAuditMyList(session.getAttribute("id").toString());
+		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		
+
+		mav.addObject("myList",myList);
+		mav.addObject("menuList", menuList);
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
 		mav.addObject("productStatus",DbStatus.productStatus);
 		mav.addObject("auditStatus",DbStatus.auditStatus);
-		mav.addObject("myList",myList);
 		mav.addObject("template","makeList");
 		mav.addObject("page","list");
 		mav.setViewName(DIR+"userMypage");

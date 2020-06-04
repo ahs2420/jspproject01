@@ -515,6 +515,10 @@ nav:not(.active) .hover-underline::after{
 .text-max-line.line2{
     -webkit-line-clamp:2;
 }
+.line-fix.text-max-line.line2{
+    line-height: 30px;
+    height: 60px;
+}
 .text-max-line.line3{
     -webkit-line-clamp:3;
 }

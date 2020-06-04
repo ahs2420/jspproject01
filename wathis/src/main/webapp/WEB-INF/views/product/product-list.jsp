@@ -80,14 +80,15 @@
 					<h1>전체보기</h1>
 					<div class="reward-btn">
 						<div class="reward-btn-search">
-							<form action="" method="">
-								<input type="search" class="reward-search" placeholder="검색">
+							<form action="/product/product-list" method="get" id="searchForm">
+								<input type="hidden" name="category_id" value="" />
+								<input type="text"  name="words" value="${words}" class="reward-search <c:if test="${words ne ''&&words != null}">on</c:if>" placeholder="검색">
 								<button type="button" class="reward-search-btn">
 									<i class="fas fa-search"></i>
 								</button>
 							</form>
 						</div>
-						<div class="reward-select-custom">
+						<!-- <div class="reward-select-custom">
 							<select name="" id="select-state">
 								<option value="">전체</option>
 								<option value="">펀딩중</option>
@@ -103,143 +104,16 @@
 								<option value="">최신순</option>
 								<option value="">응원참여순</option>
 							</select> <label for="select-order"></label>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="reward-items">
-					<div class="reward-item">
-						<a href="/product/product">
-							<div class="reward-img-box">
-								<img src="/xkfqkfimages/optimize.jpg" alt="">
-							</div>
-							<div class="reward-text-box">
-								<h3 class="reward-box-title">[2.5억]꾸미지 않아도 멋있다! 누구나입는 편하고
-									멋진한복[단청후드]</h3>
-								<p class="reward-sub-title">패션.잡화 | 주식회사 하플리</p>
-								<div class="reward-bar">
-									<span style="width: 50%;"></span>
-								</div>
-								<div class="reward-per">
-									<div>
-										<span>7641%</span> <span class="reward-mobile-display-none">76,411,044원</span>
-									</div>
-									<span>12일 남음</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="reward-item">
-						<a href="/product/product">
-							<div class="reward-img-box">
-								<img src="/xkfqkfimages/optimize.jpg" alt="">
-							</div>
-							<div class="reward-text-box">
-								<h3 class="reward-box-title">[2.5억]꾸미지 않아도 멋있다! 누구나입는 편하고
-									멋진한복[단청후드]</h3>
-								<p class="reward-sub-title">패션.잡화 | 주식회사 하플리</p>
-								<div class="reward-bar">
-									<span style="width: 50%;"></span>
-								</div>
-								<div class="reward-per">
-									<div>
-										<span>7641%</span> <span class="reward-mobile-display-none">76,411,044원</span>
-									</div>
-									<span>12일 남음</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="reward-item">
-						<a href="/product/product">
-							<div class="reward-img-box">
-								<img src="/xkfqkfimages/optimize.jpg" alt="">
-							</div>
-							<div class="reward-text-box">
-								<h3 class="reward-box-title">[2.5억]꾸미지 않아도 멋있다! 누구나입는 편하고
-									멋진한복[단청후드]</h3>
-								<p class="reward-sub-title">패션.잡화 | 주식회사 하플리</p>
-								<div class="reward-bar">
-									<span style="width: 50%;"></span>
-								</div>
-								<div class="reward-per">
-									<div>
-										<span>7641%</span> <span class="reward-mobile-display-none">76,411,044원</span>
-									</div>
-									<span>12일 남음</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="reward-item">
-						<a href="/product/product">
-							<div class="reward-img-box">
-
-								<img src="/xkfqkfimages/optimize.jpg" alt="">
-							</div>
-							<div class="reward-text-box">
-								<h3 class="reward-box-title">[2.5억]꾸미지 않아도 멋있다! 누구나입는 편하고
-									멋진한복[단청후드]</h3>
-								<p class="reward-sub-title">패션.잡화 | 주식회사 하플리</p>
-								<div class="reward-bar">
-									<span style="width: 50%;"></span>
-								</div>
-								<div class="reward-per">
-									<div>
-										<span>7641%</span> <span class="reward-mobile-display-none">76,411,044원</span>
-									</div>
-									<span>12일 남음</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="reward-item">
-						<a href="/product/product">
-							<div class="reward-img-box">
-								<img src="/xkfqkfimages/optimize.jpg" alt="">
-							</div>
-							<div class="reward-text-box">
-								<h3 class="reward-box-title">[2.5억]꾸미지 않아도 멋있다! 누구나입는 편하고
-									멋진한복[단청후드]</h3>
-								<p class="reward-sub-title">패션.잡화 | 주식회사 하플리</p>
-								<div class="reward-bar">
-									<span style="width: 50%;"></span>
-								</div>
-								<div class="reward-per">
-									<div>
-										<span>7641%</span> <span class="reward-mobile-display-none">76,411,044원</span>
-									</div>
-									<span>12일 남음</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="reward-item">
-						<a href="/product/product">
-							<div class="reward-img-box">
-								<img src="/xkfqkfimages/optimize.jpg" alt="">
-							</div>
-							<div class="reward-text-box">
-								<h3 class="reward-box-title">[2.5억]꾸미지 않아도 멋있다! 누구나입는 편하고
-									멋진한복[단청후드]</h3>
-								<p class="reward-sub-title">패션.잡화 | 주식회사 하플리</p>
-								<div class="reward-bar">
-									<span style="width: 50%;"></span>
-								</div>
-								<div class="reward-per">
-									<div>
-										<span>7641%</span> <span class="reward-mobile-display-none">76,411,044원</span>
-									</div>
-									<span>12일 남음</span>
-								</div>
-							</div>
-						</a>
-					</div>
 				</div>
 			</div>
 			<div class="reward-container">
 				<div class="reward-next-page">
-					<button class="reward-next-btn">
-						상품 더보기</i>
+					<button class="reward-next-btn" data-words='${words}' data-page='1' data-category_id='${category_id}'>
+						상품 더보기
 					</button>
 
 				</div>

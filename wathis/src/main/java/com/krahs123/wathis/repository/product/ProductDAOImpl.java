@@ -1,8 +1,13 @@
 package com.krahs123.wathis.repository.product;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.w3c.dom.NameList;
 
 import com.krahs123.wathis.model.ProductVO;
 
@@ -53,6 +58,26 @@ public class ProductDAOImpl implements ProductDAO{
 	public ProductVO getProductDetailAudit(int audit_id) {
 		// TODO Auto-generated method stub
 		return sql.selectOne(namespace+".getProductDetailAudit", audit_id);
+	}
+
+	@Override
+	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashMap<>();
+		map.put("category_id", category_id);
+		map.put("words", words);
+		map.put("pageStart", pageStart);
+		map.put("pagePer", pagePer);
+		return sql.selectList(namespace+".getProductList",map);
+	}
+
+	@Override
+	public int getProductCount(String category_id,String words) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashMap<>();
+		map.put("category_id", category_id);
+		map.put("words", words);
+		return sql.selectOne(namespace+".getProductCount",map);
 	}
 
 	

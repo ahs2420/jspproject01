@@ -31,7 +31,7 @@
                             </div>
                             <div class="txt-box">
                                 <!--상품 제목-->
-                                <h3 class="title text-max-line line2 mb20">
+                                <h3 class="title text-max-line line1 mb20">
 	                                <c:choose>
 	                                	<c:when test="${myList.title != null && myList.title ne ''}">
 	                                		${myList.title}
@@ -58,7 +58,6 @@
                                 <div class="mb20 flex-box flex-a-center">
                                     <span class="icon-round-no-board icon-10 bg-status-${myList.status } inline-box mr10"></span>
                                     <span class="">
-                                    	
 		                                <c:choose>
 		                                	<c:when test="${myList.status eq '3'}">
 		                                		${productStatus[myList.pStatus]}

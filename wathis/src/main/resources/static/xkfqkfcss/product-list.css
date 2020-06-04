@@ -90,15 +90,20 @@ ul li {
 
 .reward-items {
 	margin-top: 20px;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
 }
-
+.reward-items::after{
+	content: '';
+	display: block;
+	clear: both;
+}
 .reward-item {
-	width: 31%;
+	width: 32%;
+	float: left;
 }
-
+.reward-item:nth-child(3n+1),
+.reward-item:nth-child(3n+2){
+	margin-right: 2%;
+}
 .reward-img-box {
 	position: relative;
 	width: 100%;
@@ -341,6 +346,13 @@ ul li {
 	.reward-item {
 		width: 49%;
 	}
+	.reward-item:nth-child(3n+1),
+	.reward-item:nth-child(3n+2){
+		margin-right: 0%;
+	}
+	.reward-item:nth-child(2n+1){
+		margin-right: 2%;
+	}
 }
 
 @media ( max-width : 768px) {
@@ -349,6 +361,9 @@ ul li {
 	}
 	.reward-item {
 		width: 100%;
+	}
+	.reward-item:nth-child(2n+1){
+		margin-right: 0%;
 	}
 	.reward-item a {
 		display: flex;

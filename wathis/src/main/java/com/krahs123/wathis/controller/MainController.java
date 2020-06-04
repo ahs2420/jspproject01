@@ -17,6 +17,7 @@ import com.krahs123.wathis.model.SiteConfigVO;
 import com.krahs123.wathis.service.article.ArticleService;
 import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.service.popup.PopupService;
+import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
 
 @Controller
@@ -29,6 +30,8 @@ public class MainController {
 	SiteConfigService siteService;
 	@Autowired
 	ArticleService articleService;
+	@Autowired
+	ProductService proService;
 	final String BASEDIR="/main/";
 	//메인페이지
 	@RequestMapping("")
@@ -39,7 +42,7 @@ public class MainController {
 		List<PopupVO> popupList =popupService .getDisplayList("main");
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
-		
+		List<Map<String,Object>> proList = proService.getProductList("","",0,8);
 		List<ArticleVO> noticeList = articleService.getArticleMainList("notice", 3);
 		List<ArticleVO> newsList = articleService.getArticleMainList("news", 3);
 		
@@ -47,6 +50,7 @@ public class MainController {
 		mav.addObject("footConfig", footConfig);
 		mav.addObject("noticeList", noticeList);
 		mav.addObject("newsList", newsList);
+		mav.addObject("proList", proList);
 		mav.setViewName(BASEDIR+"main");
 		mav.addObject("menuList", menuList);
 		mav.addObject("popupList", popupList);
