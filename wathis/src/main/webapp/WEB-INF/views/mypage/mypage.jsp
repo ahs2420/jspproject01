@@ -90,11 +90,43 @@
                         <a href="#"><i class="fas fa-angle-down"></i>
 
                             <ul class="hide">
-                                <li><a href="/page/mypage-one">기본 요건</a></li>
-                                <li><a href="/page/mypage-two">메이커 정보</a></li>
-                                <li><a href="/page/mypage-three">스토리 작성</a></li>
-                                <li><a href="/page/mypage-four">리워드 설계</a></li>
-                                <li><a href="/page/mypage-five">위험요인 및 정책</a></li>
+                                <li>
+                                	 <a href="/page/mypageOneView?id=${id}">기본 요건</a>
+                                </li>
+                                <li>
+	                                <c:choose>
+			                    		<c:when test="${maker_id > 0}">
+						                    <a href="/page/mypageTwoView?id=${maker_id}">메이커 정보</a>
+			                    		</c:when>
+			                    		<c:otherwise>
+						                    <a href="/page/mypage-two?audit_id=${id}">메이커정보</a>
+	                    				</c:otherwise>
+	                    			</c:choose>
+                              	</li>
+                                <li>
+	                                <c:choose>
+			                    		<c:when test="${product_id > 0}">
+						                    <a href="/page/mypageThreeView?id=${product_id}">스토리 작성</a>
+			                    		</c:when>
+			                    		<c:otherwise>
+						                    <a href="/page/mypage-three?audit_id=${id}">스토리 작성</a>
+			                    		</c:otherwise>
+	                    			</c:choose>
+                               	</li>
+                                <li>
+	                                 <c:choose>
+	                    				<c:when test="${optCount > 0}">
+				                		    <a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">리워드 설계</a>
+	                    				</c:when>
+	                    				<c:when test="${product_id > 0}">
+				            	        	<a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">리워드 설계</a>
+	                    				</c:when>
+	                    				<c:otherwise>
+				                    		<a href="#" onclick="alert('스토리를 먼저 작성해 주세요');"></a>
+	                    				</c:otherwise>
+	                    			</c:choose>
+                                </li>
+                                
                             </ul>
                     </div>
                 </li>
