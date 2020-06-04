@@ -30,44 +30,47 @@
                 </div>
                 <!--작성하기 부분 -->
                 <!--작성 부분 -->
-                <div class="flex-box1 text-padding12">
-                    <div class="readybox-basic">
-                        <div class="fon-wei3 fon-siz14">
-
+                <div class="flex-box1 flex-box-ba5 text-padding12 mar-bo7">
+                    <div class="readybox-basic main-color-dark">
+                        <div class="icon text-ali1 fon-siz14 ">
+                            <i class="fal fa-users"></i>
                         </div>
-                        <div class="my-text">
-                            <h2>펀딩 준비 작성</h2>
-                          <!-- <p>펀딩 진행을 위해 프로젝트 내용을 작성하는 펀딩 준비 작성 단계 입니다.</p> -->
+                        <div class="fon-siz5 ">
+                            <h3>펀딩 준비 작성</h3>
+                            <!-- <p>펀딩 진행을 위해 프로젝트 내용을 작성하는 펀딩 준비 작성 단계 입니다.</p> -->
                         </div>
                     </div>
                     <div class="readybox-basic">
-                        <div class="fon-wei3 fon-siz14">
-
+                        <div class="icon text-ali1 fon-siz14 ">
+                            <i class="far fa-file-alt"></i>
                         </div>
-                        <div class="my-text">
-                            <h2>요건 확인</h2>
+
+                        <div class="fon-siz5 ">
+                            <h3>요건 확인</h3>
                             <!-- <p>펀딩 진행을 위한 기본 요건을 충족하는지, 누락된 사항은 없는 지 등을 확인 하는 단계입니다.</p> -->
                         </div>
                     </div>
                     <div class="readybox-basic">
-                        <div class="fon-wei3 fon-siz14">
-
+                        <div class="icon text-ali1 fon-siz14 ">
+                            <i class="fal fa-comments-alt"></i>
                         </div>
-                        <div class="my-text">
-                            <h2>콘텐츠 확인</h2>
+
+                        <div class="fon-siz5 ">
+                            <h3>콘텐츠 확인</h3>
                             <!-- <p>펀딩 컨텐츠에 대한 검토 및 약점을 체결하는 단계입니다.</p> -->
                         </div>
                     </div>
                     <div class="readybox-basic">
-                        <div class="fon-wei3 fon-siz14">
+                        <div class="icon text-ali1 fon-siz14 ">
                             <i class="fal fa-badge-check"></i>
                         </div>
-                        <div class="my-text">
-                            <h2>펀딩 오픈</h2>
+
+                        <div class="fon-siz5 ">
+                            <h3>펀딩 오픈</h3>
                             <!-- <p>
-                                프로젝트가 최종 승인되어, 펀딩 오픈 대기 중 상태이거나 펀딩 진행 중인 단계입니다.
-                                오픈 예정을 신청한 경우네는 오픈 예정 진행 후 펀딩 오픈 됩니다.
-                            </p> -->
+                                    프로젝트가 최종 승인되어, 펀딩 오픈 대기 중 상태이거나 펀딩 진행 중인 단계입니다.
+                                    오픈 예정을 신청한 경우네는 오픈 예정 진행 후 펀딩 오픈 됩니다.
+                                </p> -->
                         </div>
                     </div>
                 </div>

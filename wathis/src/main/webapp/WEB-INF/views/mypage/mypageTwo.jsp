@@ -3,6 +3,7 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
+<link rel="stylesheet" href="../hongcss/mypage/mypageTwo.css">
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
@@ -69,10 +70,16 @@
                     <div class="mar-bo2 wid4">
                         <label for="projectimg" class="di-la1 mar-top1 fon-wei1">메이커
                             프로필 이미지<span class="fon-co5"> *</span>
-                        </label><br>
+                        </label>
+                        <br>
                         <div class="file-box mar-top3">
                             <label for="file1"><i class="fas fa-camera fon-co9"></i>
-                                등록하기</label> <input type="file" id="file1" name="img_didi">
+                                등록하기
+                            </label> 
+                            <input type="file" id="file1" class="img-file" name="img_didi" data-preview=".mypage-makerimg img" data-file-type="img">
+                        </div>
+                        <div class="mypage-makerimg">
+                            <img class="dis-none" src="" alt="">
                         </div>
                         <p class="fon-siz4 fon-col mar-top5">3MB이하의 JPEG, PNG파일, 사이즈:
                             300X300 픽셀 이상</p>

@@ -267,10 +267,10 @@
                             </div>
                             <div class="text-area">
 
-                                <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100"
-                                    style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
+                                <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100" class="sub_title"
+                                    style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%; padding: 20px;"
                                     placeholder="내용을 입력하세요." value="${productvo.sub_title}" ></textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1">100자 남음</p>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
 
                             </div>
 

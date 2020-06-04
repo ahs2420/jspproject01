@@ -377,7 +377,7 @@ public class MyPageConroller {
 	@RequestMapping("/mypageThree")
 	@ResponseBody
 	public String getpageThree(@ModelAttribute ProductVO provo, 
-								@RequestPart List<MultipartFile> file,
+								@RequestPart List<MultipartFile> img_didi,
 								@RequestPart MultipartFile main_file, 
 								@RequestParam String video_chkTwo) {
 		FileControl fc = new FileControl();
@@ -390,9 +390,9 @@ public class MyPageConroller {
 		if(provo.getVideo_chk()==1) {
 			provo.setImg(video_chkTwo);
 		}else {
-			if( file.size() > 0 ) {
+			if( img_didi.size() > 0 ) {
 				StringBuilder img_file=new StringBuilder();
-				for( MultipartFile threefile:file) {
+				for( MultipartFile threefile:img_didi) {
 					if(!threefile.isEmpty()) {
 						Map<String,Object> fileMap=fc.fileUpload(threefile, "", null);
 						img_file.append(fileMap.get("fileName")+"|");

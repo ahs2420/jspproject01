@@ -86,12 +86,12 @@
                                     리워드가 다른 판매처에서 유통된 적이 있다면 리워드로 제공 할 수 없습니다. <br> 기존에 유통하던
                                     제품/ 서비스에 비해 개선된 점이 있다면 아래에 상세하게 작성해주세요.
                                 </h4>
-                                <div class="text-area">
-                                    <textarea name="circulation_content" id="" cols="30" rows="3" maxlength="500"
-                                        style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 65%;"
-                                        placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다.">${oneModi.circulation_content}</textarea>
-                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" >500자 남음</p>
-                                </div>
+                                  <div class="text-area wid4">
+                                <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
+                                    style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
+                                    placeholder="내용을 입력하세요." class="Preparations_plan"></textarea>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
+                            </div>
 
                             </div>
 

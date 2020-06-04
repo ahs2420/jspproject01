@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
 <!-- fontawesome 코드 -->
-
+<script src="../hongjs/mypage/mypageThree.js"></script>
+<script src="../js/common.js"></script>
 
 <link rel="stylesheet" href="/css/datepicker/daterangepicker.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
@@ -86,9 +87,14 @@
                                 <label for="projectimg2" class="di-la1 mar-top1 fon-wei1 fon-siz2"> 소개 사진</label>
 
                                 <div class="one-text-box2 text-padding4">
-                                    <div class="file-box">
-                                        <label for="file1"><i class="fas fa-camera fon-co11"></i> 등록하기</label>
-                                        <input type="file" name="file" multiple id="file1">
+                                    <div class="file-box mar-top3">
+                                        <label for="file1"><i class="fas fa-camera fon-co9"></i>
+                                            등록하기
+                                        </label> 
+                                        <input type="file" id="file1" class="img-file" name="img_didi" data-preview=".mypage-makerimg img" data-file-type="img">
+                                    </div>
+                                    <div class="mypage-makerimg">
+                                        <img class="dis-none" src="" alt="">
                                     </div>
                                     <p class="fon-siz3 fon-col ">2MB 이하의 JPEG, JPG, GIF, PNG 파일</p>
                                     <p class="fon-siz3 fon-col">사이즈 : 최소 630X400 픽셀 이상</p>
@@ -120,9 +126,9 @@
 						<div class="name-left">
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
 								제목 <span class="fon-co5"> *</span>
-							</label> <input class="wid1 hei1 fon-bor1 text-padding1" name="title" type="text" id="projectname"
-								placeholder="제목 입력">
-							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">40자 남음</p>
+							</label> <input class="wid1 hei1 fon-bor1 text-padding1 text-coun" name="title" type="text" id="projectname"
+								placeholder="프로젝트 제목을 입력하세요">
+                                <p class="fon-siz3 fon-col " id="counter">[ 0 / 최대 40자 ]</p>
 						</div>
 					</div>
 					<div class="ba-guide1">
@@ -267,9 +273,9 @@
                             <div class="text-area">
 
                                 <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100"
-                                    style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
+                                    style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%; padding: 20px"
                                     placeholder="내용을 입력하세요."></textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1">100자 남음</p>
+                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[ 0 자 작성 / 최대 500자]</p>
 
                             </div>
 
@@ -349,7 +355,7 @@
                             </div>
 
                             <div class="text-area">
-                                <textarea id="editor1" name="content" class="ckeditor">
+                                <textarea id="editor1" name="content" class="content ckeditor">
                                     <p>필수 항목이 누락되거나 미비할 경우, 오픈 승인이 어렵습니다. 아래 내용을 꼼꼼히 확인해 주시고, 스토리 필수항목은 프로젝트의 성격에 맞게 자유롭게 배치해주세요.</p><h2>1. 메이커 소개</h2><ul><li>“안녕하세요” 라는 인사와 함께 간단한 자기소개를 넣어주세요. 브랜드/팀명은 무엇이고, 이번 프로젝트에서 어떤 역할을 담당하는 지 소개해보세요.</li><li>메이커님의 얼굴을 확인할 수 있는 실물사진은 필수 항목입니다. 일러스트나 뒷모습, 선글라스 착용 등 얼굴이 가려진 사진은 사용 불가합니다.</li></ul><h2>2. 프로젝트 진행 동기 및 목적</h2><ul><li>와디즈에서 펀딩을 하게 된 동기, 펀딩을 통해 이루고자 하는 목표와 함께, 목표금액은 무엇을 기준으로 설정하셨는 지도 함께 얘기해주세요.</li><li>펀딩 종료 후, 펀딩금액을 어떻게 사용하실 지와 더불어 앞으로의 계획을 알려주세요.</li></ul><p>(TIP) 현재 리워드는 어디까지 완성되었나요? 현재 리워드의 제작 진행 상황과 함께, 펀딩 이후의 계획도 같이 밝혀주시면 신뢰감을 주실 수 있답니다.</p><h2>3. 리워드 소개와 상세정보</h2><ul><li>리워드의 이름은 무엇이고, 어떤 용도로 사용하는 제품/서비스인가요?</li><li>리워드를 직접 보고 펀딩할 수 없으므로 서포터분들이 참고할 수 있는 사진, 영상과 같은 시각 자료를 넣어주세요.</li><li>리워드 품목에 따라 서포터가 꼭 알아야 할 상세 스펙 (특징, 사양, 사용법, 인증서, 주의사항 등)을 빠짐없이 넣어주세요.</li></ul><h2>4. 리워드 리스트</h2><ul><li>리워드 탭에 추가해두신 리워드의 구성과 가격, 명칭 한눈에 들어올 수 있도록 리스트를 넣어주세요. 아래와 같이, 표를 이용해도 좋습니다.</li></ul><table style="width: 100%;"><tbody><tr><td style="width: 25.0000%;">리워드명</td><td style="width: 25.0000%;">구성</td><td style="width: 25.0000%;">가격</td><td style="width: 25.0000%;">가격혜택</td></tr><tr><td style="width: 25.0000%;">[패밀리버드] 와디즈텀블러</td><td style="width: 25.0000%;">와디즈 텀블러*4개, 코스터*4개</td><td style="width: 25.0000%;">35,000원</td><td style="width: 25.0000%;">12%</td></tr><tr><td style="width: 25.0000%;">[커플버드] 와디즈텀블러</td><td style="width: 25.0000%;">와디즈 텀블러*4개, 코스터*4와디즈 텀블러*2개, 코스터*2개</td><td style="width: 25.0000%;">20,000원</td><td style="width: 25.0000%;">10%</td></tr><tr><td style="width: 25.0000%;">[솔로버드] 와디즈텀블러</td><td style="width: 25.0000%;">와디즈 텀블러*1개</td><td style="width: 25.0000%;">10,000원</td><td style="width: 25.0000%;">8%</td></tr></tbody></table><h2>5. 프로젝트 일정</h2><p>아이디어가 처음 나온 날, 샘플을 처음 제작한 날 등 프로젝트를 처음 준비하기 시작한 시점부터 적어주세요. 프로젝트 시작/마감일, 리워드 발송일은 물론, 향후 일정까지 포함해주세요.</p><ul><li>아이디어 구상시점 : Ο월 Ο일&nbsp;</li><li>와디즈 펀딩 시작일 : 현재&nbsp;</li><li>와디즈 펀딩 마감일 : Ο월 Ο일&nbsp;</li><li>리워드 제작 시작일 : Ο월 Ο일</li><li>리워드 발송 시작일 : Ο월 Ο일</li></ul><h2>6. 리워드&nbsp;발송&nbsp;안내</h2><p>리워드&nbsp;발송&nbsp;방법,&nbsp;순차&nbsp;발송인&nbsp;경우&nbsp;1일&nbsp;최대&nbsp;발송&nbsp;수량,&nbsp;리워드&nbsp;발송&nbsp;관련&nbsp;메이커&nbsp;연락처,&nbsp;도서/산간&nbsp;지역에&nbsp;대한&nbsp;발송&nbsp;방침을&nbsp;알려주세요.</p><ul><li>발송 방법 : §택배,&nbsp;직접&nbsp;전달,&nbsp;SMS,&nbsp;우편,&nbsp;등기&nbsp;등§</li><li>발송 택배사 : 이용하시는&nbsp;택배사명</li><li>발송 일정 : Ο월 Ο일 ~ Ο월 Ο일 (1일 최대 ΟΟ개씩 순차 발송)</li><li>도서/산간지역 발송 안내 : §추가&nbsp;배송비&nbsp;및&nbsp;배송비&nbsp;추가&nbsp;방법&nbsp;기재§</li><li>문의 채널 : §카카오채널 @ΟΟΟ, 메이커에게 문의하기, 메일, 연락처 등§</li><li>수령 후 보관 시 유의사항 :</li></ul><h2>7. 리워드&nbsp;특이사항과&nbsp;A/S 정책</h2><p>서포터분들이 리워드의 하자나 불량으로 착각할 수 있는 경우에 무엇이 있는지 구체적으로 작성해주세요. 또한, 리워드 초기 하자(수령 후 7일 이내에 발생)가 아니라, 서포터 사용 중 발생하는 하자를 어떻게 처리할 것인지에 대한 정책을 구체적으로 작성해주세요. <u>굵게 표시되어있는 내용은 변경하지 마시고, 메이커님의 리워드 특성에 맞게 작성해야 하는 부분만 변경해주시면 됩니다.&nbsp;</u></p><p><strong>펀딩 종료 후 와디즈 펀딩금 반환 정책에 따라 리워드에 하자가 있을 경우 펀딩금 반환 신청을 할 수 있습니다. 자세한 정책 내용은 &lt;펀딩 안내&gt; 탭을 클릭해서 확인해주세요.&nbsp;</strong></p><h3>1) 리워드 하자가 아닌 경우</h3><p><strong>리워드의 특성상, 아래의 항목들이 발생할 수 있으며 이는 리워드의 하자/불량이 아닙니다. 펀딩 시 이 점을 유의해주세요.&nbsp;</strong></p><ul><li>겉면의 하얀 가루는 당분이 농축된 것으로, 리워드의 이상이 아니며 드셔도 괜찮습니다.&nbsp;</li><li>파일 양말의 특성 상, 실이 튀어나오거나 줄이 간 것처럼 보일 수 있습니다.&nbsp;</li><li>양가죽의 특성 상, 주름 혹은 미세한 스크래치가 있을 수 있습니다.&nbsp;</li><li>통주물 공법 과정에서 표면에 좁쌀보다 작은 크기의 기포자국이 생길 수 있습니다.&nbsp;</li></ul><h3>2) 리워드 A/S 정책</h3><p><strong>리워드 수령으로부터<u>&nbsp;7일 이내에 발생한 초기 하자</u>에 대해서는 본 A/S정책이 적용되지 않습니다.&nbsp;</strong></p><ul><li><strong>보증 기간</strong> : 리워드 수령일로부터 Ο년</li><li><strong>A/S 규정</strong> : 수령 후 초기하자가 아닌, <u>사용 중 발생한 하자</u>에 대하여 1:1 교체</li><li><strong>A/S가 불가한 경우</strong> : 보증기간 이내일지라도, 사용자의 고의 또는 과실로 인하여 수리 및 재생이 불가능한 경우</li><li><strong>A/S 접수 방법</strong> : 아래 접수처를 통해 구체적인 하자 내용과 함께 접수해주시면, 정확한 소명 후 처리됩니다.&nbsp;</li><li><strong>&nbsp;A/S 접수처</strong> : §카카오채널 @ΟΟΟ, 메이커에게 문의하기, 메일, 연락처 등§&nbsp;</li></ul><h2>8. FAQ</h2><p>메이커님의 프로젝트만의 강점을 한 번 더 강조해 주시거나 서포터가 궁금해 할만한 내용을 적어주세요.</p><p>Q. 펀딩과 쇼핑은 무엇이 다른가요?&nbsp;</p><p>Q. 프로젝트의 후원금은 어떻게 사용하실 계획인가요?&nbsp;</p><p>Q. 리워드의 가장 큰 강점은 무엇인가요?&nbsp;</p><p>Q. 해당 프로젝트에 펀딩 시, 서포터가 꼭 알아야 하는 점이 있나요?</p><p><br></p>
                                 </textarea>
                                 <script>
