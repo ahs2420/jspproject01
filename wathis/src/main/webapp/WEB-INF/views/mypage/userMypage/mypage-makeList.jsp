@@ -42,7 +42,7 @@
 	                                </c:choose>
                                 </h3>
                                 <!--상품분류 | 메이커이름-->
-                                <p class="catogory mb20 gray">
+                                <p class="catogory mb20 gray text-max-line line1">
                                 	<c:if test="${myList.category_name != null && myList.category_name ne ''}">
 	                                		${myList.category_name} | 
                                 	</c:if>
