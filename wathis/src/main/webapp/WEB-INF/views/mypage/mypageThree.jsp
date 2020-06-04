@@ -91,7 +91,7 @@
                                         <label for="file1"><i class="fas fa-camera fon-co9"></i>
                                             등록하기
                                         </label> 
-                                        <input type="file" id="file1" class="img-file" name="img_didi" data-preview=".mypage-makerimg img" data-file-type="img">
+                                        <input type="file" multiple id="file1" class="img-file" name="img_didi" data-preview=".mypage-makerimg img" data-file-type="img">
                                     </div>
                                     <div class="mypage-makerimg">
                                         <img class="dis-none" src="" alt="">
