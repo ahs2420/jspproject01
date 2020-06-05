@@ -37,6 +37,22 @@
 				
 		WHERE uid = #{uid} AND upassword = #{upassword}
 	</select>
+	
+<!-- 	회원정보 수정 -->
+<!-- 	아이디 수정 -->
+	<update id="updateNameMember">
+		UPDATE tb_member SET uid= #{uid} WHERE id = #{id}
+	</update>
+
+
+
+<!-- 여기까지 연습함 -->
+	<select id="getIdPwdChk" resultType="int">
+		SELECT 
+				count(id)
+		FROM tb_member
+		WHERE uid = #{uid} AND upassword = #{upassword}
+	</select>
 	<select id="getMemberCount" resultType="int">
 		SELECT 
 			count(id)

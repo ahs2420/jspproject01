@@ -101,4 +101,20 @@ public class MemberDAOImpl implements MemberDAO{
 		map.put("upassword", upassword);
 		return sql.insert(namespace+".updatePwdMember",map);
 	}
+	@Override
+	public int getIdPwdChk(String uid, String upassword) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("uid", uid);
+		map.put("upassword", upassword);
+		return sql.selectOne(namespace+".getIdPwdChk",map);
+	}
+	
+	//회원아이디 중복체크
+	@Override
+	public int updateNameMember(int uid) {
+		
+		return sql.selectOne(namespace + ".updateNameMember", uid);
+	}
+	
 }

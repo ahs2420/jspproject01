@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.HttpSession;
 import javax.validation.constraints.Min;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import com.krahs123.wathis.model.MemberVO;
 import com.krahs123.wathis.service.member.MemberService;
 import com.krahs123.wathis.util.AES256;
 import com.krahs123.wathis.util.FileControl;
+import com.krahs123.wathis.util.ShaEncrypt;
 
 @Controller
 @RequestMapping("/users")
@@ -196,5 +198,47 @@ public class MemberController {
 		mav.addObject("mvoList",mvoList);
 		return mav;
 	}
+	//회원 비밀번호 수정
+	@RequestMapping("/modifyUserPWD")
+	@ResponseBody
+	public String modifyUserPWD(HttpSession session,@RequestParam String orgPasswd,@RequestParam String passwd) {
+		StringBuilder sb = new StringBuilder();
+		String msg = "회원정보를 찾을수 없습니다.";
+		String url = "/page/userMypage?template=setting";
+		
+		int result = memberService.getIdPwdChk(session.getValue("uid").toString(), ShaEncrypt.sha256(orgPasswd));
+		if(result>0) {
+			int update = memberService.updatePwdMember(Integer.parseInt(session.getValue("id").toString()), ShaEncrypt.sha256(passwd));
+			msg="정보가 수정 되었습니다.";
+		}
+		sb.append("<script>");
+		sb.append("alert('"+msg+"');");
+		sb.append("location.replace('"+url+"');");
+		sb.append("</script>");
+		return sb.toString();
+	}
+	
+	//회원 이름 수정
+	
+//	@RequestMapping("/modifyUserName")
+//	@ResponseBody
+//	public String modifyUserName(HttpSession session,@RequestParam int id,@RequestParam String uid) {
+//		StringBuilder sb = new StringBuilder();
+//		String msg = "회원 이름이 수정 되었습니다.";
+//		String url = "/page/userMypage?template=setting";
+//		
+////		int result = memberService.updateNameMember(uid);
+//		if(result>0) {
+//			
+//			msg="정보가 수정 되었습니다.";
+//		}
+//		sb.append("<script>");
+//		sb.append("alert('"+msg+"');");
+//		sb.append("location.replace('"+url+"');");
+//		sb.append("</script>");
+//		return sb.toString();
+//	}
+	
+	
 	
 }

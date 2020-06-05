@@ -33,9 +33,9 @@ public class ProductServiceImpl implements ProductService{
 	}
 	//수정 부분
 	@Override
-	public int updateIPro(ProductVO provo) {
+	public int updatePro(ProductVO provo) {
 		// TODO Auto-generated method stub
-		return productDAO.updateIPro(provo);
+		return productDAO.updatePro(provo);
 	}
 	@Override
 	public ProductVO getProductDetail(int id) {
@@ -57,6 +57,6 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productDAO.getProductCount(category_id, words);
 	}
-	
+
 	
 }

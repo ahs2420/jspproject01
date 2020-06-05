@@ -89,12 +89,10 @@
 
                                 <div class="one-text-box2 text-padding4">
                                     <div class="file-box mar-top3">
-                                        <label for="file1"><i class="fas fa-camera fon-co9"></i>
-                                            등록하기
-                                        </label> 
-                                        <input type="file" multiple id="file1" class="img-file" name="img_didi" data-preview=".mypage-makerimg img" data-file-type="img">
+                                        <label for="file1"><i class="fas fa-camera fon-co9"></i>등록하기</label> 
+                                        <input type="file" multiple id="file1" class="img-file" name="img_didi" data-preview=".mypageIntro-makerimg img" data-file-type="img">
                                     </div>
-                                    <div class="mypage-makerimg">
+                                    <div class="mypageIntro-makerimg">
                                         <img class="dis-none" src="" alt="">
                                     </div>
                                     <p class="fon-siz3 fon-col ">2MB 이하의 JPEG, JPG, GIF, PNG 파일</p>
@@ -159,7 +157,7 @@
 								<input class="wid1 hei1 fon-bor1 text-padding1" name="price" type="text" id="projectprice"
 									placeholder="목표 금액 입력">
 							</div>
-							<div class="paybox hei1 box-back13 wid8  fon-co11 text-padding2">
+							<div class="paybox hei1 box-back13 wid16  fon-co11 text-padding2">
 								<h4 class="mar-left3">원</h4>
 							</div>
 						</div>
@@ -186,8 +184,13 @@
 						<!-- <input class="" type="file" id="projectimg"> -->
 						<div class="file-box">
 							<label for="file2" class="fon-co9">등록하기</label>
-							<input type="file" name="main_file" id="file2">
+							<input type="file" name="main_file" id="file2" class="img-file" name="img_didi" data-preview=".mypageMain-makerimg img" data-file-type="img">
 						</div>
+						<div class="mypageMain-makerimg">
+                             <img class="dis-none" src="" alt="">
+                     	</div>
+
+
 
 						<p class="fon-siz4 fon-co7 fon-wei1 mar-top1">3MB 이하의 JPEG,PNG
 							파일</p>
@@ -207,7 +210,7 @@
 					</div>
 				</div>
                 <!-- 4번 -->
-				<div class="flex-basic2 ba-pro-day ">
+				<div class="flex-basic2 ba-pro-day">
 					<div class="wid4 mar-top3">
 						<label for="project-ka" class="di-ia1 mar-bo6 fon-wei1">카테고리
 							선택<span class="fon-co5"> *</span>

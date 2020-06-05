@@ -43,9 +43,9 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	//수정 부분
 	@Override
-	public int updateIPro(ProductVO provo) {
+	public int updatePro(ProductVO provo) {
 	
-		return sql.update(namespace + ".updateItem", provo);
+		return sql.update(namespace + ".updatePro", provo);
 	}
 
 	@Override

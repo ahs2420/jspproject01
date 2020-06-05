@@ -11,11 +11,11 @@ $(function(){
         }
     });
 
-    //이미지 미리 보기
-    $(".img-file").change(function(){
-        imgPreview(this);
-        $($(this).data("preview")).removeClass("dis-none");
-    });
+    // //이미지 미리 보기
+    // $(".img-file").change(function(){
+    //     imgPreview(this);
+    //     $($(this).data("preview")).removeClass("dis-none");
+    // });
 
 });
 //프로젝트 요약 글자 카운팅
@@ -33,6 +33,18 @@ $(function(){
 });
 
 
+
+//
+$(function(){
+    //소개 이미지 미리 보기
+    $(".img-file").change(function(){
+        imgPreview(this);
+        $($(this).data("preview")).removeClass("dis-none");
+    });
+    
+});
+
+
 //이미지 미리보기
 function imgPreview(opt) {
     var preview = $(opt).data("preview");
@@ -47,3 +59,24 @@ function imgPreview(opt) {
      }
 }
 
+
+//대표 이미지 등록
+$(function(){
+ //이미지 미리 보기
+        $(".img-file").change(function(){
+        imgPreview(this);
+        $($(this).data("preview")).removeClass("dis-none");
+    });
+});
+function imgPreview(opt) {
+    var preview = $(opt).data("preview");
+    if (opt.files && opt.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $(preview).attr('src', e.target.result);  
+        }
+        
+        reader.readAsDataURL(opt.files[0]);
+     }
+}

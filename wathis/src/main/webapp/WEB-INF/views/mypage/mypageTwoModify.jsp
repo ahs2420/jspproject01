@@ -5,6 +5,7 @@
 <%@include file="../hong-include/head.jspf"%>
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../hongcss/mypage/common.css">
+<link rel="stylesheet" href="../hongcss/mypage/mypageThree.css">
 <!-- fontawesome 코드 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 <script src="https://kit.fontawesome.com/8838b56230.js" crossorigin="anonymous"></script>
@@ -75,13 +76,17 @@
                             프로필 이미지<span class="fon-co5"> *</span>
                         </label><br>
                         <div class="file-box mar-top3">
-                            <label for="file1"><i class="fas fa-camera fon-co9"></i>
-                                등록하기</label> <input type="file" id="file1" name="file1">
+                            <label for="file1"><i class="fas fa-camera fon-co9"></i>등록하기</label> 
+                            <input type="file" id="file1" name="file1" class="img-file" name="img_didi" data-preview=".mypage-makerimg img" data-file-type="img">
                         </div>
                         <p class="fon-siz4 fon-col mar-top5">3MB이하의 JPEG, PNG파일, 사이즈:
                             300X300 픽셀 이상</p>
-							<img src = "${makervo.marker_img }">
-
+                            <div class="mypage-makerimg">
+							    <img src = "${makervo.marker_img }">
+                            </div>
+                            <div class="mypage-makerimg">
+                                <img class="dis-none" src="" alt="">
+                            </div>
                     </div>
                     <div class="ba-guide1 ba-pro-name">
                         <div class=" text-padding3 box-li1 box-back1">
@@ -265,8 +270,9 @@
                                 명의의 계좌 사본을 첨부하세요.</p>
                             <p class="fon-siz3 fon-col mar-top5">jpg, jpeg, png, pdf /
                                 10MB 이하 파일 1개만 업로드 가능합니다.</p>
-							<img src = "${makervo.bankbook_img }">
-
+                            <div class="mypag-Bank">
+							    <img src = "${makervo.bankbook_img }">
+                            </div>
                         </div>
                         <div class="ba-guide2">
                             <div class=" text-padding3 box-li1 box-back1">

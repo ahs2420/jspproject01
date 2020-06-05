@@ -30,9 +30,12 @@ import com.krahs123.wathis.config.DbStatus;
 import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MakerInfoVO;
+import com.krahs123.wathis.model.MemberVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.ProductVO;
 import com.krahs123.wathis.service.category.CategoryService;
+import com.krahs123.wathis.service.member.MemberAddrService;
+import com.krahs123.wathis.service.member.MemberService;
 import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.service.popup.PopupService;
 import com.krahs123.wathis.service.product.AuditService;
@@ -40,6 +43,7 @@ import com.krahs123.wathis.service.product.MakerInfoService;
 import com.krahs123.wathis.service.product.ProductOptionService;
 import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
+import com.krahs123.wathis.util.AES256;
 import com.krahs123.wathis.util.FileControl;
 
 @Controller
@@ -55,9 +59,14 @@ public class MyPageConroller {
 	@Autowired CategoryService cateSer;
 
 	@Autowired ProductService proSer;
-	
-	@Autowired ProductOptionService proOptSer;
 
+	@Autowired ProductOptionService proOptSer;
+	
+	@Autowired MemberService memService;
+
+	
+	@Autowired MemberAddrService memAddService;
+	
 	@Autowired
 	MenuService menuService;
 	@Autowired
@@ -91,6 +100,7 @@ public class MyPageConroller {
 		int maker_id = makerSer.getMakerID(id);
 		int product_id = proSer.getProductId(id);
 		int optCount = proOptSer.getProIdCount(product_id);
+		
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "modify");
 		mav.addObject("id", id);
@@ -135,17 +145,15 @@ public class MyPageConroller {
 	
 //	 기본요건부분 수정 부분
 		@RequestMapping("/mypageOneModify")
-		public ModelAndView getList(@ModelAttribute AuditVO auvo , @RequestParam String member_id){
+		public ModelAndView getList(@ModelAttribute AuditVO auvo ){
 			
 			int result = auditService.updateItem(auvo);
-			
-			List<Map<String, Object>> auditVO = auditService.getAuditMyList(member_id);
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("id", auvo.getId());
 				mav.addObject("template", "Reward");
 				mav.addObject("mypage", "oneModi");
-				mav.addObject("auditVO", auditVO);
-				
+				mav.addObject("id", auvo.getId());
+			
 				mav.setViewName("redirect:/page/mypageListModify");
 				return mav;
 		}
@@ -317,7 +325,9 @@ public class MyPageConroller {
 		@RequestMapping("/mypageTwoView")
 		@ResponseBody
 		public ModelAndView getmypageTwoView(@RequestParam int id){
+			
 			MakerInfoVO makervo = makerSer.getMarkerList(id);
+			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "twoModi");
@@ -436,11 +446,12 @@ public class MyPageConroller {
 		
 	}
 	
-	//스토리 작성 보여지는 부분
+		//스토리 작성 보여지는 부분
 		@RequestMapping("/mypageThreeView")
-		public ModelAndView MypageThreeView(@RequestParam int id ){
+		public ModelAndView MypageThreeView(@RequestParam int id){
 
 			ProductVO productvo = proSer.getProductDetail(id);
+			
 			List<CategoryVO> cate = cateSer.getCateList();
 			
 			ModelAndView mav = new ModelAndView();
@@ -448,6 +459,8 @@ public class MyPageConroller {
 			mav.addObject("mypage", "threeModi");
 			mav.addObject("cate", cate);
 			mav.addObject("productvo",productvo);
+
+			
 			mav.addObject("audit_id",productvo.getAudit_id());
 			mav.addObject("productStatus", DbStatus.productStatus);
 			
@@ -484,12 +497,13 @@ public class MyPageConroller {
 					provo.setImg(img_file.toString());
 				}
 			}
-			int result = proSer.updateIPro(provo);
+			int result = proSer.updatePro(provo);
 			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "information");
 			mav.addObject("id", provo.getAudit_id());
+			mav.addObject("result", result);
 				
 			
 			mav.setViewName("redirect:/page/mypageListModify");
@@ -518,17 +532,17 @@ public class MyPageConroller {
 		}
 
 
-	@RequestMapping("/mypage-five")
-	public ModelAndView viewMypageFive(){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("template", "Reward");
-		mav.addObject("mypage", "riskFactors");
+//	@RequestMapping("/mypage-five")
+//	public ModelAndView viewMypageFive(){
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("template", "Reward");
+//		mav.addObject("mypage", "riskFactors");
+//		
+//		mav.setViewName(DIR+"mypage");
+//		
+//		return mav;
 		
-		mav.setViewName(DIR+"mypage");
-		
-		return mav;
-		
-	}
+//	}
 	@RequestMapping("/submitAudit")
 	public ModelAndView submitAudit(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
@@ -541,13 +555,48 @@ public class MyPageConroller {
 		
 		return mav;
 	}
-	
+
 	//회원 마이페이지
 	@RequestMapping("/userMypage")
 	public ModelAndView viewSettings(@RequestParam(defaultValue = "setting") String template,@RequestParam(defaultValue = "list") String page){
 		ModelAndView mav = new ModelAndView();
+		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		
+
+		mav.addObject("menuList", menuList);
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
 		mav.addObject("template",template);
 		mav.addObject("page",page);
+		mav.setViewName(DIR+"userMypage");
+		return mav;
+	}
+	//회원 마이페이지
+	@RequestMapping("/userSetting")
+	public ModelAndView userSetting(
+			@RequestParam(defaultValue = "setting") String template,
+			@RequestParam(defaultValue = "list") String page,
+			HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		MemberVO mvo = memService.getMemberDetail(Integer.parseInt(session.getValue("id").toString()));
+		
+		AES256 aes = new AES256();
+		try {
+			mvo.setUtel(aes.decrypt(mvo.getUtel()));
+		}catch(Exception e){
+			
+		}
+		mav.addObject("menuList", menuList);
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
+		mav.addObject("template",template);
+		mav.addObject("page",page);
+		mav.addObject("mvo",mvo);
 		mav.setViewName(DIR+"userMypage");
 		return mav;
 	}

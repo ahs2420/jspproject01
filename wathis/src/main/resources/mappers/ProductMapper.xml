@@ -137,7 +137,7 @@
 		keyword=#{keyword}
 	</insert>
 	
-	<update id="updateIPro">
+	<update id="updatePro">
 		update tb_product SET
 			category_id=#{category_id},
 			title=#{title},

@@ -20,6 +20,7 @@ $(function(){
         }
     });
 });
+//keyup 마지막에 손을 땔때 체크 한다. 한번 더 찾아 보기
 $(function(){
     $("[name=passwd]").keyup(function(){
         confirmPwd();
@@ -32,13 +33,13 @@ $(function(){
 $(function(){
     $("form[name=passwdChangeForm]").submit(function(){
         var bReturn=chkItem($(this),true);
-        return false;
+        return bReturn;
     });
 });
 $(function(){
     $("form[name=baseInfoForm]").submit(function(){
         var bReturn=chkItem($(this));
-        return false;
+        return bReturn;
     });
 });
 function confirmPwd(){
@@ -47,5 +48,7 @@ function confirmPwd(){
     var $pwdChk=$("[name=passwdChk]");
     if($pwd.val()!=$pwdChk.val()){
         $target.html("비밀번호가 일치하지 않습니다.");
+    }else{
+    	$target.html("비밀번호가 일치 합니다.");
     }
 }

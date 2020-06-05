@@ -212,11 +212,18 @@
                             </div>
 
                         </li>
-                        <li class="cu-poin"><img src="/hongimages/images/whdiz1.jpg" alt=""></li>
-                        <li class="cu-poin"><img src="/hongimages/images/whdiz2.jpg" alt=""></li>
-                        <li class="cu-poin"><img src="/hongimages/images/whdiz3.jpg" alt=""></li>
-                        <li class="cu-poin"><img src="/hongimages/images/whdiz4.jpg" alt=""></li>
-
+                     	<li class="cu-poin">
+                            <a href="https://www.youtube.com/playlist?list=PLCMVZ3bQZw9_lLA5pITFc09f_9EdJgmau&_refer_section_st=RA1_0"><img src="/hongimages/images/whdiz1.jpg" alt=""></a>
+                        </li>
+                        <li class="cu-poin">
+                            <a href="https://www.wadiz.kr/web/wboard/newsBoardDetail/7250?utm_source=rwm_makerstudio&utm_medium=display&_refer_section_st=RA1_1"><img src="/hongimages/images/whdiz2.jpg" alt=""></a>
+                        </li>
+                        <li class="cu-poin">
+                            <a href="https://www.fundingmate.wadiz.kr/?isWadizApp=N"><img src="/hongimages/images/whdiz3.jpg" alt=""></a>
+                        </li>
+                        <li class="cu-poin">
+                            <a href="notion.so/46641abbd7b2464087e78f6ba16ef498?_refer_section_st=RA1_3"><img src="/hongimages/images/whdiz4.jpg" alt=""></a>
+                        </li>
                     </ul> 
                 </div>
 

@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <section>
     <div class="container max600" id="term-box">
-        <form name="baseInfoForm" action="" enctype="multipart/form-data">
+        <form name="baseInfoForm" action="/users/modifyUserName" method ="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="${sessionScope.id}"/>
             <div class="pb20  border-bottom">
                 <h1 class="large-title bold">기본 정보 설정</h1>
             </div>
@@ -15,15 +16,15 @@
             </div>
             <div class="mt20">
                 <p class="bold mb5">이름</p>
-                <input type="text" class="input-stan w-100p" />
+                <input type="text" name="uname" value="${mvo.uname}" class="input-stan w-100p" />
             </div>
             <div class="mt10">
                 <p class="bold mb5">전화번호</p>
-                <input type="text" class="input-stan w-100p" />
+                <input type="text" name="utel" value="${mvo.utel}" class="input-stan w-100p" />
             </div>
             <div class="mt10">
                 <p class="bold mb5">이메일</p>
-                <input type="text" class="input-stan w-100p" />
+                <input type="text" name="uemail" value="${mvo.uemail}" class="input-stan w-100p" />
             </div>
             <div class="flex-box flex-j-space flex-a-center mt10">
                 <p class="bold mb5">주소</p>
@@ -33,7 +34,7 @@
                 <p class="tiny-content mb5 dis-none" id="dis-post"></p>
                 <input type="text" class="input-stan chkitem" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="postcode" placeholder="우편번호" readonly />
                 <input type="text" class="input-stan mt10 w-100p chkitem" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="address" placeholder="주소" readonly />
-                <input type="text" class="input-stan mt10 w-100p chkitem" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="extraAddress" placeholder="참고항목" readonly />
+                <input type="text" class="input-stan mt10 w-100p" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="extraAddress" placeholder="참고항목" readonly />
                 <input type="text"  class="input-stan mt10 w-100p chkitem" data-error="상세주소를" id="detailAddress" placeholder="상세주소" />
             </div>
             <div class="txt-center mt10">
@@ -41,7 +42,7 @@
             </div>
         
         </form>
-        <form name="passwdChangeForm">
+        <form name="passwdChangeForm" action="/users/modifyUserPWD" method="post">
             <div class="pb20  border-bottom">
                 <h1 class="large-title bold">비밀번호 변경</h1>
             </div>

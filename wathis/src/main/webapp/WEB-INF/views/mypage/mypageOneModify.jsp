@@ -323,20 +323,20 @@
             </div>
         </div>
         <!-- 7번 -->
-        <div class="ba-pro-name mar-bo2 wid4 flex-basic2">
+        <div class="ba-pro-name mar-bo2 wid4 flex-box1">
             <div class="box-text-one wid4">
                 <p class="fon-siz2">
                     위험요인 및 정책에서 작성하는 정보들은 <a href="#" class="fon-co4">프로젝트 상세 페이지 내 펀딩안내 탭</a>에 노출됩니다.
                     어떻게 보여지는지 궁금하신가요?</p>
             </div>
-            <div class="box-text-one">
-                <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
-                    펀딩안내 미리보기</button>
+            <div class="box-text-one text-padding2">
+                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
+                    펀딩안내 미리보기</a>
             </div>
         </div>
         <!-- 8번 disabled 사용하면 체크하고 나서 체크 안됨-->
         <div class="end-radio">
-            <input class="end-box" name="policy_agreement" type="radio" id="end-radio" value="1"  <c:if test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
+            <input class="end-box" name="policy_agreement" type="checkbox" id="end-radio" value="1"  <c:if test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
 
             <label for="end-radio">
                 <span class="fon-siz1 fon-co3 text-padding2">

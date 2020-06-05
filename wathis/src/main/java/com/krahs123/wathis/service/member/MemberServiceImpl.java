@@ -96,4 +96,19 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return memberdao.updatePwdMember(id, upassword);
 	}
+
+	@Override
+	public int getIdPwdChk(String uid, String upassword) {
+		// TODO Auto-generated method stub
+		return memberdao.getIdPwdChk(uid, upassword);
+	}
+
+	//화원수정 아이디 중복 체크
+		
+	@Override
+	public int updateNameMember(int uid) {
+	
+		return memberdao.updateNameMember(uid);
+	}
+	//-----------------------------------------
 }

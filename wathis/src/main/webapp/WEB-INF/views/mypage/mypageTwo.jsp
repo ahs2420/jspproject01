@@ -276,9 +276,13 @@
                                 사본 <span class="fon-co5"> *</span>
                             </label><br>
                             <div class="file-box mar-top4">
-                                <label for="file2"><i class="fas fa-file-upload fon-co9"></i>
-                                    업로드</label> <input type="file" id="file2" name="bank_img">
+                                <label for="file2"><i class="fas fa-file-upload fon-co9"></i>업로드</label>
+                                <input type="file" id="file2" name="bank_img" class="img-file" name="img_didi" data-preview=".mypageBank-makerimg img" data-file-type="img">
                             </div>
+                            <div class="mypageBank-makerimg">
+                            	<img class="dis-none" src="" alt="">
+                       		</div>
+                            
                             <p class="fon-siz3 fon-col mar-top5">펀딩 성공 시 펀딩 금액을 수령할 법인
                                 명의의 계좌 사본을 첨부하세요.</p>
                             <p class="fon-siz3 fon-col mar-top5">jpg, jpeg, png, pdf /

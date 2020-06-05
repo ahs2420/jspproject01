@@ -327,6 +327,7 @@ border-radius: 3px;
 .wid7 { width: 8%;}
 .wid8 { width: 7%;}
 .wid9 { width: 5%;}
+.wid10 { width: 150px;}
 /* .wid6 { width: 1000px;} */
 
 /* 세로 값 */
@@ -555,4 +556,17 @@ text-align: center;
     clip:rect(0,0,0,0); 
     border: 0; 
     display: none;
+}
+
+.end-radio .end-box{
+    
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+
+}
+
+.box-text-one a{
+    padding: 10px;
+    line-height: 15px;
 }

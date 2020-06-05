@@ -33,6 +33,12 @@ public interface MemberService {
 	public int getMemberFindPWD(String uid,String uemail);
 	//비밀번호 수정
 	public int updatePwdMember(int id,String upassword);
-
+	//회원 아이디 확인
+	public int getIdPwdChk(String uid,String upassword);
+	
+	//화원수정 아이디 중복 체크
+	public int updateNameMember(int uid);
+		
+	//-----------------------------------------
 
 }

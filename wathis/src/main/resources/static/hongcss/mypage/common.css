@@ -318,13 +318,7 @@ textarea{
     
     vertical-align: middle;
 }
-.end-radio .end-box{
-    
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
 
-}
 
 .fl-sp{
     flex-basis: 50%;
@@ -336,6 +330,7 @@ textarea{
 .flex-box-ba3{flex-basis:55%;}
 .flex-box-ba4{flex-basis:20%;}
 .flex-box-ba5{flex-basis:30%;}
+.flex-box-ba6{flex-basis:40%;}
 
 
 .ba-guide1,.ba-guide2,
@@ -413,7 +408,7 @@ textarea{
 .box-li1{line-height: 1.33;}
 .box-li2{line-height: 50px;}
 .box-li3{line-height: .33;}
-.box-li4{line-height: 1.33;}
+.box-li4{line-height: 22px;}
 .box-li5{line-height: 1.33;}
 
 /* border-radius 부분 */
@@ -498,6 +493,8 @@ textarea{
 .text-padding10{ padding:0 16px}
 .text-padding11{ padding:20px}
 .text-padding12{ padding:0 50px}
+.text-padding13{ padding:3px}
+.text-padding12{ padding:0 50px}
 
 .mar-top1 { margin-top: 30px;}
 .mar-top2 { margin-top: 20px;}
@@ -536,6 +533,9 @@ textarea{
 .wid12 { width: 15%;}
 .wid13 { width: 60%;}
 .wid14 { width: 50%;}
+.wid15 { width: 340px;}
+.wid16 { width: 7%;}
+
 /* .wid6 { width: 1000px;} */
 
 .hei1 { height: 48px;}
@@ -546,10 +546,10 @@ textarea{
 .hei6 { height: 30px;}
 .hei7 { height: 45%;}
 .hei8 { height: 30%;}
+.hei9 { height: 316px;}
 
 .cu-poin{ cursor: pointer;}
 /* 저장 버튼 */
-
 
 .btn-save{
     width: 65%;

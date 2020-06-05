@@ -142,7 +142,7 @@
                     </div>
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 box-li3  tex-al2 ">상세설명</h4>
-                        <textarea name="description" id="" cols="30" rows="3" maxlength="100"
+                        <textarea name="description" id="" cols="30" rows="3" maxlength="500"
                             style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 60%; padding: 16px;"
                             placeholder="제공하는 리워드가 무엇인지 간략하게 입력해 주세요."></textarea>
                     </div>
@@ -157,7 +157,7 @@
                             </select>
 
                             <span class="di-in1 fon-siz3 fon-wei1">옵션설정</span>
-                            <textarea name="option_kind" id="" cols="30" rows="3" maxlength="100"
+                            <textarea name="option_kind" id="" cols="30" rows="3" maxlength="500"
                                 style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 100%; padding: 16px;"
                                 placeholder="옵션 값을 입력하세요 옵션 값은 엔터로 구분 됩니다.ex) 블랙: 230mm , 화이트 : 240mm"></textarea>
 
@@ -256,7 +256,7 @@
                     </div>
                     <div class="edit-pay flex-box1 mar-bo7">
                         <h4 class="flex-box-ba1 box-li3  tex-al2 ">상세설명</h4>
-                        <textarea name="description" id="" cols="30" rows="3" maxlength="100"
+                        <textarea name="description" id="" cols="30" rows="3" maxlength="500"
                             style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 60%; padding: 16px;"
                             placeholder="제공하는 리워드가 무엇인지 간략하게 입력해 주세요."></textarea>
                     </div>
@@ -271,7 +271,7 @@
                             </select>
 
                             <span class="di-in1 fon-siz3 fon-wei1">옵션설정</span>
-                            <textarea name="option_kind" id="" cols="30" rows="3" maxlength="100"
+                            <textarea name="option_kind" id="" cols="30" rows="3" maxlength="500"
                                 style="margin-top: 0px; margin-bottom: 0px; height: 100px; width: 100%; padding: 16px;"
                                 placeholder="옵션 값을 입력하세요 옵션 값은 엔터로 구분 됩니다.ex) 블랙: 230mm , 화이트 : 240mm"></textarea>
 
@@ -516,11 +516,11 @@
 			for(var option of ajaxResult.data.optionList){
                 delivery=(option.delevery_chk==0)?"해당없음":option.delevery_price+"원";
 				addItem+='\
-				<div class="name-left bor-box1 fon-bor2 text-padding5 wid11 box-sh hei7">\
+				<div class="name-left bor-box1 fon-bor2 text-padding5 wid15 box-sh hei9">\
 	                <!-- 마이페이지3 번 영수증 부분 -->\
-	                <div class="flex-box text-padding2">\
+	                <div class="flex-box text-padding2 box-li4">\
 	                    <span class="fl-sp fon-wei4 ">'+option.price+'원</span>\
-	                    <span class="flex-box-ba5 box-back6 fon-co14 fon-siz3 tex-al2 fon-wei1"> 제한 수량 '+option.stock+'개</span>\
+	                    <span class="flex-box-ba6 box-back6 fon-co12 fon-siz3 tex-al2 fon-wei1 text-padding13"> 제한 수량 '+option.stock+'개</span>\
 	                </div>\
 	                <div class="line-one"></div>\
 	                <div class="receipt text-padding3 hei2">\

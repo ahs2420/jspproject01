@@ -19,7 +19,7 @@ public interface ProductService {
 	public int getProductId(int audit_id);
 	
 	//업데이트 부분	
-	public int updateIPro(ProductVO provo);
+	public int updatePro(ProductVO provo);
 	//상품 상세
 	public ProductVO getProductDetail(int id);
 	//상품 상세- 심사번호로
@@ -28,6 +28,5 @@ public interface ProductService {
 	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer);
 	//상품 갯수
 	public int getProductCount(String category_id,String words);
-	
 	
 }
