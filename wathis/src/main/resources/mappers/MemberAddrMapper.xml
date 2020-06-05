@@ -58,7 +58,7 @@
 		FROM
 			tb_member_addr
 		WHERE ${member_id}=#{member_id}
-		ORDER BY id ASE LIMIT 1
+		ORDER BY id ASC LIMIT 1
 	</select>
 	<insert id="setAddr">
 		INSERT INTO tb_member_addr

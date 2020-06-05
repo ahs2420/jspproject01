@@ -134,6 +134,11 @@
 			upassword 		= #{upassword}
 		WHERE id 		= #{id}
 	</update>
+	<update id="updateMemberTel">
+		UPDATE tb_member SET
+			utel = #{utel}
+		WHERE id = #{id}
+	</update>
 	<delete id="deleteMember">
 		DELETE FROM tb_member
 		WHERE id=#{id}

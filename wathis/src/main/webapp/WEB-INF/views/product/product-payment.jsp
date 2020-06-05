@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
     <link rel="stylesheet" href="/css/product-payment.css">
@@ -15,10 +17,10 @@
 	        <div class="owl-carousel owl-hero owl-theme">
 	            <div class="item">
 					<div class="bg-hero-cover">
-						<div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
+						<div class="bg-img bg-main" style="background-image: url(${pvo.img_upload_dir}${pvo.main_img});"></div>
 						<div class="container bg-txt">
-							<div class="small-title">홈리빙</div>
-							<h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
+							<div class="small-title">${cate}</div>
+							<h1 class="title mb20">${pvo.title}</h1>
 							<div class="sub-title"></div>
 						</div>
 					</div>
@@ -35,34 +37,53 @@
 	<main>
         <section>
             <div class="container buy-payment-container max800">
-	            <form action="" method="POST" name="product-payment">
+	            <form action="/product/paymentDo" method="POST" name="product-payment">
+					<input type="hidden" name="product_id" value="${pvo.id}" />
+					<input type="hidden" name="member_id" value="${mvo.id}" />
+					<input type="hidden" name="payment" value="${total}" />
+					<input type="hidden" name="delivery_fee" value="${delevery}" />
+					<input type="hidden" name="donation" value="${donationMoney}" />
+					<input type="hidden" name="price" value="${total - donation - delivery_fee}" />
 					<div class="bg-main-alpha-color pt20 pb20 white pl5p pr5p mb30">
 						<p>펀딩을 마치면 <span class="bold">결제 예약 상태</span>입니다. 종료일에 100% 이상 달성되었을 경우에만 결제 예정일에 결제가 됩니다</p>
 					</div>
 					<h1 class="large-title bold mb20">결제 예약</h1>
 					<div class="product-payment-receipt p10 border-bottom">
-						<h4 class="tiny-title main-color bold mb5">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h4>
+						<h4 class="tiny-title main-color bold mb5">${pvo.title}</h4>
 						<!--제목-->
-						<p class="tiny-content">229,000원 -> 229,000원 [20% 혜택] 솔로버드[블랙] 색상: 블랙</p>
-						<!--{시중가} -> {판매가} [n%혜택] 옵션명 (옵션이름)-->
-						<p class="txt-right tiny-content small-content bold">수량:1개 229,000원</p>
-						<!--수량,금액-->
+						<c:forEach items="${optIDList}" var="optID" varStatus="vs">
+							<input type="hidden" name="buy-item[]" value="${optID}" />
+							<input type="hidden" name="buy-item-count[]" value="${optCntList[vs.index]}" />
+							<input type="hidden" name="buy-item-option[]" value="${optOptionList[vs.index]}" />
+							<div class="pt10 pb10">
+								<p class="tiny-content"><fmt:formatNumber value="${optPriceList[vs.index]}" pattern="#,##0"></fmt:formatNumber> 원 ${optTitleList[vs.index]}
+									<c:if test="${optOptionList[vs.index] ne ''}">
+										<p>옵션: ${optOptionList[vs.index]}</p>
+									</c:if>
+								</p>
+								<!--{시중가} -> {판매가} [n%혜택] 옵션명 (옵션이름)-->
+								<p class="txt-right tiny-content small-content bold">
+									수량:<fmt:formatNumber value="${optCntList[vs.index]}" pattern="#,##0"></fmt:formatNumber>개 
+									<fmt:formatNumber value="${optPriceList[vs.index] * optCntList[vs.index]}" pattern="#,##0"></fmt:formatNumber> 원</p>
+								<!--수량,금액-->
+							</div>
+						</c:forEach>
 					</div>
 					<div class="p10 border-bottom">
 						<span class="bold">추가 후원금</span>	
-						<span class="float-right">0원</span>
+						<span class="float-right"><fmt:formatNumber value="${donationMoney}" pattern="#,##0"></fmt:formatNumber> 원</span>
 						<!--추가 후원금-->
 						<p class="clear-fix"></p>
 					</div>
 					<div class="p10 border-bottom-dot">
 						<span class="bold">배송비</span>	
-						<span class="float-right">3,000원</span>
+						<span class="float-right"><fmt:formatNumber value="${delevery}" pattern="#,##0"></fmt:formatNumber> 원</span>
 						<!--배송비-->
 						<p class="clear-fix"></p>
 					</div>
 					<div class="p10 bg-gray-dark">
 						<span class="bold main-color">최종결제금액</span>	
-						<span class="float-right main-color large-content">232,000원</span>
+						<span class="float-right main-color large-content"><fmt:formatNumber value="${total}" pattern="#,##0"></fmt:formatNumber> 원</span>
 						<!--후원금 + 배송비 합산-->
 					</div>
 					<!--서포터 정보 + 배송지 정보-->
@@ -74,15 +95,25 @@
 								<div class="border-round-5 p10 pt20 pb20 bg-gray">
 									<div class="mb10">
 										<p class="bold mb5">이름</p>
-										<p>홍길동</p>
+										<p>${mvo.uname}</p>
 									</div>
 									<div class="mb10">
 										<p class="bold mb5">이메일</p>
-										<p>admin@admin.com</p>
+										<p>${mvo.uname}</p>
 									</div>
 									<div>
 										<p class="bold mb5">휴대폰번호</p>
-										<p class="mb5"><input type="tel" name="phone" class="input-stan chkitem" data-error="휴대폰번호를" maxlength="15" placeholder="숫자만 입력" /></p>
+										<p class="mb5">
+											<c:if test="${mvo.utel == null ||mvo.utel eq ''}">
+												<input type="tel" name="utel" class="input-stan chkitem" data-error="휴대폰번호를" maxlength="15" placeholder="숫자만 입력" />
+											</c:if>
+											<c:if test="${mvo.utel != null &&mvo.utel ne ''}">
+												${mvo.utel}
+												<input type="hidden" name="utel" class="input-stan chkitem" value="${mvo.utel}" data-error="휴대폰번호를" maxlength="15" placeholder="숫자만 입력" />
+											</c:if>
+										</p>
+										
+										
 										<input type="checkbox" name="info-check"  value="1" id="info-check" checked />
 										<label for="info-check" class="tiny-content">(필수) 펀딩 진행에 대한 새소식 및 결제 관련 안내를 받습니다.</label>
 									</div>
@@ -100,27 +131,33 @@
 								</div>
 								<div>
 									<div class="mt20">	
-										<span class="v-align-m">
-											<input type="radio" class="deleveryChk" name="deleverChk" value="0" id="deleverChk" checked 
-												data-postcode="test1"
-												data-address="testAd1"
-												data-detail-address="testDeta1"
-												data-extra-address="testExt1"
-												data-delivery-name="name1"
-												data-delivery-phone="phone1"
-											/>
-											<label for="deleverChk">
-												기본 배송지
-											</label>
-										</span>
+										<c:if test="${baseAddr ne '' && baseAddr != null}">
+											<c:set var="chkTest" value="readonly" />
+											<span class="v-align-m">
+												<input type="radio" class="deleveryChk" name="deleverChk" value="${baseAddr.id}" id="deleverChk" checked 
+													data-postcode="${baseAddr.addr1}"
+													data-address="${baseAddr.addr2}"
+													data-detail-address="${baseAddr.addr3}"
+													data-extra-address="${baseAddr.addr4}"
+													data-delivery-name="${baseAddr.ship_name}"
+													data-delivery-phone="${baseAddr.ship_tel}"
+												/>
+												<label for="deleverChk">
+													기본 배송지
+												</label>
+											</span>
+										</c:if>
 										<span class="v-align-m ml5">
 											<input type="radio" class="deleveryChk" name="deleverChk" value="0" id="deleverChkNew" 
 												data-postcode=""
 												data-address=""
 												data-detail-address=""
 												data-extra-address=""
-												data-delivery-name="자기이름"
-												data-delivery-phone="전화번호"
+												data-delivery-name="${mvo.uname}"
+												data-delivery-phone="${mvo.utel}"
+												<c:if test="${baseAddr eq '' || baseAddr == null}">
+														checked
+												</c:if>
 											/>
 											<label for="deleverChkNew">
 												신규 배송지
@@ -128,76 +165,56 @@
 										</span>
 									</div>
 									<div class="mt5">
-										<span class="gray-dark">최근: </span>
-										<span class="ml5">
-											<input type="radio" class="deleveryChk" name="deleverChk" value="100" id="deleverChk100" 
-												data-postcode="test2"
-												data-address="testAd2"
-												data-detail-address="testDeta2"
-												data-extra-address="testExt2"
-												data-delivery-name="name2"
-												data-delivery-phone="phone2"
-											/>
-											<!-- member_addr id 값 넣어서 ajax로 받을 꺼야 -->
-											<label for="deleverChk100">
-												우리집
-											</label>
-										</span>
-										<span class="ml5">
-											<input type="radio" class="deleveryChk" name="deleverChk" value="101" id="deleverChk101" 
-												data-postcode="test3"
-												data-address="testAd3"
-												data-detail-address="testDeta3"
-												data-extra-address="testExt3"
-												data-delivery-name="name3"
-												data-delivery-phone="phone3"
-											/>
-											<!-- member_addr id 값 넣어서 ajax로 받을 꺼야 -->
-											<label for="deleverChk101">
-												너희집
-											</label>
-										</span>
-										<span class="ml5">
-											<input type="radio" class="deleveryChk" name="deleverChk" value="102" id="deleverChk102" 
-												data-postcode="test4"
-												data-address="testAd4"
-												data-detail-address="testDeta4"
-												data-extra-address="testExt4"
-												data-delivery-name="name4"
-												data-delivery-phone="phone4"
-											/>
-											<!-- member_addr id 값 넣어서 ajax로 받을 꺼야 -->
-											<label for="deleverChk102">
-												그집
-											</label>
-										</span>
+										<c:if test="${addrList.size() > 0 }">
+											<span class="gray-dark">최근: </span>
+										</c:if>
+										<c:forEach items="${addrList}" var="addr" begin="0" end="2" >
+											<span class="ml5">
+												<input type="radio" class="deleveryChk" name="deleverChk" value="${addr.id}" id="deleverChk${addr.id}" 
+													data-postcode="${addr.addr1}"
+													data-address="${addr.addr2}"
+													data-detail-address="${addr.addr3}"
+													data-extra-address="${addr.addr4}"
+													data-delivery-name="${addr.ship_name}"
+													data-delivery-phone="${addr.ship_tel}"
+												/>
+												<!-- member_addr id 값 넣어서 ajax로 받을 꺼야 -->
+												<label for="deleverChk${addr.id}">
+													${addr.ship_name}
+												</label>
+											</span>
+										</c:forEach>
 									</div>
 								</div>
 								<div>
 									<div class="mt10">
 										<p class="bold mb5">이름</p>
-										<input type="text" class="input-stan w-100p chkitem" data-error="배송받을 사람의 이름을" id="deliveryName" placeholder="이름" />
-										<input type="hidden" name="newDeleveryChk" id="newDeleveryChk" value="false" />
+										<input type="text" name="receiver_name" class="input-stan w-100p chkitem" data-error="배송받을 사람의 이름을" id="deliveryName" value="${baseAddr.ship_name}" placeholder="이름" ${chkTest} />
 										<!--신규 배송지 체크(신규면 저장되게)-->
 									</div>
 									<div class="mt10">
 										<p class="bold mb5">연락처</p>
-										<input type="text" class="input-stan w-100p chkitem" data-error="배송지 연락처를" id="deliveryPhone" placeholder="연락처" />
+										<input type="text" name="receiver_tel" class="input-stan w-100p chkitem" data-error="배송지 연락처를" id="deliveryPhone" value="${baseAddr.ship_tel}" placeholder="연락처" ${chkTest} />
 									</div>
 									<div class="flex-box flex-j-space flex-a-center mt10">
 										<p class="bold mb5">주소</p>
-										<button type="button" class="btn-stan" id="daum-map-btn" onclick="execDaumPostcode()">주소검색</button>
-										<input type="hidden" name="" class="input-stan chkitem" data-error="우편주소를 검색해서 주소를" id="postcode" placeholder="우편번호" />
-										<input type="hidden" class="input-stan w-100p chkitem" data-error="우편주소를 검색해서 주소를" id="address" placeholder="주소" />
-										<input type="hidden" class="input-stan w-100p chkitem" data-error="우편주소를 검색해서 주소를" id="extraAddress" placeholder="참고항목" />
+										<button type="button" class="btn-stan" id="daum-map-btn" onclick="execDaumPostcode()" 
+										<c:if test="${baseAddr ne '' && baseAddr != null}">
+											style="display: none;"
+										</c:if>	>주소검색</button>
+										<input type="hidden" name="receiver_addr1" class="input-stan chkitem" data-error="우편주소를 검색해서 주소를" id="postcode" value="${baseAddr.addr1}" placeholder="우편번호" />
+										<input type="hidden" name="receiver_addr2" class="input-stan w-100p chkitem" data-error="우편주소를 검색해서 주소를" id="address" value="${baseAddr.addr2}" placeholder="주소" />
+										<input type="hidden" name="receiver_addrDetail[]" class="input-stan w-100p" data-error="우편주소를 검색해서 주소를" id="extraAddress" value="${baseAddr.addr3}" placeholder="참고항목" />
 									</div>
 									<div class="mt10">
-										<p class="tiny-content mb5" id="dis-post"></p>
-										<input type="text"  class="input-stan w-100p chkitem" data-error="상세주소를" id="detailAddress" placeholder="상세주소" />
+										<p class="tiny-content mb5" id="dis-post">
+											${baseAddr.addr1} ${baseAddr.addr2} ${baseAddr.addr3}
+										</p>
+										<input type="text"  name="receiver_addrDetail[]" class="input-stan w-100p chkitem" data-error="상세주소를" id="detailAddress" value="${baseAddr.addr4}" placeholder="상세주소" ${chkTest} />
 									</div>
 									<div class="mt10">
 										<p class="bold mb5">배송시 요청사항(선택)</p>
-										<input type="text" class="input-stan w-100p"  placeholder="ex) 부재시 경비실에 보관해 주세요" />
+										<input type="text" name="receiver_etc" class="input-stan w-100p"  placeholder="ex) 부재시 경비실에 보관해 주세요" />
 									</div>
 									<div id="daum-wrap" class="modal-stan">
 										<div id="daum-map-wrap" class="pt20">
@@ -233,7 +250,7 @@
 								<div class="mt10 flex-box flex-j-space">
 									<div class="w-49p">
 										<p class="bold mb5">유효기간</p>
-										<input type="text" name="cardValidity" id="cardValidity" maxlength="5" placeholder="MM/YY" class="input-stan w-100p chkitem" data-error="카드 유효기간을" />
+										<input type="text" id="cardValidity" maxlength="5" placeholder="MM/YY" class="input-stan w-100p chkitem" data-error="카드 유효기간을" />
 									</div>
 									<div class="w-49p">
 										<p class="bold mb5">비밀번호</p>
@@ -361,77 +378,82 @@
 	    			</tr>
     			</thead>
     			<tbody>
-	    			<tr>
-	    				<td class="txt-center">
-	    					<p>안호수</p><!-- 수령인 이름 -->
-	    					<p>집</p><!-- 배송지 이름 -->
-	    					<p>[기본배송지]</p><!-- 기본 배송지만 띄움 -->
-	    				</td>
-	    				<td>
-	    					<p>41324</p>
-	    					<!-- 우편번호 -->
-	    					<p>부산광역시 연제구 자이언츠대로 36-9(거제동, XXX아파트)</p>
-	    					<!-- 기본주소 -->
-	    					<p>0동 호0000</p>
-	    					<!-- 상세주소 -->
-	    				</td>
-	    				<td class="txt-center">
-	    					<p>010-1234-1234</p>
-	    				</td>
-	    				<td class="txt-center">
-	    					<div>
-								<button class="btn-stan btn-main deleveryChk" type="button"
+					<c:if test="${baseAddr ne '' && baseAddr != null}">
+						<tr>
+							<td class="txt-center">
+								<p>${baseAddr.ship_name}</p><!-- 수령인 이름 -->
+								<p>[기본배송지]</p><!-- 기본 배송지만 띄움 -->
+							</td>
+							<td>
+								<p>${baseAddr.addr1}</p>
+								<!-- 우편번호 -->
+								<p>${baseAddr.addr2}</p>
+								<!-- 기본주소 -->
+								<p>${baseAddr.addr3} ${baseAddr.addr4}</p>
+								<!-- 상세주소 -->
+							</td>
+							<td class="txt-center">
+								<p>${baseAddr.ship_tel}</p>
+							</td>
+							<td class="txt-center">
+								<div>
+									<button class="btn-stan btn-main deleveryChk" type="button"
+											data-target=".delevery-modal"
+											data-postcode="${baseAddr.addr1}"
+											data-address="${baseAddr.addr2}"
+											data-detail-address="${baseAddr.addr3}"
+											data-extra-address="${baseAddr.addr4}"
+											data-delivery-name="${baseAddr.ship_name}"
+											data-delivery-phone="${baseAddr.ship_tel}" onclick="targetActive(this)">
+											선택
+									</button>
+								</div>
+							</td>
+						</tr>
+					</c:if>
+					<c:forEach items="${addrList}" var="addr" >
+						<tr>
+							<td class="txt-center">
+								<p>${addr.ship_name}</p><!-- 수령인 이름 -->
+							</td>
+							<td>
+								<p>${addr.addr1}</p>
+								<!-- 우편번호 -->
+								<p>${addr.addr2}</p>
+								<!-- 기본주소 -->
+								<p>${addr.addr3} ${addr.addr4}</p>
+								<!-- 상세주소 -->
+							</td>
+							<td class="txt-center">
+								<p>${addr.ship_tel}</p>
+							</td>
+							<td class="txt-center">
+								<div>
+									<button class="btn-stan btn-main deleveryChk" type="button"
 										data-target=".delevery-modal"
-										data-postcode="modal1"
-										data-address="modaladdr1"
-										data-detail-address="modalde1"
-										data-extra-address="modalex1"
-										data-delivery-name="modalname1"
-										data-delivery-phone="modalphone1" onclick="targetActive(this)">
+										data-postcode="${addr.addr1}"
+										data-address="${addr.addr2}"
+										data-detail-address="${addr.addr3}"
+										data-extra-address="${addr.addr4}"
+										data-delivery-name="${addr.ship_name}"
+										data-delivery-phone="${addr.ship_tel}" onclick="targetActive(this)">
 										선택
-								</button>
-								<button class="btn-stan btn-main deleveryChk" type="button"
-									data-url="/delevery/deleteAjax"
-									data-id="1"
-								>삭제</button>
-							</div>
-	    				</td>
-	    			</tr>
-	    			<tr>
-	    				<td class="txt-center">
-	    					<p>안호수</p><!-- 수령인 이름 -->
-	    					<p>집</p><!-- 배송지 이름 -->
-	    				</td>
-	    				<td>
-	    					<p>41324</p>
-	    					<!-- 우편번호 -->
-	    					<p>부산광역시 연제구 자이언츠대로 36-9(거제동, XXX아파트)</p>
-	    					<!-- 기본주소 -->
-	    					<p>0동 호0000</p>
-	    					<!-- 상세주소 -->
-	    				</td>
-	    				<td class="txt-center">
-	    					<p>010-1234-1234</p>
-	    				</td>
-	    				<td class="txt-center">
-	    					<div>
-								<button class="btn-stan btn-main deleveryChk" type="button"
-									data-target=".delevery-modal"
-									data-postcode="modal2"
-									data-address="modaladdr2"
-									data-detail-address="modalde2"
-									data-extra-address="modalex2"
-									data-delivery-name="modalname2"
-									data-delivery-phone="modalphone2" onclick="targetActive(this)">
-									선택
-								</button>
-								<button class="btn-stan btn-main deleveryChk" type="button"
-									data-url="/delevery/deleteAjax"
-									data-id="1"
-								>삭제</button>
-							</div>
-	    				</td>
-	    			</tr>
+									</button>
+									<button class="btn-stan btn-main deleveryChk" type="button"
+										data-url="/delevery/deleteAjax"
+										data-id="1"
+									>삭제</button>
+								</div>
+							</td>
+						</tr>
+					</c:forEach>
+					<c:if test="${ (baseAddr eq '' || baseAddr == null) && addrList.size() == 0 }">
+						<tr>
+							<td class="txt-center sub-title bold" colspan="4">
+								배송정보가 없습니다.
+							</td>
+						</tr>
+					</c:if>
     			</tbody>
     		</table>
     	</div>

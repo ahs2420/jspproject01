@@ -111,4 +111,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.updateNameMember(uid);
 	}
 	//-----------------------------------------
+
+	@Override
+	public int updateMemberTel(int id, String utel) {
+		// TODO Auto-generated method stub
+		return memberdao.updateMemberTel(id, utel);
+	}
 }

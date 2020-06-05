@@ -38,7 +38,8 @@ public interface MemberService {
 	
 	//화원수정 아이디 중복 체크
 	public int updateNameMember(int uid);
-		
-	//-----------------------------------------
+
+	//회원 수정 전화번호
+	public int updateMemberTel(int id , String utel);
 
 }

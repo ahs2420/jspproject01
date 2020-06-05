@@ -116,5 +116,13 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return sql.selectOne(namespace + ".updateNameMember", uid);
 	}
+	@Override
+	public int updateMemberTel(int id, String utel) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("id", id);
+		map.put("utel", utel);
+		return sql.update(namespace+".updateMemberTel",map);
+	}
 	
 }

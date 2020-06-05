@@ -4,6 +4,7 @@ $(function(){
     $(".product-select-submit").click(function(){
         var target=$("form[name=product-select]");
         var chkItem=$(".buy-item-chk:checked");
+        var noChkItem=$('.buy-item-chk:not(:checked)');
         var donation=uncomma($("input[name=donation]").val());
         var isSubmit=true;
         if(chkItem.length<1){
@@ -32,7 +33,13 @@ $(function(){
                 }
             }
         });
-        
+        noChkItem.each(function(){
+            var chkItemName=$(this).attr("id");
+            var chkItemOpt=$("#"+chkItemName+"-option");
+            var chkItemCnt=$("#"+chkItemName+"-count");
+            chkItemOpt.attr("disabled",true);
+            chkItemCnt.attr("disabled",true);
+        });
         if(isSubmit){
             target.submit();
             //alert("성공");

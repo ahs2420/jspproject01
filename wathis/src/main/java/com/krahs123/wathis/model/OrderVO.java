@@ -9,6 +9,7 @@ public class OrderVO {
 	//	| member_id       | int(10) unsigned | NO   |     | 0                 |                   |
 	//	| product_id      | int(10) unsigned | NO   |     | 0                 |                   |
 	//	| price           | int(11)          | NO   |     | 0                 |                   |
+	//	| donation        | int(11)          | NO   |     | 0                 |                   |
 	//	| delivery_fee    | int(11)          | NO   |     | NULL              |                   |
 	//	| payment         | int(11)          | NO   |     | 0                 |                   |
 	//	| account_num     | varchar(20)      | YES  |     | NULL              |                   |
@@ -30,6 +31,7 @@ public class OrderVO {
 	private int member_id;
 	private int product_id;
 	private int price;
+	private int donation;
 	private int delivery_fee;
 	private int payment;
 	private String account_num;
@@ -69,6 +71,12 @@ public class OrderVO {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public int getDonation() {
+		return donation;
+	}
+	public void setDonation(int donation) {
+		this.donation = donation;
 	}
 	public int getDelivery_fee() {
 		return delivery_fee;
