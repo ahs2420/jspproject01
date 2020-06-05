@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mappers.MemberAddr">
-	<select id="getAll" resultType="memberaddrvo">
+<mapper namespace="mappers.MemberAddrMapper">
+	<select id="getAddrList" resultType="memberaddrvo">
 		SELECT 
 			id,
 			member_id,
 			addr1,
 			addr2,
 			addr3,
+			addr4,
 			ship_name,
 			ship_tel,
 			ship_desc,
 			reg_date
 		FROM
 			tb_member_addr
+		WHERE ${member_id}=#{member_id}
 		ORDER BY id DESC
 	</select>
-	<select id="getCount" resultType="int">
-	
+	<select id="getAddrCount" resultType="int">
+		SELECT 
+			count(id)
+		FROM
+			tb_member_addr
+		WHERE ${member_id}=#{member_id}
+		ORDER BY id DESC
 	</select>
-	<select id="getList" resultType="memberaddrvo">
-	
+	<select id="getAddrDetail" resultType="memberaddrvo">
+		SELECT 
+			count(id)
+		FROM
+			tb_member_addr
+		WHERE ${member_id}=#{member_id}
+		ORDER BY id DESC
 	</select>
-	<select id="getOne" resultType="memberaddrvo">
-	
+	<select id="getAddrFirst" resultType="memberaddrvo">
+		SELECT 
+			count(id)
+		FROM
+			tb_member_addr
+		WHERE ${member_id}=#{member_id}
+		ORDER BY id ASE LIMIT 1
 	</select>
-	<insert id="setItem">
+	<insert id="setAddr">
 		INSERT INTO tb_member_addr
 		SET
-			id=#{id},
 			member_id=#{member_id},
 			addr1=#{addr1},
 			addr2=#{addr2},
 			addr3=#{addr3},
+			addr4=#{addr4},
 			ship_name=#{ship_name},
 			ship_tel=#{ship_tel},
-			ship_desc=#{ship_desc},
-			reg_date=#{reg_date}
+			ship_desc=#{ship_desc}
 	</insert>
-	<update id="updateItem">
+	<update id="updateAddr">
 		UPDATE SET tb_member_addr
-			id=#{id},
-			member_id=#{member_id},
 			addr1=#{addr1},
 			addr2=#{addr2},
 			addr3=#{addr3},
+			addr4=#{addr4},
 			ship_name=#{ship_name},
 			ship_tel=#{ship_tel},
-			ship_desc=#{ship_desc},
-			reg_date=#{reg_date}
+			ship_desc=#{ship_desc}
 		WHERE id=#{id}
 
 	</update>
-	<delete id="deleteItem">
+	<delete id="deleteAddr">
 		DELETE FROM tb_member_addr
 		WHERE id=#{id}
 	</delete>

@@ -10,6 +10,7 @@ public class MemberAddrVO {
 //	| addr1     | varchar(20)      | NO   |     | NULL              |                   |
 //	| addr2     | varchar(100)     | NO   |     | NULL              |                   |
 //	| addr3     | varchar(100)     | NO   |     | NULL              |                   |
+//	| addr4     | varchar(100)     | NO   |     | NULL              |                   |
 //	| ship_name | varchar(50)      | NO   |     | NULL              |                   |
 //	| ship_tel  | varchar(255)     | NO   |     | NULL              |                   |
 //	| ship_desc | varchar(30)      | NO   |     |                   |                   |
@@ -20,6 +21,7 @@ public class MemberAddrVO {
 	private String addr1;
 	private String addr2;
 	private String addr3;
+	private String addr4;
 	private String ship_name;
 	private String ship_tel;
 	private String ship_desc;
@@ -53,6 +55,13 @@ public class MemberAddrVO {
 	}
 	public void setAddr3(String addr3) {
 		this.addr3 = addr3;
+	}
+	
+	public String getAddr4() {
+		return addr4;
+	}
+	public void setAddr4(String addr4) {
+		this.addr4 = addr4;
 	}
 	public String getShip_name() {
 		return ship_name;

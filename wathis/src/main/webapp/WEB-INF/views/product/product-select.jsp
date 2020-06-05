@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
+<jsp:useBean id="HtmlSpecialChar" class="com.krahs123.wathis.util.HtmlSpecialChar"></jsp:useBean>
 <!-- 추가 css,js -->
     <link rel="stylesheet" href="/css/product-select.css">
     <script src="/js/product-select.js"></script>
@@ -15,12 +18,12 @@
 	            <div class="item">
                     <div class="bg-hero-cover">
                         <!--메인 이미지-->
-                        <div class="bg-img bg-main" style="background-image: url(/images/main/main_1.jpg);"></div>
+                        <div class="bg-img bg-main" style="background-image: url(${pvo.img_upload_dir}${pvo.main_img});"></div>
                         <div class="container bg-txt">
                             <!--상품 분류-->
-                            <div class="small-title">홈리빙</div>
+                            <div class="small-title">${cate}</div>
                             <!--상품 제목-->
-                            <h1 class="title mb20">[마지막앵콜] 다리에도 베개가 필요해요 | 지친 내다리를 위한, 부끼싹!</h1>
+                            <h1 class="title mb20">${pvo.title}</h1>
                             <!--상품 소제목-->
                             <div class="sub-title"></div>
                         </div>
@@ -38,6 +41,7 @@
     <main>
         <section>
             <form action="/product/product-payment" method="POST" name="product-select">
+                <input type="hidden" name="id" value="${pvo.id}" />
                 <div class="container buy-select-container max800">
                     <div class="bg-main-alpha-color pt20 pb20 white pl5p pr5p mb30">
                         <p>펀딩을 마치면 <span class="bold">결제 예약 상태</span>입니다. 종료일에 100% 이상 달성되었을 경우에만 결제 예정일에 결제가 됩니다</p>
@@ -63,134 +67,76 @@
                             data-target -> 올릴 input 의 selectQuery 값
                         -->
                         <!--선택형-->
-                        <input type="checkbox" class="dis-none buy-item-chk" data-type="option" name="buy-item[]" value="100" id="buy-item-100" data-price="229000" checked>
-                        <div class="buy-select-item gray-round-box mb20">
-                            <label for="buy-item-100">
-                                <div class="pt20 pb20 pr5p pl5p">
-                                    <!--{금액} 원 펀딩-->
-                                    <p class="sub-title bold mb5">229,000원 펀딩</p>
-                                    <!--{옵션이름} 현제 n 개 남음!-->
-                                    <p class="mb5"><span class="small-title bold">솔로버드[블랙]</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></p>
-                                    <!--{옵션구성상세}-->
-                                    <p class="gray tiny-content mb5 bold">로보백 1 세트</p>
-                                    <!--배송비 {배송비} |  리워드 발송 시작일:{발송 예정일} 예정-->
-                                    <p class="tiny-content bold">배송비 3,000원 | 리워드 발송 시작일:2020년 05월 말(21~말일) 예정</p>
-                                    <div class="buy-select-option mt20">
-                                        <div class="flex-box flex-j-space flex-wrap">
-                                            <div class="w-30p col-sm-12">
-                                                <p class="bold mb5">수량</p>
-                                                <div class="flex-box flex-a-center">
-                                                    <button type="button" class="input-count-change" data-function="down" data-target="[name=buy-item-100-count]"><i class="fas fa-chevron-circle-down"></i></button>
-                                                    <input type="text" name="buy-item-100-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="687" value="1">
-                                                    <button type="button" class="input-count-change" data-function="up" data-target="[name=buy-item-100-count]"><i class="fas fa-chevron-circle-up"></i></button>
+                        <c:forEach items="${proOptList}" var="pvoOpt" varStatus="vs">
+                            <input type="checkbox" class="dis-none buy-item-chk" 
+                                <c:choose>
+                                    <c:when test="${pvoOpt.stock eq '0'}">
+                                        data-type="none" 
+                                    </c:when>
+                                    <c:when test="${pvoOpt.option_type ne '0'}">
+                                        data-type="option" 
+                                    </c:when>
+                                    <c:otherwise>
+                                        data-type="no-option" 
+                                    </c:otherwise>
+                                </c:choose>
+                                name="buy-item[]" value="${pvoOpt.id}" id="buy-item-${vs.index}" data-price="${pvoOpt.price}" <c:if test="${option_id eq pvoOpt.id}">checked</c:if>>
+                            <div class="buy-select-item gray-round-box mb20 <c:if test="${pvoOpt.stock eq '0'}">off</c:if>">
+                                <label for="buy-item-${vs.index}">
+                                    <div class="pt20 pb20 pr5p pl5p">
+                                        <!--{금액} 원 펀딩-->
+                                        <p class="sub-title bold mb5"><fmt:formatNumber value="${pvoOpt.price}" pattern="#,##0"></fmt:formatNumber> 원 펀딩</p>
+                                        <!--{옵션이름} 현제 n 개 남음!-->
+                                        <p class="mb5"><span class="small-title bold">${pvoOpt.title}</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 <fmt:formatNumber value="${pvoOpt.stock}" pattern="#,##0"></fmt:formatNumber> 개 남음 !</span></p>
+                                        <!--{옵션구성상세}-->
+                                        <p class="gray tiny-content mb5 bold">${pvoOpt.title}</p>
+                                        <!--배송비 {배송비} |  리워드 발송 시작일:{발송 예정일} 예정-->
+                                            <p class="tiny-content bold">
+                                                <c:if test="${pvoOpt.delevery_chk eq '1'}">
+                                                    배송비 <fmt:formatNumber value="${pvoOpt.delevery_price}" pattern="#,##0"></fmt:formatNumber>원 | 
+                                                </c:if>
+                                                리워드 발송 시작일: ${pvoOpt.delivery_date} 예정</p>
+                                        <div class="buy-select-option mt20">
+                                            <div class="flex-box flex-j-space flex-wrap">
+                                                <div class="w-30p col-sm-12">
+                                                    <p class="bold mb5">수량</p>
+                                                    <div class="flex-box flex-a-center">
+                                                        <button type="button" class="input-count-change" data-function="down" data-target="#buy-item-${vs.index}-count"><i class="fas fa-chevron-circle-down"></i></button>
+                                                        <input type="text" name="buy-item-count[]" id="buy-item-${vs.index}-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="${pvoOpt.stock}" value="1">
+                                                        <button type="button" class="input-count-change" data-function="up" data-target="#buy-item-${vs.index}-count"><i class="fas fa-chevron-circle-up"></i></button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="w-60p col-sm-12">
-                                                <p class="bold mb5">옵션</p>
-                                                <select class="select-stan" name="buy-item-100-option">
-                                                    <option value="">선택해주세요</option>
-                                                    <!--
-                                                        {옵션이름} -> 구분자는 |로 해서 그대로 넣어라
-                                                    -->
-                                                    <c:forTokens var="item" items="블랙|레드|그린" delims="|">
-                                                        <option value="${item}">${item}</option>
-                                                    </c:forTokens> 
-                                                </select>
+                                                <div class="w-60p col-sm-12">
+                                                    <c:if test="${pvoOpt.option_type eq '0'}">
+                                                        <input type="hidden" class="input-stan w-100p" name="buy-item-option[]"  id="buy-item-${vs.index}-option" placeholder="옵션을 입력해주세요">
+                                                    </c:if>
+                                                    <c:if test="${pvoOpt.option_type ne '0'}">
+                                                        <p class="bold mb5">옵션</p>
+                                                        
+                                                        <c:if test="${pvoOpt.option_type eq '1'}">
+                                                            <select class="select-stan" name="buy-item-option[]" id="buy-item-${vs.index}-option">
+                                                                <option value="">선택해주세요</option>
+                                                                <!--
+                                                                    {옵션이름} -> 구분자는 |로 해서 그대로 넣어라
+                                                                -->
+                                                                <c:forTokens items="${HtmlSpecialChar.encodeEnter(pvoOpt.option_kind) }" var="item" delims="|">
+                                                                    <option value="${item}">${item}</option>
+                                                                </c:forTokens> 
+                                                            </select>
+                                                        </c:if>
+                                                        <c:if test="${pvoOpt.option_type eq '2'}">
+                                                            <p class="tiny-content gray bold mb10"> ${pvoOpt.option_kind }</p>
+                                                            <input type="text" class="input-stan w-100p" name="buy-item-option[]"  id="buy-item-${vs.index}-option" placeholder="옵션을 입력해주세요">
+                                                        </c:if>
+                                                    </c:if>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </label>
-                        </div>
-                        <!--작성형-->
-                        <input type="checkbox" class="dis-none buy-item-chk" data-type="option" name="buy-item[]" value="100" id="buy-item-101" data-price="229000">
-                        <div class="buy-select-item gray-round-box mb20">
-                            <label for="buy-item-101">
-                                <div class="pt20 pb20 pr5p pl5p">
-                                    <p class="sub-title bold mb5">229,000원 펀딩</p>
-                                    <p class="mb5"><span class="small-title bold">솔로버드[블랙]</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></p>
-                                    <p class="gray tiny-content mb5 bold">로보백 1 세트</p>
-                                    <p class="tiny-content bold">배송비 3,000원 | 리워드 발송 시작일:2020년 05월 말(21~말일) 예정</p>
-                                    <div class="buy-select-option mt20">
-                                        <div class="flex-box flex-j-space flex-wrap">
-                                            <div class="w-30p col-sm-12">
-                                                <p class="bold mb5">수량</p>
-                                                <div class="flex-box flex-a-center">
-                                                    <button type="button" class="input-count-change" data-function="down" data-target="[name=buy-item-101-count]"><i class="fas fa-chevron-circle-down"></i></button>
-                                                    <input type="text" name="buy-item-101-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="687" value="1">
-                                                    <button type="button" class="input-count-change" data-function="up" data-target="[name=buy-item-101-count]"><i class="fas fa-chevron-circle-up"></i></button>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="w-60p col-sm-12">
-                                                <p class="bold mb5">옵션</p>
-                                                <p class="tiny-content gray bold mb10"> 색상을 입력해 주세요(ex. 3개 선택시 '블랙2/레드1')</p>
-                                                <input type="text" class="input-stan w-100p" name="buy-item-101-option" placeholder="옵션을 입력해주세요">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <!--옵션없음-->
-                        <input type="checkbox" class="dis-none buy-item-chk" data-type="no-option" name="buy-item[]" value="102" id="buy-item-102" data-price="229000">
-                        <div class="buy-select-item gray-round-box mb20">
-                            <label for="buy-item-102">
-                                <div class="pt20 pb20 pr5p pl5p">
-                                    <p class="sub-title bold mb5">229,000원 펀딩</p>
-                                    <p class="mb5"><span class="small-title bold">솔로버드[블랙]</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></p>
-                                    <p class="gray tiny-content mb5 bold">로보백 1 세트</p>
-                                    <p class="tiny-content bold">배송비 3,000원 | 리워드 발송 시작일:2020년 05월 말(21~말일) 예정</p>
-                                    <div class="buy-select-option mt20">
-                                        <div class="flex-box flex-j-space flex-wrap">
-                                            <div class="w-30p col-sm-12">
-                                                <p class="bold mb5">수량</p>
-                                                <div class="flex-box flex-a-center">
-                                                    <button type="button" class="input-count-change" data-function="down" data-target="[name=buy-item-102-count]"><i class="fas fa-chevron-circle-down"></i></button>
-                                                    <input type="text" name="buy-item-102-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="687" value="1">
-                                                    <button type="button" class="input-count-change" data-function="up" data-target="[name=buy-item-102-count]"><i class="fas fa-chevron-circle-up"></i></button>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <!--재고 없음-->
-                        <input type="checkbox" class="dis-none buy-item-chk" data-type="none" name="buy-item[]" value="103" id="buy-item-103" disabled data-price="229000">
-                        <div class="buy-select-item gray-round-box mb20 off">
-                            <label for="buy-item-103">
-                                <div class="pt20 pb20 pr5p pl5p">
-                                    <p class="sub-title bold mb5">229,000원 펀딩</p>
-                                    <p class="mb5"><span class="small-title bold">솔로버드[블랙]</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></p>
-                                    <p class="gray tiny-content mb5 bold">로보백 1 세트</p>
-                                    <p class="tiny-content bold">배송비 3,000원 | 리워드 발송 시작일:2020년 05월 말(21~말일) 예정</p>
-                                    <div class="buy-select-option mt20">
-                                        <div class="flex-box flex-j-space flex-wrap">
-                                            <div class="w-30p col-sm-12">
-                                                <p class="bold mb5">수량</p>
-                                                <div class="flex-box flex-a-center">
-                                                    <button type="button" class="input-count-change" data-function="down" data-target="[name=buy-item-103-count]"><i class="fas fa-chevron-circle-down"></i></button>
-                                                    <input type="text" name="buy-item-103-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="687" value="1">
-                                                    <button type="button" class="input-count-change" data-function="up" data-target="[name=buy-item-103-count]"><i class="fas fa-chevron-circle-up"></i></button>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="w-60p col-sm-12">
-                                                <p class="bold mb5">옵션</p>
-                                                <select name="buy-item-103-option">
-                                                    <option value="">선택해주세요</option>
-                                                    <option value="">블랙</option>
-                                                    <option value="">레드</option>
-                                                    <option value="">그린</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
+                                </label>
+                            </div>
+                        </c:forEach>
+                        
                         <div class="mb20">
                             <p class="sub-title bold mb20">후원금 더하기(선택)</p>
                             <p class="gray-dark tiny-content mb5">후원금을 더하여 펀딩할 수 있습니다. 추가 후원금을 입력하시겠습니까?</p>

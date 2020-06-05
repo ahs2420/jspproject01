@@ -45,4 +45,8 @@ public class HtmlSpecialChar {
 		String regex1 = "\\<.*?\\>";
 		return html.replaceAll(regex1, "");
 	}
+	public static String encodeEnter(String str){
+		str=str.replace("\n", "|");
+		return str;
+	}
 }

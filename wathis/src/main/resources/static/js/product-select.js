@@ -6,7 +6,7 @@ $(function(){
         var chkItem=$(".buy-item-chk:checked");
         var donation=uncomma($("input[name=donation]").val());
         var isSubmit=true;
-        if(chkItem.length<1&&donation<1){
+        if(chkItem.length<1){
             // 후원금 0원이면 error 처리
             alert("리워드를 선택해 주세요.");
             isSubmit=false;
@@ -15,8 +15,8 @@ $(function(){
         chkItem.each(function(){
             // 체크된 상품중 수량,옵션 값없으면 체크
             var chkItemName=$(this).attr("id");
-            var chkItemOpt=$("[name="+chkItemName+"-option]");
-            var chkItemCnt=$("[name="+chkItemName+"-count]");
+            var chkItemOpt=$("#"+chkItemName+"-option");
+            var chkItemCnt=$("#"+chkItemName+"-count");
             if(!chkItemCnt.val()){
                 alert("수량을 입력해 주세요.");
                 chkItemOpt.focus();
@@ -65,7 +65,7 @@ function totalPrice(){
     var totalPrice=(addDonation>0)?addDonation:0;
     chkItem.each(function(){
         var unitPrice=$(this).data("price");
-        var count=$("[name="+$(this).attr("id")+"-count]");
+        var count=$("#"+$(this).attr("id")+"-count");
         totalPrice+=parseInt(unitPrice)*parseInt(uncomma(count.val()));
     });
     changeItem.text(comma(totalPrice));

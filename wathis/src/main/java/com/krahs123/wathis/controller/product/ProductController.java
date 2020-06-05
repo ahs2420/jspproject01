@@ -1,8 +1,12 @@
 package com.krahs123.wathis.controller.product;
 
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,8 @@ import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.BoardVO;
 import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MakerInfoVO;
+import com.krahs123.wathis.model.MemberAddrVO;
+import com.krahs123.wathis.model.MemberVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.PopupVO;
 import com.krahs123.wathis.model.ProductCommentVO;
@@ -23,6 +29,8 @@ import com.krahs123.wathis.model.ProductNoticeVO;
 import com.krahs123.wathis.model.ProductOptionVO;
 import com.krahs123.wathis.model.ProductVO;
 import com.krahs123.wathis.service.category.CategoryService;
+import com.krahs123.wathis.service.member.MemberAddrService;
+import com.krahs123.wathis.service.member.MemberService;
 import com.krahs123.wathis.service.menu.MenuService;
 import com.krahs123.wathis.service.popup.PopupService;
 import com.krahs123.wathis.service.product.AuditService;
@@ -32,6 +40,7 @@ import com.krahs123.wathis.service.product.ProductNoticeService;
 import com.krahs123.wathis.service.product.ProductOptionService;
 import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
+import com.krahs123.wathis.util.AES256;
 
 @Controller
 @RequestMapping("/product")
@@ -57,6 +66,10 @@ public class ProductController {
 
 	@Autowired
 	ProductOptionService proOptService;
+	@Autowired
+	MemberService memService;
+	@Autowired
+	MemberAddrService memAddrService;
 	
 	final String BASEDIR="/product/";
 	//상품 페이지
@@ -121,15 +134,29 @@ public class ProductController {
 	}
 	// 상품 결제 페이지
 	@RequestMapping("/product-payment")
-	public ModelAndView viewProductPayment() {
+	public ModelAndView viewProductPayment(@RequestParam int id,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		List<MenuVO> menuList = menuService.getMenuList();
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		ProductVO pvo = proService.getProductDetail(id);
+		MemberVO mvo = memService.getMemberDetail(Integer.parseInt(session.getValue("id").toString()));
+		AES256 aes = new AES256();
+		try {
+			mvo.setUtel(aes.decrypt(mvo.getUtel()));
+		} catch (UnsupportedEncodingException | GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+		}
+		List<ProductOptionVO> proOptList = proOptService.getOptionProductList(id);
+		String cate = cateService.getCateTitle(pvo.getCategory_id());
+		
 		mav.setViewName(BASEDIR+"product-payment");
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
+		mav.addObject("pvo", pvo);
+		mav.addObject("proOptList", proOptList);
+		mav.addObject("cate", cate);
 		return mav;
 	}
 	//상품리스트 페이지
