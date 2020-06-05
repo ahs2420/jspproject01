@@ -876,6 +876,43 @@ var Digital = '<table style="width:100%">\
     <td></td>\
 </tr>\
 </table>';
+var Other= '<table style="width:100%">\
+<tr>\
+    <th style=\"width:10%\">항목</th>\
+    <th style=\"width:25%\">부연설명</th>\
+    <th style=\"width:45%\">직접 작성</th>\
+</tr>\
+<tr>\
+    <th>품명 및 모델명</th>\
+    <td>품명 및 모델명을 기입하세요 </td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>법에 의한 인증・허가 등을 받았음을 확인할 수 있는 경우 그에 대한 사항</th>\
+    <td>법에 의한 인증・허가 등을 받았음을 확인할 수 있는 경우 그에 대한 사항들을 입력하세요.(Ex 인증 서류, 보증서 등)</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>제조국 또는 원산지</th>\
+    <td>어디서 제조 하였는지 기입하세요</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>제조자(수입자)</th>\
+    <td></td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>A/S 책임자와 전화번호 또는 소비자상담 관련 전화번호</th>\
+    <td>예) 고객센터, 상담 가능한 번호를 입력하세요.소비자상담 관련 전화번호 </td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th></th>\
+    <td></td>\
+    <td></td>\
+</tr>\
+</table>';
 
 var item = [
     KIND,
@@ -893,7 +930,8 @@ var item = [
     processed,
     Infant,
     books,
-    Digital
+    Digital,
+    Other
 ];
 $(function () {
     $("#Reward-documents").change(function () {
