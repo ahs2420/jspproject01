@@ -28,7 +28,16 @@
 	</select>
 	<select id="getAddrDetail" resultType="memberaddrvo">
 		SELECT 
-			count(id)
+			id,
+			member_id,
+			addr1,
+			addr2,
+			addr3,
+			addr4,
+			ship_name,
+			ship_tel,
+			ship_desc,
+			reg_date
 		FROM
 			tb_member_addr
 		WHERE ${member_id}=#{member_id}
@@ -36,7 +45,16 @@
 	</select>
 	<select id="getAddrFirst" resultType="memberaddrvo">
 		SELECT 
-			count(id)
+			id,
+			member_id,
+			addr1,
+			addr2,
+			addr3,
+			addr4,
+			ship_name,
+			ship_tel,
+			ship_desc,
+			reg_date
 		FROM
 			tb_member_addr
 		WHERE ${member_id}=#{member_id}
