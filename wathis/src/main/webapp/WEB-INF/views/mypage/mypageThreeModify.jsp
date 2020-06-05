@@ -59,11 +59,15 @@
             </div>
 
             <!-- 1번 -->
-          <form action="/page/mypageThreeModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+        <form action="/page/mypageThreeView" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+<!--          이쪽은 가는 쪽이 아니고 동작을 하고 나서 페이지 메핑 한 곳에서 간다.     -->
         
         <input type="hidden" name="id" value="${productvo.id}" />
         <input type="hidden" name="id" value="${SessionScope.id}" />
-  		        
+        <input type="hidden" name="img_upload_dir" value="${productvo.img_upload_dir}" />
+        <input type="hidden" name="main_img" value="${productvo.main_img}" />
+        <input type="hidden" name="img" value="${productvo.img}" />
+  		<input type="hidden" name="audit_id" value="${audit_id}" /> 
                 
             <div class="ba-project">
                 <div class="flex-basic2 ba-pro-name">
@@ -87,7 +91,7 @@
                                     <p class="fon-siz3 fon-col">영상 썸네일 이미지 사이즈 : 600 픽셀 이상</p>
                                 </div>
                             </div>
-                            <div class="one-radio-box2">
+                            <div class="one-radio-box2 ">
                                 <input class="ra-size" type="radio" name="video_chk" value="0" checked id="projectimg2">
                                 <label for="projectimg2" class="di-la1 mar-top1 fon-wei1 fon-siz2"> 소개 사진</label>
 
@@ -96,8 +100,13 @@
                                         <label for="file1"><i class="fas fa-camera fon-co11"></i> 등록하기</label>
                                         <input type="file" id="file1" name="file1" class="img-file" name="img_didi" data-preview=".mypageIntro-makerimg img" data-file-type="img">
                                     </div>
-                                     <div class="mypageIntro-makerimg">
-                                        <img  src="${productvo.img_upload_dir}" alt="">
+                                     <div class="mypageIntro-makerimg flex-box1">
+                                     	<c:forTokens items="${productvo.img}" delims="|" var="img">
+                                     		<c:if test="${img ne ''}">
+                                     			<img  src="${productvo.img_upload_dir}${img}" class="mar-left4" alt="">
+                                     		</c:if>
+                                     	</c:forTokens>
+                                        
                                     </div>
                                     <p class="fon-siz3 fon-col ">2MB 이하의 JPEG, JPG, GIF, PNG 파일</p>
                                     <p class="fon-siz3 fon-col">사이즈 : 최소 630X400 픽셀 이상</p>
@@ -190,7 +199,7 @@
 							<input type="file" name="main_file" id="file2" class="img-file" name="img_didi" data-preview=".mypageMain-makerimg img" data-file-type="img">
 						</div>
 						 <div class="mypageMain-makerimg">
-                         		<img  src="${productvo.main_img}" alt="">
+                         		<img  src="${productvo.img_upload_dir}${productvo.main_img}" alt="">
                          </div>
 						
 

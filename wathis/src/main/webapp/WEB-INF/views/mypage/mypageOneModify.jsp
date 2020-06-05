@@ -218,7 +218,7 @@
                                 <input type="file" id="file1">
                             </div> -->
                         <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="reword_type">
-                            <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)" delims="|" var="item" varStatus="vs">
+                            <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)|기타제화" delims="|" var="item" varStatus="vs">
                             	<option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">selected</c:if> >${item}</option>
                             		
 <%--                             		${fn:replace (  paramVO.content, replaceChar, "<br/>")} --%>

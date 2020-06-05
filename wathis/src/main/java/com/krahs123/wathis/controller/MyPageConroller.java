@@ -470,11 +470,12 @@ public class MyPageConroller {
 		
 		//메이커 수정  보이는 부분
 		@RequestMapping("/mypageThreeModify")
-		public ModelAndView MypagethreeView(@ModelAttribute ProductVO provo, 
-				@RequestPart List<MultipartFile> file,
+		public ModelAndView MypagethreeView(@ModelAttribute ProductVO provo,
+				@RequestPart List<MultipartFile> file1,
 				@RequestPart MultipartFile main_file, 
-				@RequestParam String video_chkTwo) {
-
+				@RequestParam String video_chkTwo,
+				@RequestParam String audit_id){
+				
 			StringBuilder st = new StringBuilder();
 			FileControl fc = new FileControl();
 			StringBuilder sb = new StringBuilder();
@@ -486,9 +487,9 @@ public class MyPageConroller {
 			if(provo.getVideo_chk()==1) {
 				provo.setImg(video_chkTwo);
 			}else {
-				if( file.size() > 0 ) {
+				if( file1.size() > 0 ) {
 					StringBuilder img_file=new StringBuilder();
-					for( MultipartFile threefile:file) {
+					for( MultipartFile threefile:file1) {
 						if(!threefile.isEmpty()) {
 							Map<String,Object> fileMap=fc.fileUpload(threefile, "", null);
 							img_file.append(fileMap.get("fileName")+"|");
@@ -498,12 +499,14 @@ public class MyPageConroller {
 				}
 			}
 			int result = proSer.updatePro(provo);
+			//심사 아이디를 가지고 와야 한다.
 			
+
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("template", "Reward");
 			mav.addObject("mypage", "information");
 			mav.addObject("id", provo.getAudit_id());
-			mav.addObject("result", result);
+			
 				
 			
 			mav.setViewName("redirect:/page/mypageListModify");
