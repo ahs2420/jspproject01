@@ -91,7 +91,16 @@ $(function(){
     
     ajaxCommentList();
 });
-
+$(function(){
+    $(".proNotDelete").click(function(){
+        var id = $(this).data("id");
+        var pro_id = $(this).data("product_id");
+        var url = "/proNotice/deleteNotice?link=product&id="+id+"&product_id="+pro_id;
+        if(confirm("새소식을 삭제하시겠습니까?")){
+            location.href=url;
+        }
+    });
+});
 function ajaxCommentList(){
     var id = $("main").data("id");
     var member_id = $("main").data("member_id");

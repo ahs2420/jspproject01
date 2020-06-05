@@ -33,15 +33,13 @@
 	<select id="getOne" resultType="productnoticevo">
 	
 	</select>
-	<insert id="setItem">
+	<insert id="setProNotice">
 		INSERT INTO tb_product_notice
 		SET
-			 id =#{id},       
 			 member_id = #{ member_id},
 			 product_id = #{ product_id},
 			 title = #{ title},    
-			 content   = #{ content},
-			 reg_date = #{ reg_date} 
+			 content   = #{ content}
 	</insert>
 	<update id="updateItem">
 		UPDATE tb_product_notice SET
@@ -53,7 +51,7 @@
 		WHERE id= #{id}
 
 	</update>
-	<delete id="deleteItem">
+	<delete id="deleteProNotice">
 		DELETE FROM tb_product_notice
 		WHERE id = #{id}
 	</delete>

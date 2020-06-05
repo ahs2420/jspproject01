@@ -20,6 +20,7 @@ import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.PopupVO;
 import com.krahs123.wathis.model.ProductCommentVO;
 import com.krahs123.wathis.model.ProductNoticeVO;
+import com.krahs123.wathis.model.ProductOptionVO;
 import com.krahs123.wathis.model.ProductVO;
 import com.krahs123.wathis.service.category.CategoryService;
 import com.krahs123.wathis.service.menu.MenuService;
@@ -28,6 +29,7 @@ import com.krahs123.wathis.service.product.AuditService;
 import com.krahs123.wathis.service.product.MakerInfoService;
 import com.krahs123.wathis.service.product.ProductCommentService;
 import com.krahs123.wathis.service.product.ProductNoticeService;
+import com.krahs123.wathis.service.product.ProductOptionService;
 import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
 
@@ -52,6 +54,9 @@ public class ProductController {
 	AuditService auditService;
 	@Autowired
 	MakerInfoService makerService;
+
+	@Autowired
+	ProductOptionService proOptService;
 	
 	final String BASEDIR="/product/";
 	//상품 페이지
@@ -71,6 +76,7 @@ public class ProductController {
 		String cate = cateService.getCateTitle(pvo.getCategory_id());
 		List<ProductCommentVO> proComList = proComService.getProCommentList(id);
 		List<ProductNoticeVO> proNotList = proNotService.getProNoticeList(id);
+		List<ProductOptionVO> proOptList = proOptService.getOptionProductList(id);
 		
 		Date now = new Date();
 		String[] end_day = pvo.getEnd_date().split("-");
@@ -88,21 +94,29 @@ public class ProductController {
 		mav.addObject("proNotCnt", proNotCnt);
 		mav.addObject("proComList", proComList);
 		mav.addObject("proNotList", proNotList);
+		mav.addObject("proOptList", proOptList);
 		mav.addObject("dDay", dDay);
 		mav.addObject("mvo", mvo);
 		return mav;
 	}
 	//상품 옵션 선택 페이지
 	@RequestMapping("/product-select")
-	public ModelAndView viewProductSelect() {
+	public ModelAndView viewProductSelect(@RequestParam int id,@RequestParam(defaultValue = "0") int option_id) {
 		ModelAndView mav = new ModelAndView();
 		List<MenuVO> menuList = menuService.getMenuList();
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+
+		ProductVO pvo = proService.getProductDetail(id);
+		List<ProductOptionVO> proOptList = proOptService.getOptionProductList(id);
+		String cate = cateService.getCateTitle(pvo.getCategory_id());
 		mav.setViewName(BASEDIR+"product-select");
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
-		mav.addObject("menuList", menuList);
+		mav.addObject("pvo", pvo);
+		mav.addObject("proOptList", proOptList);
+		mav.addObject("cate", cate);
+		mav.addObject("option_id", option_id);
 		return mav;
 	}
 	// 상품 결제 페이지

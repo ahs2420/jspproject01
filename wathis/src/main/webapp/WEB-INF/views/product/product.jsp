@@ -198,11 +198,28 @@
                                         </div>
                                     </button>
                                     <div class="dis-none pt20 product-news-content${vs.index} pb20 pt20 pl3p pr3p bg-gray">
+                                        <c:if test="${pvo.member_id eq sessionScope.id}">
+                                            <p class="mb20 txt-right">
+                                                <button class="proNotDelete" data-id='${proNot.id}' data-product_id='${pvo.id}'>
+                                                    삭제
+                                                </button>
+                                            </p>
+                                        </c:if>
                                         <!--새소식 내용-->
                                         ${proNot.content}
                                     </div>
                                 </div>
                             </c:forEach>
+                            <c:if test="${proNotCnt eq '0'}">
+                                <h3 class="bold txt-center">새소식이 없습니다.</h3>
+                            </c:if>
+                            <c:if test="${pvo.member_id eq sessionScope.id}">
+                                <p class="mt20 txt-right">
+                                    <a href="/proNotice/write?product_id=${pvo.id}&link=product" target="_blank" class="btn-stan btn-alerm bold">
+                                        새소식 작성하기
+                                    </a>
+                                </p>
+                            </c:if>
                             <!--새소식 아이템-->
                         </div>
                     </div>
@@ -412,6 +429,9 @@
                                         </div>
                                         <!--//대댓글-->
                                     </div>
+                                    <c:if test="${proComCnt eq '0'}">
+                                        <h3 class="bold txt-box">댓글이 없습니다.</h3>
+                                    </c:if>
                                     <!--//댓글-->
                                     
                                 </div>
@@ -447,7 +467,7 @@
                         <div class="product-btn-container">
                             <div class="flex-box flex-j-space flex-wrap">
                                 <div class="w-100p product-funding">
-                                    <a href="/product/product-select" class="btn-stan tiny-content funding-btn on mb10"><i class="fas fa-gift"></i> 펀딩하기</a>
+                                    <a href="/product/product-select?id=${pvo.id}" class="btn-stan tiny-content funding-btn on mb10"><i class="fas fa-gift"></i> 펀딩하기</a>
                                 </div>
                                 <button class="btn-stan tiny-content w-49p product-question" data-target=".question-box" onclick="targetActive(this)"><i class="far fa-question-circle"></i> <span class="dis-pc">문의하기</span></a>
                                 <button class="btn-stan tiny-content w-49p product-share" data-target=".sns-share" onclick="targetActive(this)"><i class="fas fa-share-square"></i> <span class="dis-pc">공유하기</span></button>
@@ -514,9 +534,34 @@
                         <div class="gray bold tiny-title mb10">리워드 선택</div>
                         <div class="product-reward-items">
                             <!--
-                                재고 없을때는 off 필수
+                                재고 없을때는 off 필수 -> <div class="product-reward-item off gray-box pt20 pb20 pl5p pr5p mb20">
                                 id값은 상품옵션 아이디 넘어가게(자동체크처리)
                             -->
+                            <c:forEach items="${proOptList}" var="pvoOpt">
+                                <div class="product-reward-item gray-box pt20 pb20 pl5p pr5p mb20">
+                                    <a href="/product/product-select?id=${pvo.id}&option_id=${pvoOpt.id}">
+                                        <p class="sub-title bold mb10"><fmt:formatNumber value="${pvoOpt.price}" pattern="#,##0"></fmt:formatNumber> 원 펀딩</p>
+                                        <p class="small-title bold mb10">${pvoOpt.title}</p>
+                                        <p class="gray tiny-content bold">리워드</p>
+                                        <p class="gray tiny-content mb20 bold">${pvoOpt.description}</p>
+                                        <!-- <p class="gray tiny-content bold">가격 해택</p>
+                                        <p class="gray tiny-content mb20 bold">정가대비 70,000 가격해택</p> 
+                                        <p class="gray tiny-content bold">색상</p>
+                                        <p class="gray tiny-content mb20 bold">블랙</p>-->
+                                        <c:if test="${pvoOpt.delevery_chk eq '1'}">
+                                            <p class="gray tiny-content bold">배송</p>
+                                            <p class="gray tiny-content mb20 bold">${pvoOpt.delivery_date} 부터 펀딩순 발송</p>
+                                            <p class="gray tiny-content bold">배송비</p>
+                                            <p class="gray small-content mb20"><fmt:formatNumber value="${pvoOpt.delevery_price}" pattern="#,##0"></fmt:formatNumber> 원</p>
+                                        </c:if>
+                                        <p class="gray tiny-content bold">리워드 발송 시작일</p>
+                                        <p class="gray small-content mb20">${pvoOpt.delivery_date} 예정</p>
+                                        <p class="gray tiny-content bold"><span class="main-color">제한수량 <fmt:formatNumber value="${pvoOpt.stock}" pattern="#,##0"></fmt:formatNumber> 개 <span class="bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></span></p>
+                                        <p class="gray small-content">총 313개 펀딩 완료</p>
+                                    </a>
+                                </div>
+                            </c:forEach>
+                            <!--
                             <div class="product-reward-item gray-box pt20 pb20 pl5p pr5p mb20">
                                 <a href="/product/product-select?id=100">
                                     <p class="sub-title bold mb10">229,000원 펀딩</p>
@@ -537,7 +582,8 @@
                                     <p class="gray small-content">총 313개 펀딩 완료</p>
                                 </a>
                             </div>
-                            <div class="product-reward-item off gray-box pt20 pb20 pl5p pr5p mb20">
+                             
+                                <div class="product-reward-item off gray-box pt20 pb20 pl5p pr5p mb20">
                                 <a href="/product/product-select?id=101">
                                     <p class="sub-title bold mb10">229,000원 펀딩</p>
                                     <p class="small-title bold mb10">솔로버드[블랙]</p>
@@ -556,7 +602,7 @@
                                     <p class="gray tiny-content bold"><span class="main-color">제한수량 1000개 <span class="bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></span></p>
                                     <p class="gray small-content">총 313개 펀딩 완료</p>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- 
@@ -592,17 +638,17 @@
                             <!-- <i class="fas fa-bold"></i> -->
                             <div class="bg-img"></div>
                         </button>
-                        <button class="sns-share-btn icon-40 bg-sns bg-twitter" data-url="https://www.krahs123.co.kr/product.html" data-type="twitter" data-desc="[마지막앵콜] 다리에도 베개가 필요해요">
+                        <button class="sns-share-btn icon-40 bg-sns bg-twitter" data-url="https://www.krahs123.co.kr/product.html" data-type="twitter" data-desc="${pvo.title}">
                             <i class="fab fa-twitter" aria-hidden="true"></i>
                         </button>
                         <button class="sns-share-btn icon-40 bg-sns bg-kakaotalk" 
                             id="kakao-link-btn"
                             data-type="kakao"
                             data-url="https://www.krahs123.co.kr"
-                            data-page="/product.html"
-                            data-img="/images/main/main_1.jpg"
+                            data-page="/product/product?id=${pvo.id}"
+                            data-img="${pvo.img_upload_dir}${pvo.main_img}"
                             data-title="와디지-상품"
-                            data-desc="[마지막앵콜] 다리에도 베개가 필요해요"
+                            data-desc="${pvo.title}"
                         >
                             <i class="xi-kakaotalk xi-x"></i>
                         </button>
@@ -617,29 +663,38 @@
                     <button class="question-box-close sns-share-close modal-close modal-close-btn" data-target=".question-box" onclick="targetActive(this)"></button>
                     <div class="flex-box flex-j-space pt20 pb20 pr5p pl5p border-bottom pb20">
                         <div class="round-img-box product-maker-img">
-                            <img src="/images/product/maker-img.jpg" alt="메이커로고">
+                            <img src="${mvo.marker_img}" alt="메이커로고">
                         </div>
                         <div class="product-maker-link">
-                            <div class="small-content bold mb5">앤커코리아</div>
+                            <div class="small-content bold mb5">${mvo.marker_name}</div>
                             <div class="mb5 tiny-content">
-                                <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
-                                <p><a href="#" targer="_blank">http://ankerdirect.co.kr/</a></p>
+                                <c:forTokens items="${mvo.marker_home_page_url}" delims="|" var="homeUrl">
+                                    <c:if test="${homeUrl ne '' && homeUrl != null}">
+                                        <p><a href="${homeUrl}" targer="_blank">${homeUrl}</a></p>
+                                    </c:if>
+                                </c:forTokens>
                             </div>
                             <div class="maker-sns-container flex-box">
-                                <a href="#" class="bg-sns bg-facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                                <a href="#" class="bg-sns bg-instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#" class="bg-sns bg-twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#" class="bg-sns bg-blog" target="_blank">
+                                <c:if test="${mvo.marker_facebook_url ne ''}">
+                                    <a href="${mvo.marker_facebook_url}" class="bg-sns bg-facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                </c:if>
+                                <c:if test="${mvo.marker_instagram_url ne ''}">
+                                    <a href="${mvo.marker_instagram_url}" class="bg-sns bg-instagram" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                </c:if>
+                                <c:if test="${mvo.marker_twiter_url ne ''}">
+                                    <a href="${mvo.marker_twiter_url}" class="bg-sns bg-twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                </c:if>
+                                <!-- <a href="#" class="bg-sns bg-blog" target="_blank">
                                     <div class="bg-img"></div>
                                 </a>
-                                <a href="#" class="bg-sns bg-external" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+                                <a href="#" class="bg-sns bg-external" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a> -->
                             </div>
                         </div>
                     </div>
                     <div class="pt20 maker-info-box">
-                        <p><a href="tel:050713667088"><i class="fas fa-mobile-alt" aria-hidden="true"></i> 050713667088</a></p>
-                        <p><a href="mailto:support@distyfactory.com"><i class="far fa-envelope" aria-hidden="true"></i> support@distyfactory.com</a></p>
-                        <p><a href="#"><i class="fas fa-comment" aria-hidden="true"></i> 카카오 플러스친구 앤커코리아</a></p>
+                        <p><a href="tel:${mvo.marker_phone}"><i class="fas fa-mobile-alt" aria-hidden="true"></i> ${mvo.marker_phone}</a></p>
+                        <p><a href="mailto:${mvo.marker_email}"><i class="far fa-envelope" aria-hidden="true"></i> ${mvo.marker_email}</a></p>
+                        <p><a href="${mvo.marker_kakao_url}"><i class="fas fa-comment" aria-hidden="true"></i> 카카오 플러스친구 ${mvo.marker_kakao_id}</a></p>
                     </div>
                 </div>
             </div>

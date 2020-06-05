@@ -23,5 +23,15 @@ public class ProductNoticeDAOImpl implements ProductNoticeDAO{
 		// TODO Auto-generated method stub
 		return sql.selectOne(namespace+".getProNoticeCount",product_id);
 	}
+	@Override
+	public int setProNotice(ProductNoticeVO pvo) {
+		// TODO Auto-generated method stub
+		return sql.insert(namespace+".setProNotice",pvo);
+	}
+	@Override
+	public int deleteProNotice(int id) {
+		// TODO Auto-generated method stub
+		return sql.delete(namespace+".deleteProNotice",id);
+	}
 
 }
