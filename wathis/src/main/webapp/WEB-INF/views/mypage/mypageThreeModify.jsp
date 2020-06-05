@@ -59,15 +59,14 @@
             </div>
 
             <!-- 1번 -->
-        <form action="/page/mypageThreeView" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+        <form action="/page/mypageThreeModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
 <!--          이쪽은 가는 쪽이 아니고 동작을 하고 나서 페이지 메핑 한 곳에서 간다.     -->
         
         <input type="hidden" name="id" value="${productvo.id}" />
-        <input type="hidden" name="id" value="${SessionScope.id}" />
+        <input type="hidden" name="audit_id" value="${productvo.audit_id}" />
         <input type="hidden" name="img_upload_dir" value="${productvo.img_upload_dir}" />
         <input type="hidden" name="main_img" value="${productvo.main_img}" />
         <input type="hidden" name="img" value="${productvo.img}" />
-  		<input type="hidden" name="audit_id" value="${audit_id}" /> 
                 
             <div class="ba-project">
                 <div class="flex-basic2 ba-pro-name">
