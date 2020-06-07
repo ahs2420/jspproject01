@@ -138,7 +138,7 @@
                 </li>
                 <li class="mypage-li-menu">
                     <div class="menu-text1">
-                        <a href="#">새소식<i class="fas fa-angle-down"></i></a>
+                        <a href="/proNotice/write?product_id=${product_id}&link=product">새소식<i class="fas fa-angle-down"></i></a>
                     </div>
                 </li>
             </ul>
