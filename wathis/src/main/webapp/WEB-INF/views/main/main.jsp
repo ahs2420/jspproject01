@@ -87,13 +87,13 @@
                                             </c:if>
                                             <fmt:formatNumber var="price" value="${pvo.price}" pattern="#.##"/>
                                             <fmt:formatNumber var="current_funding" value="${pvo.current_funding}" pattern="#.##"/>
-                                            
                                             <c:choose>
-                                                <c:when test="${current_funding > price}">
+                                                <c:when test="${current_funding / price > 1}">
                                                     <span class="percent" style="width: 100%;"></span>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <span class="percent" style="width: <fmt:formatNumber value="${current_funding / price}" type="percent"/>;"></span>
+                                                   
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>

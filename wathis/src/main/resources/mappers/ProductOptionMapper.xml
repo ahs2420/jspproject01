@@ -55,21 +55,22 @@
 	</select>
 	<select id="getOptionProductList" resultType="productoptionvo">
 		SELECT 
-			id,            
-			product_id,    
-			title,         
-			description,   
-			market_price,  
-			price,         
-			stock,      
-			delevery_chk,   
-			delevery_price,
-			option_type,   
-			option_kind,   
-			delivery_date, 
-			reg_date
-		FROM tb_product_option
-		WHERE product_id = #{product_id}
+			a.id,    
+			a.title,         
+			a.description,   
+			a.market_price,  
+			a.price,         
+			a.stock,      
+			a.delevery_chk,   
+			a.delevery_price,
+			a.option_type,   
+			a.option_kind,   
+			a.delivery_date,
+			sum(d.amount) as sell_count
+		FROM tb_product_option as a LEFT OUTER JOIN tb_order_detail as d ON a.id = d.option_id
+		WHERE a.product_id = #{product_id}
+		GROUP by a.id
+		ORDER BY a.id asc
 	</select>
 	<insert id="setProOption">
 		INSERT INTO tb_product_option

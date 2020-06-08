@@ -101,6 +101,7 @@ public class ProductController {
 		List<ProductCommentVO> proComList = proComService.getProCommentList(id);
 		List<ProductNoticeVO> proNotList = proNotService.getProNoticeList(id);
 		List<ProductOptionVO> proOptList = proOptService.getOptionProductList(id);
+		Map<String, Object> orderTotal = orderService.getOrderTotal(id);
 		
 		Date now = new Date();
 		String[] end_day = pvo.getEnd_date().split("-");
@@ -119,6 +120,7 @@ public class ProductController {
 		mav.addObject("proComList", proComList);
 		mav.addObject("proNotList", proNotList);
 		mav.addObject("proOptList", proOptList);
+		mav.addObject("orderTotal", orderTotal);
 		mav.addObject("dDay", dDay);
 		mav.addObject("mvo", mvo);
 		return mav;
@@ -275,7 +277,7 @@ public class ProductController {
 			ProductOptionVO pvOpt = proOptService.getOptionDetail(Integer.parseInt(optID));
 			odvo.setOption_id(Integer.parseInt(optID));
 			odvo.setAmount(Integer.parseInt(optCntList.get(i)));
-			odvo.setPrice(pvOpt.getPrice());
+			odvo.setPrice(pvOpt.getPrice()*odvo.getAmount());
 			odvo.setOption_name(pvOpt.getTitle()+" "+optOptionList.get(i));
 			result+=orderDetailService.setOrderDetail(odvo);
 			i++;

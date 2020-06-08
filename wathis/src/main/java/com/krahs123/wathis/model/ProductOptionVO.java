@@ -32,6 +32,13 @@ public class ProductOptionVO {
 	private String delivery_date;
 	private String reg_date;
 	private String delevery_chk;
+	private int sell_count;
+	public int getSell_count() {
+		return sell_count;
+	}
+	public void setSell_count(int sell_count) {
+		this.sell_count = sell_count;
+	}
 	public int getId() {
 		return id;
 	}

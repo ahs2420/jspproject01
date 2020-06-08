@@ -64,7 +64,7 @@
 			p.price,
 			c.title as cate,
 			m.marker_name,
-			sum(o.price) as current_funding,
+			sum(o.price + o.donation) as current_funding,
 			count(o.id) as funding_count
 		FROM tb_product as p 
 		JOIN tb_audit as a ON p.audit_id=a.id 

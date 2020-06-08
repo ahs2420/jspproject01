@@ -451,17 +451,26 @@
                         </div>
                         <div class="product-status-txt-container">
                             <div class="title mb20">${dDay}일 남음</div>
+                            <fmt:formatNumber var="price" value="${pvo.price}" pattern="#.##"/>
+                            <fmt:formatNumber var="current_funding" value="${orderTotal.sum}" pattern="#.##"/>
                             <div class="progress-bar mb20">
-                                <span class="percent" style="width: 50%;"></span>
+                                <c:choose>
+                                    <c:when test="${current_funding / price > 1}">
+                                        <span class="percent" style="width: 100%;"></span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="percent" style="width: <fmt:formatNumber value="${current_funding / price}" type="percent"/>;"></span>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                             <div class="mb20 bold">
-                                <span class="sub-title">1141</span> % 달성
+                                <span class="sub-title"><fmt:formatNumber value="${current_funding / price}" type="percent"/></span> 달성
                             </div>
                             <div class="mb20 bold">
-                                <span class="sub-title">114,141,700</span> 원 펀딩
+                                <span class="sub-title"><fmt:formatNumber value="${orderTotal.sum}" pattern="#,##0" /></span> 원 펀딩
                             </div>
                             <div class="mb20 bold">
-                                <span class="sub-title">403</span> 명의 서포터
+                                <span class="sub-title"><fmt:formatNumber value="${orderTotal.count}" pattern="#,##0" /></span></span> 명의 서포터
                             </div>
                         </div>
                         <div class="product-btn-container">
@@ -538,8 +547,17 @@
                                 id값은 상품옵션 아이디 넘어가게(자동체크처리)
                             -->
                             <c:forEach items="${proOptList}" var="pvoOpt">
-                                <div class="product-reward-item gray-box pt20 pb20 pl5p pr5p mb20">
-                                    <a href="/product/product-select?id=${pvo.id}&option_id=${pvoOpt.id}">
+                                <c:choose>
+                                    <c:when test="${pvoOpt.stock - pvoOpt.sell_count > 0}" >
+                                        <div class="product-reward-item gray-box pt20 pb20 pl5p pr5p mb20">
+                                            <a href="/product/product-select?id=${pvo.id}&option_id=${pvoOpt.id}">
+                                     </c:when>
+                                     <c:otherwise>
+                                        <div class="product-reward-item off gray-box pt20 pb20 pl5p pr5p mb20">
+                                            <a href="#" onclick="alert('마감된 펀딩 입니다.');">
+                                     </c:otherwise>
+                                </c:choose>
+                                
                                         <p class="sub-title bold mb10"><fmt:formatNumber value="${pvoOpt.price}" pattern="#,##0"></fmt:formatNumber> 원 펀딩</p>
                                         <p class="small-title bold mb10">${pvoOpt.title}</p>
                                         <p class="gray tiny-content bold">리워드</p>
@@ -556,8 +574,10 @@
                                         </c:if>
                                         <p class="gray tiny-content bold">리워드 발송 시작일</p>
                                         <p class="gray small-content mb20">${pvoOpt.delivery_date} 예정</p>
-                                        <p class="gray tiny-content bold"><span class="main-color">제한수량 <fmt:formatNumber value="${pvoOpt.stock}" pattern="#,##0"></fmt:formatNumber> 개 <span class="bg-main-alpha-color pl5 pr5">현재 687개 남음 !</span></span></p>
-                                        <p class="gray small-content">총 313개 펀딩 완료</p>
+                                        <p class="gray tiny-content bold"><span class="main-color">제한수량 
+                                            <fmt:formatNumber value="${pvoOpt.stock}" pattern="#,##0" /> 개 
+                                            <span class="bg-main-alpha-color pl5 pr5">현재 <fmt:formatNumber value="${pvoOpt.stock - pvoOpt.sell_count}" pattern="#,##0" />개 남음 !</span></span></p>
+                                        <p class="gray small-content">총 <fmt:formatNumber value="${pvoOpt.sell_count}" pattern="#,##0" />개 펀딩 완료</p>
                                     </a>
                                 </div>
                             </c:forEach>

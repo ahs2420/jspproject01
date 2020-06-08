@@ -1,6 +1,7 @@
 package com.krahs123.wathis.service.order;
 
 import java.util.List;
+import java.util.Map;
 
 import com.krahs123.wathis.model.OrderVO;
 
@@ -25,4 +26,6 @@ public interface OrderService {
 	
 	//주문 상태 변경
 	public int updateOrderStatus(OrderVO ovo);
+	//주문 통합 - 상품 아이디로
+	public Map<String,Object> getOrderTotal(int product_id);
 }
