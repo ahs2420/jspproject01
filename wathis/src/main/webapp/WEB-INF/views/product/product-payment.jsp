@@ -556,6 +556,7 @@
 		}
 	</script>
 	<%@ include file="/WEB-INF/views/include/foot.jspf"%>
+	<%@ include file="/WEB-INF/views/include/loginChk/loginChk.jsp"%>
 </body>
 <!-- 추가 script 삽입 -->
 </html>

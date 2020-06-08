@@ -203,6 +203,7 @@
             </form>
         </section>
     </main>
+    <%@ include file="/WEB-INF/views/include/loginChk/loginChk.jsp"%>
 <%@ include file="/WEB-INF/views/include/foot.jspf"%>
 </body>
 <!-- 추가 script 삽입 -->
