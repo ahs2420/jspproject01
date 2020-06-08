@@ -76,12 +76,15 @@
                                     <c:when test="${pvoOpt.option_type ne '0'}">
                                         data-type="option" 
                                     </c:when>
+                                    <c:when test="${pvoOpt.stock - pvoOpt.sell_count < 1}" >
+                                        data-type="none" 
+                                    </c:when>
                                     <c:otherwise>
                                         data-type="no-option" 
                                     </c:otherwise>
                                 </c:choose>
                                 name="buy-item[]" value="${pvoOpt.id}" id="buy-item-${vs.index}" data-price="${pvoOpt.price}" <c:if test="${option_id eq pvoOpt.id}">checked</c:if>>
-                            <div class="buy-select-item gray-round-box mb20 <c:if test="${pvoOpt.stock eq '0'}">off</c:if>">
+                            <div class="buy-select-item gray-round-box mb20 <c:if test="${pvoOpt.stock - pvoOpt.sell_count < 1}">off</c:if>">
                                 <label for="buy-item-${vs.index}">
                                     <div class="pt20 pb20 pr5p pl5p">
                                         <!--{금액} 원 펀딩-->
