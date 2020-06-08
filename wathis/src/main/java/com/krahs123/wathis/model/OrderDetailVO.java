@@ -22,6 +22,28 @@ public class OrderDetailVO {
 	private String reg_date;
 	private int product_id;
 	private int member_id;
+	private String option_title;
+	private int delevery_chk;
+	private String delivery_date;
+	
+	public String getOption_title() {
+		return option_title;
+	}
+	public void setOption_title(String option_title) {
+		this.option_title = option_title;
+	}
+	public int getDelevery_chk() {
+		return delevery_chk;
+	}
+	public void setDelevery_chk(int delevery_chk) {
+		this.delevery_chk = delevery_chk;
+	}
+	public String getDelivery_date() {
+		return delivery_date;
+	}
+	public void setDelivery_date(String delivery_date) {
+		this.delivery_date = delivery_date;
+	}
 	public int getMember_id() {
 		return member_id;
 	}

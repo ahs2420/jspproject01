@@ -80,6 +80,33 @@ public class ProductDAOImpl implements ProductDAO{
 		return sql.selectOne(namespace+".getProductCount",map);
 	}
 
+	@Override
+	public int updateProAutoStatusIng() {
+		// TODO Auto-generated method stub
+		return sql.update(namespace+".updateProAutoStatusIng");
+	}
+
+	@Override
+	public List<ProductVO> getProAutoStatusSuccessList() {
+		// TODO Auto-generated method stub
+		return sql.selectList(namespace+".getProAutoStatusSuccessList");
+	}
+
+	@Override
+	public List<ProductVO> getProAutoStatusFailList() {
+		// TODO Auto-generated method stub
+		return sql.selectList(namespace+".getProAutoStatusFailList");
+	}
+
+	@Override
+	public int updateProAutoStatus(int id, int status) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashMap<>();
+		map.put("id", id);
+		map.put("status", status);
+		return sql.update(namespace+".updateProAutoStatus",map);
+	}
+
 	
 	
 	

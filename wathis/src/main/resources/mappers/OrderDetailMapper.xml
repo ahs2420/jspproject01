@@ -16,15 +16,18 @@
 	</select>
 	<select id="getOrderDetailList" resultType="orderdetailvo">
 		SELECT 
-		id,
-		order_id,
-		option_id,
-		option_name,
-		amount,
-		price,
-		reg_date
+		d.id,
+		d.order_id,
+		d.option_id,
+		d.option_name,
+		d.amount,
+		d.price,
+		d.reg_date,
+		o.title as option_title,
+		o.delevery_chk,
+		o.delivery_date
 		FROM
-			tb_order_detail
+			tb_order_detail as d JOIN tb_product_option as o ON d.option_id = o.id 
 		WHERE order_id=#{order_id}
 		ORDER BY id DESC
 	</select>

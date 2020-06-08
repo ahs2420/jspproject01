@@ -29,7 +29,7 @@ public class ProductVO {
 		private int member_id;
 		private int category_id;
 		private int audit_id;
-		private char status;
+		private int status;
 		private String title;
 		private String sub_title;
 		private int video_chk;
@@ -67,10 +67,10 @@ public class ProductVO {
 		public void setAudit_id(int audit_id) {
 			this.audit_id = audit_id;
 		}
-		public char getStatus() {
+		public int getStatus() {
 			return status;
 		}
-		public void setStatus(char status) {
+		public void setStatus(int status) {
 			this.status = status;
 		}
 		public String getTitle() {

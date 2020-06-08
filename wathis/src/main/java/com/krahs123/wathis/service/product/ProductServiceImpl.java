@@ -57,6 +57,26 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productDAO.getProductCount(category_id, words);
 	}
+	@Override
+	public int updateProAutoStatusIng() {
+		// TODO Auto-generated method stub
+		return productDAO.updateProAutoStatusIng();
+	}
+	@Override
+	public List<ProductVO> getProAutoStatusSuccessList() {
+		// TODO Auto-generated method stub
+		return productDAO.getProAutoStatusSuccessList();
+	}
+	@Override
+	public List<ProductVO> getProAutoStatusFailList() {
+		// TODO Auto-generated method stub
+		return productDAO.getProAutoStatusFailList();
+	}
+	@Override
+	public int updateProAutoStatus(int id, int status) {
+		// TODO Auto-generated method stub
+		return productDAO.updateProAutoStatus(id, status);
+	}
 
 	
 }

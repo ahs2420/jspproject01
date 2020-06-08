@@ -130,18 +130,20 @@ public class AuditController {
 				}
 				if(status==3){
 					//승인일때
+					int pro_id = proService.getProductId(id);
+					proService.updateProAutoStatus(pro_id, 1);
 					content="축하합니다. "+siteName+"입니다. "+proName+"은 심사에 통과되었습니다. <br> 펀딩은 시작일자 이후로 자동으로 시작 되오니 변경 사항이 있을경우 시작전에 미리 변경 하시길 바랍니다.<br> 감사합니다.<br>"+siteName+" "+ceo+" 올림";
 				}
 				
 				mvo.setContent(content);
 				mvo.setTitle(title);
-				try {
-					ms.mailSender(request, mvo);
-					mailService.setMail(mvo);
-				} catch (UnsupportedEncodingException | MessagingException | GeneralSecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//				try {
+//					ms.mailSender(request, mvo);
+//				} catch (UnsupportedEncodingException | MessagingException | GeneralSecurityException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+				mailService.setMail(mvo);
 			}
 		}
 		

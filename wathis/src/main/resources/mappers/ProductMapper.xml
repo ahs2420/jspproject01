@@ -125,7 +125,19 @@
 		WHERE id=#{id}
 		
 	</select>
-	
+	<select id="getProAutoStatusSuccessList" resultType="productvo">
+		SELECT p.id,p.price FROM 
+		tb_product as p 
+		JOIN tb_order as o ON p.id = o.product_id 
+		WHERE p.status=2 AND curdate() > end_date
+		GROUP BY p.id HAVING SUM(o.price+o.donation) >= p.price
+	</select>
+	<select id="getProAutoStatusFailList" resultType="productvo">
+		SELECT p.id,p.price FROM tb_product as p 
+		JOIN tb_order as o ON p.id = o.product_id
+		WHERE p.status=2 AND curdate() > end_date
+		GROUP BY p.id HAVING p.price > SUM(o.price+o.donation) 
+	</select>
 	<insert id="setProduct">
 		insert into tb_product SET
 		member_id=#{member_id},
@@ -160,6 +172,20 @@
 			keyword=#{keyword}
 			where 
 			id=#{id}
+	</update>
+	
+	
+	<update id="updateProAutoStatus">
+		update tb_product SET
+			status = #{status}
+			where 
+			id=#{id}
+	</update>
+	<update id="updateProAutoStatusIng">
+		update tb_product SET
+			status = 2
+			where 
+			curdate() between start_date and end_date AND status=1
 	</update>
 	
 	<delete id="deleteItem">

@@ -29,7 +29,7 @@
                         </div>
                         
                         <p class="mt10 gray bold tiny-title">${ovo.cate_title}</p>
-                        <p class="gray bold tiny-content mt10"><span class="icon-round-no-board inline-box bg-gray-dark icon-10"></span> ${productStatus[ovo.status]}</p>
+                        <p class="gray bold tiny-content mt10"><span class="icon-round-no-board inline-box icon-10 product-status-${ovo.status}"></span> ${productStatus[ovo.status]}</p>
                         <p class="bold large-title mt5">${ovo.title}</p>
                         <p class="gray tiny-title mt5">by ${ovo.marker_name}</p>
                     </a>

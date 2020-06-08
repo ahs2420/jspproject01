@@ -281,7 +281,7 @@ public class ProductController {
 			odvo.setOption_id(Integer.parseInt(optID));
 			odvo.setAmount(Integer.parseInt(optCntList.get(i)));
 			odvo.setPrice(pvOpt.getPrice()*odvo.getAmount());
-			odvo.setOption_name(pvOpt.getTitle()+" "+optOptionList.get(i));
+			odvo.setOption_name(pvOpt.getTitle()+" | "+optOptionList.get(i));
 			result+=orderDetailService.setOrderDetail(odvo);
 			i++;
 		}

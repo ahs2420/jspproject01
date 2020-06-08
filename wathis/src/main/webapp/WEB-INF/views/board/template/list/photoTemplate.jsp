@@ -110,14 +110,3 @@
 		</div>
 		</section>
 	</main>
-<script>
-	$(document).ready(function(){
-    makeCalendar();
-    $("#startDate","#endDate").datepicker({
-        dateFormat : 'yy-mm-dd'
-    });
-    $("#addSchedulerButton").click(function(){
-        addScheduler();
-    });
-});
-</script>

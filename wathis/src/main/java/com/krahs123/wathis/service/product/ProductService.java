@@ -28,5 +28,13 @@ public interface ProductService {
 	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer);
 	//상품 갯수
 	public int getProductCount(String category_id,String words);
+	//상품 자동으로 펀딩중으로 변경
+	public int updateProAutoStatusIng();
+	//상품 성공리스트
+	public List<ProductVO> getProAutoStatusSuccessList();
+	//상품 실패리스트
+	public List<ProductVO> getProAutoStatusFailList();
+	//상품 상태 변경
+	public int updateProAutoStatus(int id,int status);
 	
 }

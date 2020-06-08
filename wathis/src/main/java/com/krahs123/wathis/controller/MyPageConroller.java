@@ -2,6 +2,9 @@ package com.krahs123.wathis.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.util.List;
@@ -656,16 +659,19 @@ public class MyPageConroller {
 	}
 	//펀딩리스트
 	@RequestMapping("/fundingDetail")
-	public ModelAndView myFundingDetail(HttpSession session,@RequestParam int id){
+	public ModelAndView myFundingDetail(HttpSession session,@RequestParam int id) throws NoSuchAlgorithmException, UnsupportedEncodingException, GeneralSecurityException{
 		ModelAndView mav = new ModelAndView();
+		AES256 aes = new AES256();
+		
 		List<MenuVO> menuList = menuService.getMenuList();
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
 		OrderVO ovo = orderService.getOrderDetail(id);
+		ovo.setReceiver_tel(aes.decrypt(ovo.getReceiver_tel()));
 		List<OrderDetailVO> odvoList = orderDetailService.getOrderDetailList(id);
 		ProductVO pvo = proSer.getProductDetail(ovo.getProduct_id());
 		String cate = cateSer.getCateTitle(id);
-		MakerInfoVO mvo = makerSer.getMakerDetailAudit(pvo.getAudit_id());
+		MakerInfoVO mavo = makerSer.getMakerDetailAudit(pvo.getAudit_id());
 		mav.addObject("menuList", menuList);
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
@@ -674,7 +680,8 @@ public class MyPageConroller {
 		mav.addObject("ovo",ovo);
 		mav.addObject("odvoList",odvoList);
 		mav.addObject("pvo",pvo);
-		mav.addObject("mvo",mvo);
+		mav.addObject("mavo",mavo);
+		mav.addObject("cate",cate);
 		mav.addObject("productStatus",DbStatus.productStatus);
 		mav.addObject("orderState",DbStatus.orderState);
 		mav.setViewName(DIR+"userMypage");
