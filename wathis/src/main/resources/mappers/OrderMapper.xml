@@ -63,6 +63,34 @@
 		WHERE member_id = #{member_id}
 		ORDER BY id DESC
 	</select>
+	<select id="getOrderTotal" resultType="ordervo">
+		SELECT 
+			id,
+			member_id,
+			product_id,
+			price,
+			donation,
+			delivery_fee,
+			payment,
+			account_num,
+			account_name,
+			account_bank,
+			pay_type,
+			receiver_addr1,
+			receiver_addr2,
+			receiver_addr3,
+			receiver_tel,
+			receiver_name,
+			receiver_etc,
+			state,
+			delivery_id,
+			delivery_number,
+			reg_date
+		FROM
+			tb_order
+		WHERE member_id = #{member_id}
+		ORDER BY id DESC
+	</select>
 	<select id="getOrderDetail" resultType="ordervo">
 		SELECT 
 			id,
