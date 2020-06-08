@@ -149,6 +149,8 @@ function ajaxPage(opt){
 				}else{
 					btDay+=" 일 남음";
 				}
+				pvo.current_funding = (pvo.current_funding==null||pvo.current_funding=="")?0:pvo.current_funding;
+				var per = (pvo.current_funding>pvo.price)?100:+Math.floor(pvo.current_funding*100/pvo.price);
 				pushItem += '<div class="reward-item">\
 					<a href="/product/product?id='+pvo.id+'">\
 						<div class="reward-img-box">\
@@ -159,12 +161,12 @@ function ajaxPage(opt){
 							<p class="reward-sub-title text-max-line line1">'+pvo.cate+' | '+pvo.marker_name+'</p>\
 							<div class="progress-bar mb10">\
 								<!--상품 펀딩 진척도(최대100%)-->\
-								<span class="percent" style="width: 50%;"></span>\
+								<span class="percent" style="width: '+per+'%;"></span>\
 							</div>\
 							<div class="reward-per">\
 								<div>\
-									<span>7641%</span>\
-									<span class="reward-mobile-display-none">76,411,044원</span>\
+									<span>'+Math.floor(pvo.current_funding*100/pvo.price)+'%</span>\
+									<span class="reward-mobile-display-none">'+comma(pvo.current_funding)+' 원</span>\
 								</div>\
 								<span>'+btDay+'</span>\
 							</div>\

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <jsp:useBean id="htmlEncode" class="com.krahs123.wathis.util.HtmlSpecialChar"></jsp:useBean>
 <!-- 추가 css,js -->
@@ -80,12 +81,29 @@
                                         <p class="catogory mb20 gray text-max-line line1">${pvo.cate} | ${pvo.marker_name}</p>
                                         <div class="progress-bar mb10">
                                             <!--상품 펀딩 진척도(최대100%)-->
-                                            <span class="percent" style="width: 50%;"></span>
+                                            
+                                            <c:if test="${pvo.current_funding eq '' || pvo.current_funding == null }">
+                                                <c:set var="pvo.current_funding" value="0" />
+                                            </c:if>
+                                            <fmt:formatNumber var="price" value="${pvo.price}" pattern="#.##"/>
+                                            <fmt:formatNumber var="current_funding" value="${pvo.current_funding}" pattern="#.##"/>
+                                            
+                                            <c:choose>
+                                                <c:when test="${current_funding > price}">
+                                                    <span class="percent" style="width: 100%;"></span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span class="percent" style="width: <fmt:formatNumber value="${current_funding / price}" type="percent"/>;"></span>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                         <div class="flex-box flex-j-space">
                                             <p>
                                                 <!-- 펀딩금액  상품 펀딩 진척도-->
-                                                ${pvo.price}원<span class="ml5 gray">50%</span>
+                                                <c:if test="${pvo.current_funding eq '' || pvo.current_funding == null }">
+                                                    0
+                                                </c:if>
+                                                <fmt:formatNumber value="${pvo.current_funding}" pattern="#,##0" /> 원<span class="ml5 gray"><fmt:formatNumber value="${current_funding / price}" type="percent"/></span>
                                             </p>
                                             <p class="gray">
                                                 <fmt:parseDate value="${now}" var="strPlanDate" pattern="yyyy-MM-dd"/>

@@ -63,9 +63,16 @@
 			p.end_date,
 			p.price,
 			c.title as cate,
-			m.marker_name
-		FROM tb_product as p JOIN tb_audit as a ON p.audit_id=a.id JOIN tb_maker_info as m ON a.id=m.audit_id JOIN tb_category as c ON p.category_id=c.id
+			m.marker_name,
+			sum(o.price) as current_funding,
+			count(o.id) as funding_count
+		FROM tb_product as p 
+		JOIN tb_audit as a ON p.audit_id=a.id 
+		JOIN tb_maker_info as m ON a.id=m.audit_id 
+		JOIN tb_category as c ON p.category_id=c.id
+		LEFT OUTER JOIN tb_order as o ON o.product_id = p.id
 	    <include refid="getInclude"></include>
+		GROUP BY p.id
 		ORDER BY p.id desc
 		Limit #{pageStart},#{pagePer}
 	</select>

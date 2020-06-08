@@ -95,7 +95,7 @@
 			member_id=#{member_id},
 			product_id=#{product_id},
 			price=#{price},
-			donation=${donation},
+			donation=#{donation},
 			delivery_fee=#{delivery_fee},
 			payment=#{payment},
 			account_num=#{account_num},
