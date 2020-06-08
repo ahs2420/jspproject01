@@ -13,5 +13,9 @@ public interface ProductNoticeService {
 	public int setProNotice(ProductNoticeVO pvo);
 	//상품 새소식 삭제
 	public int deleteProNotice(int id);
+	//상품 새소식 상세
+	public ProductNoticeVO getProNoticeDetail(int id);
+	//상품 새소식 수정
+	public int updateProNotice(ProductNoticeVO pvo);
 
 }

@@ -28,4 +28,6 @@ public interface OrderService {
 	public int updateOrderStatus(OrderVO ovo);
 	//주문 통합 - 상품 아이디로
 	public Map<String,Object> getOrderTotal(int product_id);
+	//주문리스트 - 마이페이지용, 회원번호로 검색
+	public List<Map<String,Object>> getOrderMyList(int member_id);
 }

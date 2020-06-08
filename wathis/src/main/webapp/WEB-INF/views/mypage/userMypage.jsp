@@ -40,9 +40,9 @@
     </div>
     <div class="sub-nav">
         <ul class="sub-menu flex-box flex-j-center flex-wrap">
-            <li class="w-33p bold <c:if test="${template eq 'fundingList'}">on</c:if>"><a class="sub-view-btn" type="button" href="/page/userMypage?template=fundingList" ><span class="dis-pc">펀딩한프로젝트</span><span class="dis-mobile">펀딩</span></a></li>
+            <li class="w-33p bold <c:if test="${template eq 'fundingList'}">on</c:if>"><a class="sub-view-btn" type="button" href="/page/fundingList" ><span class="dis-pc">펀딩한프로젝트</span><span class="dis-mobile">펀딩</span></a></li>
             <li class="w-33p bold <c:if test="${template eq 'makeList'}">on</c:if>"><a class="sub-view-btn" type="button" href="/page/makeProject" ><span class="dis-pc">제작한프로젝트</span><span class="dis-mobile">제작</span></a></li>
-            <li class="w-33p bold <c:if test="${template eq 'setting'}">on</c:if>"><a class="sub-view-btn" type="button" href="/page/userMypage?template=setting" >설정</a></li>
+            <li class="w-33p bold <c:if test="${template eq 'setting'}">on</c:if>"><a class="sub-view-btn" type="button" href="/page/userSetting" >설정</a></li>
         </ul>
     </div>
 </header>

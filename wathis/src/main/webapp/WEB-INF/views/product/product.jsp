@@ -39,8 +39,14 @@
             <ul class="product-menu flex-box flex-j-center">
                 <li class="bold on"><a class="product-view-btn" href="#product-main" data-target=".product-items">스토리</a></li>
                 <li class="bold"><a class="product-view-btn" href="#product-info" data-target=".product-items">펀딩 안내</a></li>
-                <li class="bold"><a class="product-view-btn" href="#product-news" data-items="${proNotCnt}" data-target=".product-items">새소식</a></li>
-                <li class="bold"><a class="product-view-btn" id="proComBtn" href="#product-community" data-items="${proComCnt}" data-target=".product-items">커뮤니티</a></li>
+                <li class="bold"><a class="product-view-btn" href="#product-news" 
+                    <c:if test="${proNotCnt > 0}">
+                        data-items="${proNotCnt}" 
+                    </c:if>
+                    data-target=".product-items">새소식</a></li>
+                <li class="bold"><a class="product-view-btn" id="proComBtn" href="#product-community" 
+                        data-items="${proComCnt}" 
+                    data-target=".product-items">커뮤니티</a></li>
                 <!-- <li><a href="#">서포터</a></li> -->
             </ul>
         </div>
@@ -200,7 +206,10 @@
                                     <div class="dis-none pt20 product-news-content${vs.index} pb20 pt20 pl3p pr3p bg-gray">
                                         <c:if test="${pvo.member_id eq sessionScope.id}">
                                             <p class="mb20 txt-right">
-                                                <button class="proNotDelete" data-id='${proNot.id}' data-product_id='${pvo.id}'>
+                                                <button class="underline-hover mr10" onclick="location.href='/proNotice/modify?id=${proNot.id}&link=product'">
+                                                    수정
+                                                </button>
+                                                <button class="proNotDelete underline-hover" data-id='${proNot.id}' data-product_id='${pvo.id}'>
                                                     삭제
                                                 </button>
                                             </p>
@@ -429,9 +438,6 @@
                                         </div>
                                         <!--//대댓글-->
                                     </div>
-                                    <c:if test="${proComCnt eq '0'}">
-                                        <h3 class="bold txt-box">댓글이 없습니다.</h3>
-                                    </c:if>
                                     <!--//댓글-->
                                     
                                 </div>
@@ -497,7 +503,7 @@
                                         <div class="mb5 tiny-content">
                                             <c:forTokens items="${mvo.marker_home_page_url}" delims="|" var="homeUrl">
                                                 <c:if test="${homeUrl ne '' && homeUrl != null}">
-                                                    <p><a href="${homeUrl}" targer="_blank">${homeUrl}</a></p>
+                                                    <p><a class="text-max-line line1" href="${homeUrl}" targer="_blank">${homeUrl}</a></p>
                                                 </c:if>
                                             </c:forTokens>
                                         </div>
@@ -690,7 +696,7 @@
                             <div class="mb5 tiny-content">
                                 <c:forTokens items="${mvo.marker_home_page_url}" delims="|" var="homeUrl">
                                     <c:if test="${homeUrl ne '' && homeUrl != null}">
-                                        <p><a href="${homeUrl}" targer="_blank">${homeUrl}</a></p>
+                                        <p><a class="text-max-line line1" href="${homeUrl}" targer="_blank">${homeUrl}</a></p>
                                     </c:if>
                                 </c:forTokens>
                             </div>

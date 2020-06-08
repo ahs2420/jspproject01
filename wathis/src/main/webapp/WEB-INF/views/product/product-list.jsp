@@ -56,18 +56,18 @@
 	<main>
 		<section class="reward-section">
 			<div class="reward-container">
-				<div class="owl-carousel owl-theme owl-category owl-carousel2">
-					<div class="reward-it <c:if test="${category_id eq '' || category_id == null}">on</c:if>">
+				<div class="owl-carousel owl-theme owl-category owl-carousel2" data-id="#cate-sel-${category_id}">
+					<div class="reward-it <c:if test="${category_id eq '' || category_id == null}">on</c:if>" id="cate-sel-" >
 						<a href="/product/product-list">
 							<div class="reward-it-img">
 								<img src="/xkfqkfimages/1.jpg" alt="">
 							</div>
-							<div class="reward-it-text">전체보기</div>
+							<div class="reward-it-text" id="#cate-sel-">전체보기</div>
 						</a>
 					</div>
 					<c:forEach items="${cateList}" var="cate">
-						<div class="reward-it <c:if test="${category_id eq cate.id}">on</c:if>">
-							<a href="/product/product-list?category_id=${cate.id}">
+						<div class="reward-it <c:if test="${category_id eq cate.id}">on</c:if>" id="cate-sel-${cate.id}">
+							<a href="/product/product-list?category_id=${cate.id}#cate-sel-${cate.id}">
 								<div class="reward-it-img">
 									<img src="${cate.cate_img}" alt="">
 								</div>

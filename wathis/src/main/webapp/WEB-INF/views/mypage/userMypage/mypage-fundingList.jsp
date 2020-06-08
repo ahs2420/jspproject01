@@ -20,18 +20,18 @@
             </div>
         </div>
         <div class="bg-white pt40 pb40">
-            <c:forEach begin="0" end="2" varStatus="vs">
+            <c:forEach items="${orderList}" var="ovo" varStatus="vs">
                 <div class="<c:if test="${vs.index != 0}">mt20</c:if> pb20 border-bottom">
-                    <a href="/page/userMypage?template=fundingList&page=detail">
+                    <a href="/page/fundingDetail?id=${ovo.id}">
                         <div class="flex-box flex-j-space">
-                            <p class="blue">결제완료</p>
-                            <p class="gray tiny-content">2020-08-08 펀딩</p>
+                            <p class="blue">${orderState[ovo.state]}</p>
+                            <p class="gray tiny-content">${ovo.reg_date} 펀딩</p>
                         </div>
                         
-                        <p class="mt10 gray bold tiny-title">여행ㆍ레저</p>
-                        <p class="gray bold tiny-content mt10"><span class="icon-round-no-board inline-box bg-gray-dark icon-10"></span> 종료</p>
-                        <p class="bold large-title mt5">(앵콜) [킬리X여행에미치다] 청춘들을 위한 리얼 여행배낭 제작 프로젝트</p>
-                        <p class="gray tiny-title mt5">by 킬리아웃피터스</p>
+                        <p class="mt10 gray bold tiny-title">${ovo.cate_title}</p>
+                        <p class="gray bold tiny-content mt10"><span class="icon-round-no-board inline-box bg-gray-dark icon-10"></span> ${productStatus[ovo.status]}</p>
+                        <p class="bold large-title mt5">${ovo.title}</p>
+                        <p class="gray tiny-title mt5">by ${ovo.marker_name}</p>
                     </a>
                 </div>
             </c:forEach>

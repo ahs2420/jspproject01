@@ -62,4 +62,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return orderDAO.getOrderTotal(product_id);
 	}
+
+	@Override
+	public List<Map<String, Object>> getOrderMyList(int member_id) {
+		// TODO Auto-generated method stub
+		return orderDAO.getOrderMyList(member_id);
+	}
 }

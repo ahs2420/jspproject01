@@ -36,4 +36,16 @@ public class ProductNoticeServiceImpl implements ProductNoticeService{
 		// TODO Auto-generated method stub
 		return productNoticeDAO.deleteProNotice(id);
 	}
+
+	@Override
+	public ProductNoticeVO getProNoticeDetail(int id) {
+		// TODO Auto-generated method stub
+		return productNoticeDAO.getProNoticeDetail(id);
+	}
+
+	@Override
+	public int updateProNotice(ProductNoticeVO pvo) {
+		// TODO Auto-generated method stub
+		return productNoticeDAO.updateProNotice(pvo);
+	}
 }

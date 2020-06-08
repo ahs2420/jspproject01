@@ -68,76 +68,112 @@
                         -->
                         <!--선택형-->
                         <c:forEach items="${proOptList}" var="pvoOpt" varStatus="vs">
-                            <input type="checkbox" class="dis-none buy-item-chk" 
-                                <c:choose>
-                                    <c:when test="${pvoOpt.stock eq '0'}">
-                                        data-type="none" 
-                                    </c:when>
-                                    <c:when test="${pvoOpt.option_type ne '0'}">
-                                        data-type="option" 
-                                    </c:when>
-                                    <c:when test="${pvoOpt.stock - pvoOpt.sell_count < 1}" >
-                                        data-type="none" 
-                                    </c:when>
-                                    <c:otherwise>
-                                        data-type="no-option" 
-                                    </c:otherwise>
-                                </c:choose>
-                                name="buy-item[]" value="${pvoOpt.id}" id="buy-item-${vs.index}" data-price="${pvoOpt.price}" <c:if test="${option_id eq pvoOpt.id}">checked</c:if>>
-                            <div class="buy-select-item gray-round-box mb20 <c:if test="${pvoOpt.stock - pvoOpt.sell_count < 1}">off</c:if>">
-                                <label for="buy-item-${vs.index}">
-                                    <div class="pt20 pb20 pr5p pl5p">
-                                        <!--{금액} 원 펀딩-->
-                                        <p class="sub-title bold mb5"><fmt:formatNumber value="${pvoOpt.price}" pattern="#,##0"></fmt:formatNumber> 원 펀딩</p>
-                                        <!--{옵션이름} 현제 n 개 남음!-->
-                                        <p class="mb5"><span class="small-title bold">${pvoOpt.title}</span><span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 <fmt:formatNumber value="${pvoOpt.stock}" pattern="#,##0"></fmt:formatNumber> 개 남음 !</span></p>
-                                        <!--{옵션구성상세}-->
-                                        <p class="gray tiny-content mb5 bold">${pvoOpt.title}</p>
-                                        <!--배송비 {배송비} |  리워드 발송 시작일:{발송 예정일} 예정-->
-                                            <p class="tiny-content bold">
-                                                <c:if test="${pvoOpt.delevery_chk eq '1'}">
-                                                    배송비 <fmt:formatNumber value="${pvoOpt.delevery_price}" pattern="#,##0"></fmt:formatNumber>원 | 
-                                                </c:if>
-                                                리워드 발송 시작일: ${pvoOpt.delivery_date} 예정</p>
-                                        <div class="buy-select-option mt20">
-                                            <div class="flex-box flex-j-space flex-wrap">
-                                                <div class="w-30p col-sm-12">
-                                                    <p class="bold mb5">수량</p>
-                                                    <div class="flex-box flex-a-center">
-                                                        <button type="button" class="input-count-change" data-function="down" data-target="#buy-item-${vs.index}-count"><i class="fas fa-chevron-circle-down"></i></button>
-                                                        <input type="text" name="buy-item-count[]" id="buy-item-${vs.index}-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="${pvoOpt.stock}" value="1">
-                                                        <button type="button" class="input-count-change" data-function="up" data-target="#buy-item-${vs.index}-count"><i class="fas fa-chevron-circle-up"></i></button>
+                            <c:choose>
+                                <c:when test="${pvoOpt.stock - pvoOpt.sell_count < 1}" >
+                                    <div class="buy-select-item gray-round-box mb20 off">
+                                        <label for="buy-item-${vs.index}">
+                                            <div class="pt20 pb20 pr5p pl5p">
+                                                <!--{금액} 원 펀딩-->
+                                                <p class="sub-title bold mb5"><fmt:formatNumber value="${pvoOpt.price}" pattern="#,##0"></fmt:formatNumber> 원 펀딩</p>
+                                                <!--{옵션이름} 현제 n 개 남음!-->
+                                                <p class="mb5">
+                                                    <span class="small-title bold">${pvoOpt.title}</span>
+                                                    <span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 
+                                                        <fmt:formatNumber value="${pvoOpt.stock - pvoOpt.sell_count}" pattern="#,##0" /> 개 남음 !
+                                                    </span>
+                                                </p>
+                                                <!--{옵션구성상세}-->
+                                                <p class="gray tiny-content mb5 bold">${pvoOpt.title}</p>
+                                                <!--배송비 {배송비} |  리워드 발송 시작일:{발송 예정일} 예정-->
+                                                <p class="tiny-content bold">
+                                                    <c:if test="${pvoOpt.delevery_chk eq '1'}">
+                                                        배송비 <fmt:formatNumber value="${pvoOpt.delevery_price}" pattern="#,##0"></fmt:formatNumber>원 | 
+                                                    </c:if>
+                                                    리워드 발송 시작일: ${pvoOpt.delivery_date} 예정
+                                                </p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="checkbox" class="dis-none buy-item-chk" 
+                                        <c:choose>
+                                            <c:when test="${pvoOpt.stock eq '0'}">
+                                                data-type="none" 
+                                            </c:when>
+                                            <c:when test="${pvoOpt.option_type ne '0'}">
+                                                data-type="option" 
+                                            </c:when>
+                                            <c:when test="${pvoOpt.stock - pvoOpt.sell_count < 1}" >
+                                                data-type="none" 
+                                            </c:when>
+                                            <c:otherwise>
+                                                data-type="no-option" 
+                                            </c:otherwise>
+                                        </c:choose>
+                                        name="buy-item[]" value="${pvoOpt.id}" id="buy-item-${vs.index}" data-price="${pvoOpt.price}" <c:if test="${option_id eq pvoOpt.id}">checked</c:if>>
+                                    <div class="buy-select-item gray-round-box mb20 ">
+                                        <label for="buy-item-${vs.index}">
+                                            <div class="pt20 pb20 pr5p pl5p">
+                                                <!--{금액} 원 펀딩-->
+                                                <p class="sub-title bold mb5"><fmt:formatNumber value="${pvoOpt.price}" pattern="#,##0"></fmt:formatNumber> 원 펀딩</p>
+                                                <!--{옵션이름} 현제 n 개 남음!-->
+                                                <p class="mb5">
+                                                    <span class="small-title bold">${pvoOpt.title}</span>
+                                                    <span class="ml10 tiny-content bg-main-alpha-color pl5 pr5">현재 
+                                                        <fmt:formatNumber value="${pvoOpt.stock - pvoOpt.sell_count}" pattern="#,##0" /> 개 남음 !
+                                                    </span>
+                                                </p>
+                                                <!--{옵션구성상세}-->
+                                                <p class="gray tiny-content mb5 bold">${pvoOpt.title}</p>
+                                                <!--배송비 {배송비} |  리워드 발송 시작일:{발송 예정일} 예정-->
+                                                    <p class="tiny-content bold">
+                                                        <c:if test="${pvoOpt.delevery_chk eq '1'}">
+                                                            배송비 <fmt:formatNumber value="${pvoOpt.delevery_price}" pattern="#,##0"></fmt:formatNumber>원 | 
+                                                        </c:if>
+                                                        리워드 발송 시작일: ${pvoOpt.delivery_date} 예정</p>
+                                                <div class="buy-select-option mt20">
+                                                    <div class="flex-box flex-j-space flex-wrap">
+                                                        <div class="w-30p col-sm-12">
+                                                            <p class="bold mb5">수량</p>
+                                                            <div class="flex-box flex-a-center">
+                                                                <button type="button" class="input-count-change" data-function="down" data-target="#buy-item-${vs.index}-count"><i class="fas fa-chevron-circle-down"></i></button>
+                                                                <input type="text" name="buy-item-count[]" id="buy-item-${vs.index}-count" class="isNumeric ml5 mr5 input-stan input-max-chk" data-max="${pvoOpt.stock - pvoOpt.sell_count}" value="1">
+                                                                <button type="button" class="input-count-change" data-function="up" data-target="#buy-item-${vs.index}-count"><i class="fas fa-chevron-circle-up"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-60p col-sm-12">
+                                                            <c:if test="${pvoOpt.option_type eq '0'}">
+                                                                <input type="hidden" class="input-stan w-100p" name="buy-item-option[]"  id="buy-item-${vs.index}-option" placeholder="옵션을 입력해주세요">
+                                                            </c:if>
+                                                            <c:if test="${pvoOpt.option_type ne '0'}">
+                                                                <p class="bold mb5">옵션</p>
+                                                                
+                                                                <c:if test="${pvoOpt.option_type eq '1'}">
+                                                                    <select class="select-stan" name="buy-item-option[]" id="buy-item-${vs.index}-option">
+                                                                        <option value="">선택해주세요</option>
+                                                                        <!--
+                                                                            {옵션이름} -> 구분자는 |로 해서 그대로 넣어라
+                                                                        -->
+                                                                        <c:forTokens items="${HtmlSpecialChar.encodeEnter(pvoOpt.option_kind) }" var="item" delims="|">
+                                                                            <option value="${item}">${item}</option>
+                                                                        </c:forTokens> 
+                                                                    </select>
+                                                                </c:if>
+                                                                <c:if test="${pvoOpt.option_type eq '2'}">
+                                                                    <p class="tiny-content gray bold mb10"> ${pvoOpt.option_kind }</p>
+                                                                    <input type="text" class="input-stan w-100p" name="buy-item-option[]"  id="buy-item-${vs.index}-option" placeholder="옵션을 입력해주세요">
+                                                                </c:if>
+                                                            </c:if>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="w-60p col-sm-12">
-                                                    <c:if test="${pvoOpt.option_type eq '0'}">
-                                                        <input type="hidden" class="input-stan w-100p" name="buy-item-option[]"  id="buy-item-${vs.index}-option" placeholder="옵션을 입력해주세요">
-                                                    </c:if>
-                                                    <c:if test="${pvoOpt.option_type ne '0'}">
-                                                        <p class="bold mb5">옵션</p>
-                                                        
-                                                        <c:if test="${pvoOpt.option_type eq '1'}">
-                                                            <select class="select-stan" name="buy-item-option[]" id="buy-item-${vs.index}-option">
-                                                                <option value="">선택해주세요</option>
-                                                                <!--
-                                                                    {옵션이름} -> 구분자는 |로 해서 그대로 넣어라
-                                                                -->
-                                                                <c:forTokens items="${HtmlSpecialChar.encodeEnter(pvoOpt.option_kind) }" var="item" delims="|">
-                                                                    <option value="${item}">${item}</option>
-                                                                </c:forTokens> 
-                                                            </select>
-                                                        </c:if>
-                                                        <c:if test="${pvoOpt.option_type eq '2'}">
-                                                            <p class="tiny-content gray bold mb10"> ${pvoOpt.option_kind }</p>
-                                                            <input type="text" class="input-stan w-100p" name="buy-item-option[]"  id="buy-item-${vs.index}-option" placeholder="옵션을 입력해주세요">
-                                                        </c:if>
-                                                    </c:if>
-                                                </div>
                                             </div>
-                                        </div>
+                                        </label>
                                     </div>
-                                </label>
-                            </div>
+
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                         
                         <div class="mb20">

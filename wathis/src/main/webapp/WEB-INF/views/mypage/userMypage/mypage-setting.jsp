@@ -14,7 +14,7 @@
                 <input type="file" id="thumbnail" data-target=".test" data-file-type="img" data-preview=".user-thumbnail-label img" class="dis-none" name="main_img"/>
                 <label class="user-thumbnail-label" for="thumbnail">
                 <c:choose>
-                	<c:when test="${mvo.uimg==null&&mvo.uimg eq ''}">
+                	<c:when test="${mvo.uimg==null||mvo.uimg eq ''}">
                     	<img src="/images/icon/file-upload-icon.png" alt="썸네일 기본"/>
                 	</c:when>
                 	<c:otherwise>

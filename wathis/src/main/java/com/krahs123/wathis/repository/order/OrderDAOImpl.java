@@ -55,4 +55,9 @@ public class OrderDAOImpl implements OrderDAO{
 		// TODO Auto-generated method stub
 		return sql.selectOne(namespace+".getOrderTotal", product_id);
 	}
+	@Override
+	public List<Map<String, Object>> getOrderMyList(int member_id) {
+		// TODO Auto-generated method stub
+		return sql.selectList(namespace+".getOrderMyList",member_id);
+	}
 }

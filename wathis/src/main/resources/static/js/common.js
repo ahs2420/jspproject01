@@ -40,7 +40,9 @@ $(function(){
 // 모바일 서브메뉴 토글
 $(function(){
     $(".mobile-menu > a").click(function(e){
-        e.preventDefault();
+        if($(this).attr("href")=="#"){
+            e.preventDefault();
+        }
         $(this).next(".sub-menu").toggle(300);
     });
 });

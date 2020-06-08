@@ -63,6 +63,27 @@
 		WHERE member_id = #{member_id}
 		ORDER BY id DESC
 	</select>
+	<select id="getOrderMyList" resultType="map">
+		SELECT 
+			o.id,
+			o.price,
+			o.pay_type,
+			o.state,
+			o.delivery_id,
+			o.delivery_number,
+			DATE_FORMAT(o.reg_date,'%Y-%m-%d') as reg_date,
+			p.title,
+			p.status,
+			c.title as cate_title,
+			m.marker_name
+		FROM
+			tb_order as o 
+			JOIN tb_product as p ON o.product_id = p.id 
+			JOIN tb_category as c ON p.category_id = c.id
+			JOIN tb_maker_info as m ON m.audit_id = p.audit_id
+		WHERE o.member_id = #{o.member_id}
+		ORDER BY o.id DESC
+	</select>
 	<select id="getOrderTotal" resultType="map">
 		SELECT 
 			count(id) as count,

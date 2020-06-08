@@ -33,11 +33,15 @@ import com.krahs123.wathis.model.MakerInfoVO;
 import com.krahs123.wathis.model.MemberAddrVO;
 import com.krahs123.wathis.model.MemberVO;
 import com.krahs123.wathis.model.MenuVO;
+import com.krahs123.wathis.model.OrderDetailVO;
+import com.krahs123.wathis.model.OrderVO;
 import com.krahs123.wathis.model.ProductVO;
 import com.krahs123.wathis.service.category.CategoryService;
 import com.krahs123.wathis.service.member.MemberAddrService;
 import com.krahs123.wathis.service.member.MemberService;
 import com.krahs123.wathis.service.menu.MenuService;
+import com.krahs123.wathis.service.order.OrderDetailService;
+import com.krahs123.wathis.service.order.OrderService;
 import com.krahs123.wathis.service.popup.PopupService;
 import com.krahs123.wathis.service.product.AuditService;
 import com.krahs123.wathis.service.product.MakerInfoService;
@@ -72,7 +76,9 @@ public class MyPageConroller {
 	@Autowired PopupService popupService;
 	
 	@Autowired SiteConfigService siteService;
-	
+
+	@Autowired OrderService orderService;
+	@Autowired OrderDetailService orderDetailService;
 	final String DIR ="/mypage/";
 	
 	@RequestMapping("/mypage")
@@ -577,7 +583,7 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"userMypage");
 		return mav;
 	}
-	//회원 마이페이지
+	//회원 설정
 	@RequestMapping("/userSetting")
 	public ModelAndView userSetting(
 			@RequestParam(defaultValue = "setting") String template,
@@ -606,6 +612,7 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"userMypage");
 		return mav;
 	}
+	//제작한 프로젝트 리스트
 	@RequestMapping("/makeProject")
 	public ModelAndView viewMakeProject(HttpSession session){
 	//public List<Map<String,Object>> viewMakeProject(HttpSession session){
@@ -627,5 +634,50 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"userMypage");
 		return mav;
 	}
+	//펀딩리스트
+	@RequestMapping("/fundingList")
+	public ModelAndView myFundingList(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		List<Map<String,Object>> orderList = orderService.getOrderMyList(Integer.parseInt(session.getValue("id").toString()));
 
+		mav.addObject("menuList", menuList);
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
+		mav.addObject("template","fundingList");
+		mav.addObject("page","list");
+		mav.addObject("orderList",orderList);
+		mav.addObject("productStatus",DbStatus.productStatus);
+		mav.addObject("orderState",DbStatus.orderState);
+		mav.setViewName(DIR+"userMypage");
+		return mav;
+	}
+	//펀딩리스트
+	@RequestMapping("/fundingDetail")
+	public ModelAndView myFundingDetail(HttpSession session,@RequestParam int id){
+		ModelAndView mav = new ModelAndView();
+		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		OrderVO ovo = orderService.getOrderDetail(id);
+		List<OrderDetailVO> odvoList = orderDetailService.getOrderDetailList(id);
+		ProductVO pvo = proSer.getProductDetail(ovo.getProduct_id());
+		String cate = cateSer.getCateTitle(id);
+		MakerInfoVO mvo = makerSer.getMakerDetailAudit(pvo.getAudit_id());
+		mav.addObject("menuList", menuList);
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
+		mav.addObject("template","fundingList");
+		mav.addObject("page","detail");
+		mav.addObject("ovo",ovo);
+		mav.addObject("odvoList",odvoList);
+		mav.addObject("pvo",pvo);
+		mav.addObject("mvo",mvo);
+		mav.addObject("productStatus",DbStatus.productStatus);
+		mav.addObject("orderState",DbStatus.orderState);
+		mav.setViewName(DIR+"userMypage");
+		return mav;
+	}
 }

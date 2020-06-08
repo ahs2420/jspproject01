@@ -139,6 +139,7 @@ public class ProductController {
 		mav.setViewName(BASEDIR+"product-select");
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
+		mav.addObject("menuList", menuList);
 		mav.addObject("pvo", pvo);
 		mav.addObject("proOptList", proOptList);
 		mav.addObject("cate", cate);
@@ -159,6 +160,7 @@ public class ProductController {
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
 		ProductVO pvo = proService.getProductDetail(id);
+		MakerInfoVO mavo = makerService.getMakerDetailAudit(pvo.getAudit_id());
 		MemberVO mvo = memService.getMemberDetail(Integer.parseInt(session.getValue("id").toString()));
 		AES256 aes = new AES256();
 		if(mvo.getUtel()!=null) {
@@ -209,6 +211,7 @@ public class ProductController {
 		//기본 정보(상품 + 회원 + 카테고리 이름)
 		mav.addObject("pvo", pvo);
 		mav.addObject("mvo", mvo);
+		mav.addObject("mavo", mavo);
 		mav.addObject("cate", cate);
 		//옵션정보
 		mav.addObject("donationMoney", donationMoney);

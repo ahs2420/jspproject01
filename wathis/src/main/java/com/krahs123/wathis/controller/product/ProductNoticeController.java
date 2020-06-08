@@ -76,4 +76,37 @@ public class ProductNoticeController {
 		sb.append("</script>");
 		return sb.toString();
 	}
+
+	//새소식 수정 화면
+	@RequestMapping(value = "/modify" , method = RequestMethod.GET)
+	public ModelAndView modifyNoticeView(@RequestParam int id,@RequestParam(defaultValue = "page") String link) {
+		ModelAndView mav = new ModelAndView();
+		ProductNoticeVO proNot = proNotService.getProNoticeDetail(id);
+		List<MenuVO> menuList = menuService.getMenuList();
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+		
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
+		mav.addObject("menuList", menuList);
+		mav.addObject("proNot", proNot);
+		mav.addObject("product_id", proNot.getProduct_id());
+		mav.addObject("link", link);
+		mav.addObject("menuList", menuList);
+		
+		mav.setViewName(DIR+"product-notice-modify");
+		return mav;
+	}
+
+	//새소식 수정 동작
+	@RequestMapping(value = "/modify" , method = RequestMethod.POST)
+	public ModelAndView modifyNoticeDo(@ModelAttribute ProductNoticeVO pvo,@RequestParam(defaultValue = "page") String link) {
+		ModelAndView mav = new ModelAndView();
+		ProductVO pro = proService.getProductDetail(pvo.getProduct_id());
+		int result = proNotService.updateProNotice(pvo);
+		String url = (link.equals("product"))?"/product/product?id="+pvo.getProduct_id():"/page/mypageListModify?template=Reward&mypage=information&id="+pro.getAudit_id();
+		mav.setViewName("redirect:"+url);
+		return mav;
+		
+	}
 }

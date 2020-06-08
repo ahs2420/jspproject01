@@ -325,7 +325,7 @@
 				<p class="mt20 bold small-title">개인 정보 이용 내역</p>
 				<div class="flex-box flex-j-space mt10 pb5 border-bottom">
 					<p class="w-30p main-color">제공받는자</p>
-					<p class="w-65p">오라클코스메틱(주)</p>
+					<p class="w-65p">${mavo.marker_name}</p>
 				</div>
 				<div class="flex-box flex-j-space mt10 pb5 border-bottom">
 					<p class="w-30p main-color">목적</p>

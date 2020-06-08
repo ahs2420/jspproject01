@@ -115,6 +115,7 @@ function ajaxCommentList(){
     var ajaxResult = ajaxStan(option);
     var html ="";
     if(ajaxResult.status){
+        ajaxResult.data.count=(ajaxResult.data.count==0)?"":ajaxResult.data.count;
         $("#proComBtn").attr("data-items",ajaxResult.data.count);
         if(ajaxResult.data.count>0){
             for(var pvo of ajaxResult.data.pvoList){
@@ -142,6 +143,8 @@ function ajaxCommentList(){
                 </div>\
                 ';
             }
+        }else{
+            html='<h3 class="bold txt-box">댓글이 없습니다.</h3>';
         }
         $target.html(html);
     }
