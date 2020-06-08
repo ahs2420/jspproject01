@@ -41,7 +41,13 @@
 <!-- 	회원정보 수정 -->
 <!-- 	아이디 수정 -->
 	<update id="updateNameMember">
-		UPDATE tb_member SET uid= #{uid} WHERE id = #{id}
+		UPDATE tb_member 
+		SET 
+		uname= #{uname} ,
+		utel= #{utel} ,
+		uemail= #{uemail} ,
+		uimg= #{uimg}
+		WHERE id = #{id}
 	</update>
 
 
@@ -98,6 +104,9 @@
 	</select>
 	<select id="getMemberFindPWD" resultType="int">
 		SELECT id FROM tb_member WHERE uid=#{uid} AND uemail=#{uemail}
+	</select>
+	<select id="getMemberID" resultType="int">
+		SELECT count(id) FROM tb_member WHERE uid=#{uid}
 	</select>
 	<select id="getOne" resultType="membervo">
 		SELECT 

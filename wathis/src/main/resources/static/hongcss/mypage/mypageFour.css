@@ -83,3 +83,8 @@ input[type="radio"]{
 
 }
 
+.flex-box{
+display: flex;
+flex-wrap: wrap;
+
+}

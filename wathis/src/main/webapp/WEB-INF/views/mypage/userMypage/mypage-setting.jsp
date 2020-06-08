@@ -5,13 +5,23 @@
     <div class="container max600" id="term-box">
         <form name="baseInfoForm" action="/users/modifyUserName" method ="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="${sessionScope.id}"/>
+            <input type="hidden" name="uimg" value="${mvo.uimg}"/>
+            <input type="hidden" name="addr_id" value="${mavo.id}"/>
             <div class="pb20  border-bottom">
                 <h1 class="large-title bold">기본 정보 설정</h1>
             </div>
             <div class="mt20">
-                <input type="file" id="thumbnail" data-target=".test" data-file-type="img" data-preview=".user-thumbnail-label img" class="dis-none"/>
+                <input type="file" id="thumbnail" data-target=".test" data-file-type="img" data-preview=".user-thumbnail-label img" class="dis-none" name="main_img"/>
                 <label class="user-thumbnail-label" for="thumbnail">
-                    <img src="/images/icon/file-upload-icon.png" alt="썸네일 기본"/>
+                <c:choose>
+                	<c:when test="${mvo.uimg==null&&mvo.uimg eq ''}">
+                    	<img src="/images/icon/file-upload-icon.png" alt="썸네일 기본"/>
+                	</c:when>
+                	<c:otherwise>
+                    	<img src="${mvo.uimg}" alt="썸네일 기본"/>
+                	</c:otherwise>
+                
+                </c:choose>
                 </label>
             </div>
             <div class="mt20">
@@ -32,10 +42,10 @@
             </div>
             <div class="mt10">
                 <p class="tiny-content mb5 dis-none" id="dis-post"></p>
-                <input type="text" class="input-stan chkitem" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="postcode" placeholder="우편번호" readonly />
-                <input type="text" class="input-stan mt10 w-100p chkitem" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="address" placeholder="주소" readonly />
-                <input type="text" class="input-stan mt10 w-100p" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="extraAddress" placeholder="참고항목" readonly />
-                <input type="text"  class="input-stan mt10 w-100p chkitem" data-error="상세주소를" id="detailAddress" placeholder="상세주소" />
+                <input type="text" name="addr1" class="input-stan chkitem" value="${mavo.addr1 }" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="postcode" placeholder="우편번호" readonly />
+                <input type="text" name="addr2" class="input-stan mt10 w-100p chkitem" value="${mavo.addr2 }" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="address" placeholder="주소" readonly />
+                <input type="text" name="addr3" class="input-stan mt10 w-100p" value="${mavo.addr3 }" onclick="execDaumPostcode()" data-error="우편주소를 검색해서 주소를" id="extraAddress" placeholder="참고항목" readonly />
+                <input type="text" name="addr4"  class="input-stan mt10 w-100p chkitem" value="${mavo.addr4 }" data-error="상세주소를" id="detailAddress" placeholder="상세주소" />
             </div>
             <div class="txt-center mt10">
                 <button type="submit" class="btn-stan tiny-content btn-main">저장하기</button>

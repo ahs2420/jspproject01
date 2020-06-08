@@ -876,6 +876,63 @@ var Digital = '<table style="width:100%">\
     <td></td>\
 </tr>\
 </table>';
+var SmallElect= '<table style="width:100%">\
+<tr>\
+    <th style=\"width:10%\">항목</th>\
+    <th style=\"width:25%\">부연설명</th>\
+    <th style=\"width:45%\">직접 작성</th>\
+</tr>\
+<tr>\
+    <th>품명 및 모델명</th>\
+    <td>품명 및 모델명을 기입하세요 </td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>KC 인증 필 유무</th>\
+    <td>법에 의한 인증・허가 등을 받았음을 확인할 수 있는 경우 그에 대한 사항들을 입력하세요.(Ex 인증 서류, 보증서 등)</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>정격전압, 소비전력</th>\
+    <td>정격전압과 소비 전력이 얼마 인가요?</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>동일모델의 출시 년일</th>\
+    <td>동일한 모델이 있다면 출시 일과 년을 입력해주세요.</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>제조자(수입자)</th>\
+    <td>제조자: 리워드를 제작하는 업체 수입자: 수입신고필증 상 수입업체 </td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>제조국</th>\
+    <td>정식 국가명을 표기</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>크기, 무게</th>\
+    <td>가로, 세로, 높이 등 제품 정보 입력 </td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>주요 사양</th>\
+    <td>어떤 사양을 가지고 있는 물건인지 기입해주세요. 등급 등 입력 해당사항 없는 경우, "해당사항 없음" 입력 </td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>품질보증기준</th>\
+    <td>예) 관련법 및 소비자분쟁해결 기준에 따름</td>\
+    <td></td>\
+</tr>\
+<tr>\
+    <th>A/S 책임자와 전화번호 또는 소비자상담 관련 전화번호</th>\
+    <td>예) 고객센터, 상담 가능한 번호를 입력하세요.소비자상담 관련 전화번호 </td>\
+    <td></td>\
+</tr>\
+</table>';
 var Other= '<table style="width:100%">\
 <tr>\
     <th style=\"width:10%\">항목</th>\
@@ -907,13 +964,7 @@ var Other= '<table style="width:100%">\
     <td>예) 고객센터, 상담 가능한 번호를 입력하세요.소비자상담 관련 전화번호 </td>\
     <td></td>\
 </tr>\
-<tr>\
-    <th></th>\
-    <td></td>\
-    <td></td>\
-</tr>\
 </table>';
-
 var item = [
     KIND,
     clothing,
@@ -931,6 +982,7 @@ var item = [
     Infant,
     books,
     Digital,
+    SmallElect,
     Other
 ];
 $(function () {

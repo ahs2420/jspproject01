@@ -104,7 +104,7 @@
 
             <!-- 3번 -->
 
-            <div class="mar-bo2 text-padding2" id="optionWrap">
+            <div class="mar-bo2 text-padding2 flex-box" id="optionWrap">
             </div>
         </div>
 
@@ -516,7 +516,7 @@
 			for(var option of ajaxResult.data.optionList){
                 delivery=(option.delevery_chk==0)?"해당없음":option.delevery_price+"원";
 				addItem+='\
-				<div class="name-left bor-box1 fon-bor2 text-padding5 wid15 box-sh hei9">\
+				<div class="name-left bor-box1 fon-bor2 text-padding5 wid15 box-sh hei9" >\
 	                <!-- 마이페이지3 번 영수증 부분 -->\
 	                <div class="flex-box text-padding2 box-li4">\
 	                    <span class="fl-sp fon-wei4 ">'+option.price+'원</span>\

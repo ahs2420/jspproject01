@@ -30,6 +30,7 @@ import com.krahs123.wathis.config.DbStatus;
 import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MakerInfoVO;
+import com.krahs123.wathis.model.MemberAddrVO;
 import com.krahs123.wathis.model.MemberVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.ProductVO;
@@ -64,27 +65,27 @@ public class MyPageConroller {
 	
 	@Autowired MemberService memService;
 
-	
 	@Autowired MemberAddrService memAddService;
 	
-	@Autowired
-	MenuService menuService;
-	@Autowired
-	PopupService popupService;
-	@Autowired
-	SiteConfigService siteService;
+	@Autowired MenuService menuService;
+	
+	@Autowired PopupService popupService;
+	
+	@Autowired SiteConfigService siteService;
 	
 	final String DIR ="/mypage/";
 	
 	@RequestMapping("/mypage")
-	public ModelAndView viewMypageList(HttpSession session){
+	public ModelAndView viewMypageList(HttpSession session,int product_id){
 		int member_id = (int)session.getValue("id");
 		int auditID = auditService.getAuditLastID(member_id); 
+		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("template", "Reward");
 		mav.addObject("mypage", "prepare");
 		mav.addObject("auditID", auditID);
+		
 
 		
 		mav.setViewName(DIR+"mypage");
@@ -587,6 +588,7 @@ public class MyPageConroller {
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
 		MemberVO mvo = memService.getMemberDetail(Integer.parseInt(session.getValue("id").toString()));
+		MemberAddrVO mavo = memAddService.getAddrFirst(mvo.getId());
 		
 		AES256 aes = new AES256();
 		try {
@@ -600,6 +602,7 @@ public class MyPageConroller {
 		mav.addObject("template",template);
 		mav.addObject("page",page);
 		mav.addObject("mvo",mvo);
+		mav.addObject("mavo",mavo);
 		mav.setViewName(DIR+"userMypage");
 		return mav;
 	}

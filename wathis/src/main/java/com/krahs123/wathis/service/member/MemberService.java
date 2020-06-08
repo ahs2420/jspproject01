@@ -37,9 +37,11 @@ public interface MemberService {
 	public int getIdPwdChk(String uid,String upassword);
 	
 	//화원수정 아이디 중복 체크
-	public int updateNameMember(int uid);
+	public int getMemberID(String uid);
 
 	//회원 수정 전화번호
 	public int updateMemberTel(int id , String utel);
 
+	//회원 수정 - 마이페이지
+	public int updateNameMember(MemberVO mvo, HttpSession session);
 }

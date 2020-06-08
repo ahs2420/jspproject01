@@ -38,14 +38,20 @@ public class LoginController {
 
 	@Autowired
 	MenuService menuService;
+	
 	@Autowired
 	MemberService memberService;
+	
 	@Autowired
 	MailService mailService;
+	
 	@Autowired
 	SiteConfigService siteService;
+	
 	@Autowired
 	ArticleService articleService;
+	
+	
 	final String DIR ="/login/";
 	//
 	@RequestMapping("/login-page2")

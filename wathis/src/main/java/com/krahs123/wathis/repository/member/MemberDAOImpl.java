@@ -112,9 +112,9 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	//회원아이디 중복체크
 	@Override
-	public int updateNameMember(int uid) {
+	public int getMemberID(String uid) {
 		
-		return sql.selectOne(namespace + ".updateNameMember", uid);
+		return sql.selectOne(namespace + ".getMemberID", uid);
 	}
 	@Override
 	public int updateMemberTel(int id, String utel) {
@@ -124,5 +124,11 @@ public class MemberDAOImpl implements MemberDAO{
 		map.put("utel", utel);
 		return sql.update(namespace+".updateMemberTel",map);
 	}
+	@Override
+	public int updateNameMember(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return sql.update(namespace+".updateNameMember",mvo);
+	}
+	
 	
 }

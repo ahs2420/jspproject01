@@ -1,5 +1,6 @@
 package com.krahs123.wathis.controller.member;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.util.HashMap;
@@ -22,7 +23,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.krahs123.wathis.config.DbStatus;
+import com.krahs123.wathis.model.MemberAddrVO;
 import com.krahs123.wathis.model.MemberVO;
+import com.krahs123.wathis.service.member.MemberAddrService;
 import com.krahs123.wathis.service.member.MemberService;
 import com.krahs123.wathis.util.AES256;
 import com.krahs123.wathis.util.FileControl;
@@ -33,6 +36,10 @@ import com.krahs123.wathis.util.ShaEncrypt;
 public class MemberController {
 	@Autowired
 	MemberService memberService;
+
+	@Autowired
+	MemberAddrService memberAddrService;
+	
 	//관리자 리스트 화면
 	@RequestMapping("")
 	public ModelAndView viewMemberList(
@@ -73,6 +80,7 @@ public class MemberController {
 		mav.setViewName("/admin/admin");
 		return mav;
 	}
+	
 	//회원수정 화면
 	@RequestMapping(value="/getUsersModify",method = RequestMethod.GET)
 	public ModelAndView getUsersModify(@RequestParam int id) {
@@ -95,15 +103,18 @@ public class MemberController {
 		mav.setViewName("/admin/admin");
 		return mav;
 	}
+	
 	//회원수정 동작
 	@RequestMapping(value="/getUsersModify",method = RequestMethod.POST)
 	public ModelAndView getUsersModifyDO(@ModelAttribute MemberVO mvo,@RequestPart MultipartFile userImage) {
 		ModelAndView mav = new ModelAndView();
 		AES256 aes = new AES256();
+		
 
 		if(mvo.getUtel()!=null) {
 			mvo.setUtel(aes.encrypt(mvo.getUtel()));
 		}
+		
 		if(!userImage.isEmpty()) {
 			FileControl fc = new FileControl();
 			if(mvo.getUimg()!=null&&!mvo.getUimg().equals("")) {
@@ -156,6 +167,7 @@ public class MemberController {
 		map.put("status", status);
 		return map;
 	}
+	
 	@RequestMapping("/deleteSelUser")
 	@ResponseBody
 	public Map<String,Object> deleteSelUser(@RequestParam(value="uid[]") List<Integer> idList){
@@ -220,24 +232,47 @@ public class MemberController {
 	
 	//회원 이름 수정
 	
-//	@RequestMapping("/modifyUserName")
-//	@ResponseBody
-//	public String modifyUserName(HttpSession session,@RequestParam int id,@RequestParam String uid) {
-//		StringBuilder sb = new StringBuilder();
-//		String msg = "회원 이름이 수정 되었습니다.";
-//		String url = "/page/userMypage?template=setting";
-//		
-////		int result = memberService.updateNameMember(uid);
-//		if(result>0) {
-//			
-//			msg="정보가 수정 되었습니다.";
-//		}
-//		sb.append("<script>");
-//		sb.append("alert('"+msg+"');");
-//		sb.append("location.replace('"+url+"');");
-//		sb.append("</script>");
-//		return sb.toString();
-//	}
+	@RequestMapping("/modifyUserName")
+	@ResponseBody
+	public String modifyUserName(
+			HttpSession session,
+			@ModelAttribute MemberVO mvo , 
+			@ModelAttribute MemberAddrVO mavo,
+			@RequestParam(defaultValue = "-1") int addr_id,
+			@RequestPart MultipartFile main_img) {
+		StringBuilder sb = new StringBuilder();
+		String msg = "회원 이름이 수정 되었습니다.";
+		String url = "/page/userSetting?template=setting";
+		int addrCnt = memberAddrService.getAddrCount(mvo.getId());
+		AES256 aes = new AES256();
+		String tel = aes.encrypt(mvo.getUtel());
+		mvo.setUtel(tel);
+		if(!main_img.isEmpty()) {
+			FileControl fc = new FileControl();
+			fc.fileDelete("", mvo.getUimg(), null);
+			Map<String,Object> map = fc.fileUpload(main_img, "", null);
+			mvo.setUimg(map.get("uploadDIR").toString()+map.get("fileName").toString());
+		}
+		mavo.setShip_name(mvo.getUname());
+		mavo.setShip_tel(tel);
+		mavo.setShip_desc("기본배송지");
+		if(addrCnt>0) {
+			mavo.setId(addr_id);
+			memberAddrService.updateAddr(mavo);
+		}else {
+			mavo.setMember_id(mvo.getId());
+			memberAddrService.setAddr(mavo);
+		}
+		int result = memberService.updateNameMember(mvo,session);
+		if(result>0) {
+			msg="정보가 수정 되었습니다.";
+		}
+		sb.append("<script>");
+		sb.append("alert('"+msg+"');");
+		sb.append("location.replace('"+url+"');");
+		sb.append("</script>");
+		return sb.toString();
+	}
 	
 	
 	

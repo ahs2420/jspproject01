@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService{
 			session.setAttribute("uid", result.getUid());
 			session.setAttribute("uname", result.getUname());
 			session.setAttribute("uimg", 
-					(result.getUimg()!=null&&result.getUimg().equals(""))?result.getUimg():"/images/icon/file-upload-icon.png"
+					(result.getUimg()!=null&&!result.getUimg().equals(""))?result.getUimg():"/images/icon/file-upload-icon.png"
 			);
 			session.setAttribute("ugroup", result.getUgroup());
 		}
@@ -106,9 +106,9 @@ public class MemberServiceImpl implements MemberService{
 	//화원수정 아이디 중복 체크
 		
 	@Override
-	public int updateNameMember(int uid) {
+	public int getMemberID(String uid) {
 	
-		return memberdao.updateNameMember(uid);
+		return memberdao.getMemberID(uid);
 	}
 	//-----------------------------------------
 
@@ -117,4 +117,18 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return memberdao.updateMemberTel(id, utel);
 	}
+
+	@Override
+	public int updateNameMember(MemberVO mvo, HttpSession session) {
+		// TODO Auto-generated method stub
+		int result = memberdao.updateNameMember(mvo);
+		
+		if( result > 0) {
+			MemberVO mvoNew = memberdao.getMemberDetail(mvo.getId());
+			session.setAttribute("uname", mvoNew.getUname());
+			session.setAttribute("uimg", (mvoNew.getUimg()!=null&&!mvoNew.getUimg().equals(""))?mvoNew.getUimg():"/images/icon/file-upload-icon.png");
+		}
+		return result;
+	}
+	
 }
