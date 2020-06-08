@@ -14,9 +14,6 @@
 			tb_order_detail
 		ORDER BY id DESC
 	</select>
-	<select id="getCount" resultType="int">
-	
-	</select>
 	<select id="getOrderDetailList" resultType="orderdetailvo">
 		SELECT 
 		id,

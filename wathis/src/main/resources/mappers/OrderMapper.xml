@@ -63,32 +63,13 @@
 		WHERE member_id = #{member_id}
 		ORDER BY id DESC
 	</select>
-	<select id="getOrderTotal" resultType="ordervo">
+	<select id="getOrderTotal" resultType="map">
 		SELECT 
-			id,
-			member_id,
-			product_id,
-			price,
-			donation,
-			delivery_fee,
-			payment,
-			account_num,
-			account_name,
-			account_bank,
-			pay_type,
-			receiver_addr1,
-			receiver_addr2,
-			receiver_addr3,
-			receiver_tel,
-			receiver_name,
-			receiver_etc,
-			state,
-			delivery_id,
-			delivery_number,
-			reg_date
+			count(id) as count,
+			sum(price + donation) as sum
 		FROM
 			tb_order
-		WHERE member_id = #{member_id}
+		WHERE product_id = #{product_id}
 		ORDER BY id DESC
 	</select>
 	<select id="getOrderDetail" resultType="ordervo">

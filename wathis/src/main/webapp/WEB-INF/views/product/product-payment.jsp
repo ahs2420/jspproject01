@@ -43,7 +43,7 @@
 					<input type="hidden" name="payment" value="${total}" />
 					<input type="hidden" name="delivery_fee" value="${delevery}" />
 					<input type="hidden" name="donation" value="${donationMoney}" />
-					<input type="hidden" name="price" value="${total - donation - delivery_fee}" />
+					<input type="hidden" name="price" value="${total - donationMoney - delevery}" />
 					<div class="bg-main-alpha-color pt20 pb20 white pl5p pr5p mb30">
 						<p>펀딩을 마치면 <span class="bold">결제 예약 상태</span>입니다. 종료일에 100% 이상 달성되었을 경우에만 결제 예정일에 결제가 됩니다</p>
 					</div>

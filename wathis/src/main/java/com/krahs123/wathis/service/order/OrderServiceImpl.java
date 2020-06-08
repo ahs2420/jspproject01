@@ -1,6 +1,7 @@
 package com.krahs123.wathis.service.order;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,5 +55,11 @@ public class OrderServiceImpl implements OrderService{
 	public int updateOrderStatus(OrderVO ovo) {
 		// TODO Auto-generated method stub
 		return orderDAO.updateOrderStatus(ovo);
+	}
+
+	@Override
+	public Map<String, Object> getOrderTotal(int product_id) {
+		// TODO Auto-generated method stub
+		return orderDAO.getOrderTotal(product_id);
 	}
 }

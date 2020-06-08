@@ -1,6 +1,7 @@
 package com.krahs123.wathis.repository.order;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,10 @@ public class OrderDAOImpl implements OrderDAO{
 	public int updateOrderStatus(OrderVO ovo) {
 		// TODO Auto-generated method stub
 		return sql.update(namespace+".updateOrderStatus",ovo);
+	}
+	@Override
+	public Map<String, Object> getOrderTotal(int product_id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(namespace+".getOrderTotal", product_id);
 	}
 }
