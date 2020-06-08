@@ -59,7 +59,7 @@
             </div>
 
             <!-- 1번 -->
-        <form action="/page/mypageThreeModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="">
+        <form action="/page/mypageThreeModify" enctype="multipart/form-data" method="post" class="chkFormCke" id=""  name="filename[]" input multiple="multiple">
 <!--          이쪽은 가는 쪽이 아니고 동작을 하고 나서 페이지 메핑 한 곳에서 간다.     -->
         
         <input type="hidden" name="id" value="${productvo.id}" />
@@ -102,7 +102,7 @@
                                      <div class="mypageIntro-makerimg flex-box1">
                                      	<c:forTokens items="${productvo.img}" delims="|" var="img">
                                      		<c:if test="${img ne ''}">
-                                     			<img  src="${productvo.img_upload_dir}${img}" class="mar-left4" alt="">
+                                     			<img  src="${productvo.img_upload_dir}${img}" name="filename[]" class="mar-left4" alt="" multiple>
                                      		</c:if>
                                      	</c:forTokens>
                                         

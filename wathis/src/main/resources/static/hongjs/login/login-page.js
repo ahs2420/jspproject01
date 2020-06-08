@@ -27,3 +27,37 @@
 
         });
     });
+    
+    //회원가입 유효검사
+    $(function (){
+    	$(".memberIdChk").click(function(){
+//    		alert("됩니다.")
+    		$.ajax({
+    			type : "post",
+    			url : "/login/register",
+    			data : {
+    				
+    				"uid" : $(".memberIdChk").val()
+    			},
+    			success : function(data){
+    					if($.trim(data) == "NO"){
+    						$("")
+    						
+    					}
+    				
+    			}
+    			
+    		});
+    		
+    	});
+    	
+    	
+    	
+    	
+    	
+    });
+    
+    
+    
+    //회원아이디 중복 체크
+    

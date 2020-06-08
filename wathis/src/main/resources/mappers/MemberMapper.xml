@@ -37,8 +37,15 @@
 				
 		WHERE uid = #{uid} AND upassword = #{upassword}
 	</select>
+<!-- 	회원정보 중복 체크 -->
+	<select id="memberIdChk" resultType="int">
+		SELECT COUNT(id) FROM tb_member WHERE uid = #{uid}
+	</select>
 	
-<!-- 	회원정보 수정 -->
+	
+	
+	
+	
 <!-- 	아이디 수정 -->
 	<update id="updateNameMember">
 		UPDATE tb_member 
@@ -50,9 +57,8 @@
 		WHERE id = #{id}
 	</update>
 
-
-
 <!-- 여기까지 연습함 -->
+
 	<select id="getIdPwdChk" resultType="int">
 		SELECT 
 				count(id)
@@ -105,6 +111,7 @@
 	<select id="getMemberFindPWD" resultType="int">
 		SELECT id FROM tb_member WHERE uid=#{uid} AND uemail=#{uemail}
 	</select>
+<!-- 	//아이디 중복체크 -->
 	<select id="getMemberID" resultType="int">
 		SELECT count(id) FROM tb_member WHERE uid=#{uid}
 	</select>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,7 +54,7 @@ public class LoginController {
 	
 	
 	final String DIR ="/login/";
-	//
+	//회원가입 화면
 	@RequestMapping("/login-page2")
 	public ModelAndView viewLoginpage2() {
 		ModelAndView mav = new ModelAndView();
@@ -73,6 +74,7 @@ public class LoginController {
 		boolean isChk = memberService.setMember(mvo)>0;
 		if(isChk) {
 			mav.setViewName("redirect:/");
+		
 		}else {
 			mav.setViewName("redirect:/login-page2");
 		}
@@ -84,7 +86,7 @@ public class LoginController {
 	public String logindo(@RequestParam String uid , @RequestParam String upassword, @RequestParam(defaultValue = "no") String uidSave, HttpSession session,HttpServletResponse response) {
 		String inp = ShaEncrypt.sha256(upassword);
 		MemberVO mvo = memberService.getlogin(uid, inp,session);
-		
+		//비밀번호 암호화 하는 부분
 		StringBuilder sb = new StringBuilder();
 		if( mvo != null ) {
 			Cookie coo = new Cookie("uid", uid);
@@ -110,7 +112,14 @@ public class LoginController {
 		
 		return sb.toString();
 	}
-
+//	@RequestMapping(value="/getMemberID")
+//	@ResponseBody
+//	public int getMemberID(MemberVO mvo) throws Exception {
+//		int result = memberService.getMemberID(uid);
+//		
+//	}
+	
+	
 	//로그아웃
 	@RequestMapping("/logout")
 	public ModelAndView logOutDo(HttpSession session) {
@@ -196,6 +205,23 @@ public class LoginController {
 		sb.append("location.replace('"+url+"');");
 		sb.append("</script>");
 		return sb.toString();
+		
+	}
+	
+	@RequestMapping("/getMemberID")
+	@ResponseBody
+	public Map<String ,Object> getMemberID(String id){
+		Map<String,Object> map = new HashedMap();
+		String msg = "중복된 아이디가 있습니다.";
+		boolean status = false;
+		int result = memberService.getMemberID(id);
+		if(result==0) {
+			msg = "사용가능한 아이디 입니다.";
+			status = true;
+		}
+		map.put("msg", msg);
+		map.put("status", status);
+		return map;
 		
 	}
 }

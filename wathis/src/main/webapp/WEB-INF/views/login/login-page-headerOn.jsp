@@ -55,18 +55,18 @@
 								</div>
 
 							</div>
-							<form action="/login/logindo" method="POST">
+							<form action="/login/logindo" method="POST" id="loginForm">
 								<div class="in-box1" id="inbox-text">
 									<div class="in-box-id">
 										<label for="userid" class="label">아이디</label>
 										<!-- <label for="userid" class="label">userid</label> -->
 
-										<input name="uid" type="text" id="userid" class="in-name-text">
+										<input name="uid" type="text" id="userid" class="in-name-text chkItem" data-error="아이디를 ">
 									</div>
 									<div class="in-box-pwd">
 										<label for="in-pwd" class="label">비밀번호</label>
 										<!-- <label for="in-pwd" class="label">password</label> -->
-										<input name="upassword" type="password" id="in-pwd" class="in-pwd-text">
+										<input name="upassword" type="password" id="in-pwd" class="in-pwd-text chkItem" data-error="비밀번호를 ">
 									</div>
 									<div class="in-box-ke">
 										<input name="uidSave" type="checkbox" id="in-keep1" class="signin-ck"> <label
@@ -116,46 +116,49 @@
 								</div>
 							</form>
 							<div class="up-box1" id="upbox-text">
-								<form action="/login/register" method="POST" >
+								<form action="/login/register" method="POST" id="regForm">
 									<div class="up-box-text">
 
 										<label for="up-userid" class="label">아이디</label>
 										<!-- <label for="up-userid" class="label">username</label> -->
-										<input name="uid"  type="text" id="up-userid"
-											class="up-name-text up-text-label">
+										<input name="uid"  type="text" id="up-userid" data-error="아이디를 "
+											class="memberIdChk up-name-text up-text-label chkItem">
+										
 										<label for="up-userid" class="label">이름</label>
 										<!-- <label for="up-userid" class="label">username</label> -->
-										<input name="uname"  type="text" id="up-userid"
-											class="up-name-text up-text-label">
+										
+										<input name="uname"  type="text" id="up-userid" data-error="이름을 "
+											class="up-name-text up-text-label chkItem">
 										<!-- </div>
 										<div class="up-box-pwd"> -->
 
 										<label for="up-pwd" class="label">비밀번호</label>
 										<!-- <label for="up-pwd" class="label">password</label> -->
-										<input name="upassword" type="password" id="up-pwd"
-											class="up-pwd-text up-text-label">
+										<input name="upassword" type="password" id="up-pwd" data-error="비밀번호을 "
+											class="up-pwd-text up-text-label chkItem">
 
 										<!-- </div>
 										<div class="up-box-repwd"> -->
 
 										<label for="up-repwd" class="label">비밀번호 확인</label>
 										<!-- <label for="up-repwd" class="label">repeatpassword</label> -->
-										<input name="" type="password" id="up-repwd"
-											class="up-repwd-text up-text-label">
+										<input name="" type="password" id="up-repwd" data-error="비밀번호 확인을 "
+											class="up-repwd-text up-text-label chkItem">
 										<!-- </div>
 										<div class="up-box-em"> -->
 										<label for="up-email" class="label">이메일 주소</label>
 										<!-- <label for="up-email" class="label">emailaddress</label> -->
-										<input name="uemail" type="text" id="up-email"
-											class="up-email-text up-text-label"> <input
-											type="checkbox" name="term" value="1" class="signup-ck" /> <a
-											href="#" id="modal" class="signup-a-box">개인정보 및 이용약관</a>
+										<input name="uemail" type="text" id="up-email" data-error="이메일 주소를 "
+											class="up-email-text up-text-label chkItem"> 
+											<input data-error="개인정보 및 이용약관을 "
+											type="checkbox" name="term" value="1" class="signup-ck chkItem" /> <a
+											href="#" id="modal" class="signup-a-box ">개인정보 및 이용약관</a>
 										<!-- </div>
 					
 										<div class="up-box-bu"> -->
 										<!-- 
 											<div class="hr"></div> -->
-										<button type="submit" id="" class="up-button">완료</button>
+										<button type="submit" id="" class="up-button">회원가입완료</button>
 										<!-- <button type="button" id="" class="up-button">sign up</button> -->
 									</div>
 								</form>
@@ -224,7 +227,63 @@
 			</div>
 		</div>
 	</main>
-	
+<script>
+	$(function(){
+		$("#up-userid").blur(function(){
+			var data={
+				"id":$(this).val()
+			};
+			var option = {
+				"url":"/login/getMemberID",
+				"data":data
+			};
+			var returnData="";
+			$.ajax({
+				url:option.url,
+				type:(option.type)?option.type:"post",
+				dataType:(option.dataType)?option.dataType:"json",
+				data:option.data,
+				success:function(data){
+					if(!data.status){
+						alert(data.msg);
+						$("#up-userid").val("");
+					}
+				},error:function(xhr,status,error){
+						alert("시스템 오류 입니다.");
+						$("#up-userid").val("");
+				}
+			});
+		});
+		$("form").submit(function(){
+			var $chkItem = $(this).find(".chkItem");
+			var result = true;
+			$chkItem.each(function(){
+				if($(this).val()==""){
+					alert($(this).data("error")+" 입력해 주세요");
+					$(this).focus();
+					result=false;
+					return false;
+				}else if($(this).attr("type")=="checkbox"){
+					if(!$(this).is(":checked")){
+						alert($(this).data("error")+" 선택해 주세요");
+						$(this).focus();
+						result=false;
+						return false;
+					}
+				}else if($(this).attr("id")=="up-repwd"){
+					if($(this).val()!=$("#up-pwd").val()){
+						alert("비밀번호와 비밀번호 확인이 서로다릅니다.");
+						$(this).val("");
+						$(this).focus();
+						result=false;
+						return false;
+					}
+				}
+			});
+			return result;
+		});
+	});
+</script>
 <%@ include file="/WEB-INF/views/include/loginChk/noLoginChk.jsp"%>
 <%@ include file="/WEB-INF/views/include/foot.jspf"%>
 <%@include file="../hong-include/foot.jspf"%>
