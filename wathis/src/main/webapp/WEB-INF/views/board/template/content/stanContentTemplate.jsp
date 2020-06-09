@@ -73,7 +73,7 @@
 					<div class="notice-content-container">
 						<h3>${bvo.boardName}의 다른 게시글</h3>
 						<c:if test="${avoNext != null}">
-							<a href="#">
+							<a href="/article/detail?boardCode=${bvo.boardCode}&id=${avoNext.id}">
 								<div class="notice-content-box-flex notice-content-border-bottom ">
 									<div class="notice-content-box-text">
 										<!-- <div class="notice-content-box-text-l">
@@ -89,7 +89,7 @@
 							</a> 
 						</c:if>
 						<c:if test="${avoPrev != null}">
-							<a href="#">
+							<a href="/article/detail?boardCode=${bvo.boardCode}&id=${avoPrev.id}">
 								<div class="notice-content-box-flex notice-content-border-bottom">
 									<div class="notice-content-box-text">
 										<!-- <div class="notice-content-box-text-l">
