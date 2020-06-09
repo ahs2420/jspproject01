@@ -144,19 +144,19 @@
                     <div class=" text-padding3 box-li1 box-back1">
                         <h4 class="mar-bo5 fon-siz4 fon-co7">Q2에 대한 예씨 답변을 참고하여 작성해
                             주세요.</h4>
-                        <p>1)리워드가 유형의 제품인 경우</p>
-                        <a href="">금형을 사용하여 생산되는 제품인 경우</a>
+                        <p class="fon-siz4 fon-co7 mar-bo6 fon-wei1">1)리워드가 유형의 제품인 경우</p>
+                        <a href="" class="fon-siz4 fon-co7 mar-bo6 fon-wei1">금형을 사용하여 생산되는 제품인 경우</a>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 워킹 샘플을 보유하고 있습니다. <br> · 현재 제조사 A와 위탁 제조 계약을 맺고 양산 금형까지
                             제작했습니다. <br> · 최종 양산품은 M월 N일에 완성될 예정입니다. <br> · 양산품 기준
                             일일 최대 생산 가능량은 XXXX대로 예상합니다.
                         </p>
-                        <a href="">금형을 사용하지 않고 생산되는 제품인 경우(푸드 기준)</a>
+                        <a href="" class="">금형을 사용하지 않고 생산되는 제품인 경우(푸드 기준)</a>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 제조사 A와 위탁 제조 계약을 맺고 현재 리워드에 대한 품목제조보고를 마쳤습니다. <br> · 양산품
                             기준 일일 최대 생산 가능량은 XXXX대로 예상합니다.
                         </p>
-                        <p>2) 리워드가 무형의 서비스인 경우</p>
+                        <p class="">2) 리워드가 무형의 서비스인 경우</p>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 공연 장소는 A, 일정은 M월 N일 부터 M월 N일까지로 예상합니다. <br> · 프로젝트 진행 기간
                             동안 원활한 공연 진행을 위해 B와 C를 M월 N일까지 준비 할 예정입니다.

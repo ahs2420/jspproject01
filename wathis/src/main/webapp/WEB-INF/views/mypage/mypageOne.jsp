@@ -67,7 +67,7 @@
                             <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no" value="0"> <label
                                 for="ra-q1-no">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
-                                    곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
+                                    곳에서 유통한 적이 없으면 와디스를 통해 처음 선보이는 제품입니다.</span>
                             </label>
                         </div>
                         <div class="radio-box mar-bo3 mar-top4">
@@ -97,7 +97,7 @@
                 <div class="q1-guide cu-poin">
                     <div class=" text-padding3 box-li1 box-back1" id="q1-guide">
                         <h4 class="fon-siz4 fon-co7 mar-bo6 fon-wei1">
-                            <a href="">와디지 심사기준 확인하기</a>
+                            <a href="">와디스 심사기준 확인하기</a>
                         </h4>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 요건확인 Q1~4 질문에 대한 답변이 미흡한 경우, 다시 확인 요청드리며, 프로젝트 검토 기간이 늘어날 수
@@ -137,19 +137,19 @@
                     <div class=" text-padding3 box-li1 box-back1">
                         <h4 class="mar-bo5 fon-siz4 fon-co7">Q2에 대한 예씨 답변을 참고하여 작성해
                             주세요.</h4>
-                        <p>1)리워드가 유형의 제품인 경우</p>
-                        <a href="">금형을 사용하여 생산되는 제품인 경우</a>
+                        <p class="fon-siz4 fon-co7 mar-bo6 fon-wei1">1)리워드가 유형의 제품인 경우</p>
+                        <a href="" class="fon-siz4 fon-co4 mar-bo6 fon-wei1">금형을 사용하여 생산되는 제품인 경우</a>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 워킹 샘플을 보유하고 있습니다. <br> · 현재 제조사 A와 위탁 제조 계약을 맺고 양산 금형까지
                             제작했습니다. <br> · 최종 양산품은 M월 N일에 완성될 예정입니다. <br> · 양산품 기준
                             일일 최대 생산 가능량은 XXXX대로 예상합니다.
                         </p>
-                        <a href="">금형을 사용하지 않고 생산되는 제품인 경우(푸드 기준)</a>
+                        <a href="" class="fon-siz4 fon-co4 mar-bo6 fon-wei1">금형을 사용하지 않고 생산되는 제품인 경우(푸드 기준)</a>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 제조사 A와 위탁 제조 계약을 맺고 현재 리워드에 대한 품목제조보고를 마쳤습니다. <br> · 양산품
                             기준 일일 최대 생산 가능량은 XXXX대로 예상합니다.
                         </p>
-                        <p>2) 리워드가 무형의 서비스인 경우</p>
+                        <p class="fon-siz4 fon-co7 mar-bo6 fon-wei1">2) 리워드가 무형의 서비스인 경우</p>
                         <p class="fon-siz4 mar-bo3 fon-co7">
                             · 공연 장소는 A, 일정은 M월 N일 부터 M월 N일까지로 예상합니다. <br> · 프로젝트 진행 기간
                             동안 원활한 공연 진행을 위해 B와 C를 M월 N일까지 준비 할 예정입니다.
@@ -295,7 +295,7 @@
                             <p class="fon-siz4 fon-co7 fon-wei1 mar-top5 mar-bo4 text-padding2">
                                 리워드 오픈 수수료는 7% (VAT별도)입니다. <br> · 부가 서비스 이용 시, 추가 수수료가
                                 발생될 수 있습니다. <br> · 리워드가 없는 기부후원 프로젝트의 경우, 수수료가 다르게 적용됩니다.
-                                <br> · 자세한 내용은와디즈 수수료 정책을 확인해주세요.
+                                <br> · 자세한 내용은와디스 수수료 정책을 확인해주세요.
                             </p>
                         </div>
                     </div>
@@ -316,9 +316,9 @@
                     위험요인 및 정책에서 작성하는 정보들은 <a href="#" class="fon-co4">프로젝트 상세 페이지 내 펀딩안내 탭</a>에 노출됩니다.
                     어떻게 보여지는지 궁금하신가요?</p>
             </div>
-            <div class="box-text-one">
-                <button class="box-back6 fon-co9 all-btn wid9 hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
-                    펀딩안내 미리보기</button>
+            <div class="box-text-one text-padding2">
+                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
+                    펀딩안내 미리보기</a>
             </div>
         </div>
         <!-- 8번 -->
