@@ -358,5 +358,21 @@ public class ProductController {
 		return mav;
 	}
 	
+	//관리자 리스트
+	@RequestMapping("/productSuccess")
+	public ModelAndView productSuccess() {
+		ModelAndView mav = new ModelAndView();
+
+		List<MenuVO> menuList = menuService.getMenuList();
+
+		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
+		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
+
+		mav.addObject("headConfig", headConfig);
+		mav.addObject("footConfig", footConfig);
+		mav.addObject("menuList", menuList);
+		mav.setViewName(BASEDIR + "successpa");
+		return mav;
+	}
 	
 }

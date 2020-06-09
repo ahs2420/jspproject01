@@ -3,6 +3,8 @@ package com.krahs123.wathis.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.text.View;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,4 +96,9 @@ public class MainController {
 		mav.addObject("menuList", menuList);
 		return mav;
 	}
+
+	
+		
+
+
 }

@@ -1,0 +1,271 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+/* 텍스트 박스 */
+.wathis-success{
+   width: 100%;
+   max-width: 1000px;
+   padding: 0 30px;
+
+    /* background-color: blue; */
+}   
+
+/* .container{
+   width: 1000px;
+   height: auto;
+} */
+
+/* 공통 css */
+
+/* width */
+.box-we1{width: 500px;}
+.box-we2{width: 600px;}
+.box-we3{width: 100%;}
+.box-we4{width: 10%;}
+.box-we5{width: 10%;}
+.box-we6{width: 10%;}
+.box-we4{width: 10%;}
+.box-we4{width: 10%;}
+
+/* heght */
+.box-hei1{height: 500px;}
+.box-hei2{height: 600px;}
+.box-hei3{height: 50px;}
+.box-hei4{height: 27px;}
+.box-hei5{height: 50px;}
+.box-hei6{height: 485px;}
+
+/* table-size */
+.ta-hei1{height: 40px;}
+.ta-hei2{height: 30px;}
+.ta-hei3{height: 10px;}
+.ta-hei4{height: 100px;}
+.ta-hei5{height: 60px;}
+
+
+/* 라인 */
+.li-he1{line-height: 31px;}
+.li-he2{line-height: 50px;}
+.li-he3{line-height: 31px;}
+
+/* borderbox */
+.border-ra1{border-radius: 5px;}
+.border-ra2{border-radius: 10px;}
+    
+.border-line1{border: 1px solid #fff;}
+.border-line2{border: 4px solid #29d8c2;}
+
+/* padding */
+.padd1{padding: 10px;}
+.padd2{padding: 7px;}
+.padd3{padding: 6px;}
+.padd4{padding: 20px;}
+.padd5{padding: 6px;}
+
+
+/* align */
+.wa-align1 {text-align: center;}
+.wa-align2 {text-align: left;}
+
+/* font */
+.wa-font-si1 {font-size: 100px;}
+.wa-font-si2 {font-size: 50px;}
+.wa-font-si3 {font-size: 151px;}
+.wa-font-si4 {font-size: 160px;}
+.wa-font-si5 {font-size: 30px;}
+.wa-font-si6 {font-size: 20px;}
+.wa-font-si7 {font-size: 14px;}
+
+/* font-weight */
+.wa-font-we {font-weight: 700;}
+
+
+/*font-color */
+.font-color1{color: #fff;}
+.font-color2{color: #29d8c2;}
+.font-color3{color: #fff;}
+
+/* background-color */
+.back-color1{background-color: #29d8c2;}
+.back-color2{background-color: #fff;}
+.back-color3{background-color: rgba(0, 0, 0, 0.409);}
+
+/* 글자 간격 */
+.leter-sp1{letter-spacing: -14px;}
+.leter-sp2{letter-spacing: -16px;}
+.leter-sp3{letter-spacing: -42px;}
+.leter-sp4{letter-spacing: -25px;}
+
+/* 단어 간격 */
+.word-sp1{word-spacing: 10px;}
+
+
+/* 타입 */
+.dis-type1{display: inline;}
+.dis-type2{display: inline-block;}
+
+.flex-wrap1{display: flex;}
+
+
+.mar1{margin: 10px;}
+
+.mar-top1{margin-top: 10px;}
+.mar-top2{margin-top: 50px;}
+.mar-top3{margin-top: 70px;}
+.mar-top4{margin-top: 100px;}
+.mar-top5{margin-top: 10px;}
+
+.mar-left1{margin-left: 10px;}
+
+.mar-right1{margin-right: 10px;}
+
+.mar-bottom1{margin-bottom: 10%;}
+.mar-bottom2{margin-bottom: 40px;}
+.mar-bottom3{margin-bottom: 8%;}
+.mar-bottom4{margin-bottom: 10px;}
+
+
+
+
+/* <-------------------------------------------> */
+/* 글자 박스 */
+
+.a-box-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.a-box-flex-ba{
+    flex-basis: 33%;
+    
+}
+
+.con-wrap{
+    position: relative;
+    z-index: 1;
+}
+
+/* 배경 이미지 */
+.img-box{
+    
+    width:100%;
+    background-image: url(/hongimages/images/crowd3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+}
+.img-box::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.485);
+    z-index: 0; 
+    /* background-color: darkgoldenrod; */
+
+}
+
+.cuber-color {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px;
+}
+.a-box-wrap a:hover{    
+    color: #29d8c2;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+.cuber-color1 {
+    background-color: black;
+}
+
+/* content-box */
+
+/* table  border*/
+.table-bor{
+    border: none;
+
+}
+
+
+.ta-bor{
+    border-bottom: 1px solid rgba(255, 255, 255,0.409);
+}
+
+
+/* 반응형 */
+@media (max-width:500px){
+    .wathis-success{
+        max-width: 1000px;
+     
+         /* background-color: blue; */
+     }   
+
+     .cuber-color {
+        
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .wathis-box .wa-wt{
+         font-size: 127px;
+         
+    }
+    
+    .wathis-le1{letter-spacing: -37px;}
+    .wathis-le2{letter-spacing: -13px;}
+    .wathis-le3{letter-spacing: -12px;}
+    .wathis-le4{letter-spacing: -10px;}
+   
+    .wathis-box .wa-ahis{
+        font-size: 120px;
+        
+    }
+     
+     
+     .success-group{
+        font-size: 18px;
+
+     }
+    
+    
+    .table-bor th{
+        width: 25%;
+        text-align: left;
+        
+    }
+ 
+    .a-box-wrap{
+        display: block;
+        
+    }
+    .a-box-flex-ba{
+        width: 100%;
+        margin-bottom: 10px;
+        
+    }
+    
+    
+    .success-group{
+        margin-bottom: 20px;
+    }
+    
+    
+    .wa-day{
+        margin-top: 10px;
+    }
+    
+    
+}
