@@ -68,11 +68,12 @@ public class LoginController {
 		return mav;
 	}
 	@RequestMapping("/register")
-	public ModelAndView viewRegister(@ModelAttribute MemberVO mvo) {
+	public ModelAndView viewRegister(@ModelAttribute MemberVO mvo, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		mvo.setUpassword(ShaEncrypt.sha256(mvo.getUpassword()));
 		boolean isChk = memberService.setMember(mvo)>0;
 		if(isChk) {
+			memberService.getlogin(mvo.getUid(), mvo.getUpassword(),session);
 			mav.setViewName("redirect:/");
 		
 		}else {
@@ -105,9 +106,9 @@ public class LoginController {
 	
 		}else {
 			sb.append("<script>");
-			sb.append("alert(\"안됨"+uid+" pss: "+inp+"\");");
+			sb.append("alert(\"아이디 또는 비밀번호가 일치하지 않습니다.\");");
+			sb.append("location.replace(\"/login/login-page2\");");
 			sb.append("</script>");
-	
 		}
 		
 		return sb.toString();

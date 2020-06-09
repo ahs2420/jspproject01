@@ -90,6 +90,7 @@ ul li {
 
 .reward-items {
 	margin-top: 20px;
+	min-height: 30vh;
 }
 .reward-items::after{
 	content: '';
