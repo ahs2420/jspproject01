@@ -49,22 +49,22 @@
                                         
                                         <tr>
                                             <th class="fun-detail1 box-we4 ta-hei5">상품명 :</th>
-                                            <td colspan="4" class="ta-bor ">1</td>
+                                            <td colspan="4" class="ta-bor ">다뽑아 코팩</td>
                                         </tr> 
                                         
                                         <tr>
                                             <th class="box-we4 ta-hei5">배송지 :</th>
-                                            <td colspan="4" class="ta-bor ">1</td>
+                                            <td colspan="4" class="ta-bor ">부산 광역시 경성대학교</td>
                                         </tr>
                                         
                                         <tr>
                                             <th class="box-we4 ta-hei5">후원금액 :</th>
-                                            <td colspan="4" class="ta-bor ">1</td>
+                                            <td colspan="4" class="ta-bor ">1,000원</td>
                                         </tr>
                                         
                                         <tr>
                                             <th class="box-we4 ta-hei5"> 최종 금액 :</th>
-                                            <td colspan="4" class="ta-bor ">1</td>
+                                            <td colspan="4" class="ta-bor ">1,000,000</td>
                                         </tr>
                                          
     
