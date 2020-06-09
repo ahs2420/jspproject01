@@ -65,7 +65,7 @@
             </div>
             <div class="resive-btn-box mt30 pb50">
                 <button type="submit" class="resive-btn">저장하기</button>
-                <button type="reset" class="resive-btn">취소하기</button>
+                <button type="button" onclick="location.href='/article?boardCode=${bvo.boardCode}'" class="resive-btn">취소하기</button>
             </div>
         </div>
         <div class="notice-write-container"></div>

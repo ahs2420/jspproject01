@@ -20,7 +20,7 @@ import com.krahs123.wathis.util.ApiUseSample;
 public class DeleveryApiTest {
 	@RequestMapping("parseCompany")
 	@ResponseBody
-	public String companyView() throws ParseException {
+	public Map<String, Object> companyView() throws ParseException {
 		Map<String, Object> map = new HashMap<>();
 		ApiUseSample aus = new ApiUseSample();
 		String result = aus.getApi("https://apis.tracker.delivery/carriers", null, null, false);
@@ -28,17 +28,16 @@ public class DeleveryApiTest {
 		StringBuilder sb = new StringBuilder();
 		
 		/*JSON 파싱*/
-//		JSONObject job = (JSONObject) jps.parse("{\"item\":"+result+"}");
-//        JSONArray jarr = (JSONArray)job.get("item");
-//        for(int i=0;i<jarr.size();i++) {
-//        	JSONObject jobItem = (JSONObject) jarr.get(i);
-//        	sb.append("아이디:"+jobItem.get("id")+"\n");
-//        	sb.append("이름:"+jobItem.get("name")+"\n");
-//        	sb.append("전화번호:"+jobItem.get("tel")+"<br>");
-//        }
+		JSONObject job = (JSONObject) jps.parse("{\"item\":"+result+"}");
+        JSONArray jarr = (JSONArray)job.get("item");
+        for(int i=0;i<jarr.size();i++) {
+        	JSONObject jobItem = (JSONObject) jarr.get(i);
+        	map.put(jobItem.get("id").toString(), jobItem.get("name"));
+        }
 		/*JSON 파싱끝*/
-        
-		return result;
+
+    	map.put("result", result);
+		return map;
 	}
 	@RequestMapping("parseDelivery")
 	@ResponseBody

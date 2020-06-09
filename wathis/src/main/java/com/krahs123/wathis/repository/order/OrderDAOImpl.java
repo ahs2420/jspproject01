@@ -69,4 +69,9 @@ public class OrderDAOImpl implements OrderDAO{
 		map.put("product_id", product_id);
 		return sql.update(namespace+".updateOrderStatusAuto",map);
 	}
+	@Override
+	public List<Map<String, Object>> getOrderProList(int product_id) {
+		// TODO Auto-generated method stub
+		return sql.selectList(namespace+".getOrderProList",product_id);
+	}
 }

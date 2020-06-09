@@ -572,13 +572,16 @@ public class MyPageConroller {
 	@RequestMapping("/paymentStatus")
 	public ModelAndView paymentStatusView(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
-		auditService.updateAuditSubmit(id);
 		int product_id = proSer.getProductId(id);
 		ProductVO pvo = proSer.getProductDetail(product_id);
+		Map<String, Object> orderTotal = orderService.getOrderTotal(product_id);
+		List<Map<String, Object>> ovoList = orderService.getOrderProList(product_id);
 		mav.addObject("template", "payment");
 		mav.addObject("mypage", "status");
 		mav.addObject("id", id);
 		mav.addObject("pvo", pvo);
+		mav.addObject("orderTotal", orderTotal);
+		mav.addObject("ovoList", ovoList);
 		mav.addObject("productStatus",DbStatus.productStatus);
 		mav.setViewName(DIR+"mypage");
 		

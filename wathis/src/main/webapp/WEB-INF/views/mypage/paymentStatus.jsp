@@ -34,7 +34,7 @@
                     <thead>
                         <tr class="border-bottom">
                             <th  class="pt10 pb10">
-                                번호
+                                주문 번호
                             </th>
                             <th  class="pt10 pb10">
                                 상태
@@ -46,7 +46,7 @@
                                 주소
                             </th>
                             <th  class="pt10 pb10">
-                                옵션
+                                배송정보
                             </th>
                             <th  class="pt10 pb10">
                                 총 후원금액
@@ -67,9 +67,9 @@
                             <td class="pt10 pb10">
                                 주소
                             </td>
-                            <td class="pt10 pb10">
-                                옵션
-                            </td>
+                            <th  class="pt10 pb10">
+                                배송정보
+                            </th>
                             <td class="pt10 pb10">
                                 총 후원금액
                             </td>

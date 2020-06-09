@@ -17,7 +17,7 @@ public class ProductSchduled {
 	ProductService proSer;
 	@Autowired
 	OrderService orderService;
-	@Scheduled(fixedDelay = 1*1000*60*60)
+	@Scheduled(fixedDelay = 1*1000)
 	public void updateProductStatus() {
 		proSer.updateProAutoStatusIng();
 		List<ProductVO> sucList = proSer.getProAutoStatusSuccessList();

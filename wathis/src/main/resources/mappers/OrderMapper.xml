@@ -81,7 +81,30 @@
 			JOIN tb_product as p ON o.product_id = p.id 
 			JOIN tb_category as c ON p.category_id = c.id
 			JOIN tb_maker_info as m ON m.audit_id = p.audit_id
-		WHERE o.member_id = #{o.member_id}
+		WHERE o.member_id = #{member_id}
+		ORDER BY o.id DESC
+	</select>
+	<select id="getOrderProList" resultType="map">
+		SELECT 
+			o.id,
+			o.price,
+			o.donation,
+			o.delivery_fee,
+			o.payment,
+			o.pay_type,
+			o.receiver_addr1,
+			o.receiver_addr2,
+			o.receiver_addr3,
+			o.receiver_tel,
+			o.receiver_name,
+			o.receiver_etc,
+			o.state,
+			o.delivery_id,
+			o.delivery_number,
+			DATE_FORMAT(o.reg_date,'%Y-%m-%d') as reg_date,
+		FROM
+			tb_order as o
+		WHERE o.product_id = #{product_id}
 		ORDER BY o.id DESC
 	</select>
 	<select id="getOrderTotal" resultType="map">
