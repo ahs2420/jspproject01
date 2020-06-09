@@ -31,4 +31,9 @@ public interface OrderDAO {
 	
 	//주문리스트 - 마이페이지용, 회원번호로 검색
 	public List<Map<String,Object>> getOrderMyList(int member_id);
+	
+	//주문 상태 변경 - 상품 상태 변경시 변경되게 내용 추가
+	public int updateOrderStatusAuto(int state,int product_id);
+	
+	
 }

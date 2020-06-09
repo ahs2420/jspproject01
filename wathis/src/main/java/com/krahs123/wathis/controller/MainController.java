@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.krahs123.wathis.config.DbStatus;
 import com.krahs123.wathis.model.ArticleVO;
 import com.krahs123.wathis.model.MenuVO;
 import com.krahs123.wathis.model.PopupVO;
@@ -54,6 +55,7 @@ public class MainController {
 		mav.setViewName(BASEDIR+"main");
 		mav.addObject("menuList", menuList);
 		mav.addObject("popupList", popupList);
+		mav.addObject("productStatus",DbStatus.productStatus);
 		return mav;
 	}
 	//회사소개 + 크라우드 펀딩 소개

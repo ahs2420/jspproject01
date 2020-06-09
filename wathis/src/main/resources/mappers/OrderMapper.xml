@@ -148,9 +148,14 @@
 		WHERE id=#{id}
 	</update>
 	<update id="updateOrderStatus">
-		UPDATE SET tb_order
+		UPDATE tb_order SET 
 			state=#{state}
 		WHERE id=#{id}
+	</update>
+	<update id="updateOrderStatusAuto">
+		UPDATE tb_order SET 
+			state=#{state}
+		WHERE product_id=#{product_id}
 	</update>
 	<delete id="deleteOrder">
 		DELETE FROM tb_order

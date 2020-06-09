@@ -3,6 +3,7 @@ package com.krahs123.wathis.repository.order;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -59,5 +60,13 @@ public class OrderDAOImpl implements OrderDAO{
 	public List<Map<String, Object>> getOrderMyList(int member_id) {
 		// TODO Auto-generated method stub
 		return sql.selectList(namespace+".getOrderMyList",member_id);
+	}
+	@Override
+	public int updateOrderStatusAuto(int state, int product_id) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map = new HashedMap();
+		map.put("state", state);
+		map.put("product_id", product_id);
+		return sql.update(namespace+".updateOrderStatusAuto",map);
 	}
 }

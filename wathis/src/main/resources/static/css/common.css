@@ -943,7 +943,11 @@ nav.active{
     background-color: var(--var-main-color);
     color: #fff;
 }
-.funding-btn:hover{
+.funding-btn.off{
+    background-color: #ccc;
+    cursor:not-allowed;
+}
+.funding-btn:not(.off):hover{
     border-color: var(--var-main-color);
     background-color: transparent;
     color: var(--var-main-color);

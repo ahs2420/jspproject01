@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.krahs123.wathis.config.DbStatus;
 import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.BoardVO;
 import com.krahs123.wathis.model.CategoryVO;
@@ -121,6 +122,7 @@ public class ProductController {
 		mav.addObject("proNotList", proNotList);
 		mav.addObject("proOptList", proOptList);
 		mav.addObject("orderTotal", orderTotal);
+		mav.addObject("productStatus",DbStatus.productStatus);
 		mav.addObject("dDay", dDay);
 		mav.addObject("mvo", mvo);
 		return mav;

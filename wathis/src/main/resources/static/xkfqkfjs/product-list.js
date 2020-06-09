@@ -137,6 +137,7 @@ function ajaxPage(opt){
 	};
 	var ajaxReturn = ajaxStan(option);
 	var pushItem = "";
+	var productStatus = ["숨김","예정상품","펀딩중","펀딩성공","펀딩실패"] ;
 	if(ajaxReturn.status){
 		if(ajaxReturn.data.resultCnt>0){
 			for(var pvo of ajaxReturn.data.pvoList){
@@ -147,8 +148,10 @@ function ajaxPage(opt){
 				var btDay = Math.ceil(btMs / (1000*60*60*24)) ;
 				if(btDay==0){
 					btDay="당일 마감"
-				}else{
+				}else if(btDay>0){
 					btDay+=" 일 남음";
+				}else{
+					btDay=productStatus[pvo.status];
 				}
 				pvo.current_funding = (pvo.current_funding==null||pvo.current_funding=="")?0:pvo.current_funding;
 				var per = (pvo.current_funding>pvo.price)?100:+Math.floor(pvo.current_funding*100/pvo.price);

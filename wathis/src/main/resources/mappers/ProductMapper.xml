@@ -9,7 +9,10 @@
 				AND p.category_id=#{category_id}
 			</if>
 		</if>
-		AND curdate() between p.start_date and p.end_date
+		<if test="ingChk == 'true'">
+			AND curdate() between p.start_date and p.end_date
+		</if>
+		AND p.status >= 1
 	</sql>
 	<select id="getAll" resultType="productvo">
 		SELECT 
@@ -58,10 +61,10 @@
 			p.img_upload_dir,
 			p.main_img,
 			p.title,
-			p.title,
 			p.start_date,
 			p.end_date,
 			p.price,
+			p.status,
 			c.title as cate,
 			m.marker_name,
 			sum(o.price + o.donation) as current_funding,
@@ -129,14 +132,20 @@
 		SELECT p.id,p.price FROM 
 		tb_product as p 
 		JOIN tb_order as o ON p.id = o.product_id 
-		WHERE p.status=2 AND curdate() > end_date
-		GROUP BY p.id HAVING SUM(o.price+o.donation) >= p.price
+		WHERE 
+		p.status=2 AND 
+		curdate() > end_date
+		GROUP BY p.id 
+		HAVING SUM(o.price+o.donation) >= p.price
 	</select>
 	<select id="getProAutoStatusFailList" resultType="productvo">
 		SELECT p.id,p.price FROM tb_product as p 
 		JOIN tb_order as o ON p.id = o.product_id
-		WHERE p.status=2 AND curdate() > end_date
-		GROUP BY p.id HAVING p.price > SUM(o.price+o.donation) 
+		WHERE 
+		p.status=2 AND 
+		curdate() > end_date
+		GROUP BY p.id 
+		HAVING p.price > SUM(o.price+o.donation) 
 	</select>
 	<insert id="setProduct">
 		insert into tb_product SET

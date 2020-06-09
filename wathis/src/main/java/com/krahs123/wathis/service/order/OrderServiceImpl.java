@@ -68,4 +68,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return orderDAO.getOrderMyList(member_id);
 	}
+
+	@Override
+	public int updateOrderStatusAuto(int state, int product_id) {
+		// TODO Auto-generated method stub
+		return orderDAO.updateOrderStatusAuto(state, product_id);
+	}
 }

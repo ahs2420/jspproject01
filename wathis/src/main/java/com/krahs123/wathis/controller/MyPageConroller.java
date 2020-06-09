@@ -568,7 +568,23 @@ public class MyPageConroller {
 		
 		return mav;
 	}
-
+	//결제 현황 리스트
+	@RequestMapping("/paymentStatus")
+	public ModelAndView paymentStatusView(@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
+		auditService.updateAuditSubmit(id);
+		int product_id = proSer.getProductId(id);
+		ProductVO pvo = proSer.getProductDetail(product_id);
+		mav.addObject("template", "payment");
+		mav.addObject("mypage", "status");
+		mav.addObject("id", id);
+		mav.addObject("pvo", pvo);
+		mav.addObject("productStatus",DbStatus.productStatus);
+		mav.setViewName(DIR+"mypage");
+		
+		return mav;
+		
+	}
 	//회원 마이페이지
 	@RequestMapping("/userMypage")
 	public ModelAndView viewSettings(@RequestParam(defaultValue = "setting") String template,@RequestParam(defaultValue = "list") String page){
