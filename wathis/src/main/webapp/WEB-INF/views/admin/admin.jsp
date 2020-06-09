@@ -188,7 +188,7 @@
                                             <div class="item-count">
                                                 <span class="font-40 bold">
                                                     <i class="fas fa-male"></i>
-                                                    10
+                                                    <span id = "getMemberCnt">10</span> 
                                                 </span>
                                             </div>
                                             <div class="item-tag">
@@ -213,7 +213,7 @@
                                             <div class="item-count">
                                                 <span class="font-40 bold">
                                                     <i class="fas fa-marker"></i>
-                                                    123
+                                                    <span id = "getBoardCnt">123</span>
                                                 </span>
                                             </div>
                                             <div class="item-tag">
@@ -238,7 +238,7 @@
                                             <div class="item-count">
                                                 <span class="font-40 bold">
                                                     <i class="far fa-newspaper"></i>
-                                                    345
+                                                    <span id = "getArticleCnt">345</span>
                                                 </span>
                                             </div>
                                             <div class="item-tag">
@@ -263,7 +263,7 @@
                                             <div class="item-count">
                                                 <span class="font-40 bold">
                                                     <i class="fab fa-product-hunt"></i>
-                                                    5
+                                                    <span id = "getProdcutCnt">5</span>
                                                 </span>
                                             </div>
                                             <div class="item-tag">

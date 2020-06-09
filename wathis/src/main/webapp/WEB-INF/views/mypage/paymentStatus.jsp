@@ -30,47 +30,47 @@
                 <!--작성 부분 -->
                 
                 <!-- 기본요건 부분 -->
-                <table>
+                <table class="mt50">
                     <thead>
-                        <tr>
-                            <th>
+                        <tr class="border-bottom">
+                            <th  class="pt10 pb10">
                                 번호
                             </th>
-                            <th>
+                            <th  class="pt10 pb10">
                                 상태
                             </th>
-                            <th>
+                            <th  class="pt10 pb10">
                                 이름
                             </th>
-                            <th>
+                            <th  class="pt10 pb10">
                                 주소
                             </th>
-                            <th>
+                            <th  class="pt10 pb10">
                                 옵션
                             </th>
-                            <th>
+                            <th  class="pt10 pb10">
                                 총 후원금액
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
+                        <tr  class="border-bottom">
+                            <td class="pt10 pb10">
                                 번호
                             </td>
-                            <td>
+                            <td class="pt10 pb10">
                                 상태
                             </td>
-                            <td>
+                            <td class="pt10 pb10">
                                 이름
                             </td>
-                            <td>
+                            <td class="pt10 pb10">
                                 주소
                             </td>
-                            <td>
+                            <td class="pt10 pb10">
                                 옵션
                             </td>
-                            <td>
+                            <td class="pt10 pb10">
                                 총 후원금액
                             </td>
                         </tr>
