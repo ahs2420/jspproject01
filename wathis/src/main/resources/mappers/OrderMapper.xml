@@ -84,6 +84,33 @@
 		WHERE o.member_id = #{member_id}
 		ORDER BY o.id DESC
 	</select>
+	<select id="getOrderProDetailList" resultType="map">
+		SELECT 
+			o.id,
+			o.price,
+			o.donation,
+			o.delivery_fee,
+			o.payment,
+			o.pay_type,
+			o.receiver_addr1,
+			o.receiver_addr2,
+			o.receiver_addr3,
+			o.receiver_tel,
+			o.receiver_name,
+			o.receiver_etc,
+			o.state,
+			o.delivery_id,
+			o.delivery_number,
+			DATE_FORMAT(o.reg_date,'%Y-%m-%d') as reg_date,
+			m.uname,
+			m.utel,
+			od.option_name,
+			od.amount as option_amount
+		FROM
+			tb_order as o JOIN tb_member as m ON o.member_id = m.id JOIN tb_order_detail as od ON o.id= od.order_id 
+		WHERE o.product_id = #{product_id}
+		ORDER BY o.id DESC
+	</select>
 	<select id="getOrderProList" resultType="map">
 		SELECT 
 			o.id,
@@ -181,6 +208,12 @@
 		UPDATE tb_order SET 
 			state=#{state}
 		WHERE product_id=#{product_id}
+	</update>
+	<update id="updateOrderDelevery">
+		UPDATE tb_order SET 
+			delivery_id=#{delivery_id},
+			delivery_number=#{delivery_number}
+		WHERE id=#{id}
 	</update>
 	<delete id="deleteOrder">
 		DELETE FROM tb_order

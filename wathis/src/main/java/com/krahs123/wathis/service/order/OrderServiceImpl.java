@@ -80,4 +80,16 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return orderDAO.getOrderProList(product_id);
 	}
+
+	@Override
+	public List<Map<String, Object>> getOrderProDetailList(int product_id) {
+		// TODO Auto-generated method stub
+		return orderDAO.getOrderProDetailList(product_id);
+	}
+
+	@Override
+	public int updateOrderDelevery(OrderVO ovo) {
+		// TODO Auto-generated method stub
+		return orderDAO.updateOrderDelevery(ovo);
+	}
 }

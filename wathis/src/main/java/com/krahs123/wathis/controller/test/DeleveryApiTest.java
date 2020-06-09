@@ -1,6 +1,8 @@
 package com.krahs123.wathis.controller.test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
@@ -20,8 +22,8 @@ import com.krahs123.wathis.util.ApiUseSample;
 public class DeleveryApiTest {
 	@RequestMapping("parseCompany")
 	@ResponseBody
-	public Map<String, Object> companyView() throws ParseException {
-		Map<String, Object> map = new HashMap<>();
+	public List<Map<String, Object>> companyView() throws ParseException {
+		List<Map<String, Object>> mapList = new ArrayList<>();
 		ApiUseSample aus = new ApiUseSample();
 		String result = aus.getApi("https://apis.tracker.delivery/carriers", null, null, false);
 		JSONParser jps = new JSONParser();
@@ -32,12 +34,13 @@ public class DeleveryApiTest {
         JSONArray jarr = (JSONArray)job.get("item");
         for(int i=0;i<jarr.size();i++) {
         	JSONObject jobItem = (JSONObject) jarr.get(i);
-        	map.put(jobItem.get("id").toString(), jobItem.get("name"));
+    		Map<String, Object> map = new HashMap<>();
+        	map.put("id", jobItem.get("id"));
+        	map.put("name", jobItem.get("name"));
+        	mapList.add(map);
         }
 		/*JSON 파싱끝*/
-
-    	map.put("result", result);
-		return map;
+		return mapList;
 	}
 	@RequestMapping("parseDelivery")
 	@ResponseBody

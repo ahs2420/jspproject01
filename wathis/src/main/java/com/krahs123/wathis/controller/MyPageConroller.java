@@ -1,6 +1,9 @@
 package com.krahs123.wathis.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
@@ -16,12 +19,14 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +35,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.krahs123.wathis.config.DbStatus;
+import com.krahs123.wathis.controller.test.DeleveryApiTest;
 import com.krahs123.wathis.model.AuditVO;
 import com.krahs123.wathis.model.CategoryVO;
 import com.krahs123.wathis.model.MakerInfoVO;
@@ -53,6 +59,7 @@ import com.krahs123.wathis.service.product.ProductService;
 import com.krahs123.wathis.service.siteConfig.SiteConfigService;
 import com.krahs123.wathis.util.AES256;
 import com.krahs123.wathis.util.FileControl;
+import com.krahs123.wathis.util.HtmlSpecialChar;
 
 @Controller
 @RequestMapping("/page")
@@ -589,11 +596,99 @@ public class MyPageConroller {
 		mav.addObject("orderTotal", orderTotal);
 		mav.addObject("ovoList", ovoList);
 		mav.addObject("productStatus",DbStatus.productStatus);
+		mav.addObject("orderState",DbStatus.orderState);
 		mav.setViewName(DIR+"mypage");
 		
 		return mav;
 		
 	}
+	//주문상세 엑셀 다운
+	@RequestMapping("/orderCsvDetail")
+	public ModelAndView orderCsvDetail(@RequestParam int product_id) throws NoSuchAlgorithmException, UnsupportedEncodingException, GeneralSecurityException {
+		ModelAndView mav = new ModelAndView();
+		List<Map<String,Object>> ovoList = orderService.getOrderProDetailList(product_id);
+		AES256 aes = new AES256();
+		HtmlSpecialChar hsc = new HtmlSpecialChar();
+		for(int i=0;i<ovoList.size();i++) {
+			ovoList.get(i).replace("utel", aes.decrypt(ovoList.get(i).get("utel").toString()));
+			ovoList.get(i).replace("receiver_tel", aes.decrypt(ovoList.get(i).get("receiver_tel").toString()));
+			ovoList.get(i).replace("option_name", hsc.encodeEnter(ovoList.get(i).get("option_name").toString()));
+		}
+		mav.addObject("ovoList",ovoList);
+		mav.addObject("orderState",DbStatus.orderState);
+		mav.setViewName(DIR+"csv/orderCsvDetail");
+		return mav;
+	}
+	//주문엑셀등록 양식
+	@RequestMapping("/orderCsvTemplate")
+	public ModelAndView orderCsvTemplate(@RequestParam int product_id) throws NoSuchAlgorithmException, UnsupportedEncodingException, GeneralSecurityException {
+		ModelAndView mav = new ModelAndView();
+		List<Map<String,Object>> ovoList = orderService.getOrderProList(product_id);
+		AES256 aes = new AES256();
+		HtmlSpecialChar hsc = new HtmlSpecialChar();
+		for(int i=0;i<ovoList.size();i++) {
+			ovoList.get(i).replace("utel", aes.decrypt(ovoList.get(i).get("utel").toString()));
+		}
+		mav.addObject("ovoList",ovoList);
+		mav.addObject("orderState",DbStatus.orderState);
+		mav.setViewName(DIR+"csv/orderCsvTemplate");
+		return mav;
+	}
+	//주문 택배사코드 다운
+	@RequestMapping("/orderCsvCompany")
+	public ModelAndView orderCsvCompany() throws ParseException{
+		ModelAndView mav = new ModelAndView();
+		DeleveryApiTest da = new DeleveryApiTest();
+		List<Map<String,Object>> comList = da.companyView();
+		mav.addObject("comList",comList);
+		mav.setViewName(DIR+"csv/orderCsvCompany");
+		return mav;
+	}
+	
+	@RequestMapping(value="/setOrderDeleveryCsv",method = RequestMethod.POST)
+	@ResponseBody
+	public String setOrderDeleveryCsv(@RequestPart MultipartFile files) {
+		StringBuilder sb = new StringBuilder();
+		File convFile = new File("temp.csv");
+		String line = null;
+		int total=0;
+		int result=0;
+		try {
+		    convFile.createNewFile(); 
+		    FileOutputStream fos = new FileOutputStream(convFile); 
+		    fos.write(files.getBytes());
+		    fos.close();
+		    BufferedReader br = new BufferedReader(new FileReader(convFile));
+			while ((line=br.readLine())!=null) {
+				//sb.append(line+"<br>");//확인용
+				if(total==0) {
+					//첫줄은 설명줄이므로 거른다
+					++total;
+					continue;
+				}else {
+					OrderVO ovo = new OrderVO();
+					String[] arr = line.split(",");
+					if(arr.length>0) {
+						ovo.setId(Integer.parseInt(arr[0]));
+						ovo.setDelivery_id(arr[2]);
+						ovo.setDelivery_number(arr[3]);
+						result+=orderService.updateOrderDelevery(ovo);
+						//++result;
+						++total;
+					}
+				}
+			}
+			br.close();
+		} catch (Exception e) {
+			sb.append(e);
+		}finally {
+			convFile.delete();
+		}
+		sb.append("등록되었습니다.(요청 : "+(total-1)+" , 처리 :"+result+")");
+		return sb.toString();
+	}
+
+
 	//회원 마이페이지
 	@RequestMapping("/userMypage")
 	public ModelAndView viewSettings(@RequestParam(defaultValue = "setting") String template,@RequestParam(defaultValue = "list") String page){

@@ -49,4 +49,8 @@ public class HtmlSpecialChar {
 		str=str.replace("\n", "|");
 		return str;
 	}
+	public static String encodeEnterSpace(String str){
+		str=str.replace("\n", " ");
+		return str;
+	}
 }

@@ -7,7 +7,7 @@
     <div class="box1-box2">
         <div class="fun-wrap">
             <div class="fun-ready1">
-                <h1>결제현황</h1>
+                <h1>결재현황</h1>
                 <div class="fun-ready1-text">
                     <a>펀딩에 후원해 주신 회원님들과 주문하신 리워드의 상세정보를 볼수 있습니다.</a>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="">
                         <span class=""><span class="icon-round-no-board inline-box icon-10 product-status-${pvo.status}"></span>${productStatus[pvo.status]}</span>
                         <div class="fun-text">
-                            <p>프로젝트가 성공하면 자동으로 결제현황을 보실수 있습니다.</p>
+                            <p>프로젝트가 성공하면 자동으로 결재현황을 보실수 있습니다.</p>
                         </div>
                     </div>
                 </div>
@@ -31,22 +31,30 @@
                 <!--작성 부분 -->
                 
                 <!-- 기본요건 부분 -->
-                <div class="flex-box flex-j-space mt20">
-                    
-                    <div>
-                        <a href=""></a>
+                <c:if test="${pvo.status eq '3'}">
+                    <div class="flex-box flex-j-space mt20">
+                        <div>
+                            <form action="/page/setOrderDeleveryCsv" method="POST" enctype="multipart/form-data">
+                                <h4 class="mb20">배송정보 엑셀등록</h4>
+                                <input type="hidden" name="product_id" value="${pvo.id}" />
+                                <a class="mr5 pt10 pb10 pl5 pr5 border-gray" href="/page/orderCsvTemplate?product_id=${pvo.id}">CSV양식다운</a>
+                                <a class="mr5 pt10 pb10 pl5 pr5 border-gray" href="/page/orderCsvCompany">택배사코드다운</a>
+                                <input type="file" name="files" />
+                                <button  class="pt10 pb10 pl5 pr5 border-gray" type="submit">등록하기</button>
+                            </form>
+                        </div>
+                        <div class="align-right">
+                            <a class="pt10 pb10 pl5 pr5 border-gray" href="/page/orderCsvDetail?product_id=${pvo.id}">주문상세엑셀다운</a>
+                        </div>
                     </div>
-                    <div class="align-right">
-                        <a href=""></a>
-                    </div>
-                </div>
+                </c:if>
                 <table class="mt50">
                     <colgroup>
                         <col width="10%" />
                         <col width="10%" />
                         <col width="15%" />
                         <col width="*" />
-                        <col width="10%" />
+                        <col width="15%" />
                         <col width="15%" />
                     </colgroup>
                     <thead>
@@ -64,10 +72,10 @@
                                 배송지 정보
                             </th>
                             <th  class="pt10 pb10">
-                                배송사/송장번호
+                                총 결재금액
                             </th>
                             <th  class="pt10 pb10">
-                                총 후원금액
+                                배송사/송장번호
                             </th>
                         </tr>
                     </thead>
@@ -78,7 +86,7 @@
                                     ${ovo.id}
                                 </td>
                                 <td class="pt10 pb10">
-                                    ${ovo.state}
+                                    ${orderState[ovo.state]}
                                 </td>
                                 <td class="pt10 pb10">
                                     ${ovo.uname} / ${ovo.utel}
@@ -101,6 +109,9 @@
                                     </p>
                                 </td>
                                 <td class="pt10 pb10">
+                                    <p><fmt:formatNumber value="${ovo.payment}" pattern="#,##0" />원</p>
+                                </td>
+                                <td class="pt10 pb10">
                                     <c:choose>
                                         <c:when test="${ovo.delivery_id eq '' ||ovo.delivery_id == null}">
                                             미배송
@@ -110,10 +121,6 @@
                                             ${ovo.delivery_number}
                                         </c:otherwise>
                                     </c:choose>
-                                </td>
-                                <td class="pt10 pb10">
-                                    <p><fmt:formatNumber value="${ovo.payment - ovo.delivery_fee}" pattern="#,##0" />원</p>
-                                    <p> 총결제금액(배송비 제외) : <fmt:formatNumber value="${ovo.payment}" pattern="#,##0" />원</p>
                                 </td>
                             </tr>
                         </c:forEach>
