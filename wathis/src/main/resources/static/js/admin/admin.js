@@ -61,7 +61,7 @@ function authUpdate(item){
 function deleteUser(item){
     if(confirm("삭제하신 정보는 복구 불가능합니다.\n선택하신 회원정보를 삭제하시겠습니까?")){
         var data = {
-            "ㅕid":item.dataset.ㅕid
+            "id":item.dataset.ㅕid
         };
         var option={
             "url":"/users/deleteUser",
@@ -96,9 +96,30 @@ function deleteItem(item){
        window.location.reload();
     }
 }
+function getItemCount(){
+    var option={
+        "url":"/admin/totalCnt",
+        "type":"POST",
+    };
+    var ajaxResult=ajaxStan(option);
+    $("#getMemberCnt").html(ajaxResult.data.memCnt);
+    $("#getBoardCnt").html(ajaxResult.data.boardCnt);
+    $("#getArticleCnt").html(ajaxResult.data.articleCnt);
+    $("#getProdcutCnt").html(ajaxResult.data.proCnt);
+    var today = new Date();
+    var minute = (today.getMinutes()>10)?today.getMinutes():"0"+today.getMinutes();
+    var time = (today.getHours()>12)?(today.getHours() - 12)+":" + minute +"PM" : (today.getHours())+":" + minute +"AM" 
+    $(".update-time").each(function(){
+        $(this).html("Update "+time);
+    });
+}
 
 $(function(){
     $(".reg-sel").on({
         "change":function(){$(this).selTarget()}
     });
+    getItemCount();
+});
+$(function(){
+
 });
