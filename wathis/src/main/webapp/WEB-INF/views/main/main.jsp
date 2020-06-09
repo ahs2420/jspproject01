@@ -120,7 +120,7 @@
                                                         ${date }일 남음
                                                     </c:when>
                                                     <c:otherwise>
-                                                        마감된 상품 입니다.
+                                                        ${productStatus[pvo.status]}
                                                     </c:otherwise>
                                                 </c:choose>
                                             </p>

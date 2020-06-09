@@ -456,7 +456,19 @@
                             </button>
                         </div>
                         <div class="product-status-txt-container">
-                            <div class="title mb20">${dDay}일 남음</div>
+                            <div class="title mb20">
+                                <c:choose>
+                                    <c:when test="${dDay ==0}">
+                                        당일 마감
+                                    </c:when>
+                                    <c:when test="${dDay > 0}">
+                                        ${dDay }일 남음
+                                    </c:when>
+                                    <c:otherwise>
+                                        ${productStatus[pvo.status]}
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
                             <fmt:formatNumber var="price" value="${pvo.price}" pattern="#.##"/>
                             <fmt:formatNumber var="current_funding" value="${orderTotal.sum}" pattern="#.##"/>
                             <div class="progress-bar mb20">
@@ -482,7 +494,15 @@
                         <div class="product-btn-container">
                             <div class="flex-box flex-j-space flex-wrap">
                                 <div class="w-100p product-funding">
-                                    <a href="/product/product-select?id=${pvo.id}" class="btn-stan tiny-content funding-btn on mb10"><i class="fas fa-gift"></i> 펀딩하기</a>
+                                    <c:choose>
+                                        <c:when test="${dDay < 0}">                                            
+                                            <a onclick="alert('마감된 펀딩입니다.');"  class="btn-stan tiny-content funding-btn off on mb10"><i class="fas fa-gift"></i> 펀딩 마감</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="/product/product-select?id=${pvo.id}" class="btn-stan tiny-content funding-btn on mb10"><i class="fas fa-gift"></i> 펀딩하기</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    
                                 </div>
                                 <button class="btn-stan tiny-content w-49p product-question" data-target=".question-box" onclick="targetActive(this)"><i class="far fa-question-circle"></i> <span class="dis-pc">문의하기</span></a>
                                 <button class="btn-stan tiny-content w-49p product-share" data-target=".sns-share" onclick="targetActive(this)"><i class="fas fa-share-square"></i> <span class="dis-pc">공유하기</span></button>
@@ -554,7 +574,7 @@
                             -->
                             <c:forEach items="${proOptList}" var="pvoOpt">
                                 <c:choose>
-                                    <c:when test="${pvoOpt.stock - pvoOpt.sell_count > 0}" >
+                                    <c:when test="${pvoOpt.stock - pvoOpt.sell_count > 0 && dDay >= 0}" >
                                         <div class="product-reward-item gray-box pt20 pb20 pl5p pr5p mb20">
                                             <a href="/product/product-select?id=${pvo.id}&option_id=${pvoOpt.id}">
                                      </c:when>

@@ -39,7 +39,7 @@
         </div>
 
         <div class="head-close">
-            <button name="" id="" class="head-show">미리보기</button>
+            <button type="button" name="" id="" class="head-show" onclick="location.href='/product/product?id=${product_id}'">미리보기</button>
             <a href="http://localhost:8888/" name="" id="" class="head-out outmain">나가기</a>
         </div>
     </div>
@@ -60,14 +60,16 @@
                 </div>
 
                 <div class="reward-box">
-                    <h2> 123의 멋진 프로젝트</h2>
+                    <h2> 
+                        ${sessionScope.uname}
+                        의 멋진 프로젝트</h2>
                 </div>
 
                 <ul class="jq-box">
                     <li class="mypage-li-menu-not">
                         <div class="reward-box-num">
                             <a href="#">
-                                프로젝트 번호
+                                프로젝트 번호 : ${id}
                                 <!-- <i class="fas fa-angle-down"></i> -->
 
                             </a>
@@ -88,7 +90,7 @@
             <ul class="menu-text" style="list-style: none;">
                 <li class="mypage-li-menu Reward">
                     <div class="menu-text1">
-                        <a href="/page/mypage">펀딩 준비</a>
+                        <a href="/page/mypageListModify?template=Reward&mypage=information&id=${id}">펀딩 준비</a>
                         <a href="#"><i class="fas fa-angle-down"></i>
 
                             <ul class="hide">
@@ -135,7 +137,7 @@
         
                 <li class="mypage-li-menu">
                     <div class="menu-text1">
-                        <a href="#">결제 현황<i class="fas fa-angle-down"></i></a>
+                        <a href="/page/paymentStatus?id=${id}">결제 현황<i class="fas fa-angle-down"></i></a>
                     </div>
                 </li>
                 <li class="mypage-li-menu">
@@ -215,6 +217,11 @@
         <!-- 리워드 설계 가는 부분 -->
         <c:if test="${template eq 'Reward' && mypage eq 'design'}">
             <%@ include file = "mypageFour.jsp" %>
+        </c:if>
+
+        <!-- 결제현황 가는 부분 -->
+        <c:if test="${template eq 'payment' && mypage eq 'status'}">
+            <%@ include file = "paymentStatus.jsp" %>
         </c:if>
 
               

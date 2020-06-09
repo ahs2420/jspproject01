@@ -100,7 +100,7 @@
                                 <i class="fas fa-info-circle gray-80"></i>
                             </div>
                             <div class="icon-title">
-                                <a href="/info" class="gray-80">Admin Managememt Page</a>
+                                <a href="/users/getUsersModify?id=1" class="gray-80">Admin Managememt Page</a>
                             </div>
                             <div class="icon-arrow ralign">
                                 <i class="fas fa-angle-right gray-80"></i>
