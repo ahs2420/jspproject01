@@ -102,8 +102,10 @@
 			o.delivery_id,
 			o.delivery_number,
 			DATE_FORMAT(o.reg_date,'%Y-%m-%d') as reg_date,
+			m.uname,
+			m.utel
 		FROM
-			tb_order as o
+			tb_order as o JOIN tb_member as m ON o.member_id = m.id
 		WHERE o.product_id = #{product_id}
 		ORDER BY o.id DESC
 	</select>

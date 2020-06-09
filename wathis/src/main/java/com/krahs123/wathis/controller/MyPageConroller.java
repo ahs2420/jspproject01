@@ -570,12 +570,18 @@ public class MyPageConroller {
 	}
 	//결제 현황 리스트
 	@RequestMapping("/paymentStatus")
-	public ModelAndView paymentStatusView(@RequestParam int id) {
+	public ModelAndView paymentStatusView(@RequestParam int id) throws NoSuchAlgorithmException, UnsupportedEncodingException, GeneralSecurityException {
 		ModelAndView mav = new ModelAndView();
 		int product_id = proSer.getProductId(id);
 		ProductVO pvo = proSer.getProductDetail(product_id);
 		Map<String, Object> orderTotal = orderService.getOrderTotal(product_id);
 		List<Map<String, Object>> ovoList = orderService.getOrderProList(product_id);
+		AES256 aes = new AES256();
+		for(int i=0;i<ovoList.size();i++) {
+			ovoList.get(i).replace("utel", aes.decrypt(ovoList.get(i).get("utel").toString()));
+			ovoList.get(i).replace("receiver_tel", aes.decrypt(ovoList.get(i).get("receiver_tel").toString()));
+		}
+		
 		mav.addObject("template", "payment");
 		mav.addObject("mypage", "status");
 		mav.addObject("id", id);
