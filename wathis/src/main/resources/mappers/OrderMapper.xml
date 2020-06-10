@@ -196,7 +196,7 @@
 	    </selectKey>    
 	</insert>
 	<update id="updateOrder">
-		UPDATE SET tb_order
+		UPDATE tb_order SET 
 			state=#{state},
 			delivery_id=#{delivery_id},
 			delivery_number=#{delivery_number}
