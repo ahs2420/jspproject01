@@ -89,7 +89,7 @@
                 <tr class="tr-45">
                     <td class="bg-color-5 w-15 f6 align">사용자 휴대전화</td>
                     <td class="w-35 padding-lr-5">
-                        <input type="text" class="input-200 chkItem" data-error="휴대전화번호를" value="${mvo.utel}" name="utel">
+                        <input type="text" class="input-200" data-error="휴대전화번호를" value="${mvo.utel}" name="utel">
                     </td>
                     <td class="bg-color-5 w-15 f6 align">사용자 가입일</td>
                     <td class="w-35 padding-lr-5">${mvo.reg_date}</td>

@@ -113,7 +113,7 @@
                 <div class=" mt40">
                     <div class="flex-box flex-a-center flex-j-space">
                         <h1 class="small-title gray bold">
-                            배송지 상태
+                            배송 상태
                         </h1>
                         <c:if test="${ovo.delivery_number!=null&&ovo.delivery_number ne ''}">
                             <button class="deleveryChk btn-stan btn-white" data-tracks="${ovo.delivery_number}" data-carriers="${ovo.delivery_id}"  data-target=".delevery-modal">배송조회</button>
@@ -125,15 +125,31 @@
                         <p class="gray mt10 deleveryStatus">미발송</p>
                     </c:if>
                     <c:if test="${ovo.delivery_number!=null&&ovo.delivery_number ne ''}">
-                        <p class="gray mt10 deleveryStatus">
+                        <p class="mt10 deleveryStatus">
                             ${orderState[ovo.state]}
                         </p>
+                        <div class="mt30">
+                            <span class="bold">배송사</span>	
+                            <span class="float-right"><span class="delevery_com" data-id="${ovo.delivery_id}">${ovo.delivery_id}</span></span>
+                            <p class="clear-fix"></p>
+                        </div>
+                        <div>
+                            <span class="bold">배송번호</span>	
+                            <span class="float-right">${ovo.delivery_number}</span>
+                            <p class="clear-fix"></p>
+                        </div>
+
                     </c:if>
-                    <h1 class="small-title bold mt20">혹시 리워드를 수령했나요?</h1>
                 </div>
-                <button class="btn-stan tiny-content w-100p product-question btn-white mt10 delevery_end" data-id = "${ovo.id}">
-                    <span>리워드를 수령했습니다.</span>
-                </button>
+                
+                <c:if test="${ovo.delivery_number!=null&&ovo.delivery_number ne ''&&ovo.state<5}">
+                    <div class="mt20">
+                        <h1 class="small-title bold ">혹시 리워드를 수령했나요?</h1>
+                        <button class="btn-stan tiny-content w-100p product-question btn-white mt10 delevery_end" data-id = "${ovo.id}">
+                            <span>리워드를 수령했습니다.</span>
+                        </button>
+                    </div>
+                </c:if>
             </div>
             <div class="bg-gray-dark p20">
                 <span class="tiny-tiny-content bold">

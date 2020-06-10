@@ -71,3 +71,37 @@ $(function(){
         }
     });
 });
+$(function(){
+    $(".delevery_end").click(function(){
+        var data={
+            "id":$(this).data("id")
+        };
+        var option={
+            "url":"/page/orderEnd",
+            "data":data
+        };
+        if(confirm("배송완료 처리를 하시겠습니까?")){
+            var ajaxResult = ajaxStan(option);
+            if(ajaxResult.status){
+                location.reload();
+            }
+        }
+        
+
+    });
+});
+$(function(){
+    var deleveryID = $(".delevery_com").data("id");
+    var option={
+        "url":"/deleveryTest/parseCompany"
+    }
+    var companyName ="";
+    var ajaxResult = ajaxStan(option);
+    for(var code of ajaxResult.data){
+        if(code.id==deleveryID){
+            companyName=code.name;
+            break;
+        }
+    }
+    $(".delevery_com").html(companyName);
+});

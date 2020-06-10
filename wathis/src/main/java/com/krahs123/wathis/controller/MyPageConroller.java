@@ -10,6 +10,7 @@ import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.text.DateFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -17,6 +18,7 @@ import java.util.StringTokenizer;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.parser.ParseException;
@@ -670,8 +672,8 @@ public class MyPageConroller {
 					String[] arr = line.split(",");
 					if(arr.length>0) {
 						ovo.setId(Integer.parseInt(arr[0]));
-						ovo.setDelivery_id(arr[2]);
-						ovo.setDelivery_number(arr[3]);
+						ovo.setDelivery_number(arr[2]);
+						ovo.setDelivery_id(arr[3]);
 						ovo.setState("4");
 						result+=orderService.updateOrder(ovo);
 						//++result;
@@ -807,5 +809,25 @@ public class MyPageConroller {
 		mav.addObject("orderState",DbStatus.orderState);
 		mav.setViewName(DIR+"userMypage");
 		return mav;
+	}
+	//구메확정
+	@RequestMapping("/orderEnd")
+	@ResponseBody
+	public Map<String,Object> orderEnd(@RequestParam int id){
+		Map<String,Object> map = new HashMap<>();
+		String msg ="배송완료 처리가 실패하였습니다.";
+		boolean status =false;
+		OrderVO ovo = new OrderVO();
+		ovo.setId(id);
+		ovo.setState("5");
+		int result = orderService.updateOrderStatus(ovo);
+		if(result>0) {
+			msg ="배송완료 처리되었습니다.";
+			status =true;
+		}
+		map.put("msg", msg);
+		map.put("status", status);
+		
+		return map;
 	}
 }
