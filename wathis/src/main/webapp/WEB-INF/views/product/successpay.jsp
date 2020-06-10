@@ -75,7 +75,7 @@
                                 <div class="a-box-wrap mar-top1 wa-align1">
                                 <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="http://localhost:8888" class=""> HOME </a></div> 
                                 <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="http://localhost:8888/product/product-list" class=""> OTHER </a></div> 
-                                <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="#" class=""> DETAILS </a></div> 
+                                <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="#" class="">DETAILS</a></div> 
                                 </div>
                             </div>
     

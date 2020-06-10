@@ -371,7 +371,7 @@ public class ProductController {
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
-		mav.setViewName(BASEDIR + "successpa");
+		mav.setViewName(BASEDIR + "successpay");
 		return mav;
 	}
 	
