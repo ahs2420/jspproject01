@@ -23,6 +23,7 @@
     <form action="/page/mypageOneModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
     	
         <input type="hidden" name="id" value="${oneModi.id}" />
+        <input type="hidden" name="product_id" value="${pvo}" />
        
         <div class="ba-project">
 
@@ -330,8 +331,8 @@
                     어떻게 보여지는지 궁금하신가요?</p>
             </div>
             <div class="box-text-one text-padding2">
-                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
-                    펀딩안내 미리보기</a>
+                <a href="" 
+                class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내 미리보기</a>
             </div>
         </div>
         <!-- 8번 disabled 사용하면 체크하고 나서 체크 안됨-->

@@ -317,8 +317,7 @@
                     어떻게 보여지는지 궁금하신가요?</p>
             </div>
             <div class="box-text-one text-padding2">
-                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">
-                    펀딩안내 미리보기</a>
+                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내 미리보기</a>
             </div>
         </div>
         <!-- 8번 -->

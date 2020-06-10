@@ -61,7 +61,7 @@
 										<label for="userid" class="label">아이디</label>
 										<!-- <label for="userid" class="label">userid</label> -->
 
-										<input name="uid" type="text" id="userid" class="in-name-text chkItem" data-error="아이디를 ">
+										<input name="uid" type="text" id="userid" class="in-name-text chkItem" data-error="아이디를 " value="${uid}">
 									</div>
 									<div class="in-box-pwd">
 										<label for="in-pwd" class="label">비밀번호</label>
@@ -69,9 +69,16 @@
 										<input name="upassword" type="password" id="in-pwd" class="in-pwd-text chkItem" data-error="비밀번호를 ">
 									</div>
 									<div class="in-box-ke">
-										<input name="uidSave" type="checkbox" id="in-keep1" class="signin-ck"> <label
-											for="in-keep1" class="keep"> <span class="keep-up">아이디
-												저장</span> <!-- <span class="keep-up">keep me signed in</span> -->
+										<c:if test="${uid eq ''}">
+											<input name="uidSave" type="checkbox" id="in-keep1" class="signin-ck" value="1"> 
+											
+										</c:if>
+										<c:if test="${uid ne ''}">
+											<input name="uidSave" type="checkbox" id="in-keep1" class="signin-ck" checked value="1"> 
+										</c:if>
+										<label for="in-keep1" class="keep" > 
+											<span class="keep-up" >아이디 저장</span> 
+											<!-- <span class="keep-up">keep me signed in</span> -->
 										</label>
 									</div>
 									<div class="in-box-bu">
@@ -165,7 +172,18 @@
 							</div>
 						</div>
 					</div>
+					<div class="logo ">
+					<div class="logo-icon logo-box-shadow">
+							<a href="http://localhost:8888/">
+								<span class="main-color logo-box-shadow">WaThis</span>
+								
+								
+								
+							</a>
+						</div>
+					</div>
 				</div>
+				
 			</div>
 		</section>
 
@@ -228,6 +246,10 @@
 		</div>
 	</main>
 <script>
+// 아이디 저장하기
+
+
+
 	$(function(){
 		$("#up-userid").blur(function(){
 			var data={

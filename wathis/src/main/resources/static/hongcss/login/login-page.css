@@ -27,6 +27,24 @@ body {
         display: flex;
     }
 
+    /* 로고디자인 */
+    .logo{
+        position: relative;
+    }
+    
+    .logo-box-shadow{
+        text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.34);
+
+    }
+    .logo .logo-icon{
+       height: 10px;
+        position: absolute;
+        top: -309px;
+        left: 4px;
+        font-size: 169px;
+
+    }
+
     .sing-inup-box1 {
     max-width:370px;
     width: 100%;
@@ -434,3 +452,5 @@ main a {
 .line-heall{
  line-height: 38px;
 }
+
+

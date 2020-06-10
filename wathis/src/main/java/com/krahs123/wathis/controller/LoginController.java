@@ -56,13 +56,22 @@ public class LoginController {
 	final String DIR ="/login/";
 	//회원가입 화면
 	@RequestMapping("/login-page2")
-	public ModelAndView viewLoginpage2() {
+	public ModelAndView viewLoginpage2(HttpServletRequest request) {
+		Cookie[] myCookies = request.getCookies();
+		String uid = "";
+	    for(int i = 0; i < myCookies.length; i++) {
+	    	if(myCookies[i].getName().equals("uid")) {
+	    		uid=myCookies[i].getValue();
+	    		break;
+	    	}
+	    }
 		ModelAndView mav = new ModelAndView();
 		List<MenuVO> menuList = menuService.getMenuList();
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
 		mav.setViewName(DIR+"login-page-headerOn");
 		mav.addObject("menuList", menuList);
+		mav.addObject("uid", uid);
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
 		return mav;
@@ -84,14 +93,20 @@ public class LoginController {
 	
 	@RequestMapping("/logindo")
 	@ResponseBody
-	public String logindo(@RequestParam String uid , @RequestParam String upassword, @RequestParam(defaultValue = "no") String uidSave, HttpSession session,HttpServletResponse response) {
+	public String logindo(@RequestParam String uid , @RequestParam String upassword, @RequestParam(defaultValue = "0") int uidSave, HttpSession session, 
+			HttpServletResponse response) {
 		String inp = ShaEncrypt.sha256(upassword);
 		MemberVO mvo = memberService.getlogin(uid, inp,session);
 		//비밀번호 암호화 하는 부분
 		StringBuilder sb = new StringBuilder();
 		if( mvo != null ) {
 			Cookie coo = new Cookie("uid", uid);
-			coo.setMaxAge(60*60*24*365);
+			coo.setPath("/");
+			if(uidSave==1) {
+				coo.setMaxAge(60*60*24*365);
+			}else {
+				coo.setMaxAge(0);
+			}
 			response.addCookie(coo);
 			try {
 				response.sendRedirect("/");
@@ -99,10 +114,10 @@ public class LoginController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sb.append("<script>");
-			sb.append("alert(\"됨\");");
-			sb.append("location.replace(\"/\");");
-			sb.append("</script>");
+//			sb.append("<script>");
+//			sb.append("alert(\"됨"+uidSave+"\");");
+//			sb.append("location.replace(\"/\");");
+//			sb.append("</script>");
 	
 		}else {
 			sb.append("<script>");
