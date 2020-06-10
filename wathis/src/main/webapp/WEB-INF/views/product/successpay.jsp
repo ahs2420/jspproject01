@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <!-- 추가 css,js -->
 <!-- 
@@ -38,7 +40,7 @@
                                 <div class="payment-box">
                                     
                                     <h3 class="font-color3">결제완료 현황</h3>
-                                    <P class="wa-day font-color3 wa-font-si7 mar-top5"> 예상 결제 일은 최종 결제 YYYY.MM.DD.17시 입니다.</P>
+                                    <P class="wa-day font-color3 wa-font-si7 mar-top5"> 예상 결제 일은 최종 결제 ${pay_date} 17시 입니다. </P>
                                   
                                 </div> 
                                 
@@ -49,22 +51,22 @@
                                         
                                         <tr>
                                             <th class="fun-detail1 box-we4 ta-hei5">상품명 :</th>
-                                            <td colspan="4" class="ta-bor ">다뽑아 코팩</td>
+                                            <td colspan="4" class="ta-bor ">${pvo.title}</td>
                                         </tr> 
                                         
                                         <tr>
                                             <th class="box-we4 ta-hei5">배송지 :</th>
-                                            <td colspan="4" class="ta-bor ">부산 광역시 경성대학교</td>
+                                            <td colspan="4" class="ta-bor ">${ovo.receiver_addr1} ${ovo.receiver_addr2} ${ovo.receiver_addr3}</td>
                                         </tr>
                                         
                                         <tr>
                                             <th class="box-we4 ta-hei5">후원금액 :</th>
-                                            <td colspan="4" class="ta-bor ">1,000원</td>
+                                            <td colspan="4" class="ta-bor "><fmt:formatNumber value="${ovo.price}" pattern="#,##0" />원</td>
                                         </tr>
                                         
                                         <tr>
                                             <th class="box-we4 ta-hei5"> 최종 금액 :</th>
-                                            <td colspan="4" class="ta-bor ">1,000,000</td>
+                                            <td colspan="4" class="ta-bor "><fmt:formatNumber value="${ovo.payment}" pattern="#,##0" />원</td>
                                         </tr>
                                          
     
@@ -73,9 +75,9 @@
                                 </div>
     
                                 <div class="a-box-wrap mar-top1 wa-align1">
-                                <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="http://localhost:8888" class=""> HOME </a></div> 
-                                <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="http://localhost:8888/product/product-list" class=""> OTHER </a></div> 
-                                <div class="btn-wa a-box-flex-ba li-he2 box-hei5 border-line2 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point"><a href="#" class="">DETAILS</a></div> 
+                                    <a class="btn-wa a-box-flex-ba li-he2 box-hei5 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point" href="/" class=""> HOME </a>    
+                                    <a class="btn-wa a-box-flex-ba li-he2 box-hei5 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point" href="/product/product-list" class=""> OTHER </a>  
+                                    <a class="btn-wa a-box-flex-ba li-he2 box-hei5 wa-font-we wa-font-si6 back-color1 border-ra1 font-color1 cu-point" href="/page/fundingList" class=""> DETAILS </a> 
                                 </div>
                             </div>
     
