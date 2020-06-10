@@ -36,6 +36,7 @@
                         <div>
                             <form action="/page/setOrderDeleveryCsv" method="POST" enctype="multipart/form-data">
                                 <h4 class="mb20">배송정보 엑셀등록</h4>
+                                <input type="hidden" name="id" value="${id}" />
                                 <input type="hidden" name="product_id" value="${pvo.id}" />
                                 <a class="mr5 pt10 pb10 pl5 pr5 border-gray" href="/page/orderCsvTemplate?product_id=${pvo.id}">CSV양식다운</a>
                                 <a class="mr5 pt10 pb10 pl5 pr5 border-gray" href="/page/orderCsvCompany">택배사코드다운</a>

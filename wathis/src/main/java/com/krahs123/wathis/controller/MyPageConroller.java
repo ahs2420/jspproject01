@@ -648,10 +648,11 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"csv/orderCsvCompany");
 		return mav;
 	}
+
 	//배송코드 엑셀업로드
 	@RequestMapping(value="/setOrderDeleveryCsv",method = RequestMethod.POST)
-	@ResponseBody
-	public String setOrderDeleveryCsv(@RequestPart MultipartFile files) {
+	public ModelAndView setOrderDeleveryCsv(@RequestPart MultipartFile files,@RequestParam int id) {
+		ModelAndView mav = new ModelAndView();
 		StringBuilder sb = new StringBuilder();
 		File convFile = new File("temp.csv");
 		String line = null;
@@ -690,7 +691,8 @@ public class MyPageConroller {
 			convFile.delete();
 		}
 		sb.append("등록되었습니다.(요청 : "+(total-1)+" , 처리 :"+result+")");
-		return sb.toString();
+		mav.setViewName("redirect:/page/paymentStatus?id="+id);
+		return mav;
 	}
 
 
