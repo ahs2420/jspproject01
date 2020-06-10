@@ -212,12 +212,6 @@
 			state=#{state}
 		WHERE product_id=#{product_id}
 	</update>
-	<update id="updateOrderDelevery">
-		UPDATE tb_order SET 
-			delivery_id=#{delivery_id},
-			delivery_number=#{delivery_number}
-		WHERE id=#{id}
-	</update>
 	<delete id="deleteOrder">
 		DELETE FROM tb_order
 		WHERE id=#{id}

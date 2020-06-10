@@ -644,7 +644,7 @@ public class MyPageConroller {
 		mav.setViewName(DIR+"csv/orderCsvCompany");
 		return mav;
 	}
-	
+	//배송코드 엑셀업로드
 	@RequestMapping(value="/setOrderDeleveryCsv",method = RequestMethod.POST)
 	@ResponseBody
 	public String setOrderDeleveryCsv(@RequestPart MultipartFile files) {
@@ -672,7 +672,8 @@ public class MyPageConroller {
 						ovo.setId(Integer.parseInt(arr[0]));
 						ovo.setDelivery_id(arr[2]);
 						ovo.setDelivery_number(arr[3]);
-						result+=orderService.updateOrderDelevery(ovo);
+						ovo.setState("4");
+						result+=orderService.updateOrder(ovo);
 						//++result;
 						++total;
 					}

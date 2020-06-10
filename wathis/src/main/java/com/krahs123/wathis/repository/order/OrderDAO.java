@@ -39,6 +39,4 @@ public interface OrderDAO {
 	public List<Map<String,Object>> getOrderProList(int product_id);
 	//주문 상세정보 리스트- 상품별
 	public List<Map<String,Object>> getOrderProDetailList(int product_id);
-	//주문 배송 대량등록
-	public int updateOrderDelevery(OrderVO ovo);
 }

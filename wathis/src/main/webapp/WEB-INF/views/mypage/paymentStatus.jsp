@@ -82,16 +82,16 @@
                     <tbody>
                         <c:forEach items="${ovoList}" var="ovo">
                             <tr  class="border-bottom">
-                                <td class="pt10 pb10">
+                                <td class="pt10 pb10 pl5 pr5 txt-center">
                                     ${ovo.id}
                                 </td>
-                                <td class="pt10 pb10">
+                                <td class="pt10 pb10 pl5 pr5 txt-center">
                                     ${orderState[ovo.state]}
                                 </td>
-                                <td class="pt10 pb10">
+                                <td class="pt10 pb10 pl5 pr5 txt-center">
                                     ${ovo.uname} / ${ovo.utel}
                                 </td>
-                                <td class="pt10 pb10">
+                                <td class="pt10 pb10 pl5 pr5">
                                     <p>
                                         주소 : 
                                         ${ovo.receiver_addr1}
@@ -108,10 +108,10 @@
                                         요청사항 : ${ovo.receiver_etc}
                                     </p>
                                 </td>
-                                <td class="pt10 pb10">
+                                <td class="pt10 pb10 pl5 pr5 txt-center">
                                     <p><fmt:formatNumber value="${ovo.payment}" pattern="#,##0" />원</p>
                                 </td>
-                                <td class="pt10 pb10">
+                                <td class="pt10 pb10 pl5 pr5 txt-center">
                                     <c:choose>
                                         <c:when test="${ovo.delivery_id eq '' ||ovo.delivery_id == null}">
                                             미배송

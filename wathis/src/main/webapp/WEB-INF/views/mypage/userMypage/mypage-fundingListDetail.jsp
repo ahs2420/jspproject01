@@ -125,12 +125,14 @@
                         <p class="gray mt10 deleveryStatus">미발송</p>
                     </c:if>
                     <c:if test="${ovo.delivery_number!=null&&ovo.delivery_number ne ''}">
-                        <p class="gray mt10 deleveryStatus">발송완료</p>
+                        <p class="gray mt10 deleveryStatus">
+                            ${orderState[ovo.state]}
+                        </p>
                     </c:if>
                     <h1 class="small-title bold mt20">혹시 리워드를 수령했나요?</h1>
                 </div>
-                <button class="btn-stan tiny-content w-100p product-question btn-white mt10">
-                    <span>이미 리워드를 수령했습니다.</span>
+                <button class="btn-stan tiny-content w-100p product-question btn-white mt10 delevery_end" data-id = "${ovo.id}">
+                    <span>리워드를 수령했습니다.</span>
                 </button>
             </div>
             <div class="bg-gray-dark p20">
