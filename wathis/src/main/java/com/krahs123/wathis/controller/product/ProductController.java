@@ -271,7 +271,7 @@ public class ProductController {
 		}
 
 		// 상품 등록
-		result += orderService.setOrder(ovo);
+		int order_id = orderService.setOrder(ovo);
 		// 상품 상세 등록
 		OrderDetailVO odvo = new OrderDetailVO();
 		odvo.setMember_id(ovo.getMember_id());
@@ -280,6 +280,7 @@ public class ProductController {
 		String option="";
 		for(String optID:optIDList) {
 			ProductOptionVO pvOpt = proOptService.getOptionDetail(Integer.parseInt(optID));
+			odvo.setOrder_id(order_id);
 			odvo.setOption_id(Integer.parseInt(optID));
 			odvo.setAmount(Integer.parseInt(optCntList.get(i)));
 			odvo.setPrice(pvOpt.getPrice()*odvo.getAmount());
@@ -288,8 +289,7 @@ public class ProductController {
 			i++;
 		}
 		sb.append("<script>");
-		sb.append("alert('정상적으로 구매 되었습니다.');");
-		sb.append("location.replace('/product/product?id="+ovo.getProduct_id()+"');");
+		sb.append("location.replace('/product/productSuccess?id="+order_id+"');");
 		sb.append("</script>");
 		return sb.toString();
 	}
@@ -360,7 +360,7 @@ public class ProductController {
 	
 	//관리자 리스트
 	@RequestMapping("/productSuccess")
-	public ModelAndView productSuccess() {
+	public ModelAndView productSuccess(@RequestParam int id) {
 		ModelAndView mav = new ModelAndView();
 
 		List<MenuVO> menuList = menuService.getMenuList();
@@ -368,9 +368,19 @@ public class ProductController {
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
 
+		OrderVO ovo = orderService.getOrderDetail(id);
+		ProductVO pvo = proService.getProductDetail(ovo.getProduct_id());
+		String[] end_date_arr = pvo.getEnd_date().split("-");
+		Date end_date = new Date(Integer.parseInt(end_date_arr[0]), Integer.parseInt(end_date_arr[1])-1, Integer.parseInt(end_date_arr[2]));
+		long long_date = end_date.getTime()+1000*60*60*24;
+		Date pay_date = new Date(long_date);
 		mav.addObject("headConfig", headConfig);
 		mav.addObject("footConfig", footConfig);
 		mav.addObject("menuList", menuList);
+		mav.addObject("ovo", ovo);
+		mav.addObject("pvo", pvo);
+		mav.addObject("pay_date", pay_date.getYear()+"."+(pay_date.getMonth()+1)+"."+pay_date.getDate());
+		
 		mav.setViewName(BASEDIR + "successpay");
 		return mav;
 	}

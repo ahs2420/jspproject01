@@ -34,7 +34,8 @@ public class OrderDAOImpl implements OrderDAO{
 	@Override
 	public int setOrder(OrderVO ovo) {
 		// TODO Auto-generated method stub
-		return sql.insert(namespace+".setOrder",ovo);
+		sql.insert(namespace+".setOrder",ovo);
+		return ovo.getId();
 	}
 	@Override
 	public int deleteOrder(int id) {

@@ -172,7 +172,7 @@
 			tb_order
 		WHERE id = #{id}
 	</select>
-	<insert id="setOrder">
+	<insert id="setOrder" parameterType="ordervo">
 		INSERT INTO tb_order SET
 			member_id=#{member_id},
 			product_id=#{product_id},
@@ -191,6 +191,9 @@
 			receiver_name=#{receiver_name},
 			receiver_etc=#{receiver_etc},
 			state=1
+	    <selectKey resultType="int" keyProperty="id" order="AFTER">
+		 	SELECT id as order_id FROM tb_order WHERE product_id=#{product_id} AND member_id=#{member_id} ORDER BY id DESC LIMIT 1
+	    </selectKey>    
 	</insert>
 	<update id="updateOrder">
 		UPDATE SET tb_order

@@ -32,9 +32,6 @@
 		ORDER BY id DESC
 	</select>
 	<insert id="setOrderDetail">
-		<selectKey resultType="int" keyProperty="order_id" order="BEFORE">
-		 	SELECT id as order_id FROM tb_order WHERE product_id=#{product_id} AND member_id=#{member_id} ORDER BY id DESC LIMIT 1
-		</selectKey>
 		INSERT INTO tb_order_detail
 		SET
 			order_id=#{order_id},
