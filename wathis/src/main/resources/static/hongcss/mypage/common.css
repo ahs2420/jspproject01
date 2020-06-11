@@ -561,7 +561,7 @@ textarea{
     width: 30%;
     font-weight: 700;
     /* height: 100px; */
-    background-color: #00c4c4;
+    background-color: #8de5e5;
     color: #fff;
     outline: none;
     height: 48px;
@@ -571,8 +571,17 @@ textarea{
     border: none;
     border-collapse: collapse;
     cursor: pointer;
+    transition: 0.5s;
     
 }
+
+.btn-save .btn-end:hover{
+    color: #fff;
+    background-color: #00c4c4;
+    
+    transition: 0.5s;
+}
+
 .flex-end{
 
     position: relative;

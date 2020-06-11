@@ -22,6 +22,21 @@
     // });
 
 //서류사항 textarea 체크
+//Q1
+$(function(){
+
+    $('.circulation_content').keyup(function (e) {
+        var content = $(this).val();
+        $('#counter-q1').html("[ " + content.length + "자 작성" + " / 최대 500자]"); //글자수 실시간 카운팅
+        if (content.length >= 500) {
+            alert("최대 500자까지 입력 가능합니다.");
+            $(this).val(content.substring(0, 500));
+            $('#counter').html("[ 500 자 작성 / 최대 500자 ]");
+        }
+    });
+});
+
+
 //Q2
 $(function(){
 

@@ -76,7 +76,7 @@ body {
     line-height: 40px;
     border-radius: 50%;
     text-align: center;
-    background-color: teal;
+/*     background-color: teal; */
     color: #fff;
     vertical-align: baseline;
 }
@@ -489,6 +489,7 @@ color: #60656a;
     font-weight: 700;
     /* height: 100px; */
     background-color: #8de5e5;
+    
     color: #fff;
     outline: none;
     cursor: pointer;

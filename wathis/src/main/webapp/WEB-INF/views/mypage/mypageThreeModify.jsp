@@ -137,9 +137,10 @@
 						<div class="name-left">
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
 								제목 <span class="fon-co5"> *</span>
-							</label> <input class="wid1 hei1 fon-bor1 text-padding1" name="title" type="text" id="projectname"
-								placeholder="제목 입력" value="${productvo.title}">
-							<p class="fon-siz4 fon-col mar-bo6 fon-wei1">40자 남음</p>
+							</label> 
+							<input class="wid1 hei1 fon-bor1 text-padding1 text-coun" name="title" type="text" id="projectname"
+								placeholder="프로젝트 제목을 입력하세요" value="${productvo.title}">
+                            <p class="fon-siz3 fon-col " id="counter">[ ${fn:length(productvo.title)} 자 작성 / 최대 40자 ]</p>
 						</div>
 					</div>
 					<div class="ba-guide2">
@@ -249,10 +250,9 @@
 
 				<!-- 5번  프로젝트 일정을 삭제 하였음-->
 				<!-- 5번-->
-				<div class="flex-basic2 ba-pro-adult">
+				<div class="flex-basic2 ba-pro-adult mar-top3">
 					<div class=" mar-bo3  wid4">
-						<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">검색용
-							태그<span class="fon-co5"> *</span>
+						<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">검색용 태그<span class="fon-co5"> *</span>
 						</label>
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">엔터를 누르면 태그가 등록
 							됩니다.(최대 10개까지 입력가능)</p>
@@ -290,7 +290,7 @@
                                 <textarea name="sub_title" id="" cols="30" rows="3" maxlength="500" class="sub_title"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%; padding: 20px;"
                                     placeholder="내용을 입력하세요." value="" >${productvo.sub_title}</textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ ${fn:length(productvo.sub_title)}자 작성 / 최대 500자]</p>
 
                             </div>
 

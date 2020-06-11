@@ -4,10 +4,10 @@ $(function(){
     $('.text-coun').keyup(function (e) {
         var content = $(this).val();
         $('#counter').html("[" + content.length + " / 최대 40자]"); //글자수 실시간 카운팅
-        if (content.length > 40) {
+        if (content.length >= 40) {
             alert("최대 40자까지 입력 가능합니다.");
             $(this).val(content.substring(0, 40));
-            $('#counter').html("[40 / 최대 40자]");
+            $('#counter').html("[ 40 / 최대 40자 ]");
         }
     });
 
@@ -23,7 +23,7 @@ $(function(){
 
     $('.sub_title').keyup(function (e) {
         var content = $(this).val();
-        $('#counter-q2').html("[ " + content.length + "자 작성" + " / 최대 100자]"); //글자수 실시간 카운팅
+        $('#counter-q1').html("[ " + content.length + "자 작성" + " / 최대 100자]"); //글자수 실시간 카운팅
         if (content.length >= 100) {
             alert("최대 100자까지 입력 가능합니다.");
             $(this).val(content.substring(0, 100));

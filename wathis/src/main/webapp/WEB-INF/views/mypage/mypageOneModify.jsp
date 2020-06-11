@@ -3,7 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<%-- <%@taglib prefix="fn" nri="http://java.sun.com/jsp/jstl/functions" %> --%>
+
 <% pageContext.setAttribute("replaveChar", "\n"); %>
 
 <link rel="stylesheet" href="../css/reset.css">
@@ -21,10 +21,10 @@
 
 <div class="box2-funReady">
     <form action="/page/mypageOneModify" enctype="multipart/form-data" method="post" class="chkFormCke" id="uploadForm">
-    	
+
         <input type="hidden" name="id" value="${oneModi.id}" />
         <input type="hidden" name="product_id" value="${pvo}" />
-       
+
         <div class="ba-project">
 
             <!-- 				정보 및 요건 중간선 -->
@@ -71,14 +71,15 @@
                             유통 중인가요? <span class="fon-co5"> *</span></label>
                         </p>
                         <div class="radio-box mar-bo5 mar-top4">
-                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no" value="0" <c:if test="${oneModi.circulation_chk eq '0' }">checked</c:if>> <label
-                                for="ra-q1-no">
+                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q1-no" value="0" <c:if
+                                test="${oneModi.circulation_chk eq '0' }">checked</c:if>> <label for="ra-q1-no">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">아니요. 다른
                                     곳에서 유통한 적이 없으면 와디지를 통해 처음 선보이는 제품입니다.</span>
                             </label>
                         </div>
                         <div class="radio-box mar-bo3 mar-top4">
-                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q2-yes" value="1" <c:if test="${oneModi.circulation_chk eq '1' }">checked</c:if>>
+                            <input class="ra-size" name="circulation_chk" type="radio" id="ra-q2-yes" value="1" <c:if
+                                test="${oneModi.circulation_chk eq '1' }">checked</c:if>>
                             <label for="ra-q2-yes">
                                 <span class="fon-siz1 fon-co8 text-padding2 fon-siz2">
                                     예. 다른 곳에서 유통한 적이 있습니다.또는 현재 유통 중입니다.</span>
@@ -88,12 +89,21 @@
                                     리워드가 다른 판매처에서 유통된 적이 있다면 리워드로 제공 할 수 없습니다. <br> 기존에 유통하던
                                     제품/ 서비스에 비해 개선된 점이 있다면 아래에 상세하게 작성해주세요.
                                 </h4>
-                                  <div class="text-area wid4">
-                                <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
-                                    style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
-                                    placeholder="내용을 입력하세요." class="Preparations_plan"></textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ ${fn:length(auditVO.Preparations_plan)}자 작성 / 최대 500자]</p>
-                            </div>
+
+                                <!--Q1 질문에 대한 textarea  -->
+                                <div class="text-area wid4">
+                                    <textarea name="circulation_content" id="" cols="30" rows="3" maxlength="500"
+                                        style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
+                                        placeholder="내용을 입력하세요."
+                                        class="circulation_content">${oneModi.circulation_content}</textarea>
+                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q1">
+                                    [ ${fn:length(oneModi.circulation_content)}자 작성 / 최대 500자]</p>
+
+                                    <!--<textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500" -->
+                                    <!--style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;" -->
+                                    <!--placeholder="내용을 입력하세요." class="Preparations_plan"></textarea> -->
+                                    <%--<p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ ${fn:length(auditVO.Preparations_plan)}자 작성 / 최대 500자]</p> --%>
+                                </div>
 
                             </div>
 
@@ -134,8 +144,10 @@
                             <div class="text-area">
                                 <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
-                                    placeholder="내용을 입력하세요." class="Preparations_plan">${oneModi.preparations_plan}</textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
+                                    placeholder="내용을 입력하세요."
+                                    class="Preparations_plan">${oneModi.preparations_plan}</textarea>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[
+                                    ${fn:length(oneModi.preparations_plan)}자 작성 / 최대 500자]</p>
                             </div>
 
                         </div>
@@ -184,7 +196,8 @@
                                     class="relay_plan noresize"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
                                     placeholder="내용을 입력하세요.">${oneModi.relay_plan}</textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[ 0 자 작성 / 최대 500자]</p>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[
+                                    ${fn:length(oneModi.relay_plan)}자 작성 / 최대 500자]</p>
                             </div>
                         </div>
 
@@ -218,27 +231,31 @@
                                 <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
                                 <input type="file" id="file1">
                             </div> -->
-                        <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder" name="reword_type">
-                            <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)|소형전자(MP3,전자사전 등)|기타제화" delims="|" var="item" varStatus="vs">
-                            	<option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">selected</c:if> >${item}</option>
-                            		
-<%--                             		${fn:replace (  paramVO.content, replaceChar, "<br/>")} --%>
+                        <select id="Reward-documents" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder"
+                            name="reword_type">
+                            <c:forTokens
+                                items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)|소형전자(MP3,전자사전 등)|기타제화"
+                                delims="|" var="item" varStatus="vs">
+                                <option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">
+                                    selected</c:if> >${item}</option>
+
+                                <%--                             		${fn:replace (  paramVO.content, replaceChar, "<br/>")} --%>
                             </c:forTokens>
-<!--                             <option value="1">의류</option> -->
-<!--                             <option value="2">구두/신발</option> -->
-<!--                             <option value="3">가방</option> -->
-<!--                             <option value="4">패션잡화(모자/벨트.액세서리)</option> -->
-<!--                             <option value="5">침구류/커튼</option> -->
-<!--                             <option value="6">가구(침대/소파/싱크대/DTY제품)</option> -->
-<!--                             <option value="7">주방용품</option> -->
-<!--                             <option value="8">화장품</option> -->
-<!--                             <option value="9">귀금속/보석/시계류</option> -->
-<!--                             <option value="10">식품(농・축・수산물)</option> -->
-<!--                             <option value="11">건강 기능 식품</option> -->
-<!--                             <option value="12">가공식품</option> -->
-<!--                             <option value="13">영유아 용품</option> -->
-<!--                             <option value="14">서적</option> -->
-<!--                             <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option> -->
+                            <!--                             <option value="1">의류</option> -->
+                            <!--                             <option value="2">구두/신발</option> -->
+                            <!--                             <option value="3">가방</option> -->
+                            <!--                             <option value="4">패션잡화(모자/벨트.액세서리)</option> -->
+                            <!--                             <option value="5">침구류/커튼</option> -->
+                            <!--                             <option value="6">가구(침대/소파/싱크대/DTY제품)</option> -->
+                            <!--                             <option value="7">주방용품</option> -->
+                            <!--                             <option value="8">화장품</option> -->
+                            <!--                             <option value="9">귀금속/보석/시계류</option> -->
+                            <!--                             <option value="10">식품(농・축・수산물)</option> -->
+                            <!--                             <option value="11">건강 기능 식품</option> -->
+                            <!--                             <option value="12">가공식품</option> -->
+                            <!--                             <option value="13">영유아 용품</option> -->
+                            <!--                             <option value="14">서적</option> -->
+                            <!--                             <option value="15">디지털 콘텐츠(음원, 게임, 인터넷강의 등)</option> -->
                         </select>
                         <textarea id="editor1" name="reword_info" class="ckeditor">${oneModi.reword_info }</textarea>
                         <script>
@@ -331,13 +348,14 @@
                     어떻게 보여지는지 궁금하신가요?</p>
             </div>
             <div class="box-text-one text-padding2">
-                <a href="" 
-                class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내 미리보기</a>
+                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내
+                    미리보기</a>
             </div>
         </div>
         <!-- 8번 disabled 사용하면 체크하고 나서 체크 안됨-->
         <div class="end-radio">
-            <input class="end-box" name="policy_agreement" type="checkbox" id="end-radio" value="1"  <c:if test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
+            <input class="end-box" name="policy_agreement" type="checkbox" id="end-radio" value="1" <c:if
+                test="${oneModi.policy_agreement eq '0' }">checked</c:if>>
 
             <label for="end-radio">
                 <span class="fon-siz1 fon-co3 text-padding2">

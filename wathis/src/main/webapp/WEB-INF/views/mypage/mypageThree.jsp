@@ -123,6 +123,7 @@
                 	<!-- 1번 -->
 				<div class="flex-basic2 ba-pro-price">
 					<div class="wid4">
+						<!-- 프로젝트 제목 글자 카운터 사용 -->
 						<div class="name-left">
 							<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">프로젝트
 								제목 <span class="fon-co5"> *</span>
@@ -239,10 +240,9 @@
 
 				<!-- 5번  프로젝트 일정을 삭제 하였음-->
 				<!-- 5번-->
-				<div class="flex-basic2 ba-pro-adult">
+				<div class="flex-basic2 ba-pro-adult mar-top3">
 					<div class=" mar-bo3  wid4">
-						<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">검색용
-							태그<span class="fon-co5"> *</span>
+						<label for="projectname" class="di-ia1 mar-bo6 fon-wei1">검색용 태그<span class="fon-co5"> *</span>
 						</label>
 						<p class="fon-siz4 fon-col mar-bo6 fon-wei1">엔터를 누르면 태그가 등록
 							됩니다.(최대 10개까지 입력가능)</p>
@@ -279,8 +279,8 @@
 
                                 <textarea name="sub_title" id="" cols="30" rows="3" maxlength="100"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%; padding: 20px"
-                                    placeholder="내용을 입력하세요."></textarea>
-                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q3">[  ${fn:length(makervo.marker_name)} 자 작성 / 최대 500자]</p>
+                                    placeholder="내용을 입력하세요." class="sub_title"></textarea>
+                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q1">[ 0자 작성 / 최대 100자]</p>
 
                             </div>
 

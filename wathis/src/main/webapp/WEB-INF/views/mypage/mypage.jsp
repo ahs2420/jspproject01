@@ -30,17 +30,34 @@
 
         <div class="head-userid">
             <div class="userlogo">
-                <i class="fas fa-fan"></i>
+<!--             	메이커 이미지 -->
+ 					<c:choose>
+                    	<c:when test="${sessionScope.id eq null || sessionScope.id eq 0}">
+                            <a href="/login/login-page2"><i class="fas fa-sign-in-alt"></i></a><!--로그인-->
+                    	</c:when>
+                        <c:otherwise>
+                            <button class="mypage-btn icon-round bg-img icon-40" style="background-image: url(${sessionScope.uimg});"></button>
+                        </c:otherwise>
+                    </c:choose>
+            	
             </div>
 
             <div class="username">
-                WATHIS
+               [ ${sessionScope.uname} ] 님 
             </div>
         </div>
 
         <div class="head-close">
-            <button type="button" name="" id="" class="head-show" onclick="location.href='/product/product?id=${product_id}'">미리보기</button>
-            <a href="http://localhost:8888/" name="" id="" class="head-out outmain">나가기</a>
+<!--         	미리보기 버튼 물어보기 -->
+        			<c:choose>
+        				<c:when test = "${ product_id > 0}">
+            				<button type="button" name="" id="" class="head-show" onclick="location.href='/product/product?id=${product_id}'">미리보기</button>
+						</c:when>
+        				<c:otherwise>
+        				</c:otherwise>
+        			</c:choose>
+
+            <a href="/" name="" id="" class="head-out outmain">나가기</a>
         </div>
     </div>
 </div>
@@ -61,26 +78,20 @@
 
                 <div class="reward-box">
                     <h2> 
-                        ${sessionScope.uname}
-                        의 멋진 프로젝트</h2>
+                        [ ${sessionScope.uname} ] 의 멋진 프로젝트</h2>
                 </div>
 
                 <ul class="jq-box">
                     <li class="mypage-li-menu-not">
                         <div class="reward-box-num">
-                            <a href="#">
-                                프로젝트 번호 : ${id}
-                                <!-- <i class="fas fa-angle-down"></i> -->
-
-                            </a>
-
+                            <a href="#">프로젝트 번호 : ${id} </a>
                             <ul class="hide">
                                 <li>
-                                    와디지 담당자와의 소통은 프로젝트 번호로 진행됩니다. 상세페이지는 프로젝트 번호를 포함한 URL 주소로 오픈 된 후 진입 가능합니다.
+					                                    와디지 담당자와의 소통은 프로젝트 번호로 진행됩니다. 상세페이지는 프로젝트 번호를 포함한 URL 주소로 오픈 된 후 진입 가능합니다.
                                 </li>
-                                <li class="reward-box-url">
-                                    url 복사하기
-                                </li>
+<!--                                 <li class="reward-box-url"> -->
+<!--                                     url 복사하기 -->
+<!--                                 </li> -->
                             </ul>
                         </div>
                     </li>
@@ -141,6 +152,20 @@
                     </div>
                 </li>
                 <li class="mypage-li-menu">
+                	<!-- 새소식 값이 있으면 넘어가고 아니면 안넘어 간다. -->
+<%-- 				 <c:choose>
+    				<c:when test="${optCount > 0}">
+			   		    <a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">리워드 설계</a>
+    				</c:when>
+    				<c:when test="${product_id > 0}">
+        				<a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">리워드 설계</a>
+    				</c:when>
+    				<c:otherwise>
+       					<a href="#" onclick="alert('스토리를 먼저 작성해 주세요');"></a>
+    				</c:otherwise>
+    			</c:choose>
+ --%>                
+     
                     <div class="menu-text1">
                         <a href="/proNotice/write?product_id=${product_id}">새소식<i class="fas fa-angle-down"></i></a>
                     </div>

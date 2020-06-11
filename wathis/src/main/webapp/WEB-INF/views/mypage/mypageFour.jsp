@@ -108,7 +108,7 @@
             </div>
         </div>
 
-        <div class="btn-save">
+        <div class="btn-save tex-al2">
             <button class="btn-end" onclick="location.href='/page/mypageListModify?template=Reward&mypage=information&id=${audit_id}'" type="button">목록으로</button>
         </div>
     </div>
@@ -299,8 +299,8 @@
                                     <h4 class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">
                                         배송료
                                     </h4>
-                                    <input type="text" value="0" name="delevery_price" class="text-padding10 hei1"> <span
-                                        class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">원</span>
+                                    <input type="text" value="0" name="delevery_price" class="text-padding10 hei1"> 
+                                    <span class="fon-siz3 fon-co7 fon-wei1 mar-top3 mar-bo4 di-in1">원</span>
                                     <div class="text-area fon-siz4">(배송비가 없는 경우, 0원 입력)
                                     </div>
                                 </div>

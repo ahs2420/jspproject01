@@ -31,7 +31,7 @@
                         요건</span>
                 </div>
 
-       
+                    
                 <div class="flex-basic1 ">  
                     <div class="basic-box-one wid4">
                         <h1 class="di-la2 mar-bo6">기본 요건</h1>
@@ -81,11 +81,18 @@
                                     리워드가 다른 판매처에서 유통된 적이 있다면 리워드로 제공 할 수 없습니다. <br> 기존에 유통하던
                                     제품/ 서비스에 비해 개선된 점이 있다면 아래에 상세하게 작성해주세요.
                                 </h4>
+                                <!-- Q1 질문의 text-area -->
                                 <div class="text-area">
+
                                     <textarea name="circulation_content" id="" cols="30" rows="3" maxlength="500"
                                         style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 65%;"
-                                        placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다."></textarea>
-                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1">500자 남음</p>
+                                        placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다."
+                                        class="circulation_content"></textarea>
+                                    <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q1">[ 0 자 작성 / 최대 500자]</p>
+                                    <!--<textarea name="circulation_content" id="" cols="30" rows="3" maxlength="500" -->
+                                    <!--style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 65%;" -->
+                                    <!--placeholder="ex)리워드의 개선점을 보완하여 세부기능 00이 추가되었고, 이전에 판매된 적이 없는 새로운 브라운 컬로로 리워드 프로젝트를 진행하려합니다."></textarea> -->
+                                    <!--<p class="fon-siz4 fon-col mar-bo6 fon-wei1">500자 남음</p> -->
                                 </div>
 
                             </div>
@@ -128,7 +135,7 @@
                                 <textarea name="Preparations_plan" id="" cols="30" rows="3" maxlength="500"
                                     style="margin-top: 0px; margin-bottom: 0px; height: 125px; width: 100%;"
                                     placeholder="내용을 입력하세요." class="Preparations_plan"></textarea>
-                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[  ${fn:length(auditVO.Preparations_plan)} 자 작성 / 최대 500자]</p>
+                                <p class="fon-siz4 fon-col mar-bo6 fon-wei1" id="counter-q2">[ 0 자 작성 / 최대 500자]</p>
                             </div>
                         </div>
                     </div>
@@ -210,10 +217,14 @@
                                 <label for="file1"><i class="fas fa-plus fon-co9"></i> 추가하기</label>
                                 <input type="file" id="file1">
                             </div> -->
-                        <select id="Reward-documents" name="reword_type" class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
-                            <c:forTokens items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)|소형전자(MP3,전자사전 등)|기타제화" delims="|" var="item" varStatus="vs">
-                            	<option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">selected</c:if> >${item}</option>
-                            	
+                        <select id="Reward-documents" name="reword_type"
+                            class="wid1 hei1 fon-bor1 fon-siz1 text-padding1 ::placeholder">
+                            <c:forTokens
+                                items="주요 카테고리별 작성 예시|의류|구두/신발|가방|패션잡화(모자/벨트.액세서리)|침구류/커튼|가구(침대/소파/싱크대/DTY제품)|주방용품|화장품|귀금속/보석/시계류|식품(농・축・수산물)|건강 기능 식품|가공식품|영유아 용품|서적|디지털 콘텐츠(음원, 게임, 인터넷강의 등)|소형전자(MP3,전자사전 등)|기타제화"
+                                delims="|" var="item" varStatus="vs">
+                                <option value="${vs.index}" <c:if test="${oneModi.policy_agreement eq vs.index }">
+                                    selected</c:if> >${item}</option>
+
                             </c:forTokens>
                         </select>
                         <textarea id="editor1" name="reword_info" class="ckeditor"></textarea>
@@ -226,7 +237,7 @@
                             });
                         </script>
                         <!-- inline 타입으로 생성 -->
-                       <!--  <textarea id="editor2" name="content Policy_Agreement" class="ckeditor"></textarea>
+                        <!--  <textarea id="editor2" name="content Policy_Agreement" class="ckeditor"></textarea>
                         <script>
                             CKEDITOR.inline('editor2', {
                                 customConfig: '/plugin/ckeditor/config.js',
@@ -317,7 +328,8 @@
                     어떻게 보여지는지 궁금하신가요?</p>
             </div>
             <div class="box-text-one text-padding2">
-                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내 미리보기</a>
+                <a href="" class="box-back6 fon-co12 all-btn hei4 fon-wei1 cu-poin box-ra1 bubu" data-ton=".modal">펀딩안내
+                    미리보기</a>
             </div>
         </div>
         <!-- 8번 -->
@@ -329,7 +341,7 @@
                     (필수) 펀딩안내 탭에 노출되는 위험요인 및 정책을 모두 확인하였습니다.
                 </span></label>
         </div>
-<!-- 확인하세요확인하세요확인하세요확인하세요확인하세요 -->
+        <!-- 확인하세요확인하세요확인하세요확인하세요확인하세요 -->
         <div class="btn-save">
             <button class="btn-end" type="submit">저장하기</button>
         </div>
