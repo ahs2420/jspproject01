@@ -81,6 +81,6 @@
 	</update>
 	<delete id="deleteProComment">
 		DELETE FROM tb_product_comment
-		WHERE id=#{id}
+		WHERE id=#{id} or parent_id=#{id}
 	</delete>
 </mapper>
