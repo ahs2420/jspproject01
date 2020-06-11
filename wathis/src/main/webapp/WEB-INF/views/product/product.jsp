@@ -343,9 +343,9 @@
                             </c:choose>
                             <c:if test="${sessionScope.id ne '' && sessionScope.id != null }">
                                 <form class="comment-form" name="commentFrom" id="commentFrom" action="" method="POST" onsubmit="return false;">
-                                    <input type="hidden" name="product_id" value="${pvo.id}" />
-                                    <input type="hidden" name="member_status" value="${comStatus}" />
-                                    <input type="hidden" name="member_id" value="${sessionScope.id}" />
+                                    <input type="hidden" name="product_id" id="product_id" value="${pvo.id}" />
+                                    <input type="hidden" name="member_status" id="member_status" value="${comStatus}" />
+                                    <input type="hidden" name="member_id" id="member_id" value="${sessionScope.id}" />
                                     <textarea name="comment" class="mb5 p10"></textarea>
                                     <div class="btn-wrap mb20">
                                         <button class="btn-stan btn-main btn-comment-add" data-target="#commentFrom" type="button" data-url="/proComment/setComment">
@@ -384,7 +384,7 @@
                                                 <button data-target="#comment-100" class="comment-btn main-color toggle-target" >답글달기</button>
                                             </div>
                                             <form class="comment-form dis-none mt10" id="comment-100" name="comment" action="" method="POST" onsubmit="return false;">
-                                                <input type="hidden" name="product_id" value="${pvo.id}" />
+                                                <input type="hidden" name="product_id"  value="${pvo.id}" />
                                                 <input type="hidden" name="member_status" value="${comStatus}" />
                                                 <input type="hidden" name="member_id" value="${sessionScope.id}" />
                                                 <textarea name="comment" class="mb5"></textarea>

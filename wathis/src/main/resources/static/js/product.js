@@ -88,7 +88,13 @@ $(function(){
             }
        }
     });
-    
+    $(document).on("click",".comment-btn",function(){
+        $($(this).data("target")).slideToggle(500);
+    });
+    $(document).on("submit",".comment-form",function(){
+        alert("err");
+        return false;
+    });
     ajaxCommentList();
 });
 $(function(){
@@ -104,6 +110,7 @@ $(function(){
 function ajaxCommentList(){
     var id = $("main").data("id");
     var member_id = $("main").data("member_id");
+    var member_status = $("#member_status").val();
     var $target = $(".comment-item-wrap");
     var data = {
         "product_id":id
@@ -121,27 +128,73 @@ function ajaxCommentList(){
             for(var pvo of ajaxResult.data.pvoList){
                 pvo.member_imgae = (pvo.member_imgae !=null&&pvo.member_imgae !="")?pvo.member_imgae:"/images/icon/file-upload-icon.png";
                 var deleteBtn = (member_id==pvo.member_id)?'<div class="flex-box flex-j-end mt10 btn-comment-delete" data-id="'+pvo.id+'"><button>삭제</button></div>':'';
-                html+='\
-                <div class="comment-item gray-round-box pt20 pb20 pl5p pr5p mb5">\
-                    <div class="comment-profile flex-box flex-a-center mb10">\
-                        <div class="img-box"> \
-                            <!--{작성자 프로필 아이콘}-->\
-                            <img class="icon-50 icon-round" src="'+pvo.member_imgae+'">\
+                var recieveComment=""
+                if(pvo.parent_id==0){
+                    if(member_id>0){
+                        recieveComment='\
+                        <div class="comment-recomment-form-wrap mb20">\
+                            <div class="txt-right">\
+                                <button data-target="#comment-'+pvo.id+'" class="comment-btn main-color toggle-target" >답글달기</button>\
+                            </div>\
+                            <form class="comment-form dis-none mt10" id="comment-'+pvo.id+'" name="comment" action="" method="POST" onsubmit="return false;">\
+                                <input type="hidden" name="product_id" value="'+id+'" />\
+                                <input type="hidden" name="member_status" value="'+member_status+'" />\
+                                <input type="hidden" name="member_id" value="'+member_id+'" />\
+                                <input type="hidden" name="parent_id" value="'+pvo.id+'" />\
+                                <textarea name="comment" class="mb5"></textarea>\
+                                <div class="btn-wrap mb20">\
+                                    <button class="btn-stan btn-main btn-comment-add" data-target="#comment-'+pvo.id+'" type="button" data-url="/proComment/setComment">\
+                                        댓글달기\
+                                    </button>\
+                                </div>\
+                            </form>\
                         </div>\
-                        <div class="comment-profile-txt ml20">\
-                            <!--{작성자}-->\
-                            <p class="bold">'+pvo.member_userid +'</p>\
-                            <!--{작성자}|{작성일}-->\
-                            <p class="tiny-content"><span class="main-color">'+pvo.member_status  +'</span><span class="gray"> | '+pvo.reg_date   +'</span></p>\
+                        ';
+                    }
+                    
+                    html+='\
+                        <div class="comment-item gray-round-box pt20 pb20 pl5p pr5p mb20">\
+                            <div class="comment-profile flex-box flex-a-center mb10">\
+                                <div class="img-box"> \
+                                    <!--{작성자 프로필 아이콘}-->\
+                                    <img class="icon-50 icon-round" src="'+pvo.member_imgae+'">\
+                                </div>\
+                                <div class="comment-profile-txt ml20">\
+                                    <!--{작성자}-->\
+                                    <p class="bold">'+pvo.member_userid +'</p>\
+                                    <!--{작성자}|{작성일}-->\
+                                    <p class="tiny-content"><span class="main-color">'+pvo.member_status  +'</span><span class="gray"> | '+pvo.reg_date   +'</span></p>\
+                                </div>\
+                            </div>\
+                            <div class="comment-content">\
+                                <!--댓글 내용-->\
+                                <p>'+pvo.comment    +'</p>\
+                            </div>\
+                            '+deleteBtn+'\
+                        </div>\
+                        '+recieveComment+'\
+                    ';
+                }else{
+                    html+='\
+                    <div class="comment-item-wrap mb20">\
+                        <div class="comment-recomment-item gray-round-box pt20 pb20 pl5p pr5p">\
+                            <div class="comment-profile flex-box flex-a-center mb10">\
+                                <div class="img-box"> \
+                                    <img class="icon-50 icon-round" src="'+pvo.member_imgae+'">\
+                                </div>\
+                                <div class="comment-profile-txt ml20">\
+                                    <p class="bold">'+pvo.member_userid +'</p>\
+                                    <p class="tiny-content"><span class="bg-main-alpha-color white-alpha pl5 pr5">'+pvo.member_status  +'</span><span class="gray"> | '+pvo.reg_date+'</span></p>\
+                                </div>\
+                            </div>\
+                            <div class="comment-content">\
+                                '+pvo.comment+'\
+                            </div>\
+                            '+deleteBtn+'\
                         </div>\
                     </div>\
-                    <div class="comment-content">\
-                        <!--댓글 내용-->\
-                        <p>'+pvo.comment    +'</p>\
-                    </div>\
-                    '+deleteBtn+'\
-                </div>\
-                ';
+                    ';
+                }
             }
         }else{
             html='<h3 class="bold txt-box">댓글이 없습니다.</h3>';

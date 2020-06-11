@@ -24,19 +24,41 @@
 	
 	</select>
 	<select id="getProCommentList" resultType="productcommentvo">
-		SELECT 
-			id,           
-			member_id,    
-			product_id,   
-			parent_id,    
-			member_imgae, 
-			member_status,
-			member_userid,
-			comment,      
-			reg_date 
-		FROM tb_product_comment
+		WITH RECURSIVE CTE AS (
+		    SELECT 
+                id,           
+                member_id,    
+                product_id,   
+                parent_id,    
+                member_imgae, 
+                member_status,
+                member_userid,
+                comment,      
+                reg_date ,
+                id as group_id,
+		        CAST(CONCAT(if(parent_id=0,id,parent_id ), parent_id) AS CHAR(99)) x
+		    FROM tb_product_comment x
+		    where parent_id=0
+		    UNION ALL
+		        SELECT
+                    a.id,           
+                    a.member_id,    
+                    a.product_id,   
+                    a.parent_id,    
+                    a.member_imgae, 
+                    a.member_status,
+                    a.member_userid,
+                    a.comment,      
+                    a.reg_date ,     
+                    if(a.parent_id=0, a.id,a.parent_id) as group_id ,
+		            CONCAT(b.x, '-', CONCAT(if(a.parent_id=0, a.id,a.parent_id), a.parent_id)) x
+		        FROM tb_product_comment a
+		        INNER JOIN CTE b ON a.parent_id = b.id 
+		)
+		select * from
+        CTE
 		WHERE product_id=#{product_id}
-		ORDER BY id DESC
+		order by group_id desc, x asc
 	</select>
 	<select id="getOne" resultType="productcommentvo">
 	
