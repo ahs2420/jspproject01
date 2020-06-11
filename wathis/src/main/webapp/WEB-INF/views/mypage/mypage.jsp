@@ -157,7 +157,7 @@
     				<c:when test="${optCount > 0}">
 			   		    <a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">리워드 설계</a>
     				</c:when>
-    				<c:when test="${product_id > 0}">
+    				<c:when test="${product_id eq 0 || product_id eq null }">
         				<a href="/page/mypage-four?product_id=${product_id}&audit_id=${id}">리워드 설계</a>
     				</c:when>
     				<c:otherwise>
