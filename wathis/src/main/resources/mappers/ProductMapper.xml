@@ -68,6 +68,7 @@
 			p.end_date,
 			p.price,
 			p.status,
+			p.audit_id,
 			c.title as cate,
 			m.marker_name,
 			sum(o.price + o.donation) as current_funding,
