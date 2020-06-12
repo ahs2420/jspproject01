@@ -47,9 +47,10 @@
                  <td class="td-5">NO.</td>
                  <td class="td-10">상태.</td>
                  <td class="td-10">카테고리.</td>
-                 <td class="td-40">프로젝트이름.</td>
+                 <td class="td-25">프로젝트이름.</td>
                  <td class="td-10">메이커이름.</td>
-                 <td class="td-15">펀딩진행률/펀딩금액.</td>
+                 <td class="td-15">펀딩기간</td>
+                 <td class="td-15">희망펀딩액/펀딩진행률/펀딩금액.</td>
                  <td class="td-10">Etc.</td>
              </tr>
              <c:forEach items="${pvoList }" var="pvo">
@@ -73,9 +74,10 @@
                         <c:if test="${pvo.product_status eq 'sale'}">
                             <span class="status bg-color-5 f6">${pvo.product_status }</span> 
                         </c:if>
-                         <a href="/product/getProductView?pid=${pvo.pid }"><span class="noto">${pvo.title }</span></a>
+                         <a href="/page/paymentStatus?id=${pvo.audit_id }"><span class="noto">${pvo.title }</span></a>
                     </td>
-	                 <td><span class="noto">${pvo.marker_name }</span></td>
+                    <td><span class="noto">${pvo.marker_name }</span></td>
+                    <td><span class="noto">${pvo.start_date }~${pvo.end_date }</span></td>
 	                 <td class="bold font-12 ralign">
 	                 	<span>
                             <c:if test="${pvo.current_funding eq '' || pvo.current_funding == null }">
@@ -83,8 +85,9 @@
                             </c:if>
                             <fmt:formatNumber var="price" value="${pvo.price}" pattern="#.##"/>
                             <fmt:formatNumber var="current_funding" value="${pvo.current_funding}" pattern="#.##"/>
-                            <fmt:formatNumber value="${current_funding / price}" type="percent"/>/<br />
-                            <fmt:formatNumber value="${pvo.current_funding}" pattern="#,##0" /> 원
+                            희망펀딩액 : <fmt:formatNumber value="${pvo.price}" pattern="#,##0" /> 원/<br />
+                            펀딩진행률 : <fmt:formatNumber value="${current_funding / price}" type="percent"/>/<br />
+                            펀딩금액 : <fmt:formatNumber value="${pvo.current_funding}" pattern="#,##0" /> 원
                         </span>
                     </td>
 	                 <td>
