@@ -5,6 +5,7 @@ import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -327,7 +328,7 @@ public class ProductController {
 		String msg ="검색에 실패하였습니다.";
 		boolean status =false;
 		
-		List<Map<String, Object>> pvoList = proService.getProductList(category_id,words, pageStart, pagePer);
+		List<Map<String, Object>> pvoList = proService.getProductList(category_id,words, pageStart, pagePer,null);
 		
 		if(pvoList.size()>0) {
 			msg ="검색된 결과는 "+resultCnt+"건 입니다.";
@@ -350,10 +351,39 @@ public class ProductController {
 	
 	//관리자 리스트
 	@RequestMapping("")
-	public ModelAndView viewProductAdminList() {
+	public ModelAndView viewProductAdminList(@RequestParam(defaultValue = "") String words,@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "") String category_id) {
 		ModelAndView mav = new ModelAndView();
+		
+		Map<String,Object> map = new HashedMap();
+
+		int resultCnt = proService.getProductCount(category_id,words);
+
+		Map<String, Object> pageMap = new HashMap<>();//ModelAndView로 넘길 페이지 관련된 것들
+		int pagePer = 10;//페이지당 게시물수
+		int pageStart =(page-1)*pagePer;//페이시 시작 인덱스
+		int pageCnt = (int)Math.ceil((double)resultCnt/pagePer);//전체 페이지의 수
+		int disPaging = 5;//페이징할 갯수
+		int endPage = (int)Math.ceil((double)page/disPaging)*disPaging;
+		int startPage = endPage - disPaging +1;
+		endPage =(endPage<pageCnt)?endPage:pageCnt;
+		pageMap.put("page", page);
+		pageMap.put("startPage", startPage);
+		pageMap.put("endPage", endPage);
+		pageMap.put("pageCnt", pageCnt);
+		pageMap.put("pagePer", pagePer);
+		
+		List<Map<String, Object>> pvoList = proService.getProductList(category_id,words, pageStart, pagePer,"chk");
+		List<CategoryVO> cateList = cateService.getCateList();
+		
 		mav.addObject("template", "product");
 		mav.addObject("mypage", "list");
+		mav.addObject("pvoList", pvoList);
+		mav.addObject("paging", pageMap);
+		mav.addObject("cateList", cateList);
+		mav.addObject("productStatus", DbStatus.productStatus);
+		mav.addObject("resultCnt", resultCnt);
+		mav.addObject("words", words);
+		mav.addObject("category_id", category_id);
 		mav.setViewName("/admin/admin");
 		return mav;
 	}
@@ -384,5 +414,20 @@ public class ProductController {
 		mav.setViewName(BASEDIR + "successpay");
 		return mav;
 	}
-	
+	//상품 상태 변경
+	@RequestMapping("/productStatusUpdate")
+	@ResponseBody
+	public Map<String,Object> productStatusUpdateAjax(@RequestParam int id, @RequestParam int status){
+		Map<String,Object> map = new HashedMap();
+		String msg ="상태 변경에 실패하였습니다.";
+		boolean state =false;
+		int result = proService.updateProAutoStatus(id, status);
+		if(result>0) {
+			msg ="상태가 변경되었습니다..";
+			state =true;
+		}
+		map.put("msg", msg);
+		map.put("state", state);
+		return map;
+	}
 }

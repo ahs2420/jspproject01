@@ -23,7 +23,7 @@ public interface ProductDAO {
 	//상품 상세- 심사번호로
 	public ProductVO getProductDetailAudit(int audit_id);
 	//상품 리스트
-	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer);
+	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer,String status_chk);
 	//상품 갯수
 	public int getProductCount(String category_id,String words);
 	//상품 자동으로 펀딩중으로 변경

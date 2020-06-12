@@ -45,7 +45,7 @@ public class MainController {
 		List<PopupVO> popupList =popupService .getDisplayList("main");
 		Map<String, Object> headConfig = siteService.getSiteConfigGroup("head");
 		Map<String, Object> footConfig = siteService.getSiteConfigGroup("footer");
-		List<Map<String,Object>> proList = proService.getProductList("","",0,8);
+		List<Map<String,Object>> proList = proService.getProductList("","",0,8,null);
 		List<ArticleVO> noticeList = articleService.getArticleMainList("notice", 3);
 		List<ArticleVO> newsList = articleService.getArticleMainList("news", 3);
 		

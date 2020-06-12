@@ -12,7 +12,10 @@
 		<if test="ingChk == 'true'">
 			AND curdate() between p.start_date and p.end_date
 		</if>
-		AND p.status >= 1
+		<if test="status_chk==null">
+			AND p.status >= 1
+		</if>
+		
 	</sql>
 	<select id="getAll" resultType="productvo">
 		SELECT 

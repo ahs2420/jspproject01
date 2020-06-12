@@ -48,9 +48,9 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.getProductDetailAudit(audit_id);
 	}
 	@Override
-	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer) {
+	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer,String status_chk) {
 		// TODO Auto-generated method stub
-		return productDAO.getProductList(category_id, words, pageStart, pagePer);
+		return productDAO.getProductList(category_id, words, pageStart, pagePer,status_chk);
 	}
 	@Override
 	public int getProductCount(String category_id,String words) {

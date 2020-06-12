@@ -61,13 +61,14 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	@Override
-	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer) {
+	public List<Map<String, Object>> getProductList(String category_id,String words,int pageStart,int pagePer,String status_chk) {
 		// TODO Auto-generated method stub
 		Map<String,Object> map = new HashMap<>();
 		map.put("category_id", category_id);
 		map.put("words", words);
 		map.put("pageStart", pageStart);
 		map.put("pagePer", pagePer);
+		map.put("status_chk", status_chk);
 		return sql.selectList(namespace+".getProductList",map);
 	}
 

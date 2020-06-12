@@ -43,7 +43,7 @@ public class SchedulerController {
 	@ResponseBody
 	public JSONResult getSchedulerAjax(@ModelAttribute SchedulerVO svo) {
 		List<SchedulerVO> svoList = schedulerService.getSchduler(svo);
-		List<Map<String, Object>> pvoList = proSer.getProductList(null, "", 0, 99999999);
+		List<Map<String, Object>> pvoList = proSer.getProductList(null, "", 0, 99999999,null);
 		for(Map<String,Object> proMap:pvoList) {
 			SchedulerVO svoAdd = new SchedulerVO();
 			svoAdd.setStartDate(proMap.get("start_date").toString());
