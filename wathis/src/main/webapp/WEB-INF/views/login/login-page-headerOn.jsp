@@ -172,16 +172,16 @@
 							</div>
 						</div>
 					</div>
-					<div class="logo ">
-					<div class="logo-icon logo-box-shadow">
-							<a href="http://localhost:8888/">
-								<span class="main-color logo-box-shadow">WaThis</span>
+<!-- 					<div class="logo "> -->
+<!-- 					<div class="logo-icon logo-box-shadow"> -->
+<!-- 							<a href="http://localhost:8888/"> -->
+<!-- 								<span class="main-color logo-box-shadow">WaThis</span> -->
 								
 								
 								
-							</a>
-						</div>
-					</div>
+<!-- 							</a> -->
+<!-- 					</div> -->
+<!-- 					</div> -->
 				</div>
 				
 			</div>
